@@ -14,8 +14,8 @@
     --color-text-muted: #666666;
 
     --font-heading: 'Outfit', sans-serif;
-    --font-sub: 'Cormorant Garamond', serif;
-    --font-body: 'Inter', sans-serif;
+    --font-sub: 'Outfit', sans-serif;
+    --font-body: 'Outfit', sans-serif;
 
     --transition-slow: 1.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -28,7 +28,27 @@ body {
     background-color: var(--color-black);
     color: var(--color-white);
     font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.6;
     overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6,
+.logo,
+.nav-links a,
+.btn,
+.cinematic-title,
+.section-title,
+.page-flip-demo,
+.page-flip-demo h1,
+.page-flip-demo h2,
+.page-flip-demo h3,
+.page-flip-demo h4,
+.page-flip-demo h5,
+.page-flip-demo h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.15;
 }
 
 /* --- PREMIUM WHITE GEOMETRIC BACKGROUND WITH STANDARD SHADES --- */
@@ -268,6 +288,7 @@ body {
     justify-content: space-between;
     align-items: center; 
     padding: 0 4rem; 
+    position: relative; /* enable absolute-centering of nav */
 }
 
 .logo { 
@@ -300,6 +321,18 @@ body {
     color: var(--color-gold); 
 }
 
+.nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50%;
+    transform-origin: center;
+    transform: translateX(-50%) translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+}
 /* --- BROCHURES PAGE STYLES --- */
 .brochure-grid {
     display: grid;
@@ -906,7 +939,6 @@ body {
     width: 420px;
     margin: 0;
     color: #555;
-    font-family: 'Indie Flower', cursive;
     text-align: center;
 }
 
