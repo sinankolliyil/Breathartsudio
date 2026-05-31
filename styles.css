@@ -1068,7 +1068,7 @@ body {
 }
 
 .page-flip-demo .flip1::after {
-    background-image: url('https://picsum.photos/420/300?random=1');
+    background-image: url('assets/animation/wedding.png');
     background-position: -178px -2px;
 }
 
@@ -1090,20 +1090,20 @@ body {
     animation-delay: 0.9s;
 }
 
-.page-flip-demo .flip2::after { background-image: url('https://picsum.photos/420/300?random=2'); background-position: -148px -2px; }
-.page-flip-demo .flip3::after { background-image: url('https://picsum.photos/420/300?random=3'); background-position: -118px -2px; }
-.page-flip-demo .flip4::after { background-image: url('https://picsum.photos/420/300?random=4'); background-position: -88px -2px; }
-.page-flip-demo .flip5::after { background-image: url('https://picsum.photos/420/300?random=5'); background-position: -58px -2px; }
-.page-flip-demo .flip6::after { background-image: url('https://picsum.photos/420/300?random=6'); background-position: -28px -2px; }
-.page-flip-demo .flip7::after { background-image: url('https://picsum.photos/420/300?random=1'); background-position: -2px -2px; }
+.page-flip-demo .flip2::after { background-image: url('assets/animation/portrait.png'); background-position: -148px -2px; }
+.page-flip-demo .flip3::after { background-image: url('assets/animation/nature.png'); background-position: -118px -2px; }
+.page-flip-demo .flip4::after { background-image: url('assets/animation/candid.png'); background-position: -88px -2px; }
+.page-flip-demo .flip5::after { background-image: url('assets/animation/camera.png'); background-position: -58px -2px; }
+.page-flip-demo .flip6::after { background-image: url('assets/animation/cinematic.png'); background-position: -28px -2px; }
+.page-flip-demo .flip7::after { background-image: url('assets/animation/wedding.png'); background-position: -2px -2px; }
 
 @keyframes preLoad {
-    0% { background-image: url('https://picsum.photos/420/300?random=1'); }
-    20% { background-image: url('https://picsum.photos/420/300?random=2'); }
-    40% { background-image: url('https://picsum.photos/420/300?random=3'); }
-    60% { background-image: url('https://picsum.photos/420/300?random=4'); }
-    80% { background-image: url('https://picsum.photos/420/300?random=5'); }
-    100% { background-image: url('https://picsum.photos/420/300?random=6'); }
+    0% { background-image: url('assets/animation/wedding.png'); }
+    20% { background-image: url('assets/animation/portrait.png'); }
+    40% { background-image: url('assets/animation/nature.png'); }
+    60% { background-image: url('assets/animation/candid.png'); }
+    80% { background-image: url('assets/animation/camera.png'); }
+    100% { background-image: url('assets/animation/cinematic.png'); }
 }
 
 @keyframes flip1 {
