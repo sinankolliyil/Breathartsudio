@@ -24,88 +24,81 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- ULTRA-REALISTIC 3D ALBUM SYSTEM (LOOP MODE) ---
     const albumBook = document.getElementById('album-book');
     const albumPages = document.querySelectorAll('.album-page');
-    let currentPageIdx = -1;
-    let albumInterval;
-    let isBookOpen = false;
+    if (albumBook && albumPages.length) {
+        let currentPageIdx = -1;
+        let albumInterval;
+        let isBookOpen = false;
 
-    function openBook() {
-        if (isBookOpen) return;
-        isBookOpen = true;
-        
-        // Reset all before opening
-        albumPages.forEach(p => p.classList.remove('active', 'flipping'));
-        currentPageIdx = -1;
+        function openBook() {
+            if (isBookOpen) return;
+            isBookOpen = true;
 
-        albumBook.classList.add('open');
-        albumBook.classList.remove('closed');
-        
-        startAutoFlip();
-    }
+            albumPages.forEach(p => p.classList.remove('active', 'flipping'));
+            currentPageIdx = -1;
 
-    function closeBook() {
-        if (!isBookOpen) return;
-        
-        // Flip the very last visible page before closing cover
-        if (currentPageIdx >= 0 && currentPageIdx < albumPages.length) {
-            albumPages[currentPageIdx].classList.add('flipping');
-        }
+            albumBook.classList.add('open');
+            albumBook.classList.remove('closed');
 
-        setTimeout(() => {
-            isBookOpen = false;
-            albumBook.classList.remove('open');
-            albumBook.classList.add('closed');
-            
-            // Cleanup pages after cover starts closing
-            setTimeout(() => {
-                albumPages.forEach(p => p.classList.remove('active', 'flipping'));
-            }, 1500);
-        }, 1500);
-
-        clearInterval(albumInterval);
-        setTimeout(openBook, 1500); // 1.5s before next cycle
-    }
-
-    function flipRealistic() {
-        if (!isBookOpen) return;
-
-        // If all pages flipped, close the book
-        if (currentPageIdx >= albumPages.length - 1) {
-            closeBook();
-            return;
-        }
-
-        // 1. Flip previous page if it exists
-        if (currentPageIdx >= 0) {
-            const prevPage = albumPages[currentPageIdx];
-            prevPage.classList.add('flipping');
-            prevPage.classList.remove('active');
-        }
-
-        // 2. Show next page
-        currentPageIdx++;
-        albumPages[currentPageIdx].classList.add('active');
-    }
-
-    function startAutoFlip() {
-        clearInterval(albumInterval);
-        albumInterval = setInterval(flipRealistic, 1500);
-    }
-
-    // Interaction triggers
-    albumBook?.addEventListener('click', () => {
-        if (!isBookOpen) {
-            openBook();
-        } else {
-            flipRealistic();
             startAutoFlip();
         }
-    });
 
-    // Start initial loop
-    setTimeout(openBook, 1500);
+        function closeBook() {
+            if (!isBookOpen) return;
+
+            if (currentPageIdx >= 0 && currentPageIdx < albumPages.length) {
+                albumPages[currentPageIdx].classList.add('flipping');
+            }
+
+            setTimeout(() => {
+                isBookOpen = false;
+                albumBook.classList.remove('open');
+                albumBook.classList.add('closed');
+
+                setTimeout(() => {
+                    albumPages.forEach(p => p.classList.remove('active', 'flipping'));
+                }, 1500);
+            }, 1500);
+
+            clearInterval(albumInterval);
+            setTimeout(openBook, 1500);
+        }
+
+        function flipRealistic() {
+            if (!isBookOpen) return;
+
+            if (currentPageIdx >= albumPages.length - 1) {
+                closeBook();
+                return;
+            }
+
+            if (currentPageIdx >= 0) {
+                const prevPage = albumPages[currentPageIdx];
+                prevPage.classList.add('flipping');
+                prevPage.classList.remove('active');
+            }
+
+            currentPageIdx++;
+            albumPages[currentPageIdx].classList.add('active');
+        }
+
+        function startAutoFlip() {
+            clearInterval(albumInterval);
+            albumInterval = setInterval(flipRealistic, 1500);
+        }
+
+        albumBook.addEventListener('click', () => {
+            if (!isBookOpen) {
+                openBook();
+            } else {
+                flipRealistic();
+                startAutoFlip();
+            }
+        });
+
+        setTimeout(openBook, 1500);
+    }
 
     // Layered Parallax Depth on Scroll
     window.addEventListener('scroll', () => {

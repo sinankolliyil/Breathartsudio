@@ -9,7 +9,7 @@
     <!-- Cinematic Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,600;1,400&family=Indie+Flower&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -50,28 +50,46 @@
                 </div>
             </div>
 
-            <!-- Ultra-Realistic 3D Album Book (Moved to Right) -->
             <div class="hero-right">
-                <div class="album-container">
-                    <div class="album-glow"></div>
-                    <div class="album-book closed" id="album-book">
-                        <!-- Front Cover -->
-                        <div class="album-cover" id="album-cover">
-                            <div class="cover-content">
-                                <span class="cinematic-title">Studio Edition</span>
-                                <h2 class="cover-logo">BreathArt</h2>
-                                <p class="cover-tagline">Cinematic Memories</p>
-                            </div>
+                <div class="page-flip-demo">
+                    <div class="imgLoader"></div>
+
+                    <div class="container">
+                        <h1 class="title">
+                            Turning pages<br>with css
+                        </h1>
+
+                        <div class="credit">
+                            * Images loaded randomly from Picsum.photos
                         </div>
 
-                        <!-- Photography Pages -->
-                        <div class="album-page" style="background-image: url('assets/wedding_color.png'); --i:1"></div>
-                        <div class="album-page" style="background-image: url('assets/portrait.png'); --i:2"></div>
-                        <div class="album-page" style="background-image: url('assets/newborn_color.png'); --i:3"></div>
-                        <div class="album-page" style="background-image: url('assets/event.png'); --i:4"></div>
-                        <div class="album-page" style="background-image: url('assets/corporate_color.png'); --i:5"></div>
+                        <div class="book">
+                            <div class="gap"></div>
+                            <div class="pages">
+                                <div class="page" style="background-image:url('https://picsum.photos/420/300?random=1');"></div>
+                                <div class="page" style="background-image:url('https://picsum.photos/420/300?random=2');"></div>
+                                <div class="page" style="background-image:url('https://picsum.photos/420/300?random=3');"></div>
+                                <div class="page" style="background-image:url('https://picsum.photos/420/300?random=4');"></div>
+                                <div class="page" style="background-image:url('https://picsum.photos/420/300?random=5');"></div>
+                                <div class="page" style="background-image:url('https://picsum.photos/420/300?random=6');"></div>
+                            </div>
+                            <div class="flips">
+                                <div class="flip flip1">
+                                    <div class="flip flip2">
+                                        <div class="flip flip3">
+                                            <div class="flip flip4">
+                                                <div class="flip flip5">
+                                                    <div class="flip flip6">
+                                                        <div class="flip flip7"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="album-label active">Touch to Explore Portfolio</div>
                 </div>
             </div>
         </div>
