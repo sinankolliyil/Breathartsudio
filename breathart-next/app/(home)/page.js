@@ -6,6 +6,7 @@ import PageFlipDemo from './components/PageFlipDemo';
 import GalleryItem from './components/GalleryItem';
 import FeatureCard from './components/FeatureCard';
 import HomeLightbox from './components/HomeLightbox';
+import { Shield, Sparkles, Sun, Camera, Sliders, Users, BookOpen, Heart, ArrowUpRight } from 'lucide-react';
 
 const allShowcaseImages = [
   // Newborn
@@ -85,8 +86,8 @@ export default function HomePage() {
       </header>
 
       {/* 1. Our Premium Services Section (With new requested order and labels) */}
-      <section id="our-services" className="section">
-        <div className="container">
+      <section id="our-services" className="section" style={{ paddingLeft: 0, paddingRight: 0 }}>
+        <div className="container" style={{ paddingLeft: '2rem', paddingRight: '2rem' }}>
           <div className="text-center animate-reveal active" style={{ textAlign: 'center', marginBottom: '4rem' }}>
             <span className="cinematic-title" style={{ color: 'var(--color-gold)' }}>Excellence in Every Frame</span>
             <h2 className="section-title">Our Premium Services</h2>
@@ -94,15 +95,235 @@ export default function HomePage() {
               Professional photography solutions tailored to capture your most significant moments with cinematic elegance and artistic precision.
             </p>
           </div>
+        </div>
 
-          {/* New ordered services grid: Newborn, Wedding, Event, Family, Corporate, Real Estate */}
-          <div className="gallery-grid">
-            <GalleryItem image="/assets/service_newborn.png" alt="Newborn Photography" title="Newborn" number="01" href="/services#service-newborn" buttonText="Explore Session" />
-            <GalleryItem image="/assets/service_wedding.png" alt="Wedding Photography" title="Wedding" number="02" href="/services#service-wedding" buttonText="Explore Session" delay={0.1} />
-            <GalleryItem image="/assets/service_event.png" alt="Event Photography" title="Event" number="03" href="/services#service-event" buttonText="Explore Session" delay={0.2} />
-            <GalleryItem image="/assets/service_prewedding.png" alt="Family Photography" title="Family" number="04" href="/services#service-pre-wedding" buttonText="Explore Session" delay={0.3} />
-            <GalleryItem image="/assets/service_corporate.png" alt="Corporate Photography" title="Corporate" number="05" href="/services#service-corporate" buttonText="Explore Session" delay={0.4} />
-            <GalleryItem image="/assets/service_couple.png" alt="Real Estate Photography" title="Real Estate" number="06" href="/services#service-couple" buttonText="Explore Session" delay={0.5} />
+        {/* ─── FEATURED SERVICE 1: NEWBORN (G1/Normal Style: Content Left, Image Right) ─── */}
+        <div className="featured-slanted-container theme-dark">
+          {/* Desktop Version */}
+          <div className="featured-panel-desktop">
+            <div className="featured-normal-content">
+              <div className="featured-normal-bg" />
+              <div className="featured-content-wrapper">
+                <div>
+                  <p className="featured-label">Premium Fine-Art</p>
+                  <h3 className="featured-name">Newborn</h3>
+                  <p className="featured-description">
+                    Capturing the purest innocence and tender beginnings of your little one. Our specialized safe-handling studio sessions preserve these fleeting first moments in timeless, breathtaking portraiture.
+                  </p>
+                </div>
+
+                <div className="featured-features-grid">
+                  <div className="featured-feature-item">
+                    <div className="featured-icon-box"><Shield size={16} /></div>
+                    <p className="featured-feature-title">Safe Handling</p>
+                    <p className="featured-feature-sub">Certified studio environment</p>
+                  </div>
+                  <div className="featured-feature-item">
+                    <div className="featured-icon-box"><Sparkles size={16} /></div>
+                    <p className="featured-feature-title">Elegant Props</p>
+                    <p className="featured-feature-sub">Luxury handcrafted wraps</p>
+                  </div>
+                  <div className="featured-feature-item">
+                    <div className="featured-icon-box"><Sun size={16} /></div>
+                    <p className="featured-feature-title">Gentle Light</p>
+                    <p className="featured-feature-sub">Baby-friendly warm glow</p>
+                  </div>
+                  <div className="featured-feature-item">
+                    <div className="featured-icon-box"><Heart size={16} /></div>
+                    <p className="featured-feature-title">Pure Art</p>
+                    <p className="featured-feature-sub">Heartwarming memories</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div className="featured-normal-image">
+              <img src="/assets/service_newborn.png" alt="Newborn Photography" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <div className="featured-cta-container">
+                <Link href="/services#service-newborn" className="btn-premium btn-premium-outline">
+                  Explore Session <ArrowUpRight size={14} />
+                </Link>
+                <Link href="/contact?interest=newborn" className="btn-premium btn-premium-filled">
+                  Book Now <ArrowUpRight size={14} />
+                </Link>
+              </div>
+            </div>
+
+            <div className="featured-divider-svg">
+              <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
+                <line x1="62" y1="0" x2="70" y2="100" stroke="#9E7060" strokeWidth="0.25" opacity="0.6" />
+              </svg>
+            </div>
+          </div>
+
+          {/* Mobile Version */}
+          <div className="featured-panel-mobile theme-dark">
+            <div className="featured-mobile-content">
+              <div>
+                <p className="featured-label">Premium Fine-Art</p>
+                <h3 className="featured-name">Newborn</h3>
+                <p className="featured-description">
+                  Capturing the purest innocence and tender beginnings of your little one. Our specialized safe-handling studio sessions preserve these fleeting first moments in timeless, breathtaking portraiture.
+                </p>
+              </div>
+
+              <div className="featured-features-grid">
+                <div className="featured-feature-item">
+                  <div className="featured-icon-box"><Shield size={16} /></div>
+                  <p className="featured-feature-title">Safe Handling</p>
+                  <p className="featured-feature-sub">Certified safety</p>
+                </div>
+                <div className="featured-feature-item">
+                  <div className="featured-icon-box"><Sparkles size={16} /></div>
+                  <p className="featured-feature-title">Elegant Props</p>
+                  <p className="featured-feature-sub">Luxury wraps</p>
+                </div>
+                <div className="featured-feature-item">
+                  <div className="featured-icon-box"><Sun size={16} /></div>
+                  <p className="featured-feature-title">Gentle Light</p>
+                  <p className="featured-feature-sub">Soft glow</p>
+                </div>
+                <div className="featured-feature-item">
+                  <div className="featured-icon-box"><Heart size={16} /></div>
+                  <p className="featured-feature-title">Pure Art</p>
+                  <p className="featured-feature-sub">Sweet memories</p>
+                </div>
+              </div>
+
+            </div>
+
+            <div className="featured-mobile-image-box">
+              <img src="/assets/service_newborn.png" alt="Newborn Photography" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <div className="featured-mobile-cta">
+                <Link href="/services#service-newborn" className="btn-premium btn-premium-outline" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
+                  Explore <ArrowUpRight size={12} />
+                </Link>
+                <Link href="/contact?interest=newborn" className="btn-premium btn-premium-filled" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
+                  Book <ArrowUpRight size={12} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ─── FEATURED SERVICE 2: WEDDING (NEO/Mirrored Style: Image Left, Content Right) ─── */}
+        <div className="featured-slanted-container theme-light">
+          {/* Desktop Version */}
+          <div className="featured-panel-desktop">
+            <div className="featured-mirrored-image">
+              <img src="/assets/service_wedding.png" alt="Wedding Photography" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <div className="featured-cta-container">
+                <Link href="/services#service-wedding" className="btn-premium btn-premium-outline">
+                  Explore Session <ArrowUpRight size={14} />
+                </Link>
+                <Link href="/contact?interest=wedding" className="btn-premium btn-premium-filled">
+                  Book Now <ArrowUpRight size={14} />
+                </Link>
+              </div>
+            </div>
+
+            <div className="featured-mirrored-content">
+              <div className="featured-mirrored-bg" />
+              <div className="featured-content-wrapper">
+                <div>
+                  <p className="featured-label">Cinematic Stories</p>
+                  <h3 className="featured-name">Wedding</h3>
+                  <p className="featured-description">
+                    Documenting your sacred promises, raw emotions, and pure celebrations in cinematic elegance. We preserve your beautiful love story in masterfully curated visual legacies.
+                  </p>
+                </div>
+
+                <div className="featured-features-grid">
+                  <div className="featured-feature-item">
+                    <div className="featured-icon-box"><Camera size={16} /></div>
+                    <p className="featured-feature-title">Cinematic Art</p>
+                    <p className="featured-feature-sub">Candid emotions & drama</p>
+                  </div>
+                  <div className="featured-feature-item">
+                    <div className="featured-icon-box"><Sliders size={16} /></div>
+                    <p className="featured-feature-title">Luxury Edit</p>
+                    <p className="featured-feature-sub">Signature warm palettes</p>
+                  </div>
+                  <div className="featured-feature-item">
+                    <div className="featured-icon-box"><Users size={16} /></div>
+                    <p className="featured-feature-title">Dual Capture</p>
+                    <p className="featured-feature-sub">Multi-angle storytelling</p>
+                  </div>
+                  <div className="featured-feature-item">
+                    <div className="featured-icon-box"><BookOpen size={16} /></div>
+                    <p className="featured-feature-title">Fine Album</p>
+                    <p className="featured-feature-sub">Premium crafted legacy book</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div className="featured-divider-svg">
+              <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
+                <line x1="30" y1="0" x2="38" y2="100" stroke="#9E7060" strokeWidth="0.25" opacity="0.6" />
+              </svg>
+            </div>
+          </div>
+
+          {/* Mobile Version */}
+          <div className="featured-panel-mobile theme-light">
+            <div className="featured-mobile-content">
+              <div>
+                <p className="featured-label">Cinematic Stories</p>
+                <h3 className="featured-name">Wedding</h3>
+                <p className="featured-description">
+                  Documenting your sacred promises, raw emotions, and pure celebrations in cinematic elegance. We preserve your beautiful love story in masterfully curated visual legacies.
+                </p>
+              </div>
+
+              <div className="featured-features-grid">
+                <div className="featured-feature-item">
+                  <div className="featured-icon-box"><Camera size={16} /></div>
+                  <p className="featured-feature-title">Cinematic Art</p>
+                  <p className="featured-feature-sub">Candid storytelling</p>
+                </div>
+                <div className="featured-feature-item">
+                  <div className="featured-icon-box"><Sliders size={16} /></div>
+                  <p className="featured-feature-title">Luxury Edit</p>
+                  <p className="featured-feature-sub">Signature warm tones</p>
+                </div>
+                <div className="featured-feature-item">
+                  <div className="featured-icon-box"><Users size={16} /></div>
+                  <p className="featured-feature-title">Dual Capture</p>
+                  <p className="featured-feature-sub">Multi-perspective</p>
+                </div>
+                <div className="featured-feature-item">
+                  <div className="featured-icon-box"><BookOpen size={16} /></div>
+                  <p className="featured-feature-title">Fine Album</p>
+                  <p className="featured-feature-sub">Legacy book</p>
+                </div>
+              </div>
+
+            </div>
+
+            <div className="featured-mobile-image-box">
+              <img src="/assets/service_wedding.png" alt="Wedding Photography" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <div className="featured-mobile-cta">
+                <Link href="/services#service-wedding" className="btn-premium btn-premium-outline" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
+                  Explore <ArrowUpRight size={12} />
+                </Link>
+                <Link href="/contact?interest=wedding" className="btn-premium btn-premium-filled" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
+                  Book <ArrowUpRight size={12} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ─── REMAINING 4 SERVICES (2x2 Grid) ─── */}
+        <div className="container" style={{ paddingLeft: '2rem', paddingRight: '2rem' }}>
+          <div className="remaining-services-grid">
+            <GalleryItem image="/assets/service_event.png" alt="Event Photography" title="Event" number="03" href="/services#service-event" buttonText="Explore Session" />
+            <GalleryItem image="/assets/service_prewedding.png" alt="Family Photography" title="Family" number="04" href="/services#service-pre-wedding" buttonText="Explore Session" delay={0.1} />
+            <GalleryItem image="/assets/service_corporate.png" alt="Corporate Photography" title="Corporate" number="05" href="/services#service-corporate" buttonText="Explore Session" delay={0.2} />
+            <GalleryItem image="/assets/service_couple.png" alt="Real Estate Photography" title="Real Estate" number="06" href="/services#service-couple" buttonText="Explore Session" delay={0.3} />
           </div>
         </div>
       </section>

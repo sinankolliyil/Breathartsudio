@@ -7,12 +7,35 @@ import { useEffect, useState } from 'react';
 export default function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
+    let lastScrollY = window.scrollY;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 80);
+      const currentScrollY = window.scrollY;
+      
+      // Determine scrolled state (for morphing to floating pill)
+      setScrolled(currentScrollY > 80);
+
+      // Determine visibility with a tiny threshold to prevent scroll jitter
+      if (currentScrollY <= 80) {
+        setVisible(true);
+      } else {
+        const diff = currentScrollY - lastScrollY;
+        if (diff > 10) {
+          // Scrolling down - hide navbar
+          setVisible(false);
+        } else if (diff < -10) {
+          // Scrolling up - show navbar
+          setVisible(true);
+        }
+      }
+
+      lastScrollY = currentScrollY;
     };
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     // Check initial scroll position
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
@@ -21,8 +44,13 @@ export default function Navbar() {
   const isActive = (path) => pathname === path;
   const isHome = pathname === '/';
 
+  const navClasses = [
+    scrolled || !isHome ? 'scrolled' : '',
+    !visible ? 'nav-hidden' : ''
+  ].filter(Boolean).join(' ');
+
   return (
-    <nav id="navbar" className={scrolled || !isHome ? 'scrolled' : ''}>
+    <nav id="navbar" className={navClasses}>
       <div className="nav-container">
         <Link href="/" className="logo" style={{ display: 'flex', alignItems: 'center' }}>
           <img src="/assets/logo/BreathArt Photography Logo.png" alt="BreathArt Photography Logo" style={{ height: '45px', width: 'auto', objectFit: 'contain' }} />
