@@ -8,8 +8,8 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=5">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="theme-light fade-in active" style="background:var(--color-black); color:var(--color-white);">
@@ -19,14 +19,22 @@
 
     <nav id="navbar" class="scrolled">
         <div class="nav-container">
-            <a href="index.html" class="logo">BreathArt</a>
+            <a href="index.html" class="logo">Breath<span>Art</span></a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="services.html" class="active">Services</a></li>
+                <li class="dropdown">
+                    <a href="services.html" class="dropdown-trigger active">Services <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="services.html#service-wedding">Photography</a></li>
+                        <li><a href="services.html#service-corporate">Videography</a></li>
+                        <li><a href="services.html#service-event">Event Management</a></li>
+                    </ul>
+                </li>
                 <li><a href="offers.html">Offers</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+            <a href="contact.html" class="btn-nav">Contact Us</a>
         </div>
     </nav>
 
@@ -95,50 +103,50 @@
                     </div>
                 </div>
 
-                <!-- Service 3: Pre-Wedding -->
-                <div id="service-pre-wedding" class="flip-card animate-reveal" onclick="this.classList.toggle('flipped')" style="transition-delay: 0.2s;">
+                <!-- Service 3: Event -->
+                <div id="service-event" class="flip-card animate-reveal" onclick="this.classList.toggle('flipped')" style="transition-delay: 0.2s;">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="assets/service_prewedding.png" alt="Pre-Wedding">
+                            <img src="assets/service_event.png" alt="Event">
                             <div class="front-content">
-                                <span class="cinematic-title">03 / Anticipation</span>
-                                <h2>Pre-Wedding</h2>
+                                <span class="cinematic-title">03 / Moments</span>
+                                <h2>Grand Events</h2>
                                 <p style="color:var(--color-gold); font-family:var(--font-sub); font-size: 0.7rem; letter-spacing: 2px;">TOUCH TO REVEAL</p>
                             </div>
                         </div>
                         <div class="flip-card-back">
-                            <h3>First Chapter</h3>
-                            <p>Artistic pre-wedding sessions that capture your unique chemistry in breathtaking locations around the globe.</p>
+                            <h3>Vivid Gatherings</h3>
+                            <p>Dynamic and elegant documentation of your most significant celebrations, from galas to intimate soirées.</p>
                             <div class="details-list">
-                                <div><i class="fas fa-map-marked-alt"></i> Choice Locations</div>
-                                <div><i class="fas fa-tshirt"></i> Styling Assistance</div>
-                                <div><i class="fas fa-camera"></i> 50 Edited Visuals</div>
-                                <div><i class="fas fa-play-circle"></i> Save the Date Reel</div>
+                                <div><i class="fas fa-calendar-alt"></i> Coverage for All Occasions</div>
+                                <div><i class="fas fa-bolt"></i> Rapid Same-Day Previews</div>
+                                <div><i class="fas fa-images"></i> Full Hi-Res Gallery</div>
+                                <div><i class="fas fa-share-alt"></i> Online Social Kit</div>
                             </div>
-                            <a href="contact.html" class="btn btn-gold" style="padding: 1rem 2rem;">Plan Tour</a>
+                            <a href="contact.html" class="btn btn-gold" style="padding: 1rem 2rem;">Inquire Event</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Service 4: Couple -->
-                <div id="service-couple" class="flip-card animate-reveal" onclick="this.classList.toggle('flipped')" style="transition-delay: 0.3s;">
+                <!-- Service 4: Family -->
+                <div id="service-pre-wedding" class="flip-card animate-reveal" onclick="this.classList.toggle('flipped')" style="transition-delay: 0.3s;">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="assets/service_couple.png" alt="Couple">
+                            <img src="assets/service_prewedding.png" alt="Family">
                             <div class="front-content">
-                                <span class="cinematic-title">04 / Connection</span>
-                                <h2>Couple Portraits</h2>
+                                <span class="cinematic-title">04 / Generation</span>
+                                <h2>Family Legacy</h2>
                                 <p style="color:var(--color-gold); font-family:var(--font-sub); font-size: 0.7rem; letter-spacing: 2px;">TOUCH TO REVEAL</p>
                             </div>
                         </div>
                         <div class="flip-card-back">
-                            <h3>Soulful Bond</h3>
-                            <p>Authentic and intimate portraiture designed to document the raw emotion and soul of your relationship.</p>
+                            <h3>Family Legacy</h3>
+                            <p>Artistic family sessions that capture your unique bond, milestones, and connections in breathtaking environments.</p>
                             <div class="details-list">
-                                <div><i class="fas fa-heart"></i> Candid Storytelling</div>
-                                <div><i class="fas fa-sun"></i> Sunset Session</div>
-                                <div><i class="fas fa-images"></i> Digital Collection</div>
-                                <div><i class="fas fa-frame"></i> Fine Art Print</div>
+                                <div><i class="fas fa-camera-retro"></i> 2-Hour Outdoor/Studio</div>
+                                <div><i class="fas fa-magic"></i> Professional Color Grading</div>
+                                <div><i class="fas fa-images"></i> 30 High-Res Edited Plates</div>
+                                <div><i class="fas fa-box"></i> Custom Keepsake Album</div>
                             </div>
                             <a href="contact.html" class="btn btn-gold" style="padding: 1rem 2rem;">Book Session</a>
                         </div>
@@ -170,27 +178,27 @@
                     </div>
                 </div>
 
-                <!-- Service 6: Event -->
-                <div id="service-event" class="flip-card animate-reveal" onclick="this.classList.toggle('flipped')" style="transition-delay: 0.5s;">
+                <!-- Service 6: Real Estate -->
+                <div id="service-couple" class="flip-card animate-reveal" onclick="this.classList.toggle('flipped')" style="transition-delay: 0.5s;">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="assets/service_event.png" alt="Event">
+                            <img src="assets/service_couple.png" alt="Real Estate">
                             <div class="front-content">
-                                <span class="cinematic-title">06 / Moments</span>
-                                <h2>Grand Events</h2>
+                                <span class="cinematic-title">06 / Architecture</span>
+                                <h2>Real Estate</h2>
                                 <p style="color:var(--color-gold); font-family:var(--font-sub); font-size: 0.7rem; letter-spacing: 2px;">TOUCH TO REVEAL</p>
                             </div>
                         </div>
                         <div class="flip-card-back">
-                            <h3>Vivid Gatherings</h3>
-                            <p>Dynamic and elegant documentation of your most significant celebrations, from galas to intimate soirées.</p>
+                            <h3>Property Showcase</h3>
+                            <p>High-end interior and exterior property visuals optimized to highlight structure, space, and fine design details.</p>
                             <div class="details-list">
-                                <div><i class="fas fa-calendar-alt"></i> Coverage for All Occasions</div>
-                                <div><i class="fas fa-bolt"></i> Rapid Same-Day Previews</div>
-                                <div><i class="fas fa-images"></i> Full Hi-Res Gallery</div>
-                                <div><i class="fas fa-share-alt"></i> Online Social Kit</div>
+                                <div><i class="fas fa-home"></i> Interior & Exterior Shots</div>
+                                <div><i class="fas fa-sun"></i> HDR & Twilight Photography</div>
+                                <div><i class="fas fa-video"></i> Drone/Aerial Perspectives</div>
+                                <div><i class="fas fa-share-alt"></i> Digital Marketing Kit</div>
                             </div>
-                            <a href="contact.html" class="btn btn-gold" style="padding: 1rem 2rem;">Inquire Event</a>
+                            <a href="contact.html" class="btn btn-gold" style="padding: 1rem 2rem;">Inquire Property</a>
                         </div>
                     </div>
                 </div>
@@ -204,7 +212,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h2 class="logo" style="margin-bottom: 1.5rem; font-size: 1.5rem; text-align: left;">BreathArt</h2>
+                    <h2 class="logo" style="margin-bottom: 1.5rem; font-size: 1.5rem; text-align: left;">Breath<span>Art</span></h2>
                     <p style="color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.8;">
                         Dubai's premium photography studio specializing in capturing cinematic stories that last a lifetime.
                     </p>
