@@ -143,13 +143,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 100);
 
     // --- PREMIUM GALLERY SYSTEM ---
-    const galleryItems = document.querySelectorAll('.showcase-gallery .gallery-item');
-    const filterBtns = document.querySelectorAll('.showcase-gallery .filter-btn');
-    const mobileOptions = document.querySelectorAll('.mobile-filter-option');
-    const mobileFilterBtn = document.getElementById('mobileFilterBtn');
-    const mobileFilterDropdown = document.getElementById('mobileFilterDropdown');
-    const mobileFilterLabel = document.getElementById('mobileFilterLabel');
-
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    
     // 1. Initial Fade-In Animation
     const observerOptions = { threshold: 0.1 };
     const galleryObserver = new IntersectionObserver((entries) => {
@@ -161,65 +157,28 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, observerOptions);
+
     galleryItems.forEach(item => galleryObserver.observe(item));
 
-    // 2. Core filter function
-    function applyFilter(filter, label) {
-        galleryItems.forEach(item => {
-            const category = item.getAttribute('data-category');
-            if (filter === 'all' || category === filter) {
-                item.style.display = 'block';
-                setTimeout(() => item.classList.add('show'), 50);
-            } else {
-                item.classList.remove('show');
-                setTimeout(() => { item.style.display = 'none'; }, 400);
-            }
-        });
-        // Update mobile label
-        if (mobileFilterLabel) mobileFilterLabel.textContent = label;
-    }
-
-    // 3. Desktop filter buttons
+    // 2. Category Filtering
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
+            // Update Active Button
             filterBtns.forEach(b => b.classList.remove('active'));
-            mobileOptions.forEach(o => o.classList.remove('active'));
             btn.classList.add('active');
-            // Sync mobile option
+            
             const filter = btn.getAttribute('data-filter');
-            mobileOptions.forEach(o => { if (o.getAttribute('data-filter') === filter) o.classList.add('active'); });
-            applyFilter(filter, btn.textContent.trim());
-        });
-    });
-
-    // 4. Mobile dropdown toggle
-    if (mobileFilterBtn && mobileFilterDropdown) {
-        mobileFilterBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            mobileFilterBtn.classList.toggle('open');
-            mobileFilterDropdown.classList.toggle('open');
-        });
-        // Close on outside click
-        document.addEventListener('click', () => {
-            mobileFilterBtn.classList.remove('open');
-            mobileFilterDropdown.classList.remove('open');
-        });
-        mobileFilterDropdown.addEventListener('click', e => e.stopPropagation());
-    }
-
-    // 5. Mobile dropdown options
-    mobileOptions.forEach(opt => {
-        opt.addEventListener('click', () => {
-            const filter = opt.getAttribute('data-filter');
-            // Update states
-            mobileOptions.forEach(o => o.classList.remove('active'));
-            filterBtns.forEach(b => b.classList.remove('active'));
-            opt.classList.add('active');
-            filterBtns.forEach(b => { if (b.getAttribute('data-filter') === filter) b.classList.add('active'); });
-            applyFilter(filter, opt.textContent.trim());
-            // Close dropdown
-            mobileFilterBtn.classList.remove('open');
-            mobileFilterDropdown.classList.remove('open');
+            
+            galleryItems.forEach(item => {
+                const category = item.getAttribute('data-category');
+                if (filter === 'all' || category === filter) {
+                    item.style.display = 'block';
+                    setTimeout(() => item.classList.add('show'), 50);
+                } else {
+                    item.classList.remove('show');
+                    setTimeout(() => item.style.display = 'none', 400);
+                }
+            });
         });
     });
 
