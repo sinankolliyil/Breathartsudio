@@ -1,4 +1,4 @@
-﻿/* 
+/* 
     BreathArt - Advanced Photography Theme (Visible Animation)
     Theme: Modern Cinematic + Camera Aesthetics
 */
@@ -15,7 +15,7 @@
 
     --font-heading: 'Outfit', sans-serif;
     --font-sub: 'Outfit', sans-serif;
-    --font-body: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
 
     --transition-slow: 1.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -319,6 +319,82 @@ h1, h2, h3, h4, h5, h6,
 
 .nav-links a:hover, .nav-links a.active { 
     color: var(--color-gold); 
+}
+
+/* --- DROPDOWN MENU --- */
+.nav-links .dropdown {
+    position: relative;
+}
+
+.nav-links .dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.nav-links .dropdown-trigger i {
+    font-size: 0.6rem;
+    transition: transform 0.3s ease;
+}
+
+.nav-links .dropdown:hover .dropdown-trigger i {
+    transform: rotate(180deg);
+}
+
+.nav-links .dropdown-menu {
+    position: absolute;
+    top: calc(100% + 16px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffff;
+    border: 1px solid rgba(197, 160, 33, 0.15);
+    border-radius: 10px;
+    padding: 0.5rem 0;
+    min-width: 200px;
+    list-style: none;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(8px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.nav-links .dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+.nav-links .dropdown-menu li a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: #333333;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+}
+
+.nav-links .dropdown-menu li a:hover {
+    background: rgba(197, 160, 33, 0.08);
+    color: var(--color-gold);
+    padding-left: 2rem;
+}
+
+/* dropdown connector — fills gap between trigger and menu */
+.nav-links .dropdown::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 20px;
 }
 
 .nav-center {
