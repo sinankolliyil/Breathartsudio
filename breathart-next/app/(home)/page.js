@@ -140,21 +140,18 @@ export default function HomePage() {
 
             <div className="featured-normal-image">
               <img src="/assets/service_newborn.png" alt="Newborn Photography" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              <div className="featured-cta-container">
-                <Link href="/services#service-newborn" className="btn-premium btn-premium-outline">
-                  Explore Session <ArrowUpRight size={14} />
-                </Link>
-                <Link href="/contact?interest=newborn" className="btn-premium btn-premium-filled">
-                  Book Now <ArrowUpRight size={14} />
-                </Link>
-              </div>
             </div>
 
-            <div className="featured-divider-svg">
-              <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
-                <line x1="62" y1="0" x2="70" y2="100" stroke="#9E7060" strokeWidth="0.25" opacity="0.6" />
-              </svg>
+            <div className="featured-cta-container featured-normal-cta">
+              <Link href="/services#service-newborn" className="btn-premium btn-premium-outline">
+                Explore Session <ArrowUpRight size={14} />
+              </Link>
+              <Link href="/contact?interest=newborn" className="btn-premium btn-premium-filled">
+                Book Now <ArrowUpRight size={14} />
+              </Link>
             </div>
+
+
           </div>
 
           {/* Mobile Version */}
@@ -213,14 +210,15 @@ export default function HomePage() {
           <div className="featured-panel-desktop">
             <div className="featured-mirrored-image">
               <img src="/assets/service_wedding.png" alt="Wedding Photography" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              <div className="featured-cta-container">
-                <Link href="/services#service-wedding" className="btn-premium btn-premium-outline">
-                  Explore Session <ArrowUpRight size={14} />
-                </Link>
-                <Link href="/contact?interest=wedding" className="btn-premium btn-premium-filled">
-                  Book Now <ArrowUpRight size={14} />
-                </Link>
-              </div>
+            </div>
+
+            <div className="featured-cta-container featured-mirrored-cta">
+              <Link href="/services#service-wedding" className="btn-premium btn-premium-outline">
+                Explore Session <ArrowUpRight size={14} />
+              </Link>
+              <Link href="/contact?interest=wedding" className="btn-premium btn-premium-filled">
+                Book Now <ArrowUpRight size={14} />
+              </Link>
             </div>
 
             <div className="featured-mirrored-content">
@@ -260,11 +258,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="featured-divider-svg">
-              <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
-                <line x1="30" y1="0" x2="38" y2="100" stroke="#9E7060" strokeWidth="0.25" opacity="0.6" />
-              </svg>
-            </div>
+
           </div>
 
           {/* Mobile Version */}
