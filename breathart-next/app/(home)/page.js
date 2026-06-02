@@ -30,10 +30,18 @@ const allShowcaseImages = [
   { src: '/assets/service_event.png', alt: 'Event 4', title: 'Corporate Gathering', category: 'Event' },
   { src: '/assets/event.png', alt: 'Event 5', title: 'Grand Celebration', category: 'Event' },
   { src: '/assets/service_event.png', alt: 'Event 6', title: 'Festive Evening', category: 'Event' },
-  // Maternity
-  { src: '/assets/feature_maternity.png', alt: 'Maternity 1', title: 'Motherhood', category: 'Maternity' },
-  { src: '/assets/feature_maternity.png', alt: 'Maternity 2', title: 'Sweet Expectation', category: 'Maternity' },
-  { src: '/assets/feature_maternity.png', alt: 'Maternity 3', title: 'New Hope', category: 'Maternity' },
+  // Family
+  { src: '/assets/service_prewedding.png', alt: 'Family 1', title: 'Generations', category: 'Family' },
+  { src: '/assets/feature_maternity.png', alt: 'Family 2', title: 'Warm Embrace', category: 'Family' },
+  { src: '/assets/service_prewedding.png', alt: 'Family 3', title: 'Joyful Days', category: 'Family' },
+  // Corporate
+  { src: '/assets/service_corporate.png', alt: 'Corporate 1', title: 'Executive Vision', category: 'Corporate' },
+  { src: '/assets/service_corporate.png', alt: 'Corporate 2', title: 'Team Synergy', category: 'Corporate' },
+  { src: '/assets/service_corporate.png', alt: 'Corporate 3', title: 'Workspace Design', category: 'Corporate' },
+  // Real Estate
+  { src: '/assets/service_couple.png', alt: 'Real Estate 1', title: 'Architectural Line', category: 'Real Estate' },
+  { src: '/assets/service_couple.png', alt: 'Real Estate 2', title: 'Twilight Design', category: 'Real Estate' },
+  { src: '/assets/service_couple.png', alt: 'Real Estate 3', title: 'Modern Living', category: 'Real Estate' },
 ];
 
 export default function HomePage() {
@@ -88,10 +96,11 @@ export default function HomePage() {
       {/* 1. Our Premium Services Section (With new requested order and labels) */}
       <section id="our-services" className="section" style={{ paddingLeft: 0, paddingRight: 0 }}>
         <div className="container" style={{ paddingLeft: '2rem', paddingRight: '2rem' }}>
-          <div className="text-center animate-reveal active" style={{ textAlign: 'center', marginBottom: '4rem' }}>
-            <span className="cinematic-title" style={{ color: 'var(--color-gold)' }}>Excellence in Every Frame</span>
+          <div className="section-header animate-reveal active">
+            <span className="cinematic-title">Excellence in Every Frame</span>
             <h2 className="section-title">Our Premium Services</h2>
-            <p style={{ color: 'var(--color-text-muted)', maxWidth: '600px', margin: '1.5rem auto 0 auto' }}>
+            <div className="accent-divider"></div>
+            <p style={{ color: 'var(--color-text-muted)', maxWidth: '600px', marginTop: '1.5rem' }}>
               Professional photography solutions tailored to capture your most significant moments with cinematic elegance and artistic precision.
             </p>
           </div>
@@ -325,10 +334,11 @@ export default function HomePage() {
       {/* 2. Newborn Photography Collection */}
       <section id="newborn" className="section">
         <div className="container animate-reveal active">
-          <span className="cinematic-title" style={{ color: 'var(--color-gold)' }}>
-            01 / Innocence
-          </span>
-          <h2 className="section-title">Newborn Photography</h2>
+          <div className="section-header">
+            <span className="cinematic-title">01 / Innocence</span>
+            <h2 className="section-title">Newborn Photography</h2>
+            <div className="accent-divider"></div>
+          </div>
           <HomeLightbox
             sectionId="newborn"
             gridCols="repeat(3, 1fr)"
@@ -352,10 +362,11 @@ export default function HomePage() {
       {/* 3. Wedding Photography Collection */}
       <section id="wedding" className="section">
         <div className="container animate-reveal active">
-          <span className="cinematic-title" style={{ color: 'var(--color-gold)' }}>
-            02 / Devotion
-          </span>
-          <h2 className="section-title">Wedding Photography</h2>
+          <div className="section-header">
+            <span className="cinematic-title">02 / Devotion</span>
+            <h2 className="section-title">Wedding Photography</h2>
+            <div className="accent-divider"></div>
+          </div>
           <HomeLightbox
             sectionId="wedding"
             gridCols="repeat(3, 1fr)"
@@ -379,10 +390,11 @@ export default function HomePage() {
       {/* 4. Event Management Collection */}
       <section id="event-management" className="section">
         <div className="container animate-reveal active">
-          <span className="cinematic-title" style={{ color: 'var(--color-gold)' }}>
-            03 / Connection
-          </span>
-          <h2 className="section-title">Event Management</h2>
+          <div className="section-header">
+            <span className="cinematic-title">03 / Connection</span>
+            <h2 className="section-title">Event Management</h2>
+            <div className="accent-divider"></div>
+          </div>
           <HomeLightbox
             sectionId="event-management"
             gridCols="repeat(3, 1fr)"
@@ -406,21 +418,20 @@ export default function HomePage() {
       {/* 5. Filterable Showcase Gallery Section */}
       <section id="showcase-gallery-section" className="section">
         <div className="container">
-          <div className="text-center animate-reveal" style={{ textAlign: 'center', marginBottom: '4rem' }}>
-            <span className="cinematic-title" style={{ color: 'var(--color-gold)' }}>
-              Curated Masterpieces
-            </span>
+          <div className="section-header animate-reveal">
+            <span className="cinematic-title">Curated Masterpieces</span>
             <h2 className="section-title">Creative Showcase</h2>
-            <p style={{ color: 'var(--color-text-muted)', maxWidth: '600px', margin: '1.5rem auto 0 auto' }}>
+            <div className="accent-divider"></div>
+            <p style={{ color: 'var(--color-text-muted)', maxWidth: '600px', marginTop: '1.5rem' }}>
               Browse through our complete dynamic visual portfolio. Filter by category to see our specific creations.
             </p>
           </div>
 
           {/* Premium Sorting Buttons on One Line (Desktop) and Dropdown (Mobile) */}
           <div className="showcase-filter-wrapper" style={{ marginBottom: '3rem', display: 'flex', justifyContent: 'center' }}>
-            {/* Desktop Buttons */}
-            <div className="desktop-filters" style={{ display: 'flex', gap: '1.5rem' }}>
-              {['All', 'Newborn', 'Wedding', 'Event', 'Maternity'].map((cat) => (
+            {/* Desktop Filters */}
+            <div className="desktop-filters" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+              {['All', 'Newborn', 'Wedding', 'Event', 'Family', 'Corporate', 'Real Estate'].map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setFilter(cat)}
@@ -429,12 +440,12 @@ export default function HomePage() {
                     background: 'transparent',
                     border: filter === cat ? '1px solid var(--color-gold)' : '1px solid rgba(158, 112, 96, 0.2)',
                     color: filter === cat ? 'var(--color-gold)' : 'var(--color-text-muted)',
-                    padding: '0.8rem 2.2rem',
+                    padding: '0.6rem 1.6rem',
                     borderRadius: '50px',
                     cursor: 'pointer',
-                    fontSize: '0.75rem',
+                    fontSize: '0.7rem',
                     fontWeight: '600',
-                    letterSpacing: '2px',
+                    letterSpacing: '1px',
                     textTransform: 'uppercase',
                     transition: '0.3s ease',
                   }}
@@ -465,45 +476,211 @@ export default function HomePage() {
               }}
             >
               <option value="All">All Projects</option>
-              <option value="Newborn">Newborn &amp; Baby</option>
-              <option value="Wedding">Couple &amp; Wedding</option>
-              <option value="Event">Event Management</option>
-              <option value="Maternity">Maternity Fine-Art</option>
+              <option value="Newborn">Newborn</option>
+              <option value="Wedding">Wedding</option>
+              <option value="Event">Event</option>
+              <option value="Family">Family</option>
+              <option value="Corporate">Corporate</option>
+              <option value="Real Estate">Real Estate</option>
             </select>
           </div>
 
           <HomeLightbox
             sectionId="showcase-gallery"
-            gridCols="repeat(3, 1fr)"
             items={filteredImages}
+            layout="bento"
           />
         </div>
       </section>
 
       {/* Why Choose Us */}
-      <section className="section" id="why-choose-us">
-        <div className="container">
-          <div className="animate-reveal text-center" style={{ maxWidth: '800px', margin: '0 auto 6rem auto' }}>
-            <span className="cinematic-title">Our Philosophy</span>
-            <h2 className="section-title">Professional &amp; Premium Experience</h2>
-            <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.8, fontSize: '1.1rem', marginBottom: '2rem' }}>
-              At BreathArt Photography Studio, we deliver more than just photographs—we create timeless visual experiences. With years of professional expertise, our team combines artistic vision with advanced photography techniques to capture moments with elegance and precision.
-            </p>
-            <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.8, fontSize: '1.1rem', marginBottom: '2rem' }}>
-              Every photoshoot is carefully planned to provide a seamless and comfortable experience for our clients. From lighting and composition to styling and storytelling, we focus on every detail to ensure exceptional results.
-            </p>
-            <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.8, fontSize: '1.1rem' }}>
-              Our commitment to quality, creativity, and personalized service allows us to deliver a truly premium photography experience. Whether it is a newborn session, family portrait, corporate shoot, or wedding celebration, BreathArt ensures every moment is captured beautifully and preserved for a lifetime.
+      <section className="section why-choose-us-section" id="why-choose-us">
+        <div className="why-bg-decor left-decor"></div>
+        <div className="why-bg-decor right-decor"></div>
+
+        <div className="container why-choose-us-container">
+          <div className="why-content-wrapper animate-reveal active">
+            <div className="why-image-box">
+              <img src="/assets/why_choose_us_baby_shower.png" alt="BreathArt Philosophy" />
+            </div>
+
+            <div className="why-text-area">
+              <div className="why-text-card">
+                <span className="cinematic-title" style={{ color: 'var(--color-gold)', display: 'block', marginBottom: '0.5rem', fontSize: '0.75rem', letterSpacing: '2px' }}>Our Philosophy</span>
+                <h2 className="section-title" style={{ fontSize: '2rem', marginBottom: '1.5rem', textAlign: 'left', textTransform: 'uppercase', color: '#2B1B14' }}>Professional &amp; Premium Experience</h2>
+
+                <p className="why-paragraph">
+                  At BreathArt, we deliver more than just photographs—we create timeless visual experiences. We combine artistic vision with advanced techniques to capture your moments with cinematic elegance and precision.
+                </p>
+                <p className="why-paragraph">
+                  Every photoshoot is carefully planned to provide a seamless, comfortable experience. From composition and lighting to styling and storytelling, we focus on every detail to ensure exceptional results.
+                </p>
+                <p className="why-paragraph" style={{ margin: 0 }}>
+                  Our commitment to quality, creativity, and service delivers a premium photography experience. Whether newborn, wedding, or event sessions, we ensure every milestone is captured beautifully.
+                </p>
+
+                <div className="why-features-list" style={{ marginTop: '2rem', borderTop: '1px solid rgba(158, 112, 96, 0.2)', paddingTop: '1.5rem' }}>
+                  <div className="why-feature-item">
+                    <h4 style={{ fontFamily: 'var(--font-heading)', fontWeight: '700', fontSize: '0.95rem', color: '#2B1B14', textTransform: 'uppercase', letterSpacing: '1px' }}>Experienced Professional Photographers</h4>
+                    <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', marginTop: '0.5rem', lineHeight: '1.6' }}>Master artists with decades of collective experience.</p>
+                  </div>
+                </div>
+              </div>
+              <div className="why-button-box">
+                <Link href="/services" className="why-explore-btn">
+                  Expand Your Horizons
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Premium Contact Section */}
+      <section id="home-contact" className="section" style={{ borderTop: '1px solid rgba(158, 112, 96, 0.15)', paddingBottom: '8rem', paddingTop: '6rem' }}>
+        <div className="container animate-reveal active">
+          <div className="section-header">
+            <span className="cinematic-title">Secure Your Session</span>
+            <h2 className="section-title">Initiate Your Story</h2>
+            <div className="accent-divider"></div>
+            <p style={{ color: 'var(--color-text-muted)', maxWidth: '600px', marginTop: '1.5rem', textAlign: 'center' }}>
+              Reserve your photoshoot date or inquire about our premium catalogs. Let us capture your life's most precious milestones.
             </p>
           </div>
 
-          <div className="services-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
-            <FeatureCard icon="fas fa-user-tie" title="Experienced Professional Photographers" description="Master artists with decades of collective experience." />
-            <FeatureCard icon="fas fa-female" title="Dedicated Lady Staff for Maternity" description="Ensuring comfort and privacy for maternity & newborn sessions." delay={0.1} />
-            <FeatureCard icon="fas fa-mountain" title="Premium Studio Environment" description="State-of-the-art space designed for creative excellence." delay={0.2} />
-            <FeatureCard icon="fas fa-camera" title="High-End Equipment & Lighting" description="The latest mirrorless technology and Profoto lighting." delay={0.3} />
-            <FeatureCard icon="fas fa-shipping-fast" title="Fast 24-Hour Photo Delivery" description="Rapid turn-around without compromising art quality." delay={0.4} />
-            <FeatureCard icon="fas fa-heart" title="Trusted by 1000+ Happy Clients" description="Building lasting relationships through exceptional art." delay={0.5} />
+          <div className="home-contact-wrapper" style={{ maxWidth: '800px', margin: '0 auto', background: 'var(--color-shade-2)', padding: '3.5rem', borderRadius: '12px', border: '1px solid rgba(158, 112, 96, 0.15)', boxShadow: '0 20px 40px rgba(43, 27, 20, 0.05)' }}>
+            <form action="https://formspree.io/f/xvovlbkw" method="POST">
+              <div className="home-contact-form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2rem' }}>
+                <div className="form-group">
+                  <label className="cinematic-title" style={{ fontSize: '0.65rem', display: 'block', marginBottom: '0.5rem', fontWeight: '600' }}>
+                    Full Name
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="E.g., Alexander Wright"
+                    required
+                    style={{
+                      width: '100%',
+                      background: 'transparent',
+                      border: 'none',
+                      borderBottom: '1px solid rgba(158, 112, 96, 0.3)',
+                      color: 'var(--color-white)',
+                      padding: '0.8rem 0',
+                      fontFamily: 'var(--font-body)',
+                      fontSize: '0.9rem',
+                      outline: 'none',
+                    }}
+                  />
+                </div>
+                <div className="form-group">
+                  <label className="cinematic-title" style={{ fontSize: '0.65rem', display: 'block', marginBottom: '0.5rem', fontWeight: '600' }}>
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="alexander@domain.com"
+                    required
+                    style={{
+                      width: '100%',
+                      background: 'transparent',
+                      border: 'none',
+                      borderBottom: '1px solid rgba(158, 112, 96, 0.3)',
+                      color: 'var(--color-white)',
+                      padding: '0.8rem 0',
+                      fontFamily: 'var(--font-body)',
+                      fontSize: '0.9rem',
+                      outline: 'none',
+                    }}
+                  />
+                </div>
+              </div>
+
+              <div className="home-contact-form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2.5rem' }}>
+                <div className="form-group">
+                  <label className="cinematic-title" style={{ fontSize: '0.65rem', display: 'block', marginBottom: '0.5rem', fontWeight: '600' }}>
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="+971 -- --- ----"
+                    required
+                    style={{
+                      width: '100%',
+                      background: 'transparent',
+                      border: 'none',
+                      borderBottom: '1px solid rgba(158, 112, 96, 0.3)',
+                      color: 'var(--color-white)',
+                      padding: '0.8rem 0',
+                      fontFamily: 'var(--font-body)',
+                      fontSize: '0.9rem',
+                      outline: 'none',
+                    }}
+                  />
+                </div>
+                <div className="form-group">
+                  <label className="cinematic-title" style={{ fontSize: '0.65rem', display: 'block', marginBottom: '0.5rem', fontWeight: '600' }}>
+                    Select Collection
+                  </label>
+                  <select
+                    name="service"
+                    required
+                    style={{
+                      width: '100%',
+                      background: 'transparent',
+                      border: 'none',
+                      borderBottom: '1px solid rgba(158, 112, 96, 0.3)',
+                      color: 'var(--color-white)',
+                      padding: '0.8rem 0',
+                      fontFamily: 'var(--font-body)',
+                      fontSize: '0.9rem',
+                      outline: 'none',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    <option value="" disabled selected style={{ background: 'var(--color-shade-2)', color: 'var(--color-text-muted)' }}>Choose a session...</option>
+                    <option value="newborn" style={{ background: 'var(--color-shade-2)', color: 'var(--color-white)' }}>Newborn Photography</option>
+                    <option value="wedding" style={{ background: 'var(--color-shade-2)', color: 'var(--color-white)' }}>Wedding Stories</option>
+                    <option value="event" style={{ background: 'var(--color-shade-2)', color: 'var(--color-white)' }}>Event Management</option>
+                    <option value="family" style={{ background: 'var(--color-shade-2)', color: 'var(--color-white)' }}>Family Session</option>
+                    <option value="corporate" style={{ background: 'var(--color-shade-2)', color: 'var(--color-white)' }}>Corporate Branding</option>
+                    <option value="realestate" style={{ background: 'var(--color-shade-2)', color: 'var(--color-white)' }}>Real Estate Showcase</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="form-group" style={{ marginBottom: '3rem' }}>
+                <label className="cinematic-title" style={{ fontSize: '0.65rem', display: 'block', marginBottom: '0.5rem', fontWeight: '600' }}>
+                  Vision Details
+                </label>
+                <textarea
+                  name="message"
+                  placeholder="Share details about your dream photoshoot, dates, or concepts..."
+                  required
+                  style={{
+                    width: '100%',
+                    background: 'transparent',
+                    border: 'none',
+                    borderBottom: '1px solid rgba(158, 112, 96, 0.3)',
+                    color: 'var(--color-white)',
+                    padding: '0.8rem 0',
+                    minHeight: '100px',
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '0.9rem',
+                    resize: 'none',
+                    outline: 'none',
+                  }}
+                ></textarea>
+              </div>
+
+              <div style={{ textAlign: 'center' }}>
+                <button type="submit" className="btn btn-gold" style={{ padding: '1rem 4rem', letterSpacing: '4px', fontSize: '0.75rem', textTransform: 'uppercase' }}>
+                  Reserve Your Date
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </section>

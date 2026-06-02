@@ -2,46 +2,37 @@
 
 import Link from 'next/link';
 
-export default function ServiceCard({ id, number, subtitle, title, image, alt, backTitle, description, details, ctaText, ctaHref, delay = 0 }) {
-  const handleClick = (e) => {
-    // Don't flip if they clicked the CTA link
-    if (e.target.closest('a')) return;
-    e.currentTarget.classList.toggle('flipped');
-  };
+export default function ServiceCard({ id, number, title, image, alt, description, ctaHref, delay = 0, index }) {
+  // Extract tag from number and title
+  const tagWord = number.split('/')[1]?.trim().toUpperCase() || 'SERVICE';
+  const tagTitle = title.toUpperCase();
+  const fullTag = `${tagWord} • ${tagTitle}`;
+
+  // Alternating background decor
+  const showDecor = index === 0 || index === 3 || index === 4;
 
   return (
-    <div
-      id={id}
-      className="flip-card animate-reveal"
-      onClick={handleClick}
-      style={{ transitionDelay: `${delay}s` }}
-    >
-      <div className="flip-card-inner">
-        <div className="flip-card-front">
-          <img src={image} alt={alt} />
-          <div className="front-content">
-            <span className="cinematic-title">{number}</span>
-            <h2>{title}</h2>
-            <p style={{ color: 'var(--color-gold)', fontFamily: 'var(--font-sub)', fontSize: '0.7rem', letterSpacing: '2px' }}>
-              TOUCH TO REVEAL
-            </p>
+    <Link href={ctaHref} className="premium-service-card-link">
+      <div
+        id={id}
+        className={`premium-service-card card-style-${index} animate-reveal`}
+        style={{ transitionDelay: `${delay}s` }}
+      >
+        <div className="card-image-wrapper">
+          {showDecor && <div className="card-bg-decor"></div>}
+          <div className="card-image-box">
+            <img src={image} alt={alt} />
+            <div className="card-arrow-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            </div>
           </div>
         </div>
-        <div className="flip-card-back">
-          <h3>{backTitle}</h3>
-          <p>{description}</p>
-          <div className="details-list">
-            {details.map((detail, i) => (
-              <div key={i}>
-                <i className={detail.icon}></i> {detail.text}
-              </div>
-            ))}
-          </div>
-          <Link href={ctaHref} className="btn btn-gold" style={{ padding: '1rem 2rem' }}>
-            {ctaText}
-          </Link>
+        
+        <div className="card-info-area">
+          <p className="card-tag">{fullTag}</p>
+          <p className="card-description">{description}</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

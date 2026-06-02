@@ -55,11 +55,6 @@ export default function AboutPage() {
       <header
         className="page-header"
         style={{
-          height: '50vh',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          textAlign: 'center',
           background: "linear-gradient(rgba(252,252,252,0.4), rgba(252,252,252,0.4)), url('/assets/parallax_bg.png')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',

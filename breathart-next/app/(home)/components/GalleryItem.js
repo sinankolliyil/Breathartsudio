@@ -11,7 +11,7 @@ export default function GalleryItem({ image, alt, title, href, number, delay = 0
           )}
           <h3>{title}</h3>
           {href ? (
-            <a href={href} className="view-btn">{buttonText}</a>
+            <span className="view-btn">{buttonText}</span>
           ) : (
             <button className="view-btn" onClick={onClick}>{buttonText}</button>
           )}

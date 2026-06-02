@@ -119,10 +119,7 @@ const services = [
 export default function ServicesPage() {
   return (
     <>
-      <header
-        className="page-header"
-        style={{ height: '40vh', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}
-      >
+      <header className="page-header">
         <div className="container container-narrow animate-reveal">
           <span className="cinematic-title" style={{ color: 'var(--color-gold)' }}>The Artistry</span>
           <h1 style={{ color: 'var(--color-white)', fontSize: '4.5rem' }}>Visual Offerings</h1>
@@ -134,9 +131,9 @@ export default function ServicesPage() {
 
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">
-          <div className="services-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))' }}>
-            {services.map((service) => (
-              <ServiceCard key={service.id} {...service} />
+          <div className="services-grid-redesign">
+            {services.map((service, idx) => (
+              <ServiceCard key={service.id} {...service} index={idx} />
             ))}
           </div>
         </div>

@@ -7,7 +7,7 @@ export default function ContactPage() {
   return (
     <>
       {/* Header Section */}
-      <header className="page-header" style={{ height: '45vh', background: 'linear-gradient(to bottom, rgba(0,0,0,0.4), transparent)' }}>
+      <header className="page-header" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.4), transparent)' }}>
         <div className="container animate-reveal" style={{ textAlign: 'center' }}>
           <span className="cinematic-title" style={{ color: 'var(--color-gold)' }}>Connect With Us</span>
           <h1 style={{ fontSize: '5rem', lineHeight: 1, color: 'var(--color-white)', marginTop: '1rem' }}>
@@ -81,140 +81,90 @@ export default function ContactPage() {
             </div>
 
             {/* Right Column: Form */}
-            <div
-              className="animate-reveal"
-              style={{
-                background: 'rgba(255,255,255,0.03)',
-                padding: '4rem',
-                border: '1px solid rgba(197, 160, 33, 0.1)',
-                borderRadius: '8px',
-              }}
-            >
-              <h3 className="cinematic-title" style={{ marginBottom: '1rem', color: 'var(--color-gold)' }}>Inquiry Form</h3>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.5rem', marginBottom: '3rem' }}>
+            <div className="contact-page-dark-card animate-reveal" style={{ padding: '4rem' }}>
+              <h3 className="cinematic-title" style={{ marginBottom: '0.5rem', color: 'var(--color-gold)' }}>Inquiry Form</h3>
+              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.2rem', marginBottom: '3rem', color: '#FAF5F0' }}>
                 Initiate Your <span className="text-gold">Story</span>
               </h2>
 
               <form action="https://formspree.io/f/xvovlbkw" method="POST">
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2rem' }}>
                   <div className="form-group">
-                    <label className="cinematic-title" style={{ fontSize: '0.6rem', display: 'block', marginBottom: '0.8rem' }}>
-                      Subject Name
+                    <label className="contact-page-label">
+                      Full Name
                     </label>
                     <input
                       type="text"
                       name="name"
-                      className="form-control"
-                      placeholder="Full Name"
+                      className="contact-page-input"
+                      placeholder="E.g., Alexander Wright"
                       required
-                      style={{
-                        width: '100%',
-                        background: 'transparent',
-                        border: 'none',
-                        borderBottom: '1px solid rgba(197, 160, 33, 0.3)',
-                        color: 'var(--color-white)',
-                        padding: '1rem 0',
-                        fontFamily: 'var(--font-body)',
-                      }}
                     />
                   </div>
                   <div className="form-group">
-                    <label className="cinematic-title" style={{ fontSize: '0.6rem', display: 'block', marginBottom: '0.8rem' }}>
-                      Electronic Mail
+                    <label className="contact-page-label">
+                      Email Address
                     </label>
                     <input
                       type="email"
                       name="email"
-                      className="form-control"
-                      placeholder="email@address.com"
+                      className="contact-page-input"
+                      placeholder="alexander@domain.com"
                       required
-                      style={{
-                        width: '100%',
-                        background: 'transparent',
-                        border: 'none',
-                        borderBottom: '1px solid rgba(197, 160, 33, 0.3)',
-                        color: 'var(--color-white)',
-                        padding: '1rem 0',
-                        fontFamily: 'var(--font-body)',
-                      }}
                     />
                   </div>
                 </div>
 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2rem' }}>
                   <div className="form-group">
-                    <label className="cinematic-title" style={{ fontSize: '0.6rem', display: 'block', marginBottom: '0.8rem' }}>
+                    <label className="contact-page-label">
                       Contact Number
                     </label>
                     <input
                       type="tel"
                       name="phone"
-                      className="form-control"
+                      className="contact-page-input"
                       placeholder="+971 -- --- ----"
                       required
-                      style={{
-                        width: '100%',
-                        background: 'transparent',
-                        border: 'none',
-                        borderBottom: '1px solid rgba(197, 160, 33, 0.3)',
-                        color: 'var(--color-white)',
-                        padding: '1rem 0',
-                        fontFamily: 'var(--font-body)',
-                      }}
                     />
                   </div>
                   <div className="form-group">
-                    <label className="cinematic-title" style={{ fontSize: '0.6rem', display: 'block', marginBottom: '0.8rem' }}>
+                    <label className="contact-page-label">
                       Collection
                     </label>
                     <select
                       name="service"
-                      className="form-control"
-                      style={{
-                        width: '100%',
-                        background: 'transparent',
-                        border: 'none',
-                        borderBottom: '1px solid rgba(197, 160, 33, 0.3)',
-                        color: 'var(--color-white)',
-                        padding: '1rem 0',
-                        fontFamily: 'var(--font-body)',
-                        cursor: 'pointer',
-                      }}
+                      className="contact-page-select"
+                      required
                     >
-                      <option value="newborn" style={{ background: '#1a1a1a' }}>Newborn Photography</option>
-                      <option value="wedding" style={{ background: '#1a1a1a' }}>Wedding Story</option>
-                      <option value="pre-wedding" style={{ background: '#1a1a1a' }}>Pre-Wedding</option>
-                      <option value="couple" style={{ background: '#1a1a1a' }}>Couple Session</option>
-                      <option value="corporate" style={{ background: '#1a1a1a' }}>Corporate Branding</option>
-                      <option value="event" style={{ background: '#1a1a1a' }}>Grand Events</option>
+                      <option value="" disabled selected style={{ background: '#2B1B14', color: '#8A766F' }}>Choose a session...</option>
+                      <option value="newborn" style={{ background: '#2B1B14', color: '#FAF5F0' }}>Newborn Photography</option>
+                      <option value="wedding" style={{ background: '#2B1B14', color: '#FAF5F0' }}>Wedding Story</option>
+                      <option value="pre-wedding" style={{ background: '#2B1B14', color: '#FAF5F0' }}>Pre-Wedding</option>
+                      <option value="couple" style={{ background: '#2B1B14', color: '#FAF5F0' }}>Couple Session</option>
+                      <option value="corporate" style={{ background: '#2B1B14', color: '#FAF5F0' }}>Corporate Branding</option>
+                      <option value="event" style={{ background: '#2B1B14', color: '#FAF5F0' }}>Grand Events</option>
                     </select>
                   </div>
                 </div>
 
                 <div className="form-group" style={{ marginBottom: '3rem' }}>
-                  <label className="cinematic-title" style={{ fontSize: '0.6rem', display: 'block', marginBottom: '0.8rem' }}>
+                  <label className="contact-page-label">
                     Vision Details
                   </label>
                   <textarea
                     name="message"
-                    className="form-control"
-                    placeholder="Tell us about your dream photoshoot..."
+                    className="contact-page-input"
+                    placeholder="Share details about your dream photoshoot, dates, or concepts..."
                     required
                     style={{
-                      width: '100%',
-                      background: 'transparent',
-                      border: 'none',
-                      borderBottom: '1px solid rgba(197, 160, 33, 0.3)',
-                      color: 'var(--color-white)',
-                      padding: '1rem 0',
                       minHeight: '120px',
-                      fontFamily: 'var(--font-body)',
                       resize: 'none',
                     }}
                   ></textarea>
                 </div>
 
-                <button type="submit" className="btn btn-gold" style={{ width: '100%', letterSpacing: '5px' }}>
+                <button type="submit" className="btn btn-gold" style={{ width: '100%', padding: '1rem 0', letterSpacing: '4px', textTransform: 'uppercase', fontSize: '0.75rem' }}>
                   Reserve Your Date
                 </button>
               </form>
