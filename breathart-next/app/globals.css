@@ -318,7 +318,7 @@ h1, h2, h3, h4, h5, h6,
     flex-direction: row; /* Logo left, links right */
     justify-content: space-between;
     align-items: center; 
-    padding: 1.8rem 4rem; 
+    padding: 1.2rem 4rem; 
     position: relative; /* enable absolute-centering of nav */
     background: rgba(43, 27, 20, 0.98); /* Premium dark espresso background always active */
     border-bottom: 1px solid rgba(158, 112, 96, 0.15);
@@ -337,7 +337,7 @@ h1, h2, h3, h4, h5, h6,
 #navbar.scrolled .nav-container {
     max-width: 1400px; /* Constrains width on scroll to center as a pill */
     border-radius: 100px; /* Morphs into a fully rounded pill! */
-    padding: 1rem 3.5rem; /* Compact padding */
+    padding: 0.7rem 3.5rem; /* Compact padding */
     background: rgba(43, 27, 20, 0.85); /* Premium glassmorphism translucency */
     border: 1px solid rgba(158, 112, 96, 0.25);
     box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
@@ -347,7 +347,7 @@ h1, h2, h3, h4, h5, h6,
     font-family: var(--font-heading); 
     font-weight: 600; 
     letter-spacing: 2px; 
-    font-size: 1.5rem; 
+    font-size: 1.3rem; 
     color: var(--color-white); 
     text-transform: uppercase;
     text-decoration: none;
