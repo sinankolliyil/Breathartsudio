@@ -4,20 +4,28 @@
 */
 
 :root {
-    --color-black: #ffffff; /* Main background */
-    --color-gold: #c5a021;   /* Deeper gold for contrast */
-    --color-white: #111111; /* Main text (dark) */
-    --color-gray: #fcfcfc;  /* Very Light card bg */
-    --color-shade-1: #fcfcfc;
-    --color-shade-2: #f8f8f8;
-    --color-shade-3: #f3f3f3;
-    --color-text-muted: #666666;
+    --color-black: #FAF5F0;   /* Main background (warm cream) */
+    --color-gold: #9E7060;    /* Terracotta/brownish gold accent from catalogue */
+    --color-white: #3B231A;   /* Main text (deep espresso/cocoa brown) */
+    --color-gray: #FAF5F0;    /* Card background matching base */
+    --color-shade-1: #FAF5F0; /* Cream shade 1 */
+    --color-shade-2: #F2E9E1; /* Cream shade 2 */
+    --color-shade-3: #E9DDD3; /* Cream shade 3 */
+    --color-text-muted: #8A766F; /* Muted warm brown */
 
     --font-heading: 'Outfit', sans-serif;
     --font-sub: 'Outfit', sans-serif;
     --font-body: 'Inter', sans-serif;
 
     --transition-slow: 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-white) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
 }
 
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -271,15 +279,26 @@ h1, h2, h3, h4, h5, h6,
 /* --- NAVIGATION --- */
 #navbar {
     position: fixed;
-    top: 0; width: 100%; padding: 2.5rem 0;
+    top: 0; width: 100%; 
+    padding: 1.8rem 0;
     z-index: 1000;
+    background: rgba(43, 27, 20, 0.97); /* Premium dark espresso background always active */
+    backdrop-filter: blur(20px);
+    border-bottom: 1px dashed rgba(158, 112, 96, 0.2);
+    box-shadow: 0 10px 40px rgba(43, 27, 20, 0.25);
+    transition: padding 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 #navbar.scrolled {
-    padding: 1.5rem 0;
-    background: rgba(252, 252, 252, 0.9);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px dashed rgba(197, 160, 33, 0.2);
+    padding: 1.2rem 0;
+}
+
+#navbar .nav-links a {
+    color: rgba(250, 245, 240, 0.85); /* High-contrast light cream links globally */
+}
+
+#navbar .nav-links a:hover, #navbar .nav-links a.active {
+    color: var(--color-gold);
 }
 
 .nav-container { 
@@ -303,6 +322,7 @@ h1, h2, h3, h4, h5, h6,
 
 .nav-links { 
     display: flex; 
+    align-items: center; /* Vertically center all menu items */
     gap: 3.5rem; 
     list-style: none;
 }
@@ -321,9 +341,13 @@ h1, h2, h3, h4, h5, h6,
     color: var(--color-gold); 
 }
 
-/* --- DROPDOWN MENU --- */
+/* --- MEGA DROPDOWN MENU --- */
 .nav-links .dropdown {
-    position: relative;
+    position: static; /* Required for full-width mega menu */
+}
+
+.nav-container {
+    position: relative; /* Anchor for the full-width menu */
 }
 
 .nav-links .dropdown-trigger {
@@ -331,6 +355,7 @@ h1, h2, h3, h4, h5, h6,
     align-items: center;
     gap: 6px;
     cursor: pointer;
+    transform: translateY(2px); /* Shift slightly down to align with textual links */
 }
 
 .nav-links .dropdown-trigger i {
@@ -342,59 +367,99 @@ h1, h2, h3, h4, h5, h6,
     transform: rotate(180deg);
 }
 
-.nav-links .dropdown-menu {
+.nav-links .mega-menu {
     position: absolute;
-    top: calc(100% + 16px);
-    left: 50%;
-    transform: translateX(-50%);
-    background: #ffffff;
-    border: 1px solid rgba(197, 160, 33, 0.15);
-    border-radius: 10px;
-    padding: 0.5rem 0;
-    min-width: 200px;
-    list-style: none;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--color-black);
+    border: 1px solid rgba(158, 112, 96, 0.15);
+    border-radius: 12px;
+    padding: 2rem 3rem;
+    box-shadow: 0 25px 50px rgba(59, 35, 26, 0.15);
     opacity: 0;
     visibility: hidden;
-    transform: translateX(-50%) translateY(8px);
-    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+    transform: translateY(15px);
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s;
     z-index: 9999;
-    pointer-events: none;
 }
 
-.nav-links .dropdown:hover .dropdown-menu {
+.nav-links .dropdown:hover .mega-menu {
     opacity: 1;
     visibility: visible;
-    transform: translateX(-50%) translateY(0);
-    pointer-events: auto;
+    transform: translateY(0);
 }
 
-.nav-links .dropdown-menu li a {
+.mega-menu-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.mega-menu-column a {
     display: block;
-    padding: 0.75rem 1.5rem;
-    font-size: 0.75rem;
+    padding: 1.25rem;
+    background: var(--color-shade-2);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.mega-menu-column a:hover {
+    border-color: var(--color-gold);
+    background: var(--color-shade-3);
+    transform: translateY(-4px);
+}
+
+.mega-menu-column .mega-title {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-white);
     letter-spacing: 2px;
-    color: #333333;
     text-transform: uppercase;
-    font-weight: 500;
-    transition: background 0.2s, color 0.2s;
-    white-space: nowrap;
+    margin-bottom: 0.5rem;
 }
 
-.nav-links .dropdown-menu li a:hover {
-    background: rgba(197, 160, 33, 0.08);
-    color: var(--color-gold);
-    padding-left: 2rem;
+.mega-menu-column .mega-desc {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    letter-spacing: 1px;
+    line-height: 1.4;
+    text-transform: none;
 }
 
-/* dropdown connector — fills gap between trigger and menu */
 .nav-links .dropdown::after {
     content: '';
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
-    height: 20px;
+    height: 25px;
+}
+
+/* Contact Us Button in Navbar */
+.btn-nav {
+    display: inline-block;
+    padding: 0.8rem 2.2rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold);
+    border-radius: 50px;
+    transition: 0.3s ease;
+    background: transparent;
+}
+
+.btn-nav:hover {
+    background: var(--color-gold);
+    color: #FAF5F0;
+    box-shadow: 0 0 25px rgba(158, 112, 96, 0.3);
 }
 
 .nav-center {
@@ -1028,19 +1093,19 @@ h1, h2, h3, h4, h5, h6,
     pointer-events: none;
 }
 @-webkit-keyframes preLoad {
-  0%   { background-image: url('assets/animation/wedding.png'); }
-  10%  { background-image: url('assets/animation/portrait.png'); }
-  20%  { background-image: url('assets/animation/nature.png'); }
-  30%  { background-image: url('assets/animation/candid.png'); }
-  40%  { background-image: url('assets/animation/camera.png'); }
+  0%   { background-image: url('/assets/animation/wedding.png'); }
+  10%  { background-image: url('/assets/animation/portrait.png'); }
+  20%  { background-image: url('/assets/animation/nature.png'); }
+  30%  { background-image: url('/assets/animation/candid.png'); }
+  40%  { background-image: url('/assets/animation/camera.png'); }
   100% { display: none; }
 }
 @keyframes preLoad {
-  0%   { background-image: url('assets/animation/wedding.png'); }
-  10%  { background-image: url('assets/animation/portrait.png'); }
-  20%  { background-image: url('assets/animation/nature.png'); }
-  30%  { background-image: url('assets/animation/candid.png'); }
-  40%  { background-image: url('assets/animation/camera.png'); }
+  0%   { background-image: url('/assets/animation/wedding.png'); }
+  10%  { background-image: url('/assets/animation/portrait.png'); }
+  20%  { background-image: url('/assets/animation/nature.png'); }
+  30%  { background-image: url('/assets/animation/candid.png'); }
+  40%  { background-image: url('/assets/animation/camera.png'); }
   100% { display: none; }
 }
 
@@ -1125,18 +1190,18 @@ h1, h2, h3, h4, h5, h6,
     background-position: 100% -2px;
 }
 @-webkit-keyframes nextPage {
-  0%  { background-image: url('assets/animation/wedding.png'); }
-  20% { background-image: url('assets/animation/portrait.png'); }
-  40% { background-image: url('assets/animation/nature.png'); }
-  60% { background-image: url('assets/animation/candid.png'); }
-  80% { background-image: url('assets/animation/camera.png'); }
+  0%  { background-image: url('/assets/animation/wedding.png'); }
+  20% { background-image: url('/assets/animation/portrait.png'); }
+  40% { background-image: url('/assets/animation/nature.png'); }
+  60% { background-image: url('/assets/animation/candid.png'); }
+  80% { background-image: url('/assets/animation/camera.png'); }
 }
 @keyframes nextPage {
-  0%  { background-image: url('assets/animation/wedding.png'); }
-  20% { background-image: url('assets/animation/portrait.png'); }
-  40% { background-image: url('assets/animation/nature.png'); }
-  60% { background-image: url('assets/animation/candid.png'); }
-  80% { background-image: url('assets/animation/camera.png'); }
+  0%  { background-image: url('/assets/animation/wedding.png'); }
+  20% { background-image: url('/assets/animation/portrait.png'); }
+  40% { background-image: url('/assets/animation/nature.png'); }
+  60% { background-image: url('/assets/animation/candid.png'); }
+  80% { background-image: url('/assets/animation/camera.png'); }
 }
 
 .page-flip-demo .gap {
@@ -1230,172 +1295,172 @@ h1, h2, h3, h4, h5, h6,
 }
 
 @-webkit-keyframes nextFlip1 {
-  0%   { background-image: url('assets/animation/wedding.png'); background-position: -178px -2px; transform: rotateY(0deg); }
-  10%  { background-image: url('assets/animation/portrait.png'); background-position: -210px -2px; transform: rotateY(180deg); }
-  20%  { background-image: url('assets/animation/portrait.png'); background-position: -178px -2px; transform: rotateY(0deg); }
-  30%  { background-image: url('assets/animation/nature.png'); background-position: -210px -2px; transform: rotateY(180deg); }
-  40%  { background-image: url('assets/animation/nature.png'); background-position: -178px -2px; transform: rotateY(0deg); }
-  50%  { background-image: url('assets/animation/candid.png'); background-position: -210px -2px; transform: rotateY(180deg); }
-  60%  { background-image: url('assets/animation/candid.png'); background-position: -178px -2px; transform: rotateY(0deg); }
-  70%  { background-image: url('assets/animation/camera.png'); background-position: -210px -2px; transform: rotateY(180deg); }
-  80%  { background-image: url('assets/animation/camera.png'); background-position: -178px -2px; transform: rotateY(0deg); }
-  90%  { background-image: url('assets/animation/wedding.png'); background-position: -210px -2px; transform: rotateY(180deg); }
+  0%   { background-image: url('/assets/animation/wedding.png'); background-position: -178px -2px; transform: rotateY(0deg); }
+  10%  { background-image: url('/assets/animation/portrait.png'); background-position: -210px -2px; transform: rotateY(180deg); }
+  20%  { background-image: url('/assets/animation/portrait.png'); background-position: -178px -2px; transform: rotateY(0deg); }
+  30%  { background-image: url('/assets/animation/nature.png'); background-position: -210px -2px; transform: rotateY(180deg); }
+  40%  { background-image: url('/assets/animation/nature.png'); background-position: -178px -2px; transform: rotateY(0deg); }
+  50%  { background-image: url('/assets/animation/candid.png'); background-position: -210px -2px; transform: rotateY(180deg); }
+  60%  { background-image: url('/assets/animation/candid.png'); background-position: -178px -2px; transform: rotateY(0deg); }
+  70%  { background-image: url('/assets/animation/camera.png'); background-position: -210px -2px; transform: rotateY(180deg); }
+  80%  { background-image: url('/assets/animation/camera.png'); background-position: -178px -2px; transform: rotateY(0deg); }
+  90%  { background-image: url('/assets/animation/wedding.png'); background-position: -210px -2px; transform: rotateY(180deg); }
 }
 @keyframes nextFlip1 {
-  0%   { background-image: url('assets/animation/wedding.png'); background-position: -178px -2px; transform: rotateY(0deg); }
-  10%  { background-image: url('assets/animation/portrait.png'); background-position: -210px -2px; transform: rotateY(180deg); }
-  20%  { background-image: url('assets/animation/portrait.png'); background-position: -178px -2px; transform: rotateY(0deg); }
-  30%  { background-image: url('assets/animation/nature.png'); background-position: -210px -2px; transform: rotateY(180deg); }
-  40%  { background-image: url('assets/animation/nature.png'); background-position: -178px -2px; transform: rotateY(0deg); }
-  50%  { background-image: url('assets/animation/candid.png'); background-position: -210px -2px; transform: rotateY(180deg); }
-  60%  { background-image: url('assets/animation/candid.png'); background-position: -178px -2px; transform: rotateY(0deg); }
-  70%  { background-image: url('assets/animation/camera.png'); background-position: -210px -2px; transform: rotateY(180deg); }
-  80%  { background-image: url('assets/animation/camera.png'); background-position: -178px -2px; transform: rotateY(0deg); }
-  90%  { background-image: url('assets/animation/wedding.png'); background-position: -210px -2px; transform: rotateY(180deg); }
+  0%   { background-image: url('/assets/animation/wedding.png'); background-position: -178px -2px; transform: rotateY(0deg); }
+  10%  { background-image: url('/assets/animation/portrait.png'); background-position: -210px -2px; transform: rotateY(180deg); }
+  20%  { background-image: url('/assets/animation/portrait.png'); background-position: -178px -2px; transform: rotateY(0deg); }
+  30%  { background-image: url('/assets/animation/nature.png'); background-position: -210px -2px; transform: rotateY(180deg); }
+  40%  { background-image: url('/assets/animation/nature.png'); background-position: -178px -2px; transform: rotateY(0deg); }
+  50%  { background-image: url('/assets/animation/candid.png'); background-position: -210px -2px; transform: rotateY(180deg); }
+  60%  { background-image: url('/assets/animation/candid.png'); background-position: -178px -2px; transform: rotateY(0deg); }
+  70%  { background-image: url('/assets/animation/camera.png'); background-position: -210px -2px; transform: rotateY(180deg); }
+  80%  { background-image: url('/assets/animation/camera.png'); background-position: -178px -2px; transform: rotateY(0deg); }
+  90%  { background-image: url('/assets/animation/wedding.png'); background-position: -210px -2px; transform: rotateY(180deg); }
 }
 @-webkit-keyframes nextFlip2 {
-  0%    { background-image: url('assets/animation/wedding.png'); background-position: -148px -2px; transform: rotateY(0deg); }
-  10.5% { background-image: url('assets/animation/portrait.png'); background-position: -238px -2px; transform: rotateY(180deg); }
-  20%   { background-image: url('assets/animation/portrait.png'); background-position: -148px -2px; transform: rotateY(0deg); }
-  30.5% { background-image: url('assets/animation/nature.png'); background-position: -238px -2px; transform: rotateY(180deg); }
-  40%   { background-image: url('assets/animation/nature.png'); background-position: -148px -2px; transform: rotateY(0deg); }
-  50.5% { background-image: url('assets/animation/candid.png'); background-position: -238px -2px; transform: rotateY(180deg); }
-  60%   { background-image: url('assets/animation/candid.png'); background-position: -148px -2px; transform: rotateY(0deg); }
-  70.5% { background-image: url('assets/animation/camera.png'); background-position: -238px -2px; transform: rotateY(180deg); }
-  80%   { background-image: url('assets/animation/camera.png'); background-position: -148px -2px; transform: rotateY(0deg); }
-  90.5% { background-image: url('assets/animation/wedding.png'); background-position: -238px -2px; transform: rotateY(180deg); }
+  0%    { background-image: url('/assets/animation/wedding.png'); background-position: -148px -2px; transform: rotateY(0deg); }
+  10.5% { background-image: url('/assets/animation/portrait.png'); background-position: -238px -2px; transform: rotateY(180deg); }
+  20%   { background-image: url('/assets/animation/portrait.png'); background-position: -148px -2px; transform: rotateY(0deg); }
+  30.5% { background-image: url('/assets/animation/nature.png'); background-position: -238px -2px; transform: rotateY(180deg); }
+  40%   { background-image: url('/assets/animation/nature.png'); background-position: -148px -2px; transform: rotateY(0deg); }
+  50.5% { background-image: url('/assets/animation/candid.png'); background-position: -238px -2px; transform: rotateY(180deg); }
+  60%   { background-image: url('/assets/animation/candid.png'); background-position: -148px -2px; transform: rotateY(0deg); }
+  70.5% { background-image: url('/assets/animation/camera.png'); background-position: -238px -2px; transform: rotateY(180deg); }
+  80%   { background-image: url('/assets/animation/camera.png'); background-position: -148px -2px; transform: rotateY(0deg); }
+  90.5% { background-image: url('/assets/animation/wedding.png'); background-position: -238px -2px; transform: rotateY(180deg); }
 }
 @keyframes nextFlip2 {
-  0%    { background-image: url('assets/animation/wedding.png'); background-position: -148px -2px; transform: rotateY(0deg); }
-  10.5% { background-image: url('assets/animation/portrait.png'); background-position: -238px -2px; transform: rotateY(180deg); }
-  20%   { background-image: url('assets/animation/portrait.png'); background-position: -148px -2px; transform: rotateY(0deg); }
-  30.5% { background-image: url('assets/animation/nature.png'); background-position: -238px -2px; transform: rotateY(180deg); }
-  40%   { background-image: url('assets/animation/nature.png'); background-position: -148px -2px; transform: rotateY(0deg); }
-  50.5% { background-image: url('assets/animation/candid.png'); background-position: -238px -2px; transform: rotateY(180deg); }
-  60%   { background-image: url('assets/animation/candid.png'); background-position: -148px -2px; transform: rotateY(0deg); }
-  70.5% { background-image: url('assets/animation/camera.png'); background-position: -238px -2px; transform: rotateY(180deg); }
-  80%   { background-image: url('assets/animation/camera.png'); background-position: -148px -2px; transform: rotateY(0deg); }
-  90.5% { background-image: url('assets/animation/wedding.png'); background-position: -238px -2px; transform: rotateY(180deg); }
+  0%    { background-image: url('/assets/animation/wedding.png'); background-position: -148px -2px; transform: rotateY(0deg); }
+  10.5% { background-image: url('/assets/animation/portrait.png'); background-position: -238px -2px; transform: rotateY(180deg); }
+  20%   { background-image: url('/assets/animation/portrait.png'); background-position: -148px -2px; transform: rotateY(0deg); }
+  30.5% { background-image: url('/assets/animation/nature.png'); background-position: -238px -2px; transform: rotateY(180deg); }
+  40%   { background-image: url('/assets/animation/nature.png'); background-position: -148px -2px; transform: rotateY(0deg); }
+  50.5% { background-image: url('/assets/animation/candid.png'); background-position: -238px -2px; transform: rotateY(180deg); }
+  60%   { background-image: url('/assets/animation/candid.png'); background-position: -148px -2px; transform: rotateY(0deg); }
+  70.5% { background-image: url('/assets/animation/camera.png'); background-position: -238px -2px; transform: rotateY(180deg); }
+  80%   { background-image: url('/assets/animation/camera.png'); background-position: -148px -2px; transform: rotateY(0deg); }
+  90.5% { background-image: url('/assets/animation/wedding.png'); background-position: -238px -2px; transform: rotateY(180deg); }
 }
 @-webkit-keyframes nextFlip3 {
-  0%  { background-image: url('assets/animation/wedding.png'); background-position: -118px -2px; transform: rotateY(0deg); }
-  11% { background-image: url('assets/animation/portrait.png'); background-position: -268px -2px; transform: rotateY(180deg); }
-  20% { background-image: url('assets/animation/portrait.png'); background-position: -118px -2px; transform: rotateY(0deg); }
-  31% { background-image: url('assets/animation/nature.png'); background-position: -268px -2px; transform: rotateY(180deg); }
-  40% { background-image: url('assets/animation/nature.png'); background-position: -118px -2px; transform: rotateY(0deg); }
-  51% { background-image: url('assets/animation/candid.png'); background-position: -268px -2px; transform: rotateY(180deg); }
-  60% { background-image: url('assets/animation/candid.png'); background-position: -118px -2px; transform: rotateY(0deg); }
-  71% { background-image: url('assets/animation/camera.png'); background-position: -268px -2px; transform: rotateY(180deg); }
-  80% { background-image: url('assets/animation/camera.png'); background-position: -118px -2px; transform: rotateY(0deg); }
-  91% { background-image: url('assets/animation/wedding.png'); background-position: -268px -2px; transform: rotateY(180deg); }
+  0%  { background-image: url('/assets/animation/wedding.png'); background-position: -118px -2px; transform: rotateY(0deg); }
+  11% { background-image: url('/assets/animation/portrait.png'); background-position: -268px -2px; transform: rotateY(180deg); }
+  20% { background-image: url('/assets/animation/portrait.png'); background-position: -118px -2px; transform: rotateY(0deg); }
+  31% { background-image: url('/assets/animation/nature.png'); background-position: -268px -2px; transform: rotateY(180deg); }
+  40% { background-image: url('/assets/animation/nature.png'); background-position: -118px -2px; transform: rotateY(0deg); }
+  51% { background-image: url('/assets/animation/candid.png'); background-position: -268px -2px; transform: rotateY(180deg); }
+  60% { background-image: url('/assets/animation/candid.png'); background-position: -118px -2px; transform: rotateY(0deg); }
+  71% { background-image: url('/assets/animation/camera.png'); background-position: -268px -2px; transform: rotateY(180deg); }
+  80% { background-image: url('/assets/animation/camera.png'); background-position: -118px -2px; transform: rotateY(0deg); }
+  91% { background-image: url('/assets/animation/wedding.png'); background-position: -268px -2px; transform: rotateY(180deg); }
 }
 @keyframes nextFlip3 {
-  0%  { background-image: url('assets/animation/wedding.png'); background-position: -118px -2px; transform: rotateY(0deg); }
-  11% { background-image: url('assets/animation/portrait.png'); background-position: -268px -2px; transform: rotateY(180deg); }
-  20% { background-image: url('assets/animation/portrait.png'); background-position: -118px -2px; transform: rotateY(0deg); }
-  31% { background-image: url('assets/animation/nature.png'); background-position: -268px -2px; transform: rotateY(180deg); }
-  40% { background-image: url('assets/animation/nature.png'); background-position: -118px -2px; transform: rotateY(0deg); }
-  51% { background-image: url('assets/animation/candid.png'); background-position: -268px -2px; transform: rotateY(180deg); }
-  60% { background-image: url('assets/animation/candid.png'); background-position: -118px -2px; transform: rotateY(0deg); }
-  71% { background-image: url('assets/animation/camera.png'); background-position: -268px -2px; transform: rotateY(180deg); }
-  80% { background-image: url('assets/animation/camera.png'); background-position: -118px -2px; transform: rotateY(0deg); }
-  91% { background-image: url('assets/animation/wedding.png'); background-position: -268px -2px; transform: rotateY(180deg); }
+  0%  { background-image: url('/assets/animation/wedding.png'); background-position: -118px -2px; transform: rotateY(0deg); }
+  11% { background-image: url('/assets/animation/portrait.png'); background-position: -268px -2px; transform: rotateY(180deg); }
+  20% { background-image: url('/assets/animation/portrait.png'); background-position: -118px -2px; transform: rotateY(0deg); }
+  31% { background-image: url('/assets/animation/nature.png'); background-position: -268px -2px; transform: rotateY(180deg); }
+  40% { background-image: url('/assets/animation/nature.png'); background-position: -118px -2px; transform: rotateY(0deg); }
+  51% { background-image: url('/assets/animation/candid.png'); background-position: -268px -2px; transform: rotateY(180deg); }
+  60% { background-image: url('/assets/animation/candid.png'); background-position: -118px -2px; transform: rotateY(0deg); }
+  71% { background-image: url('/assets/animation/camera.png'); background-position: -268px -2px; transform: rotateY(180deg); }
+  80% { background-image: url('/assets/animation/camera.png'); background-position: -118px -2px; transform: rotateY(0deg); }
+  91% { background-image: url('/assets/animation/wedding.png'); background-position: -268px -2px; transform: rotateY(180deg); }
 }
 @-webkit-keyframes nextFlip4 {
-  0%    { background-image: url('assets/animation/wedding.png'); background-position: -88px -2px; transform: rotateY(0deg); }
-  11.5% { background-image: url('assets/animation/portrait.png'); background-position: -298px -2px; transform: rotateY(180deg); }
-  20%   { background-image: url('assets/animation/portrait.png'); background-position: -88px -2px; transform: rotateY(0deg); }
-  31.5% { background-image: url('assets/animation/nature.png'); background-position: -298px -2px; transform: rotateY(180deg); }
-  40%   { background-image: url('assets/animation/nature.png'); background-position: -88px -2px; transform: rotateY(0deg); }
-  51.5% { background-image: url('assets/animation/candid.png'); background-position: -298px -2px; transform: rotateY(180deg); }
-  60%   { background-image: url('assets/animation/candid.png'); background-position: -88px -2px; transform: rotateY(0deg); }
-  71.5% { background-image: url('assets/animation/camera.png'); background-position: -298px -2px; transform: rotateY(180deg); }
-  80%   { background-image: url('assets/animation/camera.png'); background-position: -88px -2px; transform: rotateY(0deg); }
-  91.5% { background-image: url('assets/animation/wedding.png'); background-position: -298px -2px; transform: rotateY(180deg); }
+  0%    { background-image: url('/assets/animation/wedding.png'); background-position: -88px -2px; transform: rotateY(0deg); }
+  11.5% { background-image: url('/assets/animation/portrait.png'); background-position: -298px -2px; transform: rotateY(180deg); }
+  20%   { background-image: url('/assets/animation/portrait.png'); background-position: -88px -2px; transform: rotateY(0deg); }
+  31.5% { background-image: url('/assets/animation/nature.png'); background-position: -298px -2px; transform: rotateY(180deg); }
+  40%   { background-image: url('/assets/animation/nature.png'); background-position: -88px -2px; transform: rotateY(0deg); }
+  51.5% { background-image: url('/assets/animation/candid.png'); background-position: -298px -2px; transform: rotateY(180deg); }
+  60%   { background-image: url('/assets/animation/candid.png'); background-position: -88px -2px; transform: rotateY(0deg); }
+  71.5% { background-image: url('/assets/animation/camera.png'); background-position: -298px -2px; transform: rotateY(180deg); }
+  80%   { background-image: url('/assets/animation/camera.png'); background-position: -88px -2px; transform: rotateY(0deg); }
+  91.5% { background-image: url('/assets/animation/wedding.png'); background-position: -298px -2px; transform: rotateY(180deg); }
 }
 @keyframes nextFlip4 {
-  0%    { background-image: url('assets/animation/wedding.png'); background-position: -88px -2px; transform: rotateY(0deg); }
-  11.5% { background-image: url('assets/animation/portrait.png'); background-position: -298px -2px; transform: rotateY(180deg); }
-  20%   { background-image: url('assets/animation/portrait.png'); background-position: -88px -2px; transform: rotateY(0deg); }
-  31.5% { background-image: url('assets/animation/nature.png'); background-position: -298px -2px; transform: rotateY(180deg); }
-  40%   { background-image: url('assets/animation/nature.png'); background-position: -88px -2px; transform: rotateY(0deg); }
-  51.5% { background-image: url('assets/animation/candid.png'); background-position: -298px -2px; transform: rotateY(180deg); }
-  60%   { background-image: url('assets/animation/candid.png'); background-position: -88px -2px; transform: rotateY(0deg); }
-  71.5% { background-image: url('assets/animation/camera.png'); background-position: -298px -2px; transform: rotateY(180deg); }
-  80%   { background-image: url('assets/animation/camera.png'); background-position: -88px -2px; transform: rotateY(0deg); }
-  91.5% { background-image: url('assets/animation/wedding.png'); background-position: -298px -2px; transform: rotateY(180deg); }
+  0%    { background-image: url('/assets/animation/wedding.png'); background-position: -88px -2px; transform: rotateY(0deg); }
+  11.5% { background-image: url('/assets/animation/portrait.png'); background-position: -298px -2px; transform: rotateY(180deg); }
+  20%   { background-image: url('/assets/animation/portrait.png'); background-position: -88px -2px; transform: rotateY(0deg); }
+  31.5% { background-image: url('/assets/animation/nature.png'); background-position: -298px -2px; transform: rotateY(180deg); }
+  40%   { background-image: url('/assets/animation/nature.png'); background-position: -88px -2px; transform: rotateY(0deg); }
+  51.5% { background-image: url('/assets/animation/candid.png'); background-position: -298px -2px; transform: rotateY(180deg); }
+  60%   { background-image: url('/assets/animation/candid.png'); background-position: -88px -2px; transform: rotateY(0deg); }
+  71.5% { background-image: url('/assets/animation/camera.png'); background-position: -298px -2px; transform: rotateY(180deg); }
+  80%   { background-image: url('/assets/animation/camera.png'); background-position: -88px -2px; transform: rotateY(0deg); }
+  91.5% { background-image: url('/assets/animation/wedding.png'); background-position: -298px -2px; transform: rotateY(180deg); }
 }
 @-webkit-keyframes nextFlip5 {
-  0%  { background-image: url('assets/animation/wedding.png'); background-position: -58px -2px; transform: rotateY(0deg); }
-  12% { background-image: url('assets/animation/portrait.png'); background-position: -328px -2px; transform: rotateY(180deg); }
-  20% { background-image: url('assets/animation/portrait.png'); background-position: -58px -2px; transform: rotateY(0deg); }
-  32% { background-image: url('assets/animation/nature.png'); background-position: -328px -2px; transform: rotateY(180deg); }
-  40% { background-image: url('assets/animation/nature.png'); background-position: -58px -2px; transform: rotateY(0deg); }
-  52% { background-image: url('assets/animation/candid.png'); background-position: -328px -2px; transform: rotateY(180deg); }
-  60% { background-image: url('assets/animation/candid.png'); background-position: -58px -2px; transform: rotateY(0deg); }
-  72% { background-image: url('assets/animation/camera.png'); background-position: -328px -2px; transform: rotateY(180deg); }
-  80% { background-image: url('assets/animation/camera.png'); background-position: -58px -2px; transform: rotateY(0deg); }
-  92% { background-image: url('assets/animation/wedding.png'); background-position: -328px -2px; transform: rotateY(180deg); }
+  0%  { background-image: url('/assets/animation/wedding.png'); background-position: -58px -2px; transform: rotateY(0deg); }
+  12% { background-image: url('/assets/animation/portrait.png'); background-position: -328px -2px; transform: rotateY(180deg); }
+  20% { background-image: url('/assets/animation/portrait.png'); background-position: -58px -2px; transform: rotateY(0deg); }
+  32% { background-image: url('/assets/animation/nature.png'); background-position: -328px -2px; transform: rotateY(180deg); }
+  40% { background-image: url('/assets/animation/nature.png'); background-position: -58px -2px; transform: rotateY(0deg); }
+  52% { background-image: url('/assets/animation/candid.png'); background-position: -328px -2px; transform: rotateY(180deg); }
+  60% { background-image: url('/assets/animation/candid.png'); background-position: -58px -2px; transform: rotateY(0deg); }
+  72% { background-image: url('/assets/animation/camera.png'); background-position: -328px -2px; transform: rotateY(180deg); }
+  80% { background-image: url('/assets/animation/camera.png'); background-position: -58px -2px; transform: rotateY(0deg); }
+  92% { background-image: url('/assets/animation/wedding.png'); background-position: -328px -2px; transform: rotateY(180deg); }
 }
 @keyframes nextFlip5 {
-  0%  { background-image: url('assets/animation/wedding.png'); background-position: -58px -2px; transform: rotateY(0deg); }
-  12% { background-image: url('assets/animation/portrait.png'); background-position: -328px -2px; transform: rotateY(180deg); }
-  20% { background-image: url('assets/animation/portrait.png'); background-position: -58px -2px; transform: rotateY(0deg); }
-  32% { background-image: url('assets/animation/nature.png'); background-position: -328px -2px; transform: rotateY(180deg); }
-  40% { background-image: url('assets/animation/nature.png'); background-position: -58px -2px; transform: rotateY(0deg); }
-  52% { background-image: url('assets/animation/candid.png'); background-position: -328px -2px; transform: rotateY(180deg); }
-  60% { background-image: url('assets/animation/candid.png'); background-position: -58px -2px; transform: rotateY(0deg); }
-  72% { background-image: url('assets/animation/camera.png'); background-position: -328px -2px; transform: rotateY(180deg); }
-  80% { background-image: url('assets/animation/camera.png'); background-position: -58px -2px; transform: rotateY(0deg); }
-  92% { background-image: url('assets/animation/wedding.png'); background-position: -328px -2px; transform: rotateY(180deg); }
+  0%  { background-image: url('/assets/animation/wedding.png'); background-position: -58px -2px; transform: rotateY(0deg); }
+  12% { background-image: url('/assets/animation/portrait.png'); background-position: -328px -2px; transform: rotateY(180deg); }
+  20% { background-image: url('/assets/animation/portrait.png'); background-position: -58px -2px; transform: rotateY(0deg); }
+  32% { background-image: url('/assets/animation/nature.png'); background-position: -328px -2px; transform: rotateY(180deg); }
+  40% { background-image: url('/assets/animation/nature.png'); background-position: -58px -2px; transform: rotateY(0deg); }
+  52% { background-image: url('/assets/animation/candid.png'); background-position: -328px -2px; transform: rotateY(180deg); }
+  60% { background-image: url('/assets/animation/candid.png'); background-position: -58px -2px; transform: rotateY(0deg); }
+  72% { background-image: url('/assets/animation/camera.png'); background-position: -328px -2px; transform: rotateY(180deg); }
+  80% { background-image: url('/assets/animation/camera.png'); background-position: -58px -2px; transform: rotateY(0deg); }
+  92% { background-image: url('/assets/animation/wedding.png'); background-position: -328px -2px; transform: rotateY(180deg); }
 }
 @-webkit-keyframes nextFlip6 {
-  0%    { background-image: url('assets/animation/wedding.png'); background-position: -28px -2px; transform: rotateY(0deg); }
-  12.5% { background-image: url('assets/animation/portrait.png'); background-position: -358px -2px; transform: rotateY(180deg); }
-  20%   { background-image: url('assets/animation/portrait.png'); background-position: -28px -2px; transform: rotateY(0deg); }
-  32.5% { background-image: url('assets/animation/nature.png'); background-position: -358px -2px; transform: rotateY(180deg); }
-  40%   { background-image: url('assets/animation/nature.png'); background-position: -28px -2px; transform: rotateY(0deg); }
-  52.5% { background-image: url('assets/animation/candid.png'); background-position: -358px -2px; transform: rotateY(180deg); }
-  60%   { background-image: url('assets/animation/candid.png'); background-position: -28px -2px; transform: rotateY(0deg); }
-  72.5% { background-image: url('assets/animation/camera.png'); background-position: -358px -2px; transform: rotateY(180deg); }
-  80%   { background-image: url('assets/animation/camera.png'); background-position: -28px -2px; transform: rotateY(0deg); }
-  92.5% { background-image: url('assets/animation/wedding.png'); background-position: -358px -2px; transform: rotateY(180deg); }
+  0%    { background-image: url('/assets/animation/wedding.png'); background-position: -28px -2px; transform: rotateY(0deg); }
+  12.5% { background-image: url('/assets/animation/portrait.png'); background-position: -358px -2px; transform: rotateY(180deg); }
+  20%   { background-image: url('/assets/animation/portrait.png'); background-position: -28px -2px; transform: rotateY(0deg); }
+  32.5% { background-image: url('/assets/animation/nature.png'); background-position: -358px -2px; transform: rotateY(180deg); }
+  40%   { background-image: url('/assets/animation/nature.png'); background-position: -28px -2px; transform: rotateY(0deg); }
+  52.5% { background-image: url('/assets/animation/candid.png'); background-position: -358px -2px; transform: rotateY(180deg); }
+  60%   { background-image: url('/assets/animation/candid.png'); background-position: -28px -2px; transform: rotateY(0deg); }
+  72.5% { background-image: url('/assets/animation/camera.png'); background-position: -358px -2px; transform: rotateY(180deg); }
+  80%   { background-image: url('/assets/animation/camera.png'); background-position: -28px -2px; transform: rotateY(0deg); }
+  92.5% { background-image: url('/assets/animation/wedding.png'); background-position: -358px -2px; transform: rotateY(180deg); }
 }
 @keyframes nextFlip6 {
-  0%    { background-image: url('assets/animation/wedding.png'); background-position: -28px -2px; transform: rotateY(0deg); }
-  12.5% { background-image: url('assets/animation/portrait.png'); background-position: -358px -2px; transform: rotateY(180deg); }
-  20%   { background-image: url('assets/animation/portrait.png'); background-position: -28px -2px; transform: rotateY(0deg); }
-  32.5% { background-image: url('assets/animation/nature.png'); background-position: -358px -2px; transform: rotateY(180deg); }
-  40%   { background-image: url('assets/animation/nature.png'); background-position: -28px -2px; transform: rotateY(0deg); }
-  52.5% { background-image: url('assets/animation/candid.png'); background-position: -358px -2px; transform: rotateY(180deg); }
-  60%   { background-image: url('assets/animation/candid.png'); background-position: -28px -2px; transform: rotateY(0deg); }
-  72.5% { background-image: url('assets/animation/camera.png'); background-position: -358px -2px; transform: rotateY(180deg); }
-  80%   { background-image: url('assets/animation/camera.png'); background-position: -28px -2px; transform: rotateY(0deg); }
-  92.5% { background-image: url('assets/animation/wedding.png'); background-position: -358px -2px; transform: rotateY(180deg); }
+  0%    { background-image: url('/assets/animation/wedding.png'); background-position: -28px -2px; transform: rotateY(0deg); }
+  12.5% { background-image: url('/assets/animation/portrait.png'); background-position: -358px -2px; transform: rotateY(180deg); }
+  20%   { background-image: url('/assets/animation/portrait.png'); background-position: -28px -2px; transform: rotateY(0deg); }
+  32.5% { background-image: url('/assets/animation/nature.png'); background-position: -358px -2px; transform: rotateY(180deg); }
+  40%   { background-image: url('/assets/animation/nature.png'); background-position: -28px -2px; transform: rotateY(0deg); }
+  52.5% { background-image: url('/assets/animation/candid.png'); background-position: -358px -2px; transform: rotateY(180deg); }
+  60%   { background-image: url('/assets/animation/candid.png'); background-position: -28px -2px; transform: rotateY(0deg); }
+  72.5% { background-image: url('/assets/animation/camera.png'); background-position: -358px -2px; transform: rotateY(180deg); }
+  80%   { background-image: url('/assets/animation/camera.png'); background-position: -28px -2px; transform: rotateY(0deg); }
+  92.5% { background-image: url('/assets/animation/wedding.png'); background-position: -358px -2px; transform: rotateY(180deg); }
 }
 @-webkit-keyframes nextFlip7 {
-  0%  { background-image: url('assets/animation/wedding.png'); background-position: -2px -2px; transform: rotateY(0deg); }
-  13% { background-image: url('assets/animation/portrait.png'); background-position: -388px -2px; transform: rotateY(180deg); }
-  20% { background-image: url('assets/animation/portrait.png'); background-position: -2px -2px; transform: rotateY(0deg); }
-  33% { background-image: url('assets/animation/nature.png'); background-position: -388px -2px; transform: rotateY(180deg); }
-  40% { background-image: url('assets/animation/nature.png'); background-position: -2px -2px; transform: rotateY(0deg); }
-  53% { background-image: url('assets/animation/candid.png'); background-position: -388px -2px; transform: rotateY(180deg); }
-  60% { background-image: url('assets/animation/candid.png'); background-position: -2px -2px; transform: rotateY(0deg); }
-  73% { background-image: url('assets/animation/camera.png'); background-position: -388px -2px; transform: rotateY(180deg); }
-  80% { background-image: url('assets/animation/camera.png'); background-position: -2px -2px; transform: rotateY(0deg); }
-  93% { background-image: url('assets/animation/wedding.png'); background-position: -388px -2px; transform: rotateY(180deg); }
+  0%  { background-image: url('/assets/animation/wedding.png'); background-position: -2px -2px; transform: rotateY(0deg); }
+  13% { background-image: url('/assets/animation/portrait.png'); background-position: -388px -2px; transform: rotateY(180deg); }
+  20% { background-image: url('/assets/animation/portrait.png'); background-position: -2px -2px; transform: rotateY(0deg); }
+  33% { background-image: url('/assets/animation/nature.png'); background-position: -388px -2px; transform: rotateY(180deg); }
+  40% { background-image: url('/assets/animation/nature.png'); background-position: -2px -2px; transform: rotateY(0deg); }
+  53% { background-image: url('/assets/animation/candid.png'); background-position: -388px -2px; transform: rotateY(180deg); }
+  60% { background-image: url('/assets/animation/candid.png'); background-position: -2px -2px; transform: rotateY(0deg); }
+  73% { background-image: url('/assets/animation/camera.png'); background-position: -388px -2px; transform: rotateY(180deg); }
+  80% { background-image: url('/assets/animation/camera.png'); background-position: -2px -2px; transform: rotateY(0deg); }
+  93% { background-image: url('/assets/animation/wedding.png'); background-position: -388px -2px; transform: rotateY(180deg); }
 }
 @keyframes nextFlip7 {
-  0%  { background-image: url('assets/animation/wedding.png'); background-position: -2px -2px; transform: rotateY(0deg); }
-  13% { background-image: url('assets/animation/portrait.png'); background-position: -388px -2px; transform: rotateY(180deg); }
-  20% { background-image: url('assets/animation/portrait.png'); background-position: -2px -2px; transform: rotateY(0deg); }
-  33% { background-image: url('assets/animation/nature.png'); background-position: -388px -2px; transform: rotateY(180deg); }
-  40% { background-image: url('assets/animation/nature.png'); background-position: -2px -2px; transform: rotateY(0deg); }
-  53% { background-image: url('assets/animation/candid.png'); background-position: -388px -2px; transform: rotateY(180deg); }
-  60% { background-image: url('assets/animation/candid.png'); background-position: -2px -2px; transform: rotateY(0deg); }
-  73% { background-image: url('assets/animation/camera.png'); background-position: -388px -2px; transform: rotateY(180deg); }
-  80% { background-image: url('assets/animation/camera.png'); background-position: -2px -2px; transform: rotateY(0deg); }
-  93% { background-image: url('assets/animation/wedding.png'); background-position: -388px -2px; transform: rotateY(180deg); }
+  0%  { background-image: url('/assets/animation/wedding.png'); background-position: -2px -2px; transform: rotateY(0deg); }
+  13% { background-image: url('/assets/animation/portrait.png'); background-position: -388px -2px; transform: rotateY(180deg); }
+  20% { background-image: url('/assets/animation/portrait.png'); background-position: -2px -2px; transform: rotateY(0deg); }
+  33% { background-image: url('/assets/animation/nature.png'); background-position: -388px -2px; transform: rotateY(180deg); }
+  40% { background-image: url('/assets/animation/nature.png'); background-position: -2px -2px; transform: rotateY(0deg); }
+  53% { background-image: url('/assets/animation/candid.png'); background-position: -388px -2px; transform: rotateY(180deg); }
+  60% { background-image: url('/assets/animation/candid.png'); background-position: -2px -2px; transform: rotateY(0deg); }
+  73% { background-image: url('/assets/animation/camera.png'); background-position: -388px -2px; transform: rotateY(180deg); }
+  80% { background-image: url('/assets/animation/camera.png'); background-position: -2px -2px; transform: rotateY(0deg); }
+  93% { background-image: url('/assets/animation/wedding.png'); background-position: -388px -2px; transform: rotateY(180deg); }
 }
 
 @media (max-width: 1200px) {
@@ -1572,5 +1637,23 @@ h1, h2, h3, h4, h5, h6,
         grid-column: span 1;
         grid-row: auto;
         height: 280px;
+    }
+}
+
+/* Showcase Filter Responsive Controls */
+.mobile-filter-select {
+    display: none;
+}
+
+.desktop-filters {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .desktop-filters {
+        display: none !important;
+    }
+    .mobile-filter-select {
+        display: block !important;
     }
 }

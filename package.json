@@ -1,8 +1,0 @@
-{
-  "name": "breathart",
-  "version": "1.0.0",
-  "description": "Premium Photography Studio Portfolio",
-  "scripts": {
-    "dev": "npx http-server . -p 8080"
-  }
-}
