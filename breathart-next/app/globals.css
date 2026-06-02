@@ -276,21 +276,23 @@ h1, h2, h3, h4, h5, h6,
     50% { transform: translateY(-20px) rotate(1deg); }
 }
 
-/* --- NAVIGATION --- */
+/* --- PREMIUM SCROLL-MORPHING NAVBAR (FULL-WIDTH -> FLOATING PILL) --- */
 #navbar {
     position: fixed;
-    top: 0; width: 100%; 
-    padding: 1.8rem 0;
-    z-index: 1000;
-    background: rgba(43, 27, 20, 0.97); /* Premium dark espresso background always active */
-    backdrop-filter: blur(20px);
-    border-bottom: 1px dashed rgba(158, 112, 96, 0.2);
-    box-shadow: 0 10px 40px rgba(43, 27, 20, 0.25);
-    transition: padding 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 0;
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    transition: top 0.5s cubic-bezier(0.22, 1, 0.36, 1), padding 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* Scrolled state: floats down slightly and disconnects from screen edges */
 #navbar.scrolled {
-    padding: 1.2rem 0;
+    top: 20px;
+    padding: 0 2rem;
 }
 
 #navbar .nav-links a {
@@ -302,12 +304,36 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .nav-container { 
+    width: 100%;
+    max-width: 100%; /* Spans 100% full-width at rest */
+    margin: 0;
     display: flex; 
     flex-direction: row; /* Logo left, links right */
     justify-content: space-between;
     align-items: center; 
-    padding: 0 4rem; 
+    padding: 1.8rem 4rem; 
     position: relative; /* enable absolute-centering of nav */
+    background: rgba(43, 27, 20, 0.98); /* Premium dark espresso background always active */
+    border-bottom: 1px solid rgba(158, 112, 96, 0.15);
+    border-radius: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: border-radius 0.5s cubic-bezier(0.22, 1, 0.36, 1), 
+                padding 0.5s cubic-bezier(0.22, 1, 0.36, 1), 
+                background-color 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                max-width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    backdrop-filter: blur(20px);
+}
+
+/* Scrolled state: morphs smoothly into a floating rounded glass pill centered on screen */
+#navbar.scrolled .nav-container {
+    max-width: 1400px; /* Constrains width on scroll to center as a pill */
+    border-radius: 100px; /* Morphs into a fully rounded pill! */
+    padding: 1rem 3.5rem; /* Compact padding */
+    background: rgba(43, 27, 20, 0.85); /* Premium glassmorphism translucency */
+    border: 1px solid rgba(158, 112, 96, 0.25);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .logo { 
