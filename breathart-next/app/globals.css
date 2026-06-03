@@ -910,7 +910,8 @@ h1, h2, h3, h4, h5, h6,
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(158, 112, 96, 0.3);
-    padding: 0.5rem 1rem 0.5rem 0.85rem;
+    height: 48px;
+    padding: 0 1.25rem 0 1rem;
     border-radius: 50px;
     box-shadow: 0 10px 30px rgba(43, 27, 20, 0.1);
     z-index: 9999;
@@ -939,7 +940,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .payment-float-img {
-    height: 18px;
+    height: 34px;
     width: auto;
     object-fit: contain;
 }
@@ -965,14 +966,15 @@ h1, h2, h3, h4, h5, h6,
     .payment-float-banner {
         bottom: 1.25rem;
         left: 1.25rem;
-        padding: 0.4rem 0.8rem 0.4rem 0.7rem;
+        height: 38px;
+        padding: 0 1rem 0 0.8rem;
         gap: 0.5rem;
     }
     .payment-float-text {
         font-size: 0.7rem;
     }
     .payment-float-img {
-        height: 15px;
+        height: 26px;
     }
 }
 
