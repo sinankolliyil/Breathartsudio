@@ -643,6 +643,7 @@ export default function HomePage() {
                   <select
                     name="service"
                     required
+                    defaultValue=""
                     style={{
                       width: '100%',
                       background: 'transparent',
@@ -656,7 +657,7 @@ export default function HomePage() {
                       cursor: 'pointer',
                     }}
                   >
-                    <option value="" disabled selected style={{ background: 'var(--color-shade-2)', color: 'var(--color-text-muted)' }}>Choose a session...</option>
+                    <option value="" disabled style={{ background: 'var(--color-shade-2)', color: 'var(--color-text-muted)' }}>Choose a session...</option>
                     <option value="newborn" style={{ background: 'var(--color-shade-2)', color: 'var(--color-white)' }}>Newborn Photography</option>
                     <option value="wedding" style={{ background: 'var(--color-shade-2)', color: 'var(--color-white)' }}>Wedding Stories</option>
                     <option value="event" style={{ background: 'var(--color-shade-2)', color: 'var(--color-white)' }}>Event Management</option>
