@@ -2786,7 +2786,424 @@ h1, h2, h3, h4, h5, h6,
 }
 
 
+/* =====================================================
+   FULL RESPONSIVE OVERRIDES
+   ALL rules below are media-query-scoped.
+   Zero desktop styles are modified.
+   ===================================================== */
+
+/* ── Fixed Mobile Hamburger Button ── */
+.mobile-hamburger-btn {
+    display: none; /* hidden on desktop */
+}
+
+@media (max-width: 768px) {
+    /* Prevent top gap on scroll on mobile */
+    #navbar {
+        top: 0 !important;
+        padding: 0 !important;
+    }
+    #navbar .nav-container {
+        border-radius: 0 !important;
+        max-width: 100% !important;
+        z-index: 10005 !important; /* Keep the header container on top */
+    }
+
+    .mobile-hamburger-btn {
+        display: flex;
+        position: fixed;
+        right: -1px;
+        top: 0;
+        margin: 1.25rem;
+        z-index: 10006 !important; /* Stays on top of header and curved menu */
+        width: 48px; /* w-12 */
+        height: 48px; /* h-12 */
+        border-radius: 0 !important; /* rounded-none */
+        background: #FAF5F0 !important; /* Warm cream page background color */
+        border: 1px solid rgba(158, 112, 96, 0.2) !important;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .mobile-hamburger-inner {
+        position: relative;
+        width: 32px; /* w-8 */
+        height: 24px; /* h-6 */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .mobile-hamburger-line-span {
+        display: block;
+        height: 4px; /* h-1 */
+        width: 28px; /* w-7 */
+        background: #2B1B14 !important; /* Dark espresso line color */
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        transform-origin: center;
+    }
+
+    /* Hamburger to X transitions exactly matching standard Tailwind implementation */
+    .mobile-hamburger-line-span.open-1 {
+        transform: rotate(45deg) translateY(7.5px) translateX(6.5px);
+    }
+
+    .mobile-hamburger-line-span.open-2 {
+        opacity: 0;
+    }
+
+    .mobile-hamburger-line-span.open-3 {
+        transform: rotate(-45deg) translateY(-7.5px) translateX(6.5px);
+    }
+}
+
+/* Premium Curved Menu */
+#navbar.nav-menu-open {
+    transform: none !important;
+    z-index: 9999 !important;
+}
+
+#navbar.nav-menu-open .nav-container {
+    /* Keep the header background and styling completely unchanged when open */
+    background: rgba(43, 27, 20, 0.98) !important;
+    border-bottom: 1px solid rgba(158, 112, 96, 0.15) !important;
+}
+
+.curved-menu-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+}
+
+.curved-menu-panel {
+    position: fixed;
+    top: 77px; /* Position panel exactly below the mobile header */
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    width: 100vw;
+    max-width: 640px; /* max-w-screen-sm */
+    background: #2B1B14; /* Deep espresso matching header */
+    display: flex;
+    flex-direction: column;
+    box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.5);
+    padding: 0;
+    overflow: visible;
+}
+
+.curved-menu-top-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+}
+
+.curved-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid rgba(250, 245, 240, 0.15);
+}
+
+.curved-menu-logo {
+    display: flex;
+    align-items: center;
+}
+
+.curved-menu-body {
+    flex: 1;
+    padding: 2.5rem 2rem 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow-y: auto;
+}
+
+.curved-menu-section-label {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    opacity: 0.8;
+    border-bottom: 1px solid rgba(250, 245, 240, 0.15);
+    padding-bottom: 0.5rem;
+}
+
+.curved-menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.curved-menu-link-wrapper {
+    width: 100%;
+    border-bottom: 1px solid rgba(250, 245, 240, 0.15);
+}
+
+.curved-menu-link-wrapper a {
+    display: block;
+    padding: 1.25rem 0;
+    color: rgba(250, 245, 240, 0.9);
+    text-decoration: none;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.curved-menu-link-wrapper a:hover {
+    color: var(--color-gold);
+    padding-left: 10px;
+}
+
+.curved-menu-link-wrapper a.active {
+    color: var(--color-gold);
+}
+
+.curved-menu-link-content {
+    display: flex;
+    align-items: flex-start;
+}
+
+.curved-menu-index {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 100;
+    color: var(--color-gold);
+    margin-right: 0.75rem;
+    font-family: var(--font-heading);
+    opacity: 0.8;
+}
+
+.curved-menu-text-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.curved-menu-label {
+    display: inline-block;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 200;
+    color: rgba(250, 245, 240, 0.9);
+    text-transform: uppercase;
+    font-family: var(--font-heading);
+}
+
+.curved-menu-footer {
+    padding: 1.5rem 2rem;
+    border-top: 1px solid rgba(250, 245, 240, 0.15);
+    display: flex;
+    justify-content: space-between;
+    background: #2B1B14;
+}
+
+.curved-menu-socials {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.curved-menu-social-icon {
+    color: rgba(250, 245, 240, 0.7);
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.curved-menu-social-icon:hover {
+    color: var(--color-gold);
+    transform: translateY(-2px);
+}
+
+.curved-menu-svg-curve {
+    position: absolute;
+    top: 0;
+    left: -99px;
+    width: 100px;
+    height: 100%;
+    fill: #2B1B14; /* Matches panel espresso background */
+    stroke: none;
+    pointer-events: none;
+}
 
 
+/* ── @1024px — Tablet landscape ── */
+@media (max-width: 1024px) {
+    /* Why Choose Us: prevent overlap on tablet */
+    .why-content-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+    }
+    .why-image-box {
+        width: 100%;
+        height: 420px;
+    }
+    .why-text-area {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0 !important;
+        padding: 0;
+        position: static !important;
+    }
+    .why-bg-decor { display: none; }
+
+    /* Contact page: stack grid-2 at tablet */
+    .grid-2 { grid-template-columns: 1fr !important; gap: 3rem !important; }
+
+    /* About story grid */
+    .story-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+
+    /* Services grid: tighten gap */
+    .services-grid-redesign { gap: 3rem 3rem; }
+}
+
+/* ── @991px — Featured panel desktop/mobile switch (already exists, reinforce) ── */
+@media (max-width: 991px) {
+    .featured-panel-desktop { display: none !important; }
+    .featured-panel-mobile  { display: flex !important; }
+}
+
+/* ── @768px — Mobile ── */
+@media (max-width: 768px) {
+
+    /* --- NAVBAR --- */
+    .nav-links      { display: none !important; } /* hide desktop links */
+    .btn-nav        { display: none !important; } /* hide desktop CTA */
+
+    /* Fix nav-container for mobile: logo + hamburger only */
+    .nav-container {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 1rem 1.5rem !important;
+        gap: 0 !important;
+    }
+
+    /* When mobile menu is open, prevent pill morph from clipping panel */
+    #navbar.nav-menu-open .nav-container {
+        border-radius: 0 !important;
+    }
+    #navbar.scrolled.nav-menu-open {
+        padding: 0 !important;
+    }
+    #navbar.scrolled.nav-menu-open .nav-container {
+        border-radius: 0 !important;
+        max-width: 100% !important;
+    }
+
+    /* --- HERO --- */
+    .hero { padding: 9rem 0 5rem 0; }
+    .hero-left h1 { font-size: 2rem; white-space: normal !important; }
+    .hero-split    { flex-direction: column; gap: 3rem; }
+
+    /* --- PAGE HEADERS (About, Contact, Offers, Services) --- */
+    .page-header { padding: 140px 0 3rem 0; }
+    .page-header h1,
+    .page-header > div > h1 { font-size: 2.4rem !important; line-height: 1.15 !important; }
+
+    /* --- SECTION TITLES --- */
+    .section-title { font-size: 1.8rem !important; }
+    .section       { padding: 4rem 0; }
+
+    /* --- GALLERY GRIDS (01/02/03 sections) --- */
+    .gallery-grid { grid-template-columns: 1fr !important; gap: 1rem; }
+
+    /* --- WHY CHOOSE US --- */
+    .why-choose-us-section { padding: 5rem 0; }
+    .why-image-box { height: 320px; }
+    .why-text-card { padding: 2rem 1.5rem !important; }
+
+    /* --- HOME CONTACT FORM --- */
+    .home-contact-form-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    .home-contact-wrapper { padding: 2rem 1.5rem !important; }
+
+    /* --- CONTACT PAGE FORM --- */
+    .contact-page-dark-card { padding: 2rem 1.5rem !important; }
+    .contact-page-dark-card .form-grid-2 {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    /* Collapse the two inline grid rows in contact form */
+    .contact-page-dark-card form > div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    /* --- FOOTER --- */
+    .footer { padding: 5rem 2rem 3rem 2rem !important; }
+    .footer-grid { gap: 3rem !important; }
+
+    /* --- ABOUT FEATURES GRID --- */
+    .services-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important; }
+
+    /* --- REMAINING SERVICES GRID (2x2 on home) --- */
+    .remaining-services-grid { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+
+    /* --- BENTO GALLERY ROWS --- */
+    .bento-grid-horizontal {
+        grid-template-rows: repeat(2, 160px);
+        grid-auto-columns: 180px;
+        gap: 0.75rem;
+    }
+    .bento-scroll-container { padding: 0 1rem; }
+
+    /* --- WHY CHOOSE section text alignment --- */
+    .why-text-area { text-align: left !important; }
+}
+
+/* ── @480px — Small phones ── */
+@media (max-width: 480px) {
+    .hero-left h1 { font-size: 1.7rem; }
+    .page-header h1,
+    .page-header > div > h1 { font-size: 1.9rem !important; }
+    .section-title  { font-size: 1.5rem !important; }
+    .container { padding: 0 1.25rem !important; }
+
+    /* Prevent section header text from overflowing */
+    .section-header p { font-size: 0.85rem; }
+
+    /* Hero buttons stack */
+    .hero-buttons { flex-direction: column; gap: 1rem; align-items: center; }
+    .btn-gold, .btn-outline { width: 100%; text-align: center; }
+
+    /* Explore button */
+    .explore-btn { padding: 0.85rem 1.5rem; font-size: 0.8rem; }
+
+    /* Bento grid smaller */
+    .bento-grid-horizontal {
+        grid-template-rows: repeat(2, 140px);
+        grid-auto-columns: 160px;
+        gap: 0.6rem;
+    }
+
+    /* Services card heights on mobile */
+    .gallery-frame { aspect-ratio: 4/3 !important; }
+    .gallery-grid  { gap: 0.75rem; }
+
+    /* Footer tighter */
+    .footer { padding: 4rem 1.25rem 2.5rem 1.25rem !important; }
+
+    /* Feature cards on about page */
+    .feature-card { min-height: 300px !important; }
+
+    /* Why choose us */
+    .why-image-box { height: 260px; }
+}
+
+/* ── @375px — iPhone SE / small phones ── */
+@media (max-width: 375px) {
+    .hero-left h1 { font-size: 1.5rem; }
+    .section-title { font-size: 1.3rem !important; }
+    .cinematic-title { font-size: 0.6rem !important; letter-spacing: 2px !important; }
+    .nav-container { padding: 0.9rem 1rem !important; }
+}
 
 

@@ -122,7 +122,7 @@ export default function AboutPage() {
           <div className="animate-reveal text-center" style={{ maxWidth: '900px', margin: '0 auto' }}>
             <span className="cinematic-title">Our Story</span>
             <h2 className="section-title">Professional &amp; Premium Experience</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', textAlign: 'left', marginTop: '4rem' }}>
+            <div className="story-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', textAlign: 'left', marginTop: '4rem' }}>
               <div>
                 <p style={{ color: 'var(--color-text-muted)', lineHeight: 2, fontSize: '1rem', marginBottom: '2rem' }}>
                   At BreathArt Photography Studio, we deliver more than just photographs—we create timeless visual experiences. With years of professional expertise, our team combines artistic vision with advanced photography techniques to capture moments with elegance and precision.
