@@ -48,19 +48,55 @@ const MENU_SLIDE_ANIMATION = {
 };
 
 // NavLink item styled with a clean layout for mobile links
-function NavLink({ heading, href, index, isActive, onClose }) {
+function NavLink({ heading, href, index, isActive, onClose, subItems }) {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className="curved-menu-link-wrapper" onClick={onClose}>
-      <Link href={href}>
-        <div className="curved-menu-link-content">
-          <span className="curved-menu-index">
-            0{index}.
-          </span>
-          <div className="curved-menu-text-container">
-            <span className="curved-menu-label">{heading}</span>
+    <div className="curved-menu-link-wrapper">
+      {subItems ? (
+        <>
+          <div 
+            className="curved-menu-link-content" 
+            style={{ cursor: 'pointer', padding: '1.25rem 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }} 
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <span className="curved-menu-index">
+                0{index}.
+              </span>
+              <span className="curved-menu-label">{heading}</span>
+            </div>
+            <i className={`fas fa-chevron-${isOpen ? 'up' : 'down'}`} style={{ color: 'var(--color-gold)', marginRight: '1.5rem', fontSize: '1rem', transition: 'transform 0.3s ease' }}></i>
           </div>
-        </div>
-      </Link>
+          {isOpen && (
+            <div style={{ paddingLeft: '2.5rem', paddingBottom: '1.25rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              {subItems.map((sub) => (
+                <Link 
+                  key={sub.href} 
+                  href={sub.href} 
+                  onClick={onClose} 
+                  style={{ fontSize: '1.2rem', color: 'rgba(250, 245, 240, 0.7)', textTransform: 'uppercase', fontFamily: 'var(--font-heading)', transition: 'color 0.3s' }}
+                  onMouseEnter={(e) => e.target.style.color = 'var(--color-gold)'}
+                  onMouseLeave={(e) => e.target.style.color = 'rgba(250, 245, 240, 0.7)'}
+                >
+                  {sub.heading}
+                </Link>
+              ))}
+            </div>
+          )}
+        </>
+      ) : (
+        <Link href={href} onClick={onClose}>
+          <div className="curved-menu-link-content">
+            <span className="curved-menu-index">
+              0{index}.
+            </span>
+            <div className="curved-menu-text-container">
+              <span className="curved-menu-label">{heading}</span>
+            </div>
+          </div>
+        </Link>
+      )}
     </div>
   );
 }
@@ -117,7 +153,15 @@ export default function Navbar() {
 
   const navItems = [
     { heading: 'Home', href: '/' },
-    { heading: 'Services', href: '/services' },
+    { 
+      heading: 'Services', 
+      href: '/services',
+      subItems: [
+        { heading: 'Photography', href: '/services/photography' },
+        { heading: 'Videography', href: '/services/videography' },
+        { heading: 'Event Management', href: '/services/event-management' }
+      ]
+    },
     { heading: 'Offers', href: '/offers' },
     { heading: 'About Us', href: '/about' },
     { heading: 'Contact', href: '/contact' },
@@ -141,21 +185,21 @@ export default function Navbar() {
               <div className="mega-menu">
                 <div className="mega-menu-container" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
                   <div className="mega-menu-column">
-                    <Link href="/services#service-maternity">
+                    <Link href="/services/photography">
                       <span className="mega-title">Photography</span>
-                      <span className="mega-desc">Elegant maternity, newborn, and portrait sessions</span>
+                      <span className="mega-desc">Elegant maternity, newborn, wedding, and lifestyle sessions</span>
                     </Link>
                   </div>
                   <div className="mega-menu-column">
-                    <Link href="/services#service-couple">
+                    <Link href="/services/videography">
                       <span className="mega-title">Videography</span>
-                      <span className="mega-desc">Cinematic films and wedding storytelling</span>
+                      <span className="mega-desc">Cinematic films and professional visual storytelling</span>
                     </Link>
                   </div>
                   <div className="mega-menu-column">
-                    <Link href="/services#service-event">
+                    <Link href="/services/event-management">
                       <span className="mega-title">Event Management</span>
-                      <span className="mega-desc">Vibrant high-end celebration planning</span>
+                      <span className="mega-desc">Vibrant high-end celebration planning and design</span>
                     </Link>
                   </div>
                 </div>
@@ -229,6 +273,7 @@ export default function Navbar() {
                       index={index + 1}
                       isActive={isActive(item.href)}
                       onClose={() => setMenuOpen(false)}
+                      subItems={item.subItems}
                     />
                   ))}
                 </div>
