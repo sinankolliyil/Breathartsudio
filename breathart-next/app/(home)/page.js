@@ -81,8 +81,8 @@ export default function HomePage() {
               <Link href="/services" className="btn-hero-primary">
                 Explore Services
               </Link>
-              <Link href="/offers" className="btn-hero-secondary">
-                Special Offers <span className="arrow">→</span>
+              <Link href="/landing" className="btn-hero-secondary">
+                Exclusive Offers <span className="arrow">→</span>
               </Link>
             </div>
           </div>
@@ -352,12 +352,12 @@ export default function HomePage() {
             sectionId="newborn"
             gridCols="repeat(3, 1fr)"
             items={[
-              { src: '/assets/newborn_color.png', alt: 'Newborn 1', title: 'Pure Love' },
-              { src: '/assets/newborn.png', alt: 'Newborn 2', title: 'Soft Dreams' },
-              { src: '/assets/newborn_color.png', alt: 'Newborn 3', title: 'First Light' },
-              { src: '/assets/pastel.png', alt: 'Newborn 4', title: 'Tender Grip' },
-              { src: '/assets/newborn_color.png', alt: 'Newborn 5', title: 'Peaceful Sleep' },
-              { src: '/assets/minimal.png', alt: 'Newborn 6', title: 'Eternal Beginning' },
+              { src: '/assets/themes/theme_aviator.png', alt: 'Theme 1', title: 'Little Aviator' },
+              { src: '/assets/themes/theme_wizard.png', alt: 'Theme 2', title: 'Magical Wizard' },
+              { src: '/assets/themes/theme_beach.png', alt: 'Theme 3', title: 'Beach Boss' },
+              { src: '/assets/themes/theme_moon.png', alt: 'Theme 4', title: 'Sweet Dreams Moon' },
+              { src: '/assets/themes/theme_rose_heart.png', alt: 'Theme 5', title: 'Rose Heart' },
+              { src: '/assets/themes/theme_pampas.png', alt: 'Theme 6', title: 'Rustic Pampas' },
             ]}
           />
           <div className="explore-more-container animate-reveal active">

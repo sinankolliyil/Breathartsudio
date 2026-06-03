@@ -91,7 +91,7 @@ export default function Footer() {
               <img src="/assets/logo/photography-logo.webp" alt="BreathArt Photography Logo" className="group-logo" />
             </div>
           </div>
-          <a href="#" className="btn-group-landing">View Studio Landing Page</a>
+          <Link href="/landing" className="btn-group-landing">View Studio Landing Page</Link>
         </div>
 
         <div className="footer-bottom">

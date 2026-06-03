@@ -1,10 +1,11 @@
 'use client';
+
 import { useState } from 'react';
 
 export default function PaymentFloat() {
-  const [visible, setVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(true);
 
-  if (!visible) return null;
+  if (!isVisible) return null;
 
   return (
     <div className="payment-float-banner">
@@ -12,14 +13,14 @@ export default function PaymentFloat() {
         <span className="payment-float-text">We accept</span>
         <img 
           src="/assets/logo/tamara-logo.webp" 
-          alt="Tamara Payment Logo" 
+          alt="Tamara Accepted" 
           className="payment-float-img" 
         />
       </div>
       <button 
         className="payment-float-close" 
-        onClick={() => setVisible(false)} 
-        aria-label="Close payment information"
+        onClick={() => setIsVisible(false)}
+        aria-label="Close Payment Banner"
       >
         <i className="fas fa-times"></i>
       </button>
