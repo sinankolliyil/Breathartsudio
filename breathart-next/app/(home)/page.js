@@ -59,22 +59,30 @@ export default function HomePage() {
         <div className="hero-overlay"></div>
 
         <div className="container hero-split">
-          {/* Left Side: Cinematic Copy */}
+          {/* Left Side: Cinematic Copy (Redesigned like NOHA reference) */}
           <div className="hero-left">
-            <h1>
-              <span className="text-gold">BreathArt</span> Photography <br />
-              That Touches Your <span className="text-gold">Heart.</span>
+            <div className="hero-pre-title">
+              <span className="hero-pre-line"></span>
+              <span className="hero-pre-text">Creative Photography Studio</span>
+            </div>
+            <h1 className="hero-main-title">
+              BreathArt
             </h1>
+            <h2 className="hero-subtitle">
+              Photography That Touches Your Heart
+            </h2>
             <div className="mobile-only-hero-book">
               <PageFlipDemo />
             </div>
-            <p>Turning fleeting moments into timeless memories, one frame at a time.</p>
-            <div className="hero-buttons">
-              <Link href="/services" className="btn btn-gold">
+            <p className="hero-description">
+              We capture exceptional moments that reflect your raw emotions — creating visual legacies that fuse timeless elegance with artistic precision.
+            </p>
+            <div className="hero-buttons-new">
+              <Link href="/services" className="btn-hero-primary">
                 Explore Services
               </Link>
-              <Link href="/offers" className="btn btn-outline">
-                Special Offers
+              <Link href="/offers" className="btn-hero-secondary">
+                Special Offers <span className="arrow">→</span>
               </Link>
             </div>
           </div>
@@ -85,7 +93,7 @@ export default function HomePage() {
         </div>
 
         <div className="scroll-indicator">
-          <span className="cinematic-title" style={{ fontSize: '0.6rem', color: 'var(--color-gold)' }}>
+          <span className="cinematic-title" style={{ fontSize: '0.45rem', color: 'var(--color-gold)' }}>
             Scroll To Explore
           </span>
           <div className="mouse">

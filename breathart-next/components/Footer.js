@@ -5,68 +5,81 @@ export default function Footer() {
     <footer className="footer">
       <div className="container">
         <div className="footer-grid">
-          <div className="footer-col">
-            <h2 className="logo" style={{ marginBottom: '1.5rem', fontSize: '1.5rem', textAlign: 'left' }}>
-              BreathArt
-            </h2>
-            <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', lineHeight: 1.8 }}>
-              Dubai&apos;s premium photography studio specializing in capturing cinematic stories that last a lifetime.
+          {/* Col 1: Brand & Philosophy */}
+          <div className="footer-col brand-col">
+            <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', marginBottom: '1.5rem' }}>
+              <img src="/assets/logo/BreathArt Photography Logo.png" alt="BreathArt Photography Logo" style={{ height: '45px', width: 'auto', objectFit: 'contain' }} />
+            </Link>
+            <p className="footer-desc">
+              Dubai&apos;s luxury photography studio specializing in cinematic visual legacies. We turn fleeting moments into timeless fine-art treasures.
             </p>
           </div>
+
+          {/* Col 2: Services */}
           <div className="footer-col">
-            <h4>Quick Links</h4>
+            <h4>Services</h4>
             <ul>
               <li>
-                <Link href="/">Home</Link>
-              </li>
-              <li className="dropdown">
-                <Link href="/services" className="dropdown-trigger">
-                  Services <i className="fas fa-chevron-down"></i>
-                </Link>
-                <ul className="dropdown-menu">
-                  <li>
-                    <Link href="/services#service-wedding">Photography</Link>
-                  </li>
-                  <li>
-                    <Link href="/services#service-corporate">Videography</Link>
-                  </li>
-                  <li>
-                    <Link href="/services#service-event">Event Management</Link>
-                  </li>
-                </ul>
+                <Link href="/services#service-newborn">Newborn Portraiture</Link>
               </li>
               <li>
-                <Link href="/offers">Offers</Link>
+                <Link href="/services#service-wedding">Wedding Stories</Link>
               </li>
               <li>
-                <Link href="/about">About Us</Link>
+                <Link href="/services#service-corporate">Corporate Branding</Link>
               </li>
               <li>
-                <Link href="/contact">Contact</Link>
+                <Link href="/services#service-event">Event Management</Link>
               </li>
             </ul>
           </div>
+
+          {/* Col 3: Studio */}
           <div className="footer-col">
-            <h4>Connect</h4>
-            <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', marginBottom: '1rem' }}>
-              <i className="fas fa-envelope" style={{ color: 'var(--color-gold)', marginRight: '10px' }}></i>
+            <h4>Studio</h4>
+            <ul>
+              <li>
+                <Link href="/about">Our Philosophy</Link>
+              </li>
+              <li>
+                <Link href="/offers">Special Catalogs</Link>
+              </li>
+              <li>
+                <Link href="/contact">Book Session</Link>
+              </li>
+              <li>
+                <Link href="/contact">Inquiries</Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 4: Contact & Socials */}
+          <div className="footer-col contact-col">
+            <h4>Initiate Story</h4>
+            <p className="footer-contact-item">
+              <i className="fas fa-envelope"></i>
               <a href="mailto:hello@breathart.com">hello@breathart.com</a>
             </p>
-            <div className="social-links">
+            <p className="footer-contact-item">
+              <i className="fas fa-phone"></i>
+              <a href="tel:+971000000000">+971 00 000 0000</a>
+            </p>
+            <div className="footer-social-links">
               <a href="https://wa.me/971000000000" target="_blank" rel="noopener noreferrer" className="whatsapp">
                 <i className="fab fa-whatsapp"></i>
-              </a>
-              <a href="#" className="facebook">
-                <i className="fab fa-facebook-f"></i>
               </a>
               <a href="#" className="instagram">
                 <i className="fab fa-instagram"></i>
               </a>
+              <a href="#" className="facebook">
+                <i className="fab fa-facebook-f"></i>
+              </a>
             </div>
           </div>
         </div>
+
         <div className="footer-bottom">
-          <p>&copy; 2026 BreathArt Creative Vision Studio. All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} BreathArt Creative Studio. Crafted for Cinematic Elegance.</p>
         </div>
       </div>
     </footer>
