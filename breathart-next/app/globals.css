@@ -213,27 +213,33 @@ h1, h2, h3, h4, h5, h6,
 /* Scroll Indicator Refinement */
 .scroll-indicator {
     position: absolute;
-    bottom: 2rem;
+    bottom: 1.5rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 20;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 0.6rem;
+}
+
+@media (max-width: 991px) {
+    .scroll-indicator {
+        display: none !important;
+    }
 }
 
 .mouse {
-    width: 24px;
-    height: 40px;
-    border: 2px solid rgba(212, 175, 55, 0.3);
-    border-radius: 20px;
+    width: 16px;
+    height: 28px;
+    border: 1.5px solid rgba(158, 112, 96, 0.35);
+    border-radius: 10px;
     position: relative;
 }
 
 .wheel {
-    width: 2px;
-    height: 8px;
+    width: 1.5px;
+    height: 6px;
     background: var(--color-gold);
     position: absolute;
     top: 8px;
@@ -907,6 +913,10 @@ h1, h2, h3, h4, h5, h6,
     .hero-left h1 { 
         font-size: 2.2rem; 
         white-space: normal !important; 
+        font-weight: 500 !important;
+        letter-spacing: 3px !important;
+        text-indent: 3px;
+        line-height: 1.35 !important;
     }
     .hero-left p { margin: 0 auto 3rem auto; font-size: 1rem; }
     .hero-buttons { justify-content: center; }
@@ -3094,7 +3104,14 @@ h1, h2, h3, h4, h5, h6,
 
     /* --- HERO --- */
     .hero { padding: 9rem 0 5rem 0; }
-    .hero-left h1 { font-size: 2rem; white-space: normal !important; }
+    .hero-left h1 { 
+        font-size: 2rem; 
+        white-space: normal !important; 
+        font-weight: 500 !important;
+        letter-spacing: 3px !important;
+        text-indent: 3px;
+        line-height: 1.35 !important;
+    }
     .hero-split    { flex-direction: column; gap: 3rem; }
 
     /* --- PAGE HEADERS (About, Contact, Offers, Services) --- */
@@ -3157,7 +3174,13 @@ h1, h2, h3, h4, h5, h6,
 
 /* ── @480px — Small phones ── */
 @media (max-width: 480px) {
-    .hero-left h1 { font-size: 1.7rem; }
+    .hero-left h1 { 
+        font-size: 1.7rem; 
+        font-weight: 500 !important;
+        letter-spacing: 2px !important;
+        text-indent: 2px;
+        line-height: 1.35 !important;
+    }
     .page-header h1,
     .page-header > div > h1 { font-size: 1.9rem !important; }
     .section-title  { font-size: 1.5rem !important; }
@@ -3196,7 +3219,13 @@ h1, h2, h3, h4, h5, h6,
 
 /* ── @375px — iPhone SE / small phones ── */
 @media (max-width: 375px) {
-    .hero-left h1 { font-size: 1.5rem; }
+    .hero-left h1 { 
+        font-size: 1.5rem; 
+        font-weight: 500 !important;
+        letter-spacing: 2px !important;
+        text-indent: 2px;
+        line-height: 1.35 !important;
+    }
     .section-title { font-size: 1.3rem !important; }
     .cinematic-title { font-size: 0.6rem !important; letter-spacing: 2px !important; }
     .nav-container { padding: 0.9rem 1rem !important; }
@@ -3230,16 +3259,166 @@ h1, h2, h3, h4, h5, h6,
     }
 }
 
-/* Feature Cards Premium Interactive Effects */
-.feature-card {
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+/* --- PREMIUM EDITORIAL FEATURE CARDS --- */
+.premium-feature-card {
+    position: relative;
+    padding: 3rem 2.2rem;
+    background: var(--color-shade-2); /* Warm beige shade */
+    border: 1px solid rgba(158, 112, 96, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    text-align: left;
+    overflow: hidden;
+    border-radius: 4px; /* Crisp luxury corners */
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.feature-card:hover {
-    transform: translateY(-8px) !important;
-    border-color: var(--color-gold) !important;
-    background-color: var(--color-shade-3) !important;
-    box-shadow: 0 20px 40px rgba(158, 112, 96, 0.08) !important;
+
+.premium-feature-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
 }
+
+.premium-feature-num {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--color-gold);
+    opacity: 0.5;
+    transition: opacity 0.4s ease;
+}
+
+.premium-feature-icon-box {
+    color: var(--color-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premium-feature-title {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-white); /* Deep espresso */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.35;
+    margin: 0;
+}
+
+.premium-feature-desc {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.premium-feature-hover-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 0;
+    background: var(--color-gold);
+    transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hover States */
+.premium-feature-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(158, 112, 96, 0.4);
+    background: var(--color-shade-3); /* Darkens slightly on hover */
+    box-shadow: 0 20px 40px rgba(43, 27, 20, 0.04);
+}
+
+.premium-feature-card:hover .premium-feature-hover-line {
+    width: 100%;
+}
+
+.premium-feature-card:hover .premium-feature-icon-box {
+    transform: scale(1.15) rotate(-5deg);
+}
+
+.premium-feature-card:hover .premium-feature-num {
+    opacity: 1;
+}
+
+/* Custom Trail Cursor Styles matching Noha Interiors design reference */
+@media (min-width: 992px) {
+    /* Hide native cursor on desktop to allow custom rendering */
+    body, a, button, select, input, textarea, .filter-btn, .premium-feature-card, .btn, .btn-premium, .why-explore-btn, .explore-btn {
+        cursor: none !important;
+    }
+}
+
+.custom-cursor-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-gold);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-top: -3px;
+    margin-left: -3px;
+    pointer-events: none;
+    z-index: 99999;
+    transition: transform 0.05s linear, opacity 0.3s ease, width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+}
+
+.custom-cursor-ring {
+    width: 32px;
+    height: 32px;
+    border: 1.5px solid var(--color-gold);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-top: -16px;
+    margin-left: -16px;
+    pointer-events: none;
+    z-index: 99998;
+    transition: opacity 0.3s ease, width 0.3s cubic-bezier(0.16, 1, 0.3, 1), height 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Hidden state */
+.custom-cursor-dot.cursor-hidden,
+.custom-cursor-ring.cursor-hidden {
+    opacity: 0;
+}
+
+/* Hovered State: Expand Ring & blend */
+.custom-cursor-ring.cursor-hovered {
+    width: 48px;
+    height: 48px;
+    margin-top: -24px;
+    margin-left: -24px;
+    background-color: rgba(158, 112, 96, 0.1);
+    border-color: var(--color-gold);
+}
+
+.custom-cursor-dot.cursor-hovered {
+    width: 8px;
+    height: 8px;
+    margin-top: -4px;
+    margin-left: -4px;
+    background-color: var(--color-white);
+}
+
+/* Clicked State: Shrink Ring */
+.custom-cursor-ring.cursor-clicked {
+    width: 24px;
+    height: 24px;
+    margin-top: -12px;
+    margin-left: -12px;
+    background-color: rgba(158, 112, 96, 0.25);
+    border-color: var(--color-gold);
+}
+
 
 
 

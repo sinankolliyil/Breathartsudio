@@ -527,15 +527,19 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Premium Redesigned Features Grid */}
-          <div className="services-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', marginTop: '5rem', gap: '2.5rem' }}>
-            <FeatureCard icon="fas fa-user-tie" title="Experienced Professional Photographers" description="Master artists with decades of collective experience." />
-            <FeatureCard icon="fas fa-female" title="Dedicated Lady Staff for Maternity" description="Ensuring comfort and privacy for maternity & newborn sessions." delay={0.1} />
-            <FeatureCard icon="fas fa-mountain" title="Premium Studio Environment" description="State-of-the-art space designed for creative excellence." delay={0.2} />
-            <FeatureCard icon="fas fa-camera" title="High-End Equipment & Lighting" description="The latest mirrorless technology and Profoto lighting." delay={0.3} />
-            <FeatureCard icon="fas fa-shipping-fast" title="Fast 24-Hour Photo Delivery" description="Rapid turn-around without compromising art quality." delay={0.4} />
-            <FeatureCard icon="fas fa-heart" title="Trusted by 1000+ Happy Clients" description="Building lasting relationships through exceptional art." delay={0.5} />
+      {/* Redesigned Premium Features Section (Warm Cream Background) */}
+      <section id="premium-features" className="section" style={{ background: 'var(--color-black)', paddingTop: '2rem', paddingBottom: '6rem' }}>
+        <div className="container">
+          <div className="services-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem' }}>
+            <FeatureCard index={1} icon="fas fa-user-tie" title="Experienced Professional Photographers" description="Master artists with decades of collective experience." />
+            <FeatureCard index={2} icon="fas fa-female" title="Dedicated Lady Staff for Maternity" description="Ensuring comfort and privacy for maternity & newborn sessions." />
+            <FeatureCard index={3} icon="fas fa-mountain" title="Premium Studio Environment" description="State-of-the-art space designed for creative excellence." />
+            <FeatureCard index={4} icon="fas fa-camera" title="High-End Equipment & Lighting" description="The latest mirrorless technology and Profoto lighting." />
+            <FeatureCard index={5} icon="fas fa-shipping-fast" title="Fast 24-Hour Photo Delivery" description="Rapid turn-around without compromising art quality." />
+            <FeatureCard index={6} icon="fas fa-heart" title="Trusted by 1000+ Happy Clients" description="Building lasting relationships through exceptional art." />
           </div>
         </div>
       </section>

@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import BackgroundLayers from '@/components/BackgroundLayers';
 import WhatsAppFloat from '@/components/WhatsAppFloat';
 import ScrollTopButton from '@/components/ScrollTopButton';
+import CustomCursor from '@/components/CustomCursor';
 
 export const metadata = {
   title: {
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="fade-in active">
+        <CustomCursor />
         <BackgroundLayers />
         <Navbar />
         {children}

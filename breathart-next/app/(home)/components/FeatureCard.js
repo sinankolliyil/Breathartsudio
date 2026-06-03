@@ -9,56 +9,21 @@ const iconMap = {
   'fas fa-heart': Heart,
 };
 
-export default function FeatureCard({ icon, title, description, delay = 0 }) {
+export default function FeatureCard({ icon, title, description, index }) {
   const IconComponent = iconMap[icon] || Camera;
+  const numStr = index < 10 ? `0${index}` : `${index}`;
 
   return (
-    <div
-      className="feature-card animate-reveal active"
-      style={{
-        padding: '2.5rem 2rem',
-        border: '1px solid rgba(158, 112, 96, 0.12)',
-        background: 'var(--color-shade-2)',
-        textAlign: 'center',
-        borderRadius: '12px',
-        boxShadow: '0 10px 30px rgba(43, 27, 20, 0.02)',
-        transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: '1rem',
-      }}
-    >
-      <div 
-        style={{
-          width: '60px',
-          height: '60px',
-          borderRadius: '50%',
-          background: 'rgba(158, 112, 96, 0.08)',
-          display: 'flex',
-          alignItems: 'center',
-          justify-content: 'center',
-          color: 'var(--color-gold)',
-          marginBottom: '0.5rem',
-        }}
-      >
-        <IconComponent size={24} />
+    <div className="premium-feature-card animate-reveal active">
+      <div className="premium-feature-header">
+        <span className="premium-feature-num">{numStr}</span>
+        <div className="premium-feature-icon-box">
+          <IconComponent size={20} strokeWidth={1.5} />
+        </div>
       </div>
-      <h3 style={{ 
-        fontFamily: 'var(--font-heading)', 
-        fontSize: '1.15rem', 
-        fontWeight: '600', 
-        color: 'var(--color-white)',
-        textTransform: 'uppercase',
-        letterSpacing: '1px',
-        margin: 0
-      }}>{title}</h3>
-      <p style={{ 
-        color: 'var(--color-text-muted)', 
-        fontSize: '0.85rem',
-        lineHeight: '1.6',
-        margin: 0
-      }}>{description}</p>
+      <h3 className="premium-feature-title">{title}</h3>
+      <p className="premium-feature-desc">{description}</p>
+      <div className="premium-feature-hover-line"></div>
     </div>
   );
 }
