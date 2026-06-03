@@ -1835,9 +1835,10 @@ h1, h2, h3, h4, h5, h6,
     .page-flip-demo .container {
         width: 420px;
         height: 420px;
+        left: 50% !important;
+        margin: 0 0 0 -210px !important; /* Shift left by half width to center on screen */
         transform: scale(0.72) !important;
         transform-origin: center top !important;
-        margin: 0 auto !important;
     }
 
     .page-flip-demo .book {
@@ -3344,10 +3345,14 @@ h1, h2, h3, h4, h5, h6,
     /* --- HERO --- */
     .hero { padding: 9rem 0 5rem 0; }
     .hero-main-title { 
-        font-size: clamp(2rem, 6vw, 3.2rem) !important;
+        font-size: clamp(3rem, 8vw, 3.8rem) !important;
         letter-spacing: -1.5px !important;
         line-height: 1.05 !important;
         margin-bottom: 0.5rem !important;
+    }
+    .hero-pre-text {
+        font-size: 0.55rem !important;
+        letter-spacing: 2px !important;
     }
     .hero-subtitle {
         font-size: 1.2rem !important;
@@ -3459,8 +3464,12 @@ h1, h2, h3, h4, h5, h6,
 /* ── @480px — Small phones ── */
 @media (max-width: 480px) {
     .hero-main-title { 
-        font-size: 1.8rem !important;
+        font-size: 2.8rem !important;
         letter-spacing: -1px !important;
+    }
+    .hero-pre-text {
+        font-size: 0.5rem !important;
+        letter-spacing: 1.5px !important;
     }
     .hero-subtitle {
         font-size: 1rem !important;
@@ -3542,7 +3551,7 @@ h1, h2, h3, h4, h5, h6,
         max-width: 420px !important;
     }
     .mobile-only-hero-book .book {
-        left: -75px !important;
+        left: -25px !important;
     }
     .desktop-only-hero-book {
         display: none !important;
