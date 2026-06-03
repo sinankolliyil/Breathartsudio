@@ -86,8 +86,8 @@ export default function Footer() {
           <div className="group-company-wrapper">
             <span className="group-label">BreathArt Group:</span>
             <div className="group-logos">
-              <img src="/assets/logo/institute_logo.png" alt="BreathArt Academy Logo" className="group-logo" />
-              <img src="/assets/logo/marketing_logo.webp" alt="BreathArt Marketing Logo" className="group-logo" />
+              <img src="/assets/logo/institute_logo.png" alt="BreathArt Academy Logo" className="group-logo institute-logo" />
+              <img src="/assets/logo/marketing_logo.webp" alt="BreathArt Marketing Logo" className="group-logo marketing-logo" />
               <img src="/assets/logo/photography-logo.webp" alt="BreathArt Photography Logo" className="group-logo" />
             </div>
           </div>

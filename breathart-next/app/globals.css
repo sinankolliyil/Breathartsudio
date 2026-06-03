@@ -1202,6 +1202,16 @@ h1, h2, h3, h4, h5, h6,
     filter: brightness(0.9) contrast(1.1);
 }
 
+.group-logo.institute-logo {
+    height: 42px;
+    margin-right: -0.5rem;
+    margin-left: -0.15rem;
+}
+
+.group-logo.marketing-logo {
+    margin-right: 0.9rem;
+}
+
 .group-logo:hover {
     opacity: 1;
 }
@@ -1245,6 +1255,14 @@ h1, h2, h3, h4, h5, h6,
     }
     .group-logo {
         height: 30px;
+    }
+    .group-logo.institute-logo {
+        height: 35px;
+        margin-right: -0.4rem;
+        margin-left: -0.1rem;
+    }
+    .group-logo.marketing-logo {
+        margin-right: 0.7rem;
     }
 }
 
