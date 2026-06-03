@@ -1000,9 +1000,9 @@ h1, h2, h3, h4, h5, h6,
 .gallery-frame {
     position: relative;
     overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-    aspect-ratio: 1/1;
+    border-radius: 0 !important; /* Completely sharp borders, no curved edges */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    aspect-ratio: 3/2; /* Reduced height, landscape aspect ratio */
     background: #eee;
 }
 
@@ -1070,6 +1070,86 @@ h1, h2, h3, h4, h5, h6,
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+}
+
+/* --- GALLERY DETAILS BELOW IMAGE FRAME (Reference: Noha Interiors / ASTUDIO style) --- */
+.gallery-item-link {
+    text-decoration: none !important;
+    color: inherit !important;
+    display: block;
+}
+
+.gallery-item-click {
+    cursor: pointer;
+    display: block;
+}
+
+.gallery-details {
+    margin-top: 1.25rem; /* Gap between image container and divider line */
+    padding: 1.25rem 0.5rem 1rem 0.5rem; /* Gap below the line before text heading starts */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: transparent;
+    transition: all 0.4s ease;
+    border-top: 1px solid rgba(158, 112, 96, 0.22); /* Suspended line divider */
+}
+
+.gallery-details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.gallery-details-title {
+    font-family: var(--font-heading);
+    font-size: 1.3rem; /* Elegant serif-ish display size */
+    font-weight: 500;
+    color: var(--color-white); /* Deep espresso */
+    margin: 0;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.gallery-details-num {
+    font-weight: 300;
+    color: var(--color-gold);
+    margin-right: 0.25rem;
+}
+
+.gallery-details-arrow {
+    font-size: 1.2rem;
+    color: var(--color-text-muted);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+}
+
+.gallery-details-sub {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+    transition: color 0.3s ease;
+}
+
+/* Hover effects for details */
+.gallery-item:hover .gallery-details-title {
+    color: var(--color-gold);
+}
+
+.gallery-item:hover .gallery-details-arrow {
+    transform: translate(3px, -3px);
+    color: var(--color-gold);
+}
+
+.gallery-item:hover .gallery-details-sub {
+    color: var(--color-white);
+}
+
+.gallery-item:hover .gallery-details {
+    border-top-color: var(--color-gold);
 }
 
 /* Explore More Styles */
