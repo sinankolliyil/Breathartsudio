@@ -1651,12 +1651,14 @@ h1, h2, h3, h4, h5, h6,
   80%, 100% { transform: rotateX(45deg) rotateY(174deg); }
 }
 @-webkit-keyframes flip2 {
-  0%, 20% { transform: rotateY(0deg) translateY(0px); }
-  50%     { transform: rotateY(-15deg) translateY(0px); }
+  0%, 20%   { transform: rotateY(0deg) translateY(0px); }
+  50%       { transform: rotateY(-15deg) translateY(0px); }
+  80%, 100% { transform: rotateY(0deg) translateY(0px); }
 }
 @keyframes flip2 {
-  0%, 20% { transform: rotateY(0deg) translateY(0px); }
-  50%     { transform: rotateY(-15deg) translateY(0px); }
+  0%, 20%   { transform: rotateY(0deg) translateY(0px); }
+  50%       { transform: rotateY(-15deg) translateY(0px); }
+  80%, 100% { transform: rotateY(0deg) translateY(0px); }
 }
 
 @-webkit-keyframes nextFlip1 {
@@ -1845,6 +1847,9 @@ h1, h2, h3, h4, h5, h6,
 }
 
 @media (max-width: 480px) {
+    .page-flip-demo {
+        height: 270px !important;
+    }
     .page-flip-demo .container {
         width: 420px;
         height: 420px;
@@ -3379,7 +3384,7 @@ h1, h2, h3, h4, h5, h6,
         justify-content: center !important;
     }
     .hero-description {
-        margin: 0 auto 2rem auto !important;
+        margin: 0 auto 0.6rem auto !important;
     }
     .hero-split    { flex-direction: column; gap: 3rem; }
 
@@ -3391,6 +3396,7 @@ h1, h2, h3, h4, h5, h6,
     /* --- SECTION TITLES --- */
     .section-title { font-size: 1.8rem !important; }
     .section       { padding: 4rem 0; }
+    #our-services  { padding-top: 1.5rem !important; }
 
     /* --- GALLERY GRIDS (01/02/03 sections) --- */
     #newborn .gallery-grid,
@@ -3485,6 +3491,29 @@ h1, h2, h3, h4, h5, h6,
 
     /* --- WHY CHOOSE section text alignment --- */
     .why-text-area { text-align: left !important; }
+
+    /* Disable hover effects on images on mobile */
+    .folio-item:hover img,
+    .folio-item:active img,
+    .folio-item:focus img { 
+        filter: none !important;
+        transform: none !important;
+    }
+    .gallery-item:hover .gallery-frame img {
+        transform: none !important;
+        filter: none !important;
+    }
+    .bento-item:hover .gallery-frame img {
+        transform: none !important;
+        filter: none !important;
+    }
+    .premium-service-card-link:hover .card-image-box img {
+        transform: none !important;
+    }
+    .flip-card:hover .flip-card-front img {
+        transform: none !important;
+        filter: saturate(1.1) !important;
+    }
 }
 
 /* ── @480px — Small phones ── */
@@ -3505,7 +3534,7 @@ h1, h2, h3, h4, h5, h6,
         justify-content: center !important;
     }
     .hero-description {
-        margin: 0 auto 2rem auto !important;
+        margin: 0 auto 0.6rem auto !important;
     }
     .page-header h1,
     .page-header > div > h1 { font-size: 1.9rem !important; }
@@ -3567,7 +3596,7 @@ h1, h2, h3, h4, h5, h6,
         justify-content: center;
         align-items: center;
         width: 100%;
-        margin: 1.5rem auto 2.5rem auto;
+        margin: 1.5rem auto 0.5rem auto;
         overflow: visible;
         height: auto;
     }
@@ -3575,6 +3604,7 @@ h1, h2, h3, h4, h5, h6,
         margin: 0 auto !important;
         width: 100% !important;
         max-width: 420px !important;
+        height: 350px !important;
     }
     .mobile-only-hero-book .book {
         left: -25px !important;
