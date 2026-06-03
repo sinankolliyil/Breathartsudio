@@ -62,10 +62,8 @@ export default function HomePage() {
           {/* Left Side: Cinematic Copy */}
           <div className="hero-left">
             <h1>
-              <span style={{ whiteSpace: 'nowrap' }}>
-                <span className="text-gold">BreathArt - Photography</span>
-              </span>{' '}
-              <br /> That Touches Your <span className="text-gold">Heart.</span>
+              <span className="text-gold">BreathArt</span> Photography <br />
+              That Touches Your <span className="text-gold">Heart.</span>
             </h1>
             <div className="mobile-only-hero-book">
               <PageFlipDemo />
@@ -521,13 +519,6 @@ export default function HomePage() {
                 <p className="why-paragraph" style={{ margin: 0 }}>
                   Our commitment to quality, creativity, and service delivers a premium photography experience. Whether newborn, wedding, or event sessions, we ensure every milestone is captured beautifully.
                 </p>
-
-                <div className="why-features-list" style={{ marginTop: '2rem', borderTop: '1px solid rgba(158, 112, 96, 0.2)', paddingTop: '1.5rem' }}>
-                  <div className="why-feature-item">
-                    <h4 style={{ fontFamily: 'var(--font-heading)', fontWeight: '700', fontSize: '0.95rem', color: '#2B1B14', textTransform: 'uppercase', letterSpacing: '1px' }}>Experienced Professional Photographers</h4>
-                    <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', marginTop: '0.5rem', lineHeight: '1.6' }}>Master artists with decades of collective experience.</p>
-                  </div>
-                </div>
               </div>
               <div className="why-button-box">
                 <Link href="/services" className="why-explore-btn">
@@ -535,6 +526,16 @@ export default function HomePage() {
                 </Link>
               </div>
             </div>
+          </div>
+
+          {/* Premium Redesigned Features Grid */}
+          <div className="services-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', marginTop: '5rem', gap: '2.5rem' }}>
+            <FeatureCard icon="fas fa-user-tie" title="Experienced Professional Photographers" description="Master artists with decades of collective experience." />
+            <FeatureCard icon="fas fa-female" title="Dedicated Lady Staff for Maternity" description="Ensuring comfort and privacy for maternity & newborn sessions." delay={0.1} />
+            <FeatureCard icon="fas fa-mountain" title="Premium Studio Environment" description="State-of-the-art space designed for creative excellence." delay={0.2} />
+            <FeatureCard icon="fas fa-camera" title="High-End Equipment & Lighting" description="The latest mirrorless technology and Profoto lighting." delay={0.3} />
+            <FeatureCard icon="fas fa-shipping-fast" title="Fast 24-Hour Photo Delivery" description="Rapid turn-around without compromising art quality." delay={0.4} />
+            <FeatureCard icon="fas fa-heart" title="Trusted by 1000+ Happy Clients" description="Building lasting relationships through exceptional art." delay={0.5} />
           </div>
         </div>
       </section>

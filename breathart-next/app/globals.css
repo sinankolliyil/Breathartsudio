@@ -136,20 +136,16 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .hero-left h1 {
-    font-size: clamp(1.6rem, 3.5vw, 3.2rem); 
+    font-size: clamp(2rem, 5vw, 4.2rem); 
     font-family: var(--font-heading);
-    color: var(--color-white);
-    margin-bottom: 2.5rem;
-    line-height: 1.1;
+    color: var(--color-white); /* Deep espresso */
+    margin-bottom: 2rem;
+    line-height: 1.25;
     text-transform: uppercase;
-    font-weight: 800;
-    letter-spacing: -2px;
-    background: linear-gradient(to right, var(--color-white) 60%, var(--color-gold) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-weight: 500; /* Lightweight, high-end editorial look */
+    letter-spacing: 5px; /* Spacious, similar to ASTUDIO */
     width: 100%;
-    transform: translate(-20px, -30px); /* Nudged left-upside */
+    transform: none;
 }
 
 .hero-left p {
@@ -3233,6 +3229,18 @@ h1, h2, h3, h4, h5, h6,
         display: none !important;
     }
 }
+
+/* Feature Cards Premium Interactive Effects */
+.feature-card {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.feature-card:hover {
+    transform: translateY(-8px) !important;
+    border-color: var(--color-gold) !important;
+    background-color: var(--color-shade-3) !important;
+    box-shadow: 0 20px 40px rgba(158, 112, 96, 0.08) !important;
+}
+
 
 
 
