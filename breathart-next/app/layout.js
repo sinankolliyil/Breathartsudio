@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BackgroundLayers from '@/components/BackgroundLayers';
 import WhatsAppFloat from '@/components/WhatsAppFloat';
+import PaymentFloat from '@/components/PaymentFloat';
 import ScrollTopButton from '@/components/ScrollTopButton';
 import CustomCursor from '@/components/CustomCursor';
 
@@ -44,6 +45,7 @@ export default function RootLayout({ children }) {
         {children}
         <Footer />
         <WhatsAppFloat />
+        <PaymentFloat />
         <ScrollTopButton />
       </body>
     </html>

@@ -13,6 +13,10 @@ export default function Footer() {
             <p className="footer-desc">
               Dubai&apos;s luxury photography studio specializing in cinematic visual legacies. We turn fleeting moments into timeless fine-art treasures.
             </p>
+            <div className="payment-acceptance">
+              <span>We accept</span>
+              <img src="/assets/logo/tamara-logo.webp" alt="Tamara Logo" className="payment-logo" />
+            </div>
           </div>
 
           {/* Col 2: Services */}
@@ -76,6 +80,17 @@ export default function Footer() {
               </a>
             </div>
           </div>
+        </div>
+
+        <div className="footer-group-companies">
+          <div className="group-company-wrapper">
+            <span className="group-label">BreathArt Group:</span>
+            <div className="group-logos">
+              <img src="/assets/logo/institute_logo.png" alt="BreathArt Academy Logo" className="group-logo" />
+              <img src="/assets/logo/marketing_logo.webp" alt="BreathArt Marketing Logo" className="group-logo" />
+            </div>
+          </div>
+          <a href="#" className="btn-group-landing">View Landing Page</a>
         </div>
 
         <div className="footer-bottom">
