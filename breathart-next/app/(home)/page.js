@@ -67,6 +67,9 @@ export default function HomePage() {
               </span>{' '}
               <br /> That Touches Your <span className="text-gold">Heart.</span>
             </h1>
+            <div className="mobile-only-hero-book">
+              <PageFlipDemo />
+            </div>
             <p>Turning fleeting moments into timeless memories, one frame at a time.</p>
             <div className="hero-buttons">
               <Link href="/services" className="btn btn-gold">
@@ -78,7 +81,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="hero-right">
+          <div className="hero-right desktop-only-hero-book">
             <PageFlipDemo />
           </div>
         </div>

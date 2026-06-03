@@ -3206,4 +3206,30 @@ h1, h2, h3, h4, h5, h6,
     .nav-container { padding: 0.9rem 1rem !important; }
 }
 
+/* Mobile vs Desktop Book Positioning */
+.mobile-only-hero-book {
+    display: none !important;
+}
+
+@media (max-width: 991px) {
+    .mobile-only-hero-book {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 1.5rem auto 2.5rem auto;
+        overflow: visible;
+        height: auto;
+    }
+    .mobile-only-hero-book .page-flip-demo {
+        margin: 0 auto !important;
+        width: 100% !important;
+        max-width: 420px !important;
+    }
+    .desktop-only-hero-book {
+        display: none !important;
+    }
+}
+
+
 

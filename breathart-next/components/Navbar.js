@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { AnimatePresence, motion, useMotionValue } from 'framer-motion';
 import { X } from 'lucide-react';
 
@@ -37,59 +38,19 @@ const FigmaIcon = ({ size = 24 }) => (
   </svg>
 );
 
-// Animation variants for the menu container
 const MENU_SLIDE_ANIMATION = {
-  initial: { x: 'calc(100% + 100px)' },
-  enter: { x: '0', transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } },
+  initial: { opacity: 0 },
+  enter: { opacity: 1, transition: { duration: 0.3, ease: 'easeInOut' } },
   exit: {
-    x: 'calc(100% + 100px)',
-    transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
+    opacity: 0,
+    transition: { duration: 0.3, ease: 'easeInOut' },
   },
 };
 
-// Curve component for the path morphing slide effect (white color to match menu)
-function Curve({ height }) {
-  const initialPath = `M100 0 L200 0 L200 ${height} L100 ${height} Q-100 ${height / 2} 100 0`;
-  const targetPath = `M100 0 L200 0 L200 ${height} L100 ${height} Q100 ${height / 2} 100 0`;
-
-  const curve = {
-    initial: { d: initialPath },
-    enter: {
-      d: targetPath,
-      transition: { duration: 1, ease: [0.76, 0, 0.24, 1] },
-    },
-    exit: {
-      d: initialPath,
-      transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
-    },
-  };
-
-  return (
-    <svg className="curved-menu-svg-curve">
-      <motion.path
-        variants={curve}
-        initial="initial"
-        animate="enter"
-        exit="exit"
-      />
-    </svg>
-  );
-}
-
-// NavLink item styled with a clean staggered slide-in and hover transitions
+// NavLink item styled with a clean layout for mobile links
 function NavLink({ heading, href, index, isActive, onClose }) {
   return (
-    <motion.div
-      onClick={onClose}
-      initial={{ opacity: 0, x: 30 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{
-        delay: index * 0.08 + 0.2, // Staggered delays matching open slide sequence
-        duration: 0.5,
-        ease: [0.215, 0.61, 0.355, 1],
-      }}
-      className="curved-menu-link-wrapper"
-    >
+    <div className="curved-menu-link-wrapper" onClick={onClose}>
       <Link href={href}>
         <div className="curved-menu-link-content">
           <span className="curved-menu-index">
@@ -100,7 +61,7 @@ function NavLink({ heading, href, index, isActive, onClose }) {
           </div>
         </div>
       </Link>
-    </motion.div>
+    </div>
   );
 }
 
@@ -110,8 +71,10 @@ export default function Navbar() {
   const [visible, setVisible] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const [windowHeight, setWindowHeight] = useState(0);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     setWindowHeight(window.innerHeight);
     const handleResize = () => setWindowHeight(window.innerHeight);
     window.addEventListener('resize', handleResize);
@@ -161,136 +124,138 @@ export default function Navbar() {
   ];
 
   return (
-    <nav id="navbar" className={navClasses}>
-      <div className="nav-container">
-        <Link href="/" className="logo" style={{ display: 'flex', alignItems: 'center' }}>
-          <img src="/assets/logo/BreathArt Photography Logo.png" alt="BreathArt Photography Logo" style={{ height: '45px', width: 'auto', objectFit: 'contain' }} />
-        </Link>
+    <>
+      <nav id="navbar" className={navClasses}>
+        <div className="nav-container">
+          <Link href="/" className="logo" style={{ display: 'flex', alignItems: 'center' }}>
+            <img src="/assets/logo/BreathArt Photography Logo.png" alt="BreathArt Photography Logo" style={{ height: '45px', width: 'auto', objectFit: 'contain' }} />
+          </Link>
 
-        {/* Desktop nav links */}
-        <ul className="nav-links">
-          <li><Link href="/" className={isActive('/') ? 'active' : ''}>Home</Link></li>
-          <li className="dropdown">
-            <Link href="/services" className={`dropdown-trigger ${isActive('/services') ? 'active' : ''}`}>
-              Services <i className="fas fa-chevron-down"></i>
-            </Link>
-            <div className="mega-menu">
-              <div className="mega-menu-container" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
-                <div className="mega-menu-column">
-                  <Link href="/services#service-maternity">
-                    <span className="mega-title">Photography</span>
-                    <span className="mega-desc">Elegant maternity, newborn, and portrait sessions</span>
-                  </Link>
-                </div>
-                <div className="mega-menu-column">
-                  <Link href="/services#service-couple">
-                    <span className="mega-title">Videography</span>
-                    <span className="mega-desc">Cinematic films and wedding storytelling</span>
-                  </Link>
-                </div>
-                <div className="mega-menu-column">
-                  <Link href="/services#service-event">
-                    <span className="mega-title">Event Management</span>
-                    <span className="mega-desc">Vibrant high-end celebration planning</span>
-                  </Link>
+          {/* Desktop nav links */}
+          <ul className="nav-links">
+            <li><Link href="/" className={isActive('/') ? 'active' : ''}>Home</Link></li>
+            <li className="dropdown">
+              <Link href="/services" className={`dropdown-trigger ${isActive('/services') ? 'active' : ''}`}>
+                Services <i className="fas fa-chevron-down"></i>
+              </Link>
+              <div className="mega-menu">
+                <div className="mega-menu-container" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
+                  <div className="mega-menu-column">
+                    <Link href="/services#service-maternity">
+                      <span className="mega-title">Photography</span>
+                      <span className="mega-desc">Elegant maternity, newborn, and portrait sessions</span>
+                    </Link>
+                  </div>
+                  <div className="mega-menu-column">
+                    <Link href="/services#service-couple">
+                      <span className="mega-title">Videography</span>
+                      <span className="mega-desc">Cinematic films and wedding storytelling</span>
+                    </Link>
+                  </div>
+                  <div className="mega-menu-column">
+                    <Link href="/services#service-event">
+                      <span className="mega-title">Event Management</span>
+                      <span className="mega-desc">Vibrant high-end celebration planning</span>
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-          </li>
-          <li><Link href="/offers" className={isActive('/offers') ? 'active' : ''}>Offers</Link></li>
-          <li><Link href="/about" className={isActive('/about') ? 'active' : ''}>About Us</Link></li>
-          <li><Link href="/contact" className={isActive('/contact') ? 'active' : ''}>Contact</Link></li>
-        </ul>
+            </li>
+            <li><Link href="/offers" className={isActive('/offers') ? 'active' : ''}>Offers</Link></li>
+            <li><Link href="/about" className={isActive('/about') ? 'active' : ''}>About Us</Link></li>
+            <li><Link href="/contact" className={isActive('/contact') ? 'active' : ''}>Contact</Link></li>
+          </ul>
 
-        <Link href="/contact" className="btn-nav">Contact Us</Link>
+          <Link href="/contact" className="btn-nav">Contact Us</Link>
 
-      </div>
-
-      {/* Hamburger button — rendered outside nav-container to escape its stacking context! */}
-      <div
-        className="mobile-hamburger-btn"
-        onClick={() => setMenuOpen(!menuOpen)}
-        aria-label="Toggle navigation menu"
-        aria-expanded={menuOpen}
-      >
-        <div className="mobile-hamburger-inner">
-          <span
-            className={`mobile-hamburger-line-span ${menuOpen ? 'open-1' : ''}`}
-          ></span>
-          <span
-            className={`mobile-hamburger-line-span ${menuOpen ? 'open-2' : ''}`}
-          ></span>
-          <span
-            className={`mobile-hamburger-line-span ${menuOpen ? 'open-3' : ''}`}
-          ></span>
         </div>
-      </div>
 
-      {/* Premium Right-Side Slide-In Curved Menu */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            key="curved-menu-backdrop"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="curved-menu-backdrop"
-            onClick={() => setMenuOpen(false)}
-          />
-        )}
-        {menuOpen && (
-          <motion.div
-            key="curved-menu-panel"
-            variants={MENU_SLIDE_ANIMATION}
-            initial="initial"
-            animate="enter"
-            exit="exit"
-            className="curved-menu-panel"
-          >
-            {/* Top accent gradient line */}
-            <div className="curved-menu-top-line" />
+        {/* Hamburger button — rendered outside nav-container to escape its stacking context! */}
+        <div
+          className="mobile-hamburger-btn"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle navigation menu"
+          aria-expanded={menuOpen}
+        >
+          <div className="mobile-hamburger-inner">
+            <span
+              className={`mobile-hamburger-line-span ${menuOpen ? 'open-1' : ''}`}
+            ></span>
+            <span
+              className={`mobile-hamburger-line-span ${menuOpen ? 'open-2' : ''}`}
+            ></span>
+            <span
+              className={`mobile-hamburger-line-span ${menuOpen ? 'open-3' : ''}`}
+            ></span>
+          </div>
+        </div>
+      </nav>
 
-            {/* Navigation Links Body */}
-            <div className="curved-menu-body">
-              <div className="curved-menu-section-label">Navigation</div>
-              <div className="curved-menu-links">
-                {navItems.map((item, index) => (
-                  <NavLink
-                    key={item.href}
-                    heading={item.heading}
-                    href={item.href}
-                    index={index + 1}
-                    isActive={isActive(item.href)}
-                    onClose={() => setMenuOpen(false)}
-                  />
-                ))}
+      {/* Premium Right-Side Slide-In Curved Menu (Portaled to document.body for clean layout) */}
+      {mounted && typeof document !== 'undefined' && createPortal(
+        <AnimatePresence>
+          {menuOpen && (
+            <motion.div
+              key="curved-menu-backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="curved-menu-backdrop"
+              onClick={() => setMenuOpen(false)}
+            />
+          )}
+          {menuOpen && (
+            <motion.div
+              key="curved-menu-panel"
+              variants={MENU_SLIDE_ANIMATION}
+              initial="initial"
+              animate="enter"
+              exit="exit"
+              className="curved-menu-panel"
+            >
+              {/* Top accent gradient line */}
+              <div className="curved-menu-top-line" />
+
+              {/* Navigation Links Body */}
+              <div className="curved-menu-body">
+                <div className="curved-menu-section-label">Navigation</div>
+                <div className="curved-menu-links">
+                  {navItems.map((item, index) => (
+                    <NavLink
+                      key={item.href}
+                      heading={item.heading}
+                      href={item.href}
+                      index={index + 1}
+                      isActive={isActive(item.href)}
+                      onClose={() => setMenuOpen(false)}
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* Footer inside Mobile Menu */}
-            <div className="curved-menu-footer">
-              <div className="curved-menu-socials">
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="curved-menu-social-icon">
-                  <LinkedinIcon size={24} />
-                </a>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="curved-menu-social-icon">
-                  <GithubIcon size={24} />
-                </a>
-                <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" className="curved-menu-social-icon">
-                  <DribbbleIcon size={24} />
-                </a>
-                <a href="https://figma.com" target="_blank" rel="noopener noreferrer" className="curved-menu-social-icon">
-                  <FigmaIcon size={24} />
-                </a>
+              {/* Footer inside Mobile Menu */}
+              <div className="curved-menu-footer">
+                <div className="curved-menu-socials">
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="curved-menu-social-icon">
+                    <LinkedinIcon size={24} />
+                  </a>
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="curved-menu-social-icon">
+                    <GithubIcon size={24} />
+                  </a>
+                  <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" className="curved-menu-social-icon">
+                    <DribbbleIcon size={24} />
+                  </a>
+                  <a href="https://figma.com" target="_blank" rel="noopener noreferrer" className="curved-menu-social-icon">
+                    <FigmaIcon size={24} />
+                  </a>
+                </div>
               </div>
-            </div>
-
-            <Curve height={windowHeight} />
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
+    </>
   );
 }
-
