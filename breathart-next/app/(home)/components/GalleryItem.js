@@ -28,7 +28,7 @@ export default function GalleryItem({ image, alt, title, href, number, delay = 0
           {number && <span className="gallery-details-num">{number}. </span>}
           {title}
         </h3>
-        <span className="gallery-details-arrow">↗</span>
+        <span className="gallery-details-arrow">{"↗\uFE0E"}</span>
       </div>
       <div className="gallery-details-sub">{displaySubtitle}</div>
     </div>
