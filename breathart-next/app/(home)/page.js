@@ -465,33 +465,67 @@ export default function HomePage() {
             </div>
 
             {/* Mobile Dropdown Selection */}
-            <select
-              value={filter}
-              onChange={(e) => setFilter(e.target.value)}
-              className="mobile-filter-select"
-              style={{
-                width: '100%',
-                maxWidth: '300px',
-                padding: '1rem',
-                border: '1px solid var(--color-gold)',
-                background: 'var(--color-black)',
-                color: 'var(--color-white)',
-                borderRadius: '8px',
-                fontSize: '0.9rem',
-                fontWeight: '600',
-                fontFamily: 'var(--font-heading)',
-                textTransform: 'uppercase',
-                letterSpacing: '1px',
-              }}
-            >
-              <option value="All">All Projects</option>
-              <option value="Newborn">Newborn</option>
-              <option value="Wedding">Wedding</option>
-              <option value="Event">Event</option>
-              <option value="Family">Family</option>
-              <option value="Corporate">Corporate</option>
-              <option value="Real Estate">Real Estate</option>
-            </select>
+            <div className="mobile-filter-select">
+              <div 
+                style={{
+                  position: 'relative',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  backgroundColor: 'var(--color-gold)',
+                  border: '1px solid var(--color-gold)',
+                  color: 'var(--color-black)',
+                  borderRadius: '9999px',
+                  paddingLeft: '1.25rem',
+                  paddingRight: '1rem',
+                  paddingTop: '0.625rem',
+                  paddingBottom: '0.625rem',
+                  fontSize: '0.875rem',
+                  fontWeight: '700',
+                  letterSpacing: '1px',
+                  textTransform: 'uppercase',
+                  boxShadow: '0 4px 15px rgba(158, 112, 96, 0.35)',
+                  transition: 'all 0.3s ease',
+                }}
+              >
+                <span style={{ marginRight: '0.5rem', whiteSpace: 'nowrap' }}>
+                  {filter === 'All' ? 'All Projects' : filter}
+                </span>
+                {/* Custom Caret */}
+                <svg 
+                  style={{ width: '1rem', height: '1rem', opacity: 0.8, flexShrink: 0 }} 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24" 
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+                {/* Invisible native select overlaid on top */}
+                <select
+                  value={filter}
+                  onChange={(e) => setFilter(e.target.value)}
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    opacity: 0,
+                    appearance: 'none',
+                    WebkitAppearance: 'none',
+                    cursor: 'pointer',
+                  }}
+                >
+                  <option value="All">All Projects</option>
+                  <option value="Newborn">Newborn</option>
+                  <option value="Wedding">Wedding</option>
+                  <option value="Event">Event</option>
+                  <option value="Family">Family</option>
+                  <option value="Corporate">Corporate</option>
+                  <option value="Real Estate">Real Estate</option>
+                </select>
+              </div>
+            </div>
           </div>
 
           <HomeLightbox

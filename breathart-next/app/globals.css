@@ -1063,8 +1063,21 @@ h1, h2, h3, h4, h5, h6,
 @media (max-width: 1024px) {
     .container { padding: 0 3rem; }
     .hero-left h1 { font-size: 3rem; }
-    .footer-grid { grid-template-columns: 1fr; gap: 4rem; text-align: center; }
+    .footer-grid { 
+        grid-template-columns: 1fr 1fr; 
+        gap: 3rem 1rem; 
+        text-align: center; 
+    }
+    .footer-col.brand-col {
+        grid-column: span 2;
+    }
+    .footer-col.contact-col {
+        grid-column: span 2;
+    }
     .social-links { justify-content: center; }
+    .footer-social-links { justify-content: center; }
+    .footer-col.brand-col a { display: inline-flex !important; justify-content: center; width: 100%; }
+    .footer-contact-item { justify-content: center; }
 }
 
 @media (max-width: 768px) {
@@ -1999,7 +2012,9 @@ h1, h2, h3, h4, h5, h6,
         display: none !important;
     }
     .mobile-filter-select {
-        display: block !important;
+        display: flex !important;
+        justify-content: center;
+        width: 100%;
     }
 }
 
@@ -3057,26 +3072,25 @@ h1, h2, h3, h4, h5, h6,
 
     .mobile-hamburger-btn {
         display: flex;
-        position: fixed;
-        right: -1px;
-        top: 0;
-        margin: 1.25rem;
+        position: absolute;
+        right: 1.2rem;
+        top: 50%;
+        transform: translateY(-50%);
         z-index: 10006 !important; /* Stays on top of header and curved menu */
-        width: 48px; /* w-12 */
-        height: 48px; /* h-12 */
-        border-radius: 0 !important; /* rounded-none */
-        background: #FAF5F0 !important; /* Warm cream page background color */
-        border: 1px solid rgba(158, 112, 96, 0.2) !important;
+        width: 36px;
+        height: 36px;
+        background: transparent !important;
+        border: none !important;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        box-shadow: none !important;
     }
 
     .mobile-hamburger-inner {
         position: relative;
-        width: 32px; /* w-8 */
-        height: 24px; /* h-6 */
+        width: 20px;
+        height: 14px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -3085,16 +3099,16 @@ h1, h2, h3, h4, h5, h6,
 
     .mobile-hamburger-line-span {
         display: block;
-        height: 4px; /* h-1 */
-        width: 28px; /* w-7 */
-        background: #2B1B14 !important; /* Dark espresso line color */
+        height: 2px;
+        width: 20px;
+        background: #FAF5F0 !important; /* Off-white page color */
         transition: transform 0.3s ease, opacity 0.3s ease;
         transform-origin: center;
     }
 
-    /* Hamburger to X transitions exactly matching standard Tailwind implementation */
+    /* Hamburger to X transitions */
     .mobile-hamburger-line-span.open-1 {
-        transform: rotate(45deg) translateY(7.5px) translateX(6.5px);
+        transform: translateY(6px) rotate(45deg);
     }
 
     .mobile-hamburger-line-span.open-2 {
@@ -3102,7 +3116,7 @@ h1, h2, h3, h4, h5, h6,
     }
 
     .mobile-hamburger-line-span.open-3 {
-        transform: rotate(-45deg) translateY(-7.5px) translateX(6.5px);
+        transform: translateY(-6px) rotate(-45deg);
     }
 }
 
@@ -3326,8 +3340,11 @@ h1, h2, h3, h4, h5, h6,
         flex-direction: row !important;
         justify-content: space-between !important;
         align-items: center !important;
-        padding: 1rem 1.5rem !important;
+        padding: 0.6rem 1.2rem !important;
         gap: 0 !important;
+    }
+    .logo img {
+        height: 30px !important;
     }
 
     /* When mobile menu is open, prevent pill morph from clipping panel */
@@ -3343,7 +3360,7 @@ h1, h2, h3, h4, h5, h6,
     }
 
     /* --- HERO --- */
-    .hero { padding: 9rem 0 5rem 0; }
+    .hero { padding: 6.5rem 0 4rem 0; }
     .hero-main-title { 
         font-size: clamp(3rem, 8vw, 3.8rem) !important;
         letter-spacing: -1.5px !important;
@@ -3367,7 +3384,7 @@ h1, h2, h3, h4, h5, h6,
     .hero-split    { flex-direction: column; gap: 3rem; }
 
     /* --- PAGE HEADERS (About, Contact, Offers, Services) --- */
-    .page-header { padding: 140px 0 3rem 0; }
+    .page-header { padding: 100px 0 2rem 0; }
     .page-header h1,
     .page-header > div > h1 { font-size: 2.4rem !important; line-height: 1.15 !important; }
 
@@ -3441,7 +3458,16 @@ h1, h2, h3, h4, h5, h6,
 
     /* --- FOOTER --- */
     .footer { padding: 5rem 2rem 3rem 2rem !important; }
-    .footer-grid { gap: 3rem !important; }
+    .footer-grid { 
+        grid-template-columns: 1fr 1fr !important; 
+        gap: 3rem 1rem !important; 
+    }
+    .footer-col.brand-col {
+        grid-column: span 2 !important;
+    }
+    .footer-col.contact-col {
+        grid-column: span 2 !important;
+    }
 
     /* --- ABOUT FEATURES GRID --- */
     .services-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important; }
