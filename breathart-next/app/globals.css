@@ -2891,8 +2891,8 @@ h1, h2, h3, h4, h5, h6,
         padding: 0 1.5rem;
     }
     .bento-grid-horizontal {
-        grid-template-rows: repeat(2, 180px);
-        grid-auto-columns: 200px;
+        grid-template-rows: repeat(2, 220px);
+        grid-auto-columns: 260px;
         gap: 1rem;
     }
 }
@@ -3451,8 +3451,8 @@ h1, h2, h3, h4, h5, h6,
 
     /* --- BENTO GALLERY ROWS --- */
     .bento-grid-horizontal {
-        grid-template-rows: repeat(2, 160px);
-        grid-auto-columns: 180px;
+        grid-template-rows: repeat(2, 210px);
+        grid-auto-columns: 250px;
         gap: 0.75rem;
     }
     .bento-scroll-container { padding: 0 1rem; }
@@ -3496,11 +3496,11 @@ h1, h2, h3, h4, h5, h6,
     /* Explore button */
     .explore-btn { padding: 0.85rem 1.5rem; font-size: 0.8rem; }
 
-    /* Bento grid smaller */
+    /* Bento grid - keep good size on small phones */
     .bento-grid-horizontal {
-        grid-template-rows: repeat(2, 140px);
-        grid-auto-columns: 160px;
-        gap: 0.6rem;
+        grid-template-rows: repeat(2, 190px);
+        grid-auto-columns: 230px;
+        gap: 0.75rem;
     }
 
     /* Services card heights on mobile */
