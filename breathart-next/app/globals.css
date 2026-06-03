@@ -3225,7 +3225,9 @@ h1, h2, h3, h4, h5, h6,
         margin: 0 auto !important;
         width: 100% !important;
         max-width: 420px !important;
-        transform: translateX(-30px) !important;
+    }
+    .mobile-only-hero-book .book {
+        left: -75px !important;
     }
     .desktop-only-hero-book {
         display: none !important;
