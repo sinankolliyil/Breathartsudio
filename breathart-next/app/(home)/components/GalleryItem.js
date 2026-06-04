@@ -7,7 +7,7 @@ const defaultSubtitles = {
   'Real Estate': 'CINEMATIC ARCHITECTURE | TWILIGHT DESIGN',
 };
 
-export default function GalleryItem({ image, alt, title, href, number, delay = 0, buttonText = 'View Full', onClick, subtitle }) {
+export default function GalleryItem({ image, alt, title, href, number, delay = 0, buttonText = 'View Full', onClick, subtitle, style, wrapperClass = '' }) {
   const displaySubtitle = subtitle || defaultSubtitles[title] || 'PROFESSIONAL PHOTOGRAPHY & DESIGN';
 
   const frameContent = (
@@ -36,8 +36,8 @@ export default function GalleryItem({ image, alt, title, href, number, delay = 0
 
   return (
     <div
-      className="gallery-item show animate-reveal"
-      style={{ transitionDelay: `${delay}s`, display: 'block' }}
+      className={`gallery-item show animate-reveal ${wrapperClass}`}
+      style={{ transitionDelay: `${delay}s`, display: 'block', ...style }}
     >
       {href ? (
         <a href={href} className="gallery-item-link">

@@ -216,6 +216,11 @@ export default function LandingPage() {
         <div className="hero-bg-wrapper">
           <div className="hero-overlay"></div>
           <div className="hero-bg-img" style={{ backgroundImage: 'url(/assets/hero_nature.png)' }}></div>
+          <div className="mobile-hero-slider">
+            <div className="mobile-hero-slide" style={{ backgroundImage: 'url(/assets/service_newborn.png)' }}></div>
+            <div className="mobile-hero-slide" style={{ backgroundImage: 'url(/assets/service_wedding.png)', animationDelay: '4s' }}></div>
+            <div className="mobile-hero-slide" style={{ backgroundImage: 'url(/assets/service_corporate.png)', animationDelay: '8s' }}></div>
+          </div>
         </div>
         <div className="noha-container hero-content">
           <div className="landing-hero-reveal">

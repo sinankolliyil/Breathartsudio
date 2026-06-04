@@ -2615,10 +2615,17 @@ h1, h2, h3, h4, h5, h6,
     margin-top: 4rem;
 }
 
+.span-2-desktop {
+    grid-column: span 2;
+}
+
 @media (max-width: 768px) {
     .remaining-services-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+    .span-2-desktop {
+        grid-column: span 1;
     }
 }
 
@@ -5729,4 +5736,20 @@ h1, h2, h3, h4, h5, h6,
 }
 
 
+
+
+/* Mobile Hero Slider */
+.mobile-hero-slider { display: none; }
+@media (max-width: 768px) {
+  .hero-bg-img { display: none; }
+  .mobile-hero-slider { display: block; position: absolute; inset: 0; z-index: 1; }
+  .mobile-hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; animation: crossfade 12s infinite; }
+}
+@keyframes crossfade {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  33% { opacity: 1; }
+  43% { opacity: 0; }
+  100% { opacity: 0; }
+}
 

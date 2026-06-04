@@ -8,7 +8,7 @@ import FeatureCard from './components/FeatureCard';
 import HomeLightbox from './components/HomeLightbox';
 import ContactForm from '../../components/ContactForm';
 import PopupForm from '../../components/PopupForm';
-import { Shield, Sparkles, Sun, Camera, Sliders, Users, BookOpen, Heart, ArrowUpRight } from 'lucide-react';
+import { Shield, Sparkles, Sun, Camera, Sliders, Users, BookOpen, Heart, ArrowUpRight, Zap } from 'lucide-react';
 
 const allShowcaseImages = [
   // Newborn
@@ -332,13 +332,118 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* ─── REMAINING 4 SERVICES (2x2 Grid) ─── */}
+        {/* ─── FEATURED SERVICE 3: CORPORATE (Normal Style: Content Left, Image Right) ─── */}
+        <div className="featured-slanted-container theme-dark">
+          {/* Desktop Version */}
+          <div className="featured-panel-desktop">
+            <div className="featured-normal-content">
+              <div className="featured-normal-bg" />
+              <div className="featured-content-wrapper" style={{ paddingLeft: '8%', paddingRight: '20%' }}>
+                <div>
+                  <p className="featured-label">Premium Branding</p>
+                  <h3 className="featured-name">Corporate</h3>
+                  <p className="featured-description">
+                    Elevate your brand with professional corporate headshots and workspace photography. We capture your business&apos;s essence with high-end, polished imagery designed to make a powerful professional impact.
+                  </p>
+                </div>
+
+                <div className="featured-features-grid">
+                  <div className="featured-feature-item">
+                    <div className="featured-icon-box"><Shield size={16} /></div>
+                    <p className="featured-feature-title">Executive Portraits</p>
+                    <p className="featured-feature-sub">Professional headshots</p>
+                  </div>
+                  <div className="featured-feature-item">
+                    <div className="featured-icon-box"><Users size={16} /></div>
+                    <p className="featured-feature-title">Workspace Shots</p>
+                    <p className="featured-feature-sub">Office dynamics</p>
+                  </div>
+                  <div className="featured-feature-item">
+                    <div className="featured-icon-box"><Sun size={16} /></div>
+                    <p className="featured-feature-title">Brand Story</p>
+                    <p className="featured-feature-sub">Visual identity</p>
+                  </div>
+                  <div className="featured-feature-item">
+                    <div className="featured-icon-box"><Zap size={16} /></div>
+                    <p className="featured-feature-title">Fast Delivery</p>
+                    <p className="featured-feature-sub">Quick turnaround</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div className="featured-normal-image">
+              <img src="/assets/service_corporate.png" alt="Corporate Photography" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
+
+            <div className="featured-cta-container featured-normal-cta">
+              <Link href="/services#service-corporate" className="btn-premium btn-premium-outline">
+                Explore Session <ArrowUpRight size={14} />
+              </Link>
+              <Link href="/contact?interest=corporate" className="btn-premium btn-premium-filled">
+                Book Now <ArrowUpRight size={14} />
+              </Link>
+            </div>
+
+          </div>
+
+          {/* Mobile Version */}
+          <div className="featured-panel-mobile theme-dark">
+            <div className="featured-mobile-content">
+              <div>
+                <p className="featured-label">Premium Branding</p>
+                <h3 className="featured-name">Corporate</h3>
+                <p className="featured-description">
+                  Elevate your brand with professional corporate headshots and workspace photography. We capture your business&apos;s essence with high-end, polished imagery designed to make a powerful professional impact.
+                </p>
+              </div>
+
+              <div className="featured-features-grid">
+                <div className="featured-feature-item">
+                  <div className="featured-icon-box"><Shield size={16} /></div>
+                  <p className="featured-feature-title">Executive</p>
+                  <p className="featured-feature-sub">Headshots</p>
+                </div>
+                <div className="featured-feature-item">
+                  <div className="featured-icon-box"><Users size={16} /></div>
+                  <p className="featured-feature-title">Workspace</p>
+                  <p className="featured-feature-sub">Dynamics</p>
+                </div>
+                <div className="featured-feature-item">
+                  <div className="featured-icon-box"><Sun size={16} /></div>
+                  <p className="featured-feature-title">Brand</p>
+                  <p className="featured-feature-sub">Identity</p>
+                </div>
+                <div className="featured-feature-item">
+                  <div className="featured-icon-box"><Zap size={16} /></div>
+                  <p className="featured-feature-title">Fast</p>
+                  <p className="featured-feature-sub">Delivery</p>
+                </div>
+              </div>
+
+            </div>
+
+            <div className="featured-mobile-image-box">
+              <img src="/assets/service_corporate.png" alt="Corporate Photography" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <div className="featured-mobile-cta">
+                <Link href="/services#service-corporate" className="btn-premium btn-premium-outline" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
+                  Explore <ArrowUpRight size={12} />
+                </Link>
+                <Link href="/contact?interest=corporate" className="btn-premium btn-premium-filled" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
+                  Book <ArrowUpRight size={12} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ─── REMAINING 3 SERVICES (Grid) ─── */}
         <div className="container" style={{ paddingLeft: '2rem', paddingRight: '2rem' }}>
           <div className="remaining-services-grid">
-            <GalleryItem image="/assets/service_event.png" alt="Event Photography" title="Event" number="03" href="/services#service-event" buttonText="Explore Session" />
-            <GalleryItem image="/assets/service_prewedding.png" alt="Family Photography" title="Family" number="04" href="/services#service-pre-wedding" buttonText="Explore Session" delay={0.1} />
-            <GalleryItem image="/assets/service_corporate.png" alt="Corporate Photography" title="Corporate" number="05" href="/services#service-corporate" buttonText="Explore Session" delay={0.2} />
-            <GalleryItem image="/assets/service_couple.png" alt="Real Estate Photography" title="Real Estate" number="06" href="/services#service-couple" buttonText="Explore Session" delay={0.3} />
+            <GalleryItem image="/assets/service_event.png" alt="Event Photography" title="Event" number="04" href="/services#service-event" buttonText="Explore Session" />
+            <GalleryItem image="/assets/service_couple.png" alt="Real Estate Photography" title="Real Estate" number="05" href="/services#service-couple" buttonText="Explore Session" delay={0.1} />
+            <GalleryItem image="/assets/service_prewedding.png" alt="Family Photography" title="Family" number="06" href="/services#service-pre-wedding" buttonText="Explore Session" delay={0.2} wrapperClass="span-2-desktop" />
           </div>
         </div>
       </section>
