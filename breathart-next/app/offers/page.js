@@ -395,7 +395,11 @@ export default function OffersPage() {
             <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
               <a href="tel:+971526400679" className="btn btn-gold" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.75rem', padding: '1rem 3rem' }}>
                 <Phone size={14} />
-                Call +97152 640 0679
+                Call +971 52 640 0679
+              </a>
+              <a href="tel:+971522150837" className="btn btn-gold" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.75rem', padding: '1rem 3rem' }}>
+                <Phone size={14} />
+                Call +971 52 215 0837
               </a>
               <Link href="/contact" className="btn btn-outline" style={{ padding: '1rem 3rem' }}>
                 Send Detailed Request

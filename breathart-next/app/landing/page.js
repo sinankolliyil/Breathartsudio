@@ -4,6 +4,43 @@ import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, Phone, Mail, MapPin, Send, ArrowRight, Play, Camera, Film, Gift, Star, Zap } from 'lucide-react';
 import Link from 'next/link';
+import HomeLightbox from '../(home)/components/HomeLightbox';
+
+const allShowcaseImages = [
+  // Newborn
+  { src: '/assets/newborn_color.png', alt: 'Newborn 1', title: 'Pure Love', category: 'Newborn' },
+  { src: '/assets/newborn.png', alt: 'Newborn 2', title: 'Soft Dreams', category: 'Newborn' },
+  { src: '/assets/newborn_color.png', alt: 'Newborn 3', title: 'First Light', category: 'Newborn' },
+  { src: '/assets/pastel.png', alt: 'Newborn 4', title: 'Tender Grip', category: 'Newborn' },
+  { src: '/assets/newborn_color.png', alt: 'Newborn 5', title: 'Peaceful Sleep', category: 'Newborn' },
+  { src: '/assets/minimal.png', alt: 'Newborn 6', title: 'Eternal Beginning', category: 'Newborn' },
+  // Wedding
+  { src: '/assets/wedding_color.png', alt: 'Wedding 1', title: 'The Vow', category: 'Wedding' },
+  { src: '/assets/wedding_color.png', alt: 'Wedding 2', title: 'Sacred Bond', category: 'Wedding' },
+  { src: '/assets/wedding_color.png', alt: 'Wedding 3', title: 'Golden Hour', category: 'Wedding' },
+  { src: '/assets/luxury.png', alt: 'Wedding 4', title: 'Elegant Union', category: 'Wedding' },
+  { src: '/assets/wedding_color.png', alt: 'Wedding 5', title: 'Eternal Flame', category: 'Wedding' },
+  { src: '/assets/event.png', alt: 'Wedding 6', title: 'Together Forever', category: 'Wedding' },
+  // Event
+  { src: '/assets/event.png', alt: 'Event 1', title: 'Celebration', category: 'Event' },
+  { src: '/assets/service_event.png', alt: 'Event 2', title: 'Gala Night', category: 'Event' },
+  { src: '/assets/event.png', alt: 'Event 3', title: 'Moment of Joy', category: 'Event' },
+  { src: '/assets/service_event.png', alt: 'Event 4', title: 'Corporate Gathering', category: 'Event' },
+  { src: '/assets/event.png', alt: 'Event 5', title: 'Grand Celebration', category: 'Event' },
+  { src: '/assets/service_event.png', alt: 'Event 6', title: 'Festive Evening', category: 'Event' },
+  // Family
+  { src: '/assets/service_prewedding.png', alt: 'Family 1', title: 'Generations', category: 'Family' },
+  { src: '/assets/feature_maternity.png', alt: 'Family 2', title: 'Warm Embrace', category: 'Family' },
+  { src: '/assets/service_prewedding.png', alt: 'Family 3', title: 'Joyful Days', category: 'Family' },
+  // Corporate
+  { src: '/assets/service_corporate.png', alt: 'Corporate 1', title: 'Executive Vision', category: 'Corporate' },
+  { src: '/assets/service_corporate.png', alt: 'Corporate 2', title: 'Team Synergy', category: 'Corporate' },
+  { src: '/assets/service_corporate.png', alt: 'Corporate 3', title: 'Workspace Design', category: 'Corporate' },
+  // Real Estate
+  { src: '/assets/service_couple.png', alt: 'Real Estate 1', title: 'Architectural Line', category: 'Real Estate' },
+  { src: '/assets/service_couple.png', alt: 'Real Estate 2', title: 'Twilight Design', category: 'Real Estate' },
+  { src: '/assets/service_couple.png', alt: 'Real Estate 3', title: 'Modern Living', category: 'Real Estate' },
+];
 
 const SERVICES = [
   {
@@ -73,9 +110,14 @@ const PORTFOLIO = [
 
 export default function LandingPage() {
   const [activeService, setActiveService] = useState(SERVICES[0]);
+  const [filter, setFilter] = useState('All');
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', service: 'Photography', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const contactRef = useRef(null);
+
+  const filteredImages = filter === 'All' 
+    ? allShowcaseImages 
+    : allShowcaseImages.filter(img => img.category === filter);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -372,9 +414,118 @@ export default function LandingPage() {
               </div>
             ))}
           </div>
-
         </div>
       </section>
+
+      {/* ── CREATIVE SHOWCASE ── */}
+      <section id="portfolio" className="noha-section noha-showcase" style={{ paddingTop: 0, paddingBottom: '5rem' }}>
+        <div className="noha-container">
+          <div className="section-header-center" style={{ marginBottom: '3rem' }}>
+            <span className="section-label">Curated Masterpieces</span>
+            <h2 className="section-heading">Creative Showcase</h2>
+            <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginTop: '0.75rem', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}>
+              Browse through our complete dynamic visual portfolio. Filter by category to see our specific creations.
+            </p>
+          </div>
+
+          {/* Premium Sorting Buttons on One Line (Desktop) and Dropdown (Mobile) */}
+          <div className="showcase-filter-wrapper" style={{ marginBottom: '3rem', display: 'flex', justifyContent: 'center' }}>
+            {/* Desktop Filters */}
+            <div className="desktop-filters" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+              {['All', 'Newborn', 'Wedding', 'Event', 'Family', 'Corporate', 'Real Estate'].map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setFilter(cat)}
+                  className={`filter-btn ${filter === cat ? 'active' : ''}`}
+                  style={{
+                    background: 'transparent',
+                    border: filter === cat ? '1px solid var(--color-gold)' : '1px solid rgba(158, 112, 96, 0.2)',
+                    color: filter === cat ? 'var(--color-gold)' : 'var(--color-text-muted)',
+                    padding: '0.6rem 1.6rem',
+                    borderRadius: '50px',
+                    cursor: 'pointer',
+                    fontSize: '0.7rem',
+                    fontWeight: '600',
+                    letterSpacing: '1px',
+                    textTransform: 'uppercase',
+                    transition: '0.3s ease',
+                  }}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+
+            {/* Mobile Dropdown Selection */}
+            <div className="mobile-filter-select">
+              <div 
+                style={{
+                  position: 'relative',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  backgroundColor: 'var(--color-gold)',
+                  border: '1px solid var(--color-gold)',
+                  color: 'var(--color-black)',
+                  borderRadius: '9999px',
+                  paddingLeft: '1.25rem',
+                  paddingRight: '1rem',
+                  paddingTop: '0.625rem',
+                  paddingBottom: '0.625rem',
+                  fontSize: '0.875rem',
+                  fontWeight: '700',
+                  letterSpacing: '1px',
+                  textTransform: 'uppercase',
+                  boxShadow: '0 4px 15px rgba(158, 112, 96, 0.35)',
+                  transition: 'all 0.3s ease',
+                }}
+              >
+                <span style={{ marginRight: '0.5rem', whiteSpace: 'nowrap' }}>
+                  {filter === 'All' ? 'All Projects' : filter}
+                </span>
+                <svg 
+                  style={{ width: '1rem', height: '1rem', opacity: 0.8, flexShrink: 0 }} 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24" 
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+                <select
+                  value={filter}
+                  onChange={(e) => setFilter(e.target.value)}
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    opacity: 0,
+                    appearance: 'none',
+                    WebkitAppearance: 'none',
+                    cursor: 'pointer',
+                  }}
+                >
+                  <option value="All">All Projects</option>
+                  <option value="Newborn">Newborn</option>
+                  <option value="Wedding">Wedding</option>
+                  <option value="Event">Event</option>
+                  <option value="Family">Family</option>
+                  <option value="Corporate">Corporate</option>
+                  <option value="Real Estate">Real Estate</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <HomeLightbox
+            sectionId="newborn"
+            items={filteredImages}
+            layout="bento"
+          />
+        </div>
+      </section>
+
 
 
       {/* ── CONTACT FORM ── */}
@@ -383,7 +534,7 @@ export default function LandingPage() {
 
           <div className="contact-info">
             <span className="section-label">Inquiries</span>
-            <h2 className="section-heading">Let's craft your narrative.</h2>
+            <h2 className="section-heading">Let&apos;s craft your narrative.</h2>
             <p className="section-body">
               Whether you are planning an intimate milestone or a grand event, our team is ready to provide a tailored experience.
             </p>
@@ -392,14 +543,16 @@ export default function LandingPage() {
                 <Phone size={20} className="icon-gold" />
                 <div>
                   <h5>Direct Concierge</h5>
-                  <p>+971 52 640 0679</p>
+                  <p style={{ margin: 0 }}>+971 52 640 0679</p>
+                  <p style={{ margin: 0 }}>+971 52 215 0837</p>
                 </div>
               </div>
               <div className="contact-detail">
                 <Mail size={20} className="icon-gold" />
                 <div>
                   <h5>Email Desk</h5>
-                  <p>Info@breathart.ae</p>
+                  <p style={{ margin: 0 }}>Info@breathart.ae</p>
+                  <p style={{ margin: 0 }}>breathartindia@gmail.com</p>
                 </div>
               </div>
               <div className="contact-detail">
