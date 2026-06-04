@@ -2641,6 +2641,9 @@ h1, h2, h3, h4, h5, h6,
     .span-2-desktop {
         grid-column: span 1;
     }
+    .remaining-services-grid .gallery-frame {
+        aspect-ratio: 2.5/1 !important;
+    }
 }
 
 /* --- WHY CHOOSE US SECTION (EXACT IMAGE REPLICA) --- */
@@ -3629,7 +3632,7 @@ h1, h2, h3, h4, h5, h6,
 
     /* --- SECTION TITLES --- */
     .section-title { font-size: 1.8rem !important; }
-    .section       { padding: 4rem 0; }
+    .section       { padding: 2rem 0 !important; }
     #our-services  { padding-top: 1.5rem !important; }
 
     /* --- GALLERY GRIDS (01/02/03 sections) --- */
@@ -3637,10 +3640,10 @@ h1, h2, h3, h4, h5, h6,
     #wedding .gallery-grid,
     #event-management .gallery-grid {
         display: grid !important;
-        grid-template-rows: repeat(2, minmax(0, 1fr)) !important;
+        grid-template-rows: 1fr !important;
         grid-template-columns: none !important;
         grid-auto-flow: column !important;
-        grid-auto-columns: calc(100% - 40px) !important; /* One column (2 rows stacked) visible at first, next column peeking on right */
+        grid-auto-columns: 82% !important;
         overflow-x: auto !important;
         scroll-snap-type: x mandatory !important;
         gap: 0.75rem !important;
