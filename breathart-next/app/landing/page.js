@@ -1,44 +1,66 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check, Phone, Mail, MapPin, Send, ArrowRight, Play, Camera, Film, Palette, BarChart3 } from 'lucide-react';
-import Image from 'next/image';
+import { Check, Phone, Mail, MapPin, Send, ArrowRight, Play, Camera, Film, Gift, Star, Zap } from 'lucide-react';
 import Link from 'next/link';
 
 const SERVICES = [
   {
     id: '01',
-    title: 'Maternity & Newborn',
+    title: 'Photography',
     icon: <Camera size={24} />,
-    desc: 'Capture life\'s fleeting moments with our premium maternity and newborn fine-art photography services.',
-    image: '/assets/service_newborn.png',
-    packages: ['Basic Bundle', 'Advanced Bundle', 'High-End Bundle']
+    desc: 'Curating exceptional stills that tell stories, capture emotions, and establish visual legacies. From premium family portraiture to luxury weddings.',
+    image: '/assets/service_family_lifestyle.png',
+    packages: ['Family & Lifestyle', 'Wedding & Romance', 'Corporate Branding', 'Creative & Concept']
   },
   {
     id: '02',
-    title: 'Couple Photography',
+    title: 'Videography',
     icon: <Film size={24} />,
-    desc: 'Cinematic storytelling that brings your romance to life. We specialize in high-end couple and engagement sessions.',
-    image: '/assets/service_couple.png',
-    packages: ['Package 01', 'Package 02', 'Package 03']
+    desc: 'Transforming moments into moving pieces of art with state-of-the-art cinematic vision, high-definition storytelling, and premium editing.',
+    image: '/assets/service_video_wedding.png',
+    packages: ['Wedding Films', 'Romance Trailers', 'Corporate Promos', 'Social Reels']
   },
   {
     id: '03',
-    title: 'Event Photography',
+    title: 'Event',
     icon: <Camera size={24} />,
-    desc: 'Meticulous coverage for your grand events. Our signature style ensures a cohesive, luxurious aesthetic for your special day.',
+    desc: 'Comprehensive visual records for grand events, private celebrations, luxury galas, and social anniversaries with cohesive, luxurious aesthetics.',
     image: '/assets/service_event.png',
-    packages: ['Package 01', 'Package 02', 'Package 03']
+    packages: ['Private Celebrations', 'Luxury Galas', 'Social Anniversaries', 'Corporate Meetings']
+  }
+];
+
+// 3 smaller secondary offers shown below the hero offer
+const SECONDARY_OFFERS = [
+  {
+    badgeIcon: <Zap size={11} />,
+    badge: 'Limited Time',
+    title: 'Couple & Romance Sessions',
+    desc: 'Cinematic couple sessions at premium locations. Indoor & outdoor settings, creative direction, full editing included.',
+    promo: '30% OFF',
+    interest: 'Videography',
+    ctaText: 'Book Now',
   },
   {
-    id: '04',
-    title: 'Cake Smash',
-    icon: <Palette size={24} />,
-    desc: 'Joyful, messy, and absolutely adorable. Celebrate your little one\'s first milestones with our premium cake smash sessions.',
-    image: '/assets/bento_1.jpg',
-    packages: ['Package 1', 'Package 2', 'Package 3']
-  }
+    badgeIcon: <Star size={11} />,
+    badge: 'Exclusive Deal',
+    title: 'Event Full-Day Coverage',
+    desc: 'Dual-camera full-day coverage. 100+ edited photos + cinematic highlight video — all at a special bundled price.',
+    promo: '25% OFF',
+    interest: 'Event',
+    ctaText: 'Get Bundle',
+  },
+  {
+    badgeIcon: <Gift size={11} />,
+    badge: 'Birthday Special',
+    title: 'Cake Smash Celebration',
+    desc: "Fun styled themes, professionally lit setups, unlimited raw shots and a fully-edited gallery delivered within 5 days.",
+    promo: '20% OFF',
+    interest: 'Photography',
+    ctaText: 'Reserve Session',
+  },
 ];
 
 const PORTFOLIO = [
@@ -51,15 +73,16 @@ const PORTFOLIO = [
 
 export default function LandingPage() {
   const [activeService, setActiveService] = useState(SERVICES[0]);
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', service: 'Maternity', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', service: 'Photography', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const contactRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
-      setFormData({ name: '', email: '', phone: '', service: 'Maternity', message: '' });
+      setFormData({ name: '', email: '', phone: '', service: 'Photography', message: '' });
     }, 5000);
   };
 
@@ -68,22 +91,24 @@ export default function LandingPage() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const scrollToContact = (service, msg) => {
+    setFormData(prev => ({ ...prev, service, message: msg }));
+    setTimeout(() => {
+      contactRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 80);
+  };
+
   return (
     <div className="noha-landing-wrapper">
-      {/* HERO SECTION */}
+
+      {/* ── HERO ── */}
       <section className="noha-hero">
         <div className="hero-bg-wrapper">
           <div className="hero-overlay"></div>
-          {/* Using a premium background image */}
           <div className="hero-bg-img" style={{ backgroundImage: 'url(/assets/hero_nature.png)' }}></div>
         </div>
-        
         <div className="noha-container hero-content">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          >
+          <div className="landing-hero-reveal">
             <span className="hero-kicker">Est. 2012 — Dubai</span>
             <h1 className="hero-title">Crafted for<br/>Cinematic Elegance</h1>
             <p className="hero-subtitle">
@@ -97,27 +122,20 @@ export default function LandingPage() {
                 <Play size={16} /> View Showreel
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* ABOUT / PHILOSOPHY SECTION */}
+      {/* ── PHILOSOPHY ── */}
       <section id="about" className="noha-section noha-about">
         <div className="noha-container about-grid">
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="about-text"
-          >
-            <span className="section-label">01 // Our Philosophy</span>
+          <div className="about-text landing-about-reveal">
+            <span className="section-label">Our Philosophy</span>
             <h2 className="section-heading">Visual poetry in every frame.</h2>
             <p className="section-body">
-              At BreathArt Studio, we believe that true luxury lies in the details. Our approach blends timeless cinematic techniques with modern editorial aesthetics, creating visual narratives that transcend the ordinary. Every session is meticulously curated to reflect your unique story, ensuring a legacy of elegance for generations to come.
+              At BreathArt Studio, we believe that true luxury lies in the details. Our approach blends timeless cinematic techniques with modern editorial aesthetics, creating visual narratives that transcend the ordinary.
             </p>
-          </motion.div>
-          
+          </div>
           <div className="about-stats">
             <div className="stat-item">
               <span className="stat-num">12+</span>
@@ -135,20 +153,19 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* SERVICES SPLIT SECTION */}
+      {/* ── SERVICES ── */}
       <section id="services" className="noha-section noha-services">
         <div className="noha-container">
           <div className="section-header-center">
-            <span className="section-label">02 // Our Expertise</span>
+            <span className="section-label">Our Expertise</span>
             <h2 className="section-heading">Curated Services</h2>
           </div>
 
           <div className="services-split">
-            {/* Left: Interactive List */}
             <div className="services-list">
               {SERVICES.map((srv) => (
-                <div 
-                  key={srv.id} 
+                <div
+                  key={srv.id}
                   className={`service-list-item ${activeService.id === srv.id ? 'active' : ''}`}
                   onClick={() => setActiveService(srv)}
                 >
@@ -159,19 +176,18 @@ export default function LandingPage() {
               ))}
             </div>
 
-            {/* Right: Dynamic Detail Panel */}
             <div className="services-detail">
               <AnimatePresence mode="wait">
-                <motion.div 
+                <motion.div
                   key={activeService.id}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.4 }}
+                  exit={{ opacity: 0, y: -16 }}
+                  transition={{ duration: 0.3 }}
                   className="detail-card"
                 >
                   <div className="detail-img-wrapper">
-                    <img src={activeService.image} alt={activeService.title} className="detail-img" />
+                    <img src={activeService.image} alt={activeService.title} className="detail-img" loading="lazy" decoding="async" />
                     <div className="detail-icon">{activeService.icon}</div>
                   </div>
                   <div className="detail-content">
@@ -179,28 +195,27 @@ export default function LandingPage() {
                     <p>{activeService.desc}</p>
                     <ul className="package-list">
                       {activeService.packages.map((pkg, idx) => (
-                        <li key={idx} className="interactive-package-item" style={{ transition: 'all 0.2s ease', cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
-                          <Link 
-                            href={`/contact?interest=${activeService.title.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}&package=${pkg.toLowerCase().replace(/ /g, '-')}`}
-                            style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'inherit', width: '100%' }}
-                          >
-                            <Check size={14} className="icon-gold" /> 
-                            <span>{pkg}</span>
-                            <span style={{ fontSize: '0.65rem', color: 'var(--color-gold)', marginLeft: 'auto', border: '1px solid rgba(158, 112, 96, 0.3)', padding: '0.15rem 0.5rem', borderRadius: '50px', transition: 'all 0.2s ease' }} className="package-get-pricing">
-                              Get Pricing
-                            </span>
-                          </Link>
+                        <li
+                          key={idx}
+                          className="interactive-package-item"
+                          style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
+                          onClick={() => scrollToContact(activeService.title, `I'm interested in "${pkg}" — ${activeService.title}.`)}
+                        >
+                          <Check size={14} className="icon-gold" />
+                          <span style={{ marginLeft: '0.75rem' }}>{pkg}</span>
+                          <span className="package-get-pricing" style={{ fontSize: '0.65rem', color: 'var(--color-gold)', marginLeft: 'auto', border: '1px solid rgba(158,112,96,0.3)', padding: '0.15rem 0.5rem', borderRadius: '50px' }}>
+                            Get Pricing
+                          </span>
                         </li>
                       ))}
                     </ul>
-                    <Link 
-                      href={`/contact?interest=${activeService.title.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`} 
+                    <button
+                      onClick={() => scrollToContact(activeService.title, `I'd like to enquire about ${activeService.title} services.`)}
                       className="noha-btn-outline"
                     >
                       Request Pricing
-                    </Link>
+                    </button>
                   </div>
-
                 </motion.div>
               </AnimatePresence>
             </div>
@@ -208,50 +223,208 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* PORTFOLIO GRID SECTION */}
+      {/* ── EXCITING OFFERS ── */}
+      <section className="noha-section noha-offers" style={{ paddingTop: 0, paddingBottom: '5rem' }}>
+        <div className="noha-container">
+
+          <div className="section-header-center" style={{ marginBottom: '3rem' }}>
+            <span className="section-label">Exclusive Offers</span>
+            <h2 className="section-heading">Exciting Offers</h2>
+            <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginTop: '0.75rem' }}>
+              Limited-time specials — click any offer to book instantly.
+            </p>
+          </div>
+
+          {/* ── HERO OFFER: 50% Newborn (original big banner style) ── */}
+          <div
+            style={{
+              background: 'linear-gradient(135deg, rgba(158, 112, 96, 0.15) 0%, rgba(43, 27, 20, 0.05) 100%)',
+              border: '1px solid rgba(158, 112, 96, 0.25)',
+              borderRadius: '12px',
+              padding: '3rem',
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '2.5rem',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              boxShadow: '0 15px 30px rgba(0, 0, 0, 0.03)',
+              marginBottom: '2rem'
+            }}
+          >
+            <div style={{ flex: '1 1 500px' }}>
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  background: 'var(--color-white)',
+                  color: 'var(--color-black)',
+                  padding: '0.4rem 1rem',
+                  fontSize: '0.65rem',
+                  fontWeight: '700',
+                  letterSpacing: '1px',
+                  borderRadius: '50px',
+                  marginBottom: '1.25rem',
+                  textTransform: 'uppercase'
+                }}
+              >
+                <Gift size={12} />
+                50% Off Special
+              </div>
+              <h2 className="section-title" style={{ textAlign: 'left', fontSize: '2rem', marginBottom: '1rem', color: 'var(--color-white)' }}>
+                Newborn Photography Promo
+              </h2>
+              <p style={{ color: 'var(--color-white)', fontWeight: '600', marginBottom: '0.5rem', fontSize: '0.95rem' }}>
+                The UAE&apos;s #1 Premium Newborn Photography Agency
+              </p>
+              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', lineHeight: '1.7', margin: 0 }}>
+                Celebrate your baby&apos;s earliest days. Book our premium newborn fine-art portrait package at an exclusive 50% discount this month. Includes safety-certified handlers, warm lighting, and luxury props.
+              </p>
+            </div>
+
+            <div
+              style={{
+                flex: '1 1 300px',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+                justifyContent: 'center',
+                padding: '2rem',
+                background: 'var(--color-shade-2)',
+                borderRadius: '8px',
+                border: '1px solid rgba(158, 112, 96, 0.15)'
+              }}
+            >
+              <div style={{ fontSize: '0.75rem', letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--color-gold)', marginBottom: '0.5rem' }}>
+                Promo Investment
+              </div>
+              <div style={{ fontSize: '2.5rem', fontWeight: '800', color: 'var(--color-white)', marginBottom: '1.5rem' }}>
+                50% OFF
+              </div>
+              <button
+                onClick={() => scrollToContact('Photography', "I'd like to claim the 50% Off Newborn Photography Promo.")}
+                className="noha-btn-primary"
+                style={{ width: '100%', textAlign: 'center', padding: '1rem', display: 'block', border: 'none', cursor: 'pointer' }}
+              >
+                Claim Offer Now
+              </button>
+            </div>
+          </div>
+
+          {/* ── 3 SECONDARY OFFER CARDS ── */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
+            {SECONDARY_OFFERS.map((offer, i) => (
+              <div
+                key={i}
+                className="landing-offer-card"
+                style={{
+                  background: 'var(--color-shade-2)',
+                  border: '1px solid rgba(158, 112, 96, 0.18)',
+                  borderRadius: '10px',
+                  padding: '2rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '1rem',
+                  transition: 'transform 0.25s ease, box-shadow 0.25s ease'
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <div
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.4rem',
+                      background: 'rgba(158,112,96,0.15)',
+                      color: 'var(--color-gold)',
+                      padding: '0.3rem 0.8rem',
+                      fontSize: '0.58rem',
+                      fontWeight: '700',
+                      letterSpacing: '1px',
+                      borderRadius: '50px',
+                      textTransform: 'uppercase',
+                      border: '1px solid rgba(158,112,96,0.25)'
+                    }}
+                  >
+                    {offer.badgeIcon}
+                    {offer.badge}
+                  </div>
+                  <span style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--color-gold)', lineHeight: 1 }}>
+                    {offer.promo}
+                  </span>
+                </div>
+
+                <div>
+                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', color: 'var(--color-white)', marginBottom: '0.5rem' }}>
+                    {offer.title}
+                  </h3>
+                  <p style={{ color: 'var(--color-text-muted)', fontSize: '0.8rem', lineHeight: '1.65', margin: 0 }}>
+                    {offer.desc}
+                  </p>
+                </div>
+
+                <button
+                  onClick={() => scrollToContact(offer.interest, `I'd like to claim the offer: "${offer.title}" (${offer.promo}).`)}
+                  className="noha-btn-outline"
+                  style={{ marginTop: 'auto', textAlign: 'center', border: '1px solid rgba(158,112,96,0.4)', cursor: 'pointer', fontSize: '0.7rem', letterSpacing: '1px' }}
+                >
+                  {offer.ctaText} <ArrowRight size={13} />
+                </button>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── PORTFOLIO ── */}
       <section id="portfolio" className="noha-section noha-portfolio">
         <div className="noha-container">
           <div className="section-header-split">
             <div>
-              <span className="section-label">03 // Selected Works</span>
+              <span className="section-label">Selected Works</span>
               <h2 className="section-heading">A Glimpse of Elegance</h2>
             </div>
-            <a href="/portfolio" className="noha-btn-text">View Full Gallery <ArrowRight size={16} /></a>
+            {/* Navigate to the gallery section on the home page */}
+            <Link href="/#showcase-gallery-section" className="noha-btn-text">
+              View Full Gallery <ArrowRight size={16} />
+            </Link>
           </div>
 
           <div className="portfolio-bento-grid">
             {PORTFOLIO.map((item, idx) => (
-              <motion.div 
-                key={idx} 
-                className={`portfolio-item ${item.span}`}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
+              <div
+                key={idx}
+                className={`portfolio-item ${item.span} portfolio-fade-in`}
+                style={{ animationDelay: `${idx * 0.08}s` }}
               >
                 <div className="portfolio-img-container">
-                  <img src={item.img} alt={item.title} className="portfolio-img" />
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    className="portfolio-img"
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <div className="portfolio-overlay">
                     <span className="portfolio-title">{item.title}</span>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CONTACT / BOOKING SPLIT SECTION */}
-      <section id="contact" className="noha-section noha-contact">
+      {/* ── CONTACT FORM ── */}
+      <section id="contact" className="noha-section noha-contact" ref={contactRef}>
         <div className="noha-container contact-split">
-          
+
           <div className="contact-info">
-            <span className="section-label">04 // Inquiries</span>
+            <span className="section-label">Inquiries</span>
             <h2 className="section-heading">Let's craft your narrative.</h2>
             <p className="section-body">
-              Whether you are planning an intimate milestone or a grand event, our team is ready to provide a tailored experience. Reach out to discuss availability and bespoke packages.
+              Whether you are planning an intimate milestone or a grand event, our team is ready to provide a tailored experience.
             </p>
-            
             <div className="contact-details-list">
               <div className="contact-detail">
                 <Phone size={20} className="icon-gold" />
@@ -264,7 +437,7 @@ export default function LandingPage() {
                 <Mail size={20} className="icon-gold" />
                 <div>
                   <h5>Email Desk</h5>
-                  <p>studio@breathart.com</p>
+                  <p>Info@breathart.ae</p>
                 </div>
               </div>
               <div className="contact-detail">
@@ -286,7 +459,7 @@ export default function LandingPage() {
                 <div className="success-message animate-reveal active">
                   <Check size={32} className="icon-gold mx-auto mb-4" />
                   <h4>Inquiry Received</h4>
-                  <p>Thank you for reaching out. A studio representative will contact you shortly to arrange your consultation.</p>
+                  <p>Thank you for reaching out. A studio representative will contact you shortly.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="noha-form">
@@ -294,7 +467,7 @@ export default function LandingPage() {
                     <label>Full Name</label>
                     <input type="text" name="name" value={formData.name} onChange={handleInputChange} required placeholder="e.g. Jane Doe" />
                   </div>
-                  
+
                   <div className="input-row">
                     <div className="input-group">
                       <label>Email Address</label>
@@ -309,10 +482,9 @@ export default function LandingPage() {
                   <div className="input-group">
                     <label>Area of Interest</label>
                     <select name="service" value={formData.service} onChange={handleInputChange}>
-                      <option value="Maternity">Maternity & Newborn</option>
-                      <option value="Couple">Couple Photography</option>
-                      <option value="Event">Event Photography</option>
-                      <option value="CakeSmash">Cake Smash</option>
+                      <option value="Photography">Photography</option>
+                      <option value="Videography">Videography</option>
+                      <option value="Event">Event</option>
                     </select>
                   </div>
 

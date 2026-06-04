@@ -1343,8 +1343,7 @@ h1, h2, h3, h4, h5, h6,
     .cover-logo { font-size: 1.5rem; }
     .cinematic-title { font-size: 0.5rem; }
 
-    .whatsapp-float, .scroll-top-btn { width: 50px; height: 50px; font-size: 1.5rem; }
-    .scroll-top-btn { right: 6rem; }
+    .whatsapp-float { width: 50px; height: 50px; font-size: 1.5rem; }
 }
 
 
@@ -2082,47 +2081,6 @@ h1, h2, h3, h4, h5, h6,
 
     .page-flip-demo .title {
         font-size: 2em;
-    }
-}
-
-
-/* --- SCROLL TOP BUTTON --- */
-.scroll-top-btn {
-    position: fixed;
-    bottom: 2rem;
-    right: 8rem; /* Positioned next to WhatsApp */
-    width: 60px;
-    height: 60px;
-    background-color: var(--color-gray);
-    color: var(--color-gold);
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    cursor: pointer;
-    z-index: 10000;
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.scroll-top-btn.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-.scroll-top-btn:hover {
-    background-color: var(--color-gold);
-    color: var(--color-black);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
-}
-
-@media (max-width: 768px) {
-    .scroll-top-btn {
-        right: 7rem;
     }
 }
 
@@ -2911,8 +2869,8 @@ h1, h2, h3, h4, h5, h6,
 /* Decorative backing block */
 .card-bg-decor {
     position: absolute;
-    top: -20px;
-    bottom: 20px;
+    top: -30px;
+    bottom: 30px;
     background-color: rgba(43, 27, 20, 0.98); /* Dark header color */
     z-index: 1;
     border-radius: 4px;
@@ -2921,25 +2879,25 @@ h1, h2, h3, h4, h5, h6,
 
 .card-style-0 .card-bg-decor {
     width: 90%;
-    left: -20px;
+    left: -30px;
     right: auto;
 }
 
 .card-style-1 .card-bg-decor {
     width: 85%;
-    right: -20px;
+    right: -30px;
     left: auto;
 }
 
 .card-style-3 .card-bg-decor {
     width: 95%;
-    right: -20px;
+    right: -30px;
     left: auto;
 }
 
 .card-style-4 .card-bg-decor {
     width: 90%;
-    left: -20px;
+    left: -30px;
     right: auto;
 }
 
@@ -5195,5 +5153,156 @@ h1, h2, h3, h4, h5, h6,
         order: 2;
     }
 }
+
+/* --- FLOATING SCROLL TOP BUTTON --- */
+.scroll-top-float {
+    position: fixed;
+    bottom: 7rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-white); /* Espresso */
+    color: var(--color-black); /* Warm cream */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 25px rgba(59, 35, 26, 0.2);
+    z-index: 9999;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-top-float:hover {
+    transform: scale(1.15);
+    background-color: var(--color-gold);
+    color: var(--color-black);
+    box-shadow: 0 8px 35px rgba(158, 112, 96, 0.4);
+}
+
+@media (max-width: 991px) {
+    .scroll-top-float {
+        width: 50px;
+        height: 50px;
+        bottom: 6rem;
+    }
+}
+
+/* --- TAILWIND FALLBACK FOR SCROLL TO TOP --- */
+.scroll-top-tailwind-fallback {
+    position: fixed !important;
+    bottom: 7rem !important; /* Float above WhatsApp */
+    right: calc(2rem + 22px) !important;
+    z-index: 9999 !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: rgba(255, 255, 255, 0.08) !important; /* Very transparent container */
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    backdrop-filter: blur(10px) !important; /* Frosted glass blur */
+    -webkit-backdrop-filter: blur(10px) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12) !important;
+    cursor: pointer !important;
+    transition: all 0.25s ease-out !important;
+    outline: none !important;
+    /* isolation ensures mix-blend-mode works on the child icon */
+    isolation: isolate !important;
+}
+
+/* The icon uses mix-blend-mode: difference so it appears:
+   - Dark (nearly black) on light/cream page sections
+   - Light (white) on dark page sections
+   This gives automatic color adaptation based on page background */
+.scroll-top-icon {
+    stroke: #000000;
+    color: #000000 !important;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scroll-top-tailwind-fallback:hover {
+    background-color: rgba(255, 255, 255, 0.18) !important;
+    border-color: rgba(255, 255, 255, 0.35) !important;
+    transform: translateY(-2px) scale(1.05) !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18) !important;
+}
+
+@media (max-width: 991px) {
+    .scroll-top-tailwind-fallback {
+        bottom: 6rem !important;
+        right: calc(2rem + 18px) !important;
+        width: 40px !important;
+        height: 40px !important;
+    }
+}
+
+/* ── Landing page: secondary offer card hover ── */
+.landing-offer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.07);
+    border-color: rgba(158, 112, 96, 0.35) !important;
+}
+
+/* ── Landing page: portfolio items — CSS-only fade (no Framer scale, no layout thrash) ── */
+@keyframes portfolioFadeIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.portfolio-fade-in {
+    opacity: 0;
+    animation: portfolioFadeIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: opacity, transform;
+    /* Isolate compositing layer per item */
+    contain: layout style;
+}
+
+/* Once the animation is done, remove will-change to free GPU memory */
+.portfolio-fade-in[style] {
+    will-change: auto;
+}
+
+/* ── Landing page: hero reveal ── */
+@keyframes heroReveal {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.landing-hero-reveal {
+    animation: heroReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ── Landing page: about section slide in ── */
+@keyframes aboutSlideIn {
+    from { opacity: 0; transform: translateX(-24px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+.landing-about-reveal {
+    animation: aboutSlideIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-play-state: paused;
+}
+
+/* Trigger when scrolled into view — use :global so Next.js CSS Modules don't scope it */
+@media (prefers-reduced-motion: no-preference) {
+    .landing-about-reveal {
+        animation-play-state: running;
+    }
+}
+
+
+
+
+
+
+
+
 
 

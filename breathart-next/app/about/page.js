@@ -87,9 +87,6 @@ export default function AboutPage() {
             <p className="story-text" style={{ fontStyle: 'italic', fontWeight: '500' }}>
               This is the BreathArt difference. This is art, redefined.
             </p>
-            <Link href="/contact" className="story-btn-get-in-touch">
-              Get In Touch
-            </Link>
           </div>
         </div>
       </section>
