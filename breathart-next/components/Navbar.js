@@ -57,16 +57,28 @@ function NavLink({ heading, href, index, isActive, onClose, subItems }) {
         <>
           <div 
             className="curved-menu-link-content" 
-            style={{ cursor: 'pointer', padding: '1.25rem 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }} 
-            onClick={() => setIsOpen(!isOpen)}
+            style={{ padding: '1.25rem 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
           >
-            <div style={{ display: 'flex', alignItems: 'center' }}>
+            <Link 
+              href={href} 
+              onClick={onClose} 
+              style={{ display: 'flex', alignItems: 'center', flexGrow: 1, textDecoration: 'none' }}
+            >
               <span className="curved-menu-index">
                 0{index}.
               </span>
-              <span className="curved-menu-label">{heading}</span>
+              <span className="curved-menu-label" style={{ transition: 'color 0.3s' }} onMouseEnter={(e) => e.target.style.color = 'var(--color-gold)'} onMouseLeave={(e) => e.target.style.color = 'rgba(250, 245, 240, 0.9)'}>{heading}</span>
+            </Link>
+            <div 
+              style={{ cursor: 'pointer', padding: '0.5rem 1.5rem', display: 'flex', alignItems: 'center' }} 
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setIsOpen(!isOpen);
+              }}
+            >
+              <i className={`fas fa-chevron-${isOpen ? 'up' : 'down'}`} style={{ color: 'var(--color-gold)', fontSize: '1rem', transition: 'transform 0.3s ease' }}></i>
             </div>
-            <i className={`fas fa-chevron-${isOpen ? 'up' : 'down'}`} style={{ color: 'var(--color-gold)', marginRight: '1.5rem', fontSize: '1rem', transition: 'transform 0.3s ease' }}></i>
           </div>
           {isOpen && (
             <div style={{ paddingLeft: '2.5rem', paddingBottom: '1.25rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>

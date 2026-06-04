@@ -70,15 +70,6 @@ const categories = [
       { name: 'Product Photography', icon: 'fas fa-box-open', desc: 'Sharp, clean studio product shots that showcase design features and textures.' },
       { name: 'Real Estate Photography', icon: 'fas fa-home', desc: 'High-end wide-angle and HDR architectural photography for spaces and premium properties.' }
     ]
-  },
-  {
-    id: 'creative',
-    title: 'creative & concept',
-    description: 'Artistic, gravity-defying concepts designed for show-stopping visual statements that capture the imagination.',
-    image: '/assets/service_creative_main.png',
-    services: [
-      { name: 'Flying Dress Photography', icon: 'fas fa-wind', desc: 'Breathtaking conceptual sessions in dramatic desert or architecture backdrops with vibrant, sweeping gowns.' }
-    ]
   }
 ];
 
