@@ -210,7 +210,7 @@ function ContactFormInner({
 
   return (
     <form action="https://formspree.io/f/xvovlbkw" method="POST">
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2rem' }}>
+      <div className="input-row">
         <div className="form-group">
           <label className="cinematic-title" style={labelStyle}>
             Full Name
@@ -241,7 +241,7 @@ function ContactFormInner({
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2rem' }}>
+      <div className="input-row">
         <div className="form-group">
           <label className="cinematic-title" style={labelStyle}>
             Phone Number

@@ -2,7 +2,7 @@
 
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check, Phone, Mail, MapPin, Send, ArrowRight, Play, Camera, Film, Gift, Star, Zap } from 'lucide-react';
+import { Check, Phone, Mail, MapPin, Send, ArrowRight, Play, Camera, Film, Gift, Star, Zap, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import HomeLightbox from '../(home)/components/HomeLightbox';
 import ContactForm from '../../components/ContactForm';
@@ -111,6 +111,7 @@ const PORTFOLIO = [
 
 export default function LandingPage() {
   const [activeService, setActiveService] = useState(SERVICES[0]);
+  const [activeAccordionId, setActiveAccordionId] = useState(null);
   const [filter, setFilter] = useState('All');
   const contactRef = useRef(null);
   const [initialService, setInitialService] = useState('Photography');
@@ -194,19 +195,75 @@ export default function LandingPage() {
           <div className="services-split">
             <div className="services-list">
               {SERVICES.map((srv) => (
-                <div
-                  key={srv.id}
-                  className={`service-list-item ${activeService.id === srv.id ? 'active' : ''}`}
-                  onClick={() => setActiveService(srv)}
-                >
-                  <span className="srv-id">{srv.id}</span>
-                  <h3 className="srv-title">{srv.title}</h3>
-                  <ArrowRight className="srv-arrow" />
+                <div key={srv.id} style={{ display: 'flex', flexDirection: 'column' }}>
+                  <div
+                    className={`service-list-item ${activeService.id === srv.id ? 'active' : ''}`}
+                    onClick={() => {
+                      setActiveService(srv);
+                      setActiveAccordionId(activeAccordionId === srv.id ? null : srv.id);
+                    }}
+                  >
+                    <span className="srv-id">{srv.id}</span>
+                    <h3 className="srv-title">{srv.title}</h3>
+                    <div className="desktop-only-detail">
+                      <ArrowRight className="srv-arrow" size={20} />
+                    </div>
+                    <div className="mobile-only-detail" style={{ transform: activeAccordionId === srv.id ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}>
+                      <ChevronDown className="srv-arrow" size={20} />
+                    </div>
+                  </div>
+                  
+                  {/* MOBILE DETAILS (Accordion) */}
+                  <div className="mobile-only-detail" style={{ overflow: 'hidden' }}>
+                    <AnimatePresence>
+                      {activeAccordionId === srv.id && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="detail-card"
+                          style={{ marginTop: '1rem', marginBottom: '1rem' }}
+                        >
+                          <div className="detail-img-wrapper">
+                            <img src={srv.image} alt={srv.title} className="detail-img" loading="lazy" decoding="async" />
+                            <div className="detail-icon">{srv.icon}</div>
+                          </div>
+                          <div className="detail-content">
+                            <h4>{srv.title}</h4>
+                            <p>{srv.desc}</p>
+                            <ul className="package-list">
+                              {srv.packages.map((pkg, idx) => (
+                                <li
+                                  key={idx}
+                                  className="interactive-package-item"
+                                  style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
+                                  onClick={() => scrollToContact(srv.title, `I'm interested in "${pkg}" — ${srv.title}.`)}
+                                >
+                                  <Check size={14} className="icon-gold" />
+                                  <span style={{ marginLeft: '0.75rem' }}>{pkg}</span>
+                                  <span className="package-get-pricing" style={{ fontSize: '0.65rem', color: 'var(--color-gold)', marginLeft: 'auto', border: '1px solid rgba(158,112,96,0.3)', padding: '0.15rem 0.5rem', borderRadius: '50px' }}>
+                                    Get Pricing
+                                  </span>
+                                </li>
+                              ))}
+                            </ul>
+                            <button
+                              onClick={() => scrollToContact(srv.title, `I'd like to enquire about ${srv.title} services.`)}
+                              className="noha-btn-outline"
+                            >
+                              Request Pricing
+                            </button>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
                 </div>
               ))}
             </div>
 
-            <div className="services-detail">
+            <div className="services-detail desktop-only-detail">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeService.id}
@@ -266,42 +323,13 @@ export default function LandingPage() {
           </div>
 
           {/* ── HERO OFFER: 50% Newborn (original big banner style) ── */}
-          <div
-            style={{
-              background: 'linear-gradient(135deg, rgba(158, 112, 96, 0.15) 0%, rgba(43, 27, 20, 0.05) 100%)',
-              border: '1px solid rgba(158, 112, 96, 0.25)',
-              borderRadius: '12px',
-              padding: '3rem',
-              display: 'flex',
-              flexWrap: 'wrap',
-              gap: '2.5rem',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              boxShadow: '0 15px 30px rgba(0, 0, 0, 0.03)',
-              marginBottom: '2rem'
-            }}
-          >
-            <div style={{ flex: '1 1 500px' }}>
-              <div
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  background: 'var(--color-white)',
-                  color: 'var(--color-black)',
-                  padding: '0.4rem 1rem',
-                  fontSize: '0.65rem',
-                  fontWeight: '700',
-                  letterSpacing: '1px',
-                  borderRadius: '50px',
-                  marginBottom: '1.25rem',
-                  textTransform: 'uppercase'
-                }}
-              >
+          <div className="hero-offer-banner">
+            <div className="hero-offer-content">
+              <div className="hero-offer-badge">
                 <Gift size={12} />
                 50% Off Special
               </div>
-              <h2 className="section-title" style={{ textAlign: 'left', fontSize: '2rem', marginBottom: '1rem', color: 'var(--color-white)' }}>
+              <h2 className="section-title hero-offer-title">
                 Newborn Photography Promo
               </h2>
               <p style={{ color: 'var(--color-white)', fontWeight: '600', marginBottom: '0.5rem', fontSize: '0.95rem' }}>
@@ -312,19 +340,7 @@ export default function LandingPage() {
               </p>
             </div>
 
-            <div
-              style={{
-                flex: '1 1 300px',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'flex-start',
-                justifyContent: 'center',
-                padding: '2rem',
-                background: 'var(--color-shade-2)',
-                borderRadius: '8px',
-                border: '1px solid rgba(158, 112, 96, 0.15)'
-              }}
-            >
+            <div className="hero-offer-pricing">
               <div style={{ fontSize: '0.75rem', letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--color-gold)', marginBottom: '0.5rem' }}>
                 Promo Investment
               </div>
@@ -333,8 +349,7 @@ export default function LandingPage() {
               </div>
               <button
                 onClick={() => scrollToContact('Photography', "I'd like to claim the 50% Off Newborn Photography Promo.")}
-                className="noha-btn-primary"
-                style={{ width: '100%', textAlign: 'center', padding: '1rem', display: 'block', border: 'none', cursor: 'pointer' }}
+                className="noha-btn-primary full-width"
               >
                 Claim Offer Now
               </button>
@@ -518,45 +533,48 @@ export default function LandingPage() {
 
       {/* ── CONTACT FORM ── */}
       <section id="contact" className="noha-section noha-contact" ref={contactRef}>
-        <div className="noha-container contact-split">
+        <div className="noha-container">
 
-          <div className="contact-info">
-            <span className="section-label">Inquiries</span>
-            <h2 className="section-heading">Let&apos;s craft your narrative.</h2>
-            <p className="section-body">
-              Whether you are planning an intimate milestone or a grand event, our team is ready to provide a tailored experience.
-            </p>
-            <div className="contact-details-list">
-              <div className="contact-detail">
-                <Phone size={20} className="icon-gold" />
-                <div>
-                  <h5>Direct Concierge</h5>
-                  <p style={{ margin: 0 }}>+971 52 640 0679</p>
-                  <p style={{ margin: 0 }}>+971 52 215 0837</p>
+          <div className="grid-2" style={{ alignItems: 'flex-start', gap: '4rem' }}>
+
+            {/* Left Column: Info */}
+            <div>
+              <span className="section-label">Inquiries</span>
+              <h2 className="section-heading" style={{ marginBottom: '1rem' }}>Let&apos;s craft your narrative.</h2>
+              <p className="section-body" style={{ marginBottom: '2.5rem' }}>
+                Whether you are planning an intimate milestone or a grand event, our team is ready to provide a tailored experience.
+              </p>
+              <div className="contact-details-list">
+                <div className="contact-detail">
+                  <Phone size={20} className="icon-gold" />
+                  <div>
+                    <h5>Direct Concierge</h5>
+                    <p style={{ margin: 0 }}>+971 52 640 0679</p>
+                    <p style={{ margin: 0 }}>+971 52 215 0837</p>
+                  </div>
                 </div>
-              </div>
-              <div className="contact-detail">
-                <Mail size={20} className="icon-gold" />
-                <div>
-                  <h5>Email Desk</h5>
-                  <p style={{ margin: 0 }}>Info@breathart.ae</p>
-                  <p style={{ margin: 0 }}>breathartindia@gmail.com</p>
+                <div className="contact-detail">
+                  <Mail size={20} className="icon-gold" />
+                  <div>
+                    <h5>Email Desk</h5>
+                    <p style={{ margin: 0 }}>Info@breathart.ae</p>
+                    <p style={{ margin: 0 }}>breathartindia@gmail.com</p>
+                  </div>
                 </div>
-              </div>
-              <div className="contact-detail">
-                <MapPin size={20} className="icon-gold" />
-                <div>
-                  <h5>Studio Location</h5>
-                  <p>Dubai Design District, UAE</p>
+                <div className="contact-detail">
+                  <MapPin size={20} className="icon-gold" />
+                  <div>
+                    <h5>Studio Location</h5>
+                    <p>Dubai Design District, UAE</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div className="contact-form-wrapper">
-            <div className="form-card">
-              <h3>Secure Your Session</h3>
-              <p className="form-subtitle">Fill in the details below. We typically respond within 2-4 hours.</p>
+            {/* Right Column: Form */}
+            <div style={{ background: 'var(--color-shade-2)', padding: '3rem 2.5rem', borderRadius: '12px', border: '1px solid rgba(158, 112, 96, 0.15)', boxShadow: '0 20px 40px rgba(43, 27, 20, 0.05)' }}>
+              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.8rem', marginBottom: '0.5rem', color: 'var(--color-white)' }}>Secure Your Session</h3>
+              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', marginBottom: '2rem' }}>Fill in the details below. We typically respond within 2-4 hours.</p>
               <ContactForm
                 theme="landing"
                 initialService={initialService}
@@ -565,8 +583,8 @@ export default function LandingPage() {
                 showPackageField={false}
               />
             </div>
-          </div>
 
+          </div>
         </div>
       </section>
 

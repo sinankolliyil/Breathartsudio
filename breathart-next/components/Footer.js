@@ -60,14 +60,22 @@ export default function Footer() {
           {/* Col 4: Contact & Socials */}
           <div className="footer-col contact-col">
             <h4>Initiate Story</h4>
-            <p className="footer-contact-item" style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-              <span><i className="fas fa-envelope"></i> <a href="mailto:Info@breathart.ae">Info@breathart.ae</a></span>
-              <span style={{ paddingLeft: '1.5rem' }}><a href="mailto:breathartindia@gmail.com">breathartindia@gmail.com</a></span>
-            </p>
-            <p className="footer-contact-item" style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', marginTop: '1rem' }}>
-              <span><i className="fas fa-phone"></i> <a href="tel:+971526400679">+971 52 640 0679</a></span>
-              <span style={{ paddingLeft: '1.5rem' }}><a href="tel:+971522150837">+971 52 215 0837</a></span>
-            </p>
+
+            <div className="footer-contact-item" style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start', marginBottom: '1rem' }}>
+              <i className="fas fa-envelope" style={{ marginTop: '0.2rem', flexShrink: 0 }}></i>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                <a href="mailto:Info@breathart.ae">Info@breathart.ae</a>
+                <a href="mailto:breathartindia@gmail.com">breathartindia@gmail.com</a>
+              </div>
+            </div>
+
+            <div className="footer-contact-item" style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+              <i className="fas fa-phone" style={{ marginTop: '0.2rem', flexShrink: 0 }}></i>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                <a href="tel:+971526400679">+971 52 640 0679</a>
+                <a href="tel:+971522150837">+971 52 215 0837</a>
+              </div>
+            </div>
             <div className="footer-social-links">
               <a href="https://wa.me/971526400679" target="_blank" rel="noopener noreferrer" className="whatsapp">
                 <i className="fab fa-whatsapp"></i>

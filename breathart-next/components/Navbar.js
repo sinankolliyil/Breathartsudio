@@ -142,6 +142,16 @@ export default function Navbar() {
   // Close menu when route changes
   useEffect(() => { setMenuOpen(false); }, [pathname]);
 
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
   const isActive = (path) => pathname === path;
   const isHome = pathname === '/';
 
@@ -172,7 +182,7 @@ export default function Navbar() {
       <nav id="navbar" className={navClasses}>
         <div className="nav-container">
           <Link href="/" className="logo" style={{ display: 'flex', alignItems: 'center' }}>
-            <img src="/assets/logo/BreathArt Photography Logo.png" alt="BreathArt Photography Logo" style={{ height: '38px', width: 'auto', objectFit: 'contain' }} />
+            <img src="/assets/logo/BreathArt Photography Logo.png" alt="BreathArt Photography Logo" style={{ height: '30px', width: 'auto', objectFit: 'contain' }} />
           </Link>
 
           {/* Desktop nav links */}
@@ -281,18 +291,22 @@ export default function Navbar() {
 
               {/* Footer inside Mobile Menu */}
               <div className="curved-menu-footer">
+                <Link
+                  href="/landing"
+                  className="curved-menu-cta-btn"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  View Studio Page
+                </Link>
                 <div className="curved-menu-socials">
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="curved-menu-social-icon">
-                    <LinkedinIcon size={24} />
+                  <a href="https://wa.me/971526400679" target="_blank" rel="noopener noreferrer" className="curved-menu-social-icon">
+                    <i className="fab fa-whatsapp" style={{ fontSize: '24px' }}></i>
                   </a>
-                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="curved-menu-social-icon">
-                    <GithubIcon size={24} />
+                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="curved-menu-social-icon">
+                    <i className="fab fa-facebook-f" style={{ fontSize: '24px' }}></i>
                   </a>
-                  <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" className="curved-menu-social-icon">
-                    <DribbbleIcon size={24} />
-                  </a>
-                  <a href="https://figma.com" target="_blank" rel="noopener noreferrer" className="curved-menu-social-icon">
-                    <FigmaIcon size={24} />
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="curved-menu-social-icon">
+                    <i className="fab fa-instagram" style={{ fontSize: '24px' }}></i>
                   </a>
                 </div>
               </div>
