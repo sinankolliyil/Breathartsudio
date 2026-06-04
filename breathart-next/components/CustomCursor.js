@@ -44,6 +44,17 @@ export default function CustomCursor() {
     const handleMouseOver = (e) => {
       const target = e.target;
       if (!target) return;
+
+      if (
+        target.tagName === 'INPUT' || 
+        target.tagName === 'TEXTAREA' || 
+        target.tagName === 'SELECT'
+      ) {
+        setHidden(true);
+        return;
+      } else {
+        setHidden(false);
+      }
       
       if (
         target.tagName === 'A' ||

@@ -7,6 +7,7 @@ import GalleryItem from './components/GalleryItem';
 import FeatureCard from './components/FeatureCard';
 import HomeLightbox from './components/HomeLightbox';
 import ContactForm from '../../components/ContactForm';
+import PopupForm from '../../components/PopupForm';
 import { Shield, Sparkles, Sun, Camera, Sliders, Users, BookOpen, Heart, ArrowUpRight } from 'lucide-react';
 
 const allShowcaseImages = [
@@ -54,6 +55,7 @@ export default function HomePage() {
 
   return (
     <>
+      <PopupForm />
       {/* Ultra-Premium Hero Section */}
       <header className="hero">
         <div className="hero-canvas"></div>

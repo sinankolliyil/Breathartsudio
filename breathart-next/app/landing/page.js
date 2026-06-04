@@ -6,6 +6,7 @@ import { Check, Phone, Mail, MapPin, Send, ArrowRight, Play, Camera, Film, Gift,
 import Link from 'next/link';
 import HomeLightbox from '../(home)/components/HomeLightbox';
 import ContactForm from '../../components/ContactForm';
+import PopupForm from '../../components/PopupForm';
 
 const allShowcaseImages = [
   // Newborn
@@ -50,7 +51,7 @@ const SERVICES = [
     icon: <Camera size={24} />,
     desc: 'Curating exceptional stills that tell stories, capture emotions, and establish visual legacies. From premium family portraiture to luxury weddings.',
     image: '/assets/service_family_lifestyle.png',
-    packages: ['Family & Lifestyle', 'Wedding & Romance', 'Corporate Branding', 'Creative & Concept']
+    packages: ['Newborn', 'Family & Lifestyle', 'Wedding & Romance', 'Corporate Branding', 'Creative & Concept']
   },
   {
     id: '02',
@@ -131,6 +132,7 @@ export default function LandingPage() {
 
   return (
     <div className="noha-landing-wrapper">
+      <PopupForm />
 
       {/* ── HERO ── */}
       <section className="noha-hero">
@@ -416,6 +418,23 @@ export default function LandingPage() {
                 </button>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── INLINE CONTACT FORM (After Offers) ── */}
+      <section className="noha-section" style={{ paddingTop: 0, paddingBottom: '5rem' }}>
+        <div className="noha-container" style={{ display: 'flex', justifyContent: 'center' }}>
+          <div style={{ background: 'var(--color-shade-2)', padding: '3rem 2.5rem', borderRadius: '12px', border: '1px solid rgba(158, 112, 96, 0.15)', boxShadow: '0 20px 40px rgba(43, 27, 20, 0.05)', width: '100%' }}>
+            <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.8rem', marginBottom: '0.5rem', color: 'var(--color-white)', textAlign: 'center' }}>Secure Your Session</h3>
+            <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', marginBottom: '2rem', textAlign: 'center' }}>Fill in the details below to claim your offer.</p>
+            <ContactForm
+              theme="landing"
+              initialService={initialService}
+              initialMessage={initialMessage}
+              buttonText="Submit Inquiry"
+              showPackageField={false}
+            />
           </div>
         </div>
       </section>
