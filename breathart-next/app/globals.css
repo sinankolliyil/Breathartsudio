@@ -30,6 +30,15 @@
 
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior: smooth; }
+@media (min-width: 1024px) {
+    html {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+    html::-webkit-scrollbar {
+        display: none; /* Chrome, Safari and Opera */
+    }
+}
 a { text-decoration: none; } /* Global: Remove underlines from all links */
 
 body {
