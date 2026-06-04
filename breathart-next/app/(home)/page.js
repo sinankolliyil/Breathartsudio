@@ -61,6 +61,27 @@ export default function HomePage() {
         <div className="hero-canvas"></div>
         <div className="hero-overlay"></div>
 
+        {/* Subtle camera viewfinder markings in hero corners */}
+        <div className="desktop-only" style={{
+          position: 'absolute',
+          top: '120px',
+          left: '60px',
+          right: '60px',
+          bottom: '60px',
+          border: '1px solid rgba(158, 112, 96, 0.04)',
+          pointerEvents: 'none',
+          zIndex: 3
+        }}>
+          {/* Top-left corner tick */}
+          <div style={{ position: 'absolute', top: '-1px', left: '-1px', width: '15px', height: '15px', borderTop: '1px solid var(--color-gold)', borderLeft: '1px solid var(--color-gold)', opacity: 0.3 }}></div>
+          {/* Top-right corner tick */}
+          <div style={{ position: 'absolute', top: '-1px', right: '-1px', width: '15px', height: '15px', borderTop: '1px solid var(--color-gold)', borderRight: '1px solid var(--color-gold)', opacity: 0.3 }}></div>
+          {/* Bottom-left corner tick */}
+          <div style={{ position: 'absolute', bottom: '-1px', left: '-1px', width: '15px', height: '15px', borderBottom: '1px solid var(--color-gold)', borderLeft: '1px solid var(--color-gold)', opacity: 0.3 }}></div>
+          {/* Bottom-right corner tick */}
+          <div style={{ position: 'absolute', bottom: '-1px', right: '-1px', width: '15px', height: '15px', borderBottom: '1px solid var(--color-gold)', borderRight: '1px solid var(--color-gold)', opacity: 0.3 }}></div>
+        </div>
+
         <div className="container hero-split">
           {/* Left Side: Cinematic Copy (Redesigned like NOHA reference) */}
           <div className="hero-left" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
