@@ -100,8 +100,8 @@ export default function AboutPage() {
       </section>
 
       {/* Why Choose Us Features list */}
-      <section className="section" style={{ padding: '0 0 8rem 0' }}>
-        <div className="pillar-section-container" style={{ marginTop: '4.5rem' }}>
+      <section className="section" style={{ padding: '0 0 0 0' }}>
+        <div className="pillar-section-container" style={{ marginTop: '4.5rem', marginBottom: '2rem' }}>
           {features.map((feature, index) => (
             <div key={index} className={`pillar-row ${index % 2 !== 0 ? 'alt-layout' : ''}`}>
               <div className="pillar-left">
@@ -116,6 +116,23 @@ export default function AboutPage() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+      {/* Quote Section */}
+      <section className="section text-center" style={{ padding: '3rem 0 8rem 0', textAlign: 'center' }}>
+        <div className="container">
+          <p style={{
+            fontFamily: "'Playfair Display', serif",
+            fontStyle: 'italic',
+            fontSize: 'clamp(1.5rem, 3vw, 2.2rem)',
+            color: 'var(--color-gold)',
+            margin: '0 auto',
+            marginBottom: '0rem',
+            maxWidth: '800px',
+            lineHeight: '1.5',
+          }}>
+            "Every picture tells a story of love"
+          </p>
         </div>
       </section>
     </>
