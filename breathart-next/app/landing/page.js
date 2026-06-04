@@ -376,44 +376,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ── PORTFOLIO ── */}
-      <section id="portfolio" className="noha-section noha-portfolio">
-        <div className="noha-container">
-          <div className="section-header-split">
-            <div>
-              <span className="section-label">Selected Works</span>
-              <h2 className="section-heading">A Glimpse of Elegance</h2>
-            </div>
-            {/* Navigate to the gallery section on the home page */}
-            <Link href="/#showcase-gallery-section" className="noha-btn-text">
-              View Full Gallery <ArrowRight size={16} />
-            </Link>
-          </div>
-
-          <div className="portfolio-bento-grid">
-            {PORTFOLIO.map((item, idx) => (
-              <div
-                key={idx}
-                className={`portfolio-item ${item.span} portfolio-fade-in`}
-                style={{ animationDelay: `${idx * 0.08}s` }}
-              >
-                <div className="portfolio-img-container">
-                  <img
-                    src={item.img}
-                    alt={item.title}
-                    className="portfolio-img"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div className="portfolio-overlay">
-                    <span className="portfolio-title">{item.title}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ── CONTACT FORM ── */}
       <section id="contact" className="noha-section noha-contact" ref={contactRef}>
