@@ -89,7 +89,7 @@ export default function ContactPage() {
             {/* Right Column: Form */}
             <div className="home-contact-wrapper animate-reveal" style={{ background: 'var(--color-shade-2)', padding: '4rem', borderRadius: '12px', border: '1px solid rgba(158, 112, 96, 0.15)', boxShadow: '0 20px 40px rgba(43, 27, 20, 0.05)' }}>
               <h3 className="cinematic-title" style={{ marginBottom: '0.5rem', color: 'var(--color-gold)' }}>Inquiry Form</h3>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.2rem', marginBottom: '3rem', color: '#FAF5F0' }}>
+              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.2rem', marginBottom: '3rem', color: 'var(--color-white)' }}>
                 Initiate Your <span className="text-gold">Story</span>
               </h2>
 

@@ -7,37 +7,37 @@ export const metadata = {
 
 const features = [
   {
-    title: 'E X P E R I E N C E D   P H O T O G R A P H E R S',
+    title: 'Experienced Photographers',
     desc: 'Master artists with decades of collective experience in fine art photography.',
     image: '/assets/feature_photographers.png',
     link: '/services',
   },
   {
-    title: 'D E D I C A T E D   L A D Y   S T A F F',
+    title: 'Dedicated Lady Staff',
     desc: 'Ensuring absolute comfort, privacy, and ease for maternity & newborn sessions.',
     image: '/assets/feature_maternity.png',
     link: '/services',
   },
   {
-    title: 'P R E M I U M   S T U D I O',
+    title: 'Premium Studio',
     desc: 'A state-of-the-art space designed for creative excellence and high-fashion aesthetics.',
     image: '/assets/feature_studio.png',
     link: '/services',
   },
   {
-    title: 'H I G H - E N D   E Q U I P M E N T',
+    title: 'High-End Equipment',
     desc: 'Utilizing the latest mirrorless technology and professional studio lighting.',
     image: '/assets/feature_equipment.png',
     link: '/services',
   },
   {
-    title: 'F A S T   D E L I V E R Y',
+    title: 'Fast Delivery',
     desc: 'Rapid turn-around without compromising the artistry of post-production.',
     image: '/assets/feature_delivery.png',
     link: '/services',
   },
   {
-    title: 'T R U S T E D   B Y   1 0 0 0 +',
+    title: 'Trusted By 1000+',
     desc: 'Building lasting relationships through exceptional art and trusted services.',
     image: '/assets/service_wedding.png',
     link: '/services',

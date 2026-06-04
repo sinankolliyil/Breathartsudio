@@ -965,14 +965,17 @@ h1, h2, h3, h4, h5, h6,
     .payment-float-banner {
         bottom: 1.25rem;
         left: 1.25rem;
-        padding: 0.4rem 0.8rem 0.4rem 0.7rem;
+        padding: 0.05rem 0.8rem 0.05rem 0.7rem;
         gap: 0.5rem;
     }
     .payment-float-text {
         font-size: 0.7rem;
     }
     .payment-float-img {
-        height: 15px;
+        height: 28px;
+    }
+    .whatsapp-float {
+        right: 2.7rem;
     }
 }
 
