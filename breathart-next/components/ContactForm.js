@@ -214,6 +214,7 @@ ${showPackageField && formData.package ? `*Package:* ${formData.package}\n` : ''
   const labelStyle = {
     fontSize: '0.65rem',
     display: 'block',
+    marginTop: '1.8rem',
     marginBottom: '0.5rem',
     fontWeight: '600',
     textTransform: 'uppercase',
