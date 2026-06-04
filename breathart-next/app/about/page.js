@@ -50,9 +50,9 @@ export default function AboutPage() {
       <header
         className="page-header"
         style={{
-          background: "linear-gradient(rgba(252,252,252,0.4), rgba(252,252,252,0.4)), url('/assets/parallax_bg.png')",
+          background: "linear-gradient(rgba(252,252,252,0.4), rgba(252,252,252,0.4)), url('/assets/hero_nature.png')",
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition: 'center 53%',
         }}
       >
         <div className="container container-narrow animate-reveal">
