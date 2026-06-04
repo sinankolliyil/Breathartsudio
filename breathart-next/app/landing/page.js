@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Check, Phone, Mail, MapPin, Send, ArrowRight, Play, Camera, Film, Gift, Star, Zap } from 'lucide-react';
 import Link from 'next/link';
 import HomeLightbox from '../(home)/components/HomeLightbox';
+import ContactForm from '../../components/ContactForm';
 
 const allShowcaseImages = [
   // Newborn
@@ -111,30 +112,17 @@ const PORTFOLIO = [
 export default function LandingPage() {
   const [activeService, setActiveService] = useState(SERVICES[0]);
   const [filter, setFilter] = useState('All');
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', service: 'Photography', message: '' });
-  const [submitted, setSubmitted] = useState(false);
   const contactRef = useRef(null);
+  const [initialService, setInitialService] = useState('Photography');
+  const [initialMessage, setInitialMessage] = useState('');
 
   const filteredImages = filter === 'All' 
     ? allShowcaseImages 
     : allShowcaseImages.filter(img => img.category === filter);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', phone: '', service: 'Photography', message: '' });
-    }, 5000);
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
   const scrollToContact = (service, msg) => {
-    setFormData(prev => ({ ...prev, service, message: msg }));
+    setInitialService(service);
+    setInitialMessage(msg);
     setTimeout(() => {
       contactRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 80);
@@ -569,50 +557,13 @@ export default function LandingPage() {
             <div className="form-card">
               <h3>Secure Your Session</h3>
               <p className="form-subtitle">Fill in the details below. We typically respond within 2-4 hours.</p>
-
-              {submitted ? (
-                <div className="success-message animate-reveal active">
-                  <Check size={32} className="icon-gold mx-auto mb-4" />
-                  <h4>Inquiry Received</h4>
-                  <p>Thank you for reaching out. A studio representative will contact you shortly.</p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="noha-form">
-                  <div className="input-group">
-                    <label>Full Name</label>
-                    <input type="text" name="name" value={formData.name} onChange={handleInputChange} required placeholder="e.g. Jane Doe" />
-                  </div>
-
-                  <div className="input-row">
-                    <div className="input-group">
-                      <label>Email Address</label>
-                      <input type="email" name="email" value={formData.email} onChange={handleInputChange} required placeholder="jane@example.com" />
-                    </div>
-                    <div className="input-group">
-                      <label>Phone Number</label>
-                      <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} required placeholder="+971 XX XXX XXXX" />
-                    </div>
-                  </div>
-
-                  <div className="input-group">
-                    <label>Area of Interest</label>
-                    <select name="service" value={formData.service} onChange={handleInputChange}>
-                      <option value="Photography">Photography</option>
-                      <option value="Videography">Videography</option>
-                      <option value="Event">Event</option>
-                    </select>
-                  </div>
-
-                  <div className="input-group">
-                    <label>Additional Details (Date, Venue, Specific Requests)</label>
-                    <textarea name="message" value={formData.message} onChange={handleInputChange} rows={4} placeholder="Tell us more about your vision..."></textarea>
-                  </div>
-
-                  <button type="submit" className="noha-btn-primary full-width">
-                    Submit Inquiry <Send size={16} />
-                  </button>
-                </form>
-              )}
+              <ContactForm
+                theme="landing"
+                initialService={initialService}
+                initialMessage={initialMessage}
+                buttonText="Submit Inquiry"
+                showPackageField={false}
+              />
             </div>
           </div>
 

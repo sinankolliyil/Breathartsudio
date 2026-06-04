@@ -6,6 +6,7 @@ import PageFlipDemo from './components/PageFlipDemo';
 import GalleryItem from './components/GalleryItem';
 import FeatureCard from './components/FeatureCard';
 import HomeLightbox from './components/HomeLightbox';
+import ContactForm from '../../components/ContactForm';
 import { Shield, Sparkles, Sun, Camera, Sliders, Users, BookOpen, Heart, ArrowUpRight } from 'lucide-react';
 
 const allShowcaseImages = [
@@ -599,139 +600,7 @@ export default function HomePage() {
           </div>
 
           <div className="home-contact-wrapper" style={{ maxWidth: '800px', margin: '0 auto', background: 'var(--color-shade-2)', padding: '3.5rem', borderRadius: '12px', border: '1px solid rgba(158, 112, 96, 0.15)', boxShadow: '0 20px 40px rgba(43, 27, 20, 0.05)' }}>
-            <form action="https://formspree.io/f/xvovlbkw" method="POST">
-              <div className="home-contact-form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2rem' }}>
-                <div className="form-group">
-                  <label className="cinematic-title" style={{ fontSize: '0.65rem', display: 'block', marginBottom: '0.5rem', fontWeight: '600' }}>
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="E.g., Alexander Wright"
-                    required
-                    style={{
-                      width: '100%',
-                      background: 'transparent',
-                      border: 'none',
-                      borderBottom: '1px solid rgba(158, 112, 96, 0.3)',
-                      color: 'var(--color-white)',
-                      padding: '0.8rem 0',
-                      fontFamily: 'var(--font-body)',
-                      fontSize: '0.9rem',
-                      outline: 'none',
-                    }}
-                  />
-                </div>
-                <div className="form-group">
-                  <label className="cinematic-title" style={{ fontSize: '0.65rem', display: 'block', marginBottom: '0.5rem', fontWeight: '600' }}>
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="alexander@domain.com"
-                    required
-                    style={{
-                      width: '100%',
-                      background: 'transparent',
-                      border: 'none',
-                      borderBottom: '1px solid rgba(158, 112, 96, 0.3)',
-                      color: 'var(--color-white)',
-                      padding: '0.8rem 0',
-                      fontFamily: 'var(--font-body)',
-                      fontSize: '0.9rem',
-                      outline: 'none',
-                    }}
-                  />
-                </div>
-              </div>
-
-              <div className="home-contact-form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2.5rem' }}>
-                <div className="form-group">
-                  <label className="cinematic-title" style={{ fontSize: '0.65rem', display: 'block', marginBottom: '0.5rem', fontWeight: '600' }}>
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="+971 -- --- ----"
-                    required
-                    style={{
-                      width: '100%',
-                      background: 'transparent',
-                      border: 'none',
-                      borderBottom: '1px solid rgba(158, 112, 96, 0.3)',
-                      color: 'var(--color-white)',
-                      padding: '0.8rem 0',
-                      fontFamily: 'var(--font-body)',
-                      fontSize: '0.9rem',
-                      outline: 'none',
-                    }}
-                  />
-                </div>
-                <div className="form-group">
-                  <label className="cinematic-title" style={{ fontSize: '0.65rem', display: 'block', marginBottom: '0.5rem', fontWeight: '600' }}>
-                    Select Collection
-                  </label>
-                  <select
-                    name="service"
-                    required
-                    defaultValue=""
-                    style={{
-                      width: '100%',
-                      background: 'transparent',
-                      border: 'none',
-                      borderBottom: '1px solid rgba(158, 112, 96, 0.3)',
-                      color: 'var(--color-white)',
-                      padding: '0.8rem 0',
-                      fontFamily: 'var(--font-body)',
-                      fontSize: '0.9rem',
-                      outline: 'none',
-                      cursor: 'pointer',
-                    }}
-                  >
-                    <option value="" disabled style={{ background: 'var(--color-shade-2)', color: 'var(--color-text-muted)' }}>Choose a session...</option>
-                    <option value="newborn" style={{ background: 'var(--color-shade-2)', color: 'var(--color-white)' }}>Newborn Photography</option>
-                    <option value="wedding" style={{ background: 'var(--color-shade-2)', color: 'var(--color-white)' }}>Wedding Stories</option>
-                    <option value="event" style={{ background: 'var(--color-shade-2)', color: 'var(--color-white)' }}>Event Management</option>
-                    <option value="family" style={{ background: 'var(--color-shade-2)', color: 'var(--color-white)' }}>Family Session</option>
-                    <option value="corporate" style={{ background: 'var(--color-shade-2)', color: 'var(--color-white)' }}>Corporate Branding</option>
-                    <option value="realestate" style={{ background: 'var(--color-shade-2)', color: 'var(--color-white)' }}>Real Estate Showcase</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="form-group" style={{ marginBottom: '3rem' }}>
-                <label className="cinematic-title" style={{ fontSize: '0.65rem', display: 'block', marginBottom: '0.5rem', fontWeight: '600' }}>
-                  Vision Details
-                </label>
-                <textarea
-                  name="message"
-                  placeholder="Share details about your dream photoshoot, dates, or concepts..."
-                  required
-                  style={{
-                    width: '100%',
-                    background: 'transparent',
-                    border: 'none',
-                    borderBottom: '1px solid rgba(158, 112, 96, 0.3)',
-                    color: 'var(--color-white)',
-                    padding: '0.8rem 0',
-                    minHeight: '100px',
-                    fontFamily: 'var(--font-body)',
-                    fontSize: '0.9rem',
-                    resize: 'none',
-                    outline: 'none',
-                  }}
-                ></textarea>
-              </div>
-
-              <div style={{ textAlign: 'center' }}>
-                <button type="submit" className="btn btn-gold" style={{ padding: '1rem 4rem', letterSpacing: '4px', fontSize: '0.75rem', textTransform: 'uppercase' }}>
-                  Reserve Your Date
-                </button>
-              </div>
-            </form>
+            <ContactForm buttonText="Reserve Your Date" showPackageField={false} />
           </div>
         </div>
       </section>

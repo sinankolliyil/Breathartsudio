@@ -1,9 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { Gift, Calendar, Check, Compass, Phone } from 'lucide-react';
+import ContactForm from '../../components/ContactForm';
 
 const categories = {
   Maternity: {
@@ -169,6 +170,49 @@ const categories = {
 
 export default function OffersPage() {
   const [activeTab, setActiveTab] = useState('Maternity');
+  const contactFormRef = useRef(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    service: 'newborn',
+    package: '',
+    message: ''
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+    setTimeout(() => {
+      setSubmitted(false);
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        service: 'newborn',
+        package: '',
+        message: ''
+      });
+    }, 5000);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const selectOffer = (service, pkgName, message) => {
+    setFormData(prev => ({
+      ...prev,
+      service: service,
+      package: pkgName,
+      message: message
+    }));
+    setTimeout(() => {
+      contactFormRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  };
 
   return (
     <>
@@ -250,13 +294,13 @@ export default function OffersPage() {
               <div style={{ fontSize: '2.5rem', fontWeight: '800', color: 'var(--color-white)', marginBottom: '1.5rem' }}>
                 50% OFF
               </div>
-              <Link 
-                href="/contact?interest=newborn" 
+              <button 
+                onClick={() => selectOffer('newborn', '50% Newborn Special Offer', "I'd like to claim the 50% Off Newborn Photography Promo.")}
                 className="btn btn-gold" 
-                style={{ width: '100%', textAlign: 'center', padding: '1rem' }}
+                style={{ width: '100%', textAlign: 'center', padding: '1rem', border: 'none', cursor: 'pointer' }}
               >
                 Claim Offer Now
-              </Link>
+              </button>
             </div>
           </div>
         </div>
@@ -367,13 +411,13 @@ export default function OffersPage() {
                       </ul>
                     </div>
 
-                    <Link 
-                      href={`/contact?interest=${activeTab.toLowerCase()}&package=${pkg.name.toLowerCase().replace(/ /g, '-')}`}
+                    <button 
+                      onClick={() => selectOffer(activeTab.toLowerCase(), pkg.name, `I'm interested in the "${pkg.name}" tier of the ${activeTab} series.`)}
                       className="btn btn-outline"
-                      style={{ width: '100%', textAlign: 'center', padding: '0.9rem 0', fontSize: '0.7rem', letterSpacing: '2px', border: '1px solid var(--color-gold)' }}
+                      style={{ width: '100%', textAlign: 'center', padding: '0.9rem 0', fontSize: '0.7rem', letterSpacing: '2px', border: '1px solid var(--color-gold)', background: 'transparent', cursor: 'pointer' }}
                     >
                       Request Pricing &amp; Details
-                    </Link>
+                    </button>
                   </div>
                 ))}
               </div>
@@ -401,12 +445,39 @@ export default function OffersPage() {
                 <Phone size={14} />
                 Call +971 52 215 0837
               </a>
-              <Link href="/contact" className="btn btn-outline" style={{ padding: '1rem 3rem' }}>
+              <button 
+                onClick={() => selectOffer('', '', "I'd like to get in touch for custom pricing or a tailored session.")}
+                className="btn btn-outline" 
+                style={{ padding: '1rem 3rem', background: 'transparent', cursor: 'pointer', border: '1px solid var(--color-white)' }}
+              >
                 Send Detailed Request
-              </Link>
+              </button>
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* ── CLAIM OFFER CONTACT FORM ── */}
+      <section id="offers-contact" ref={contactFormRef} className="section" style={{ borderTop: '1px solid rgba(158, 112, 96, 0.15)', paddingTop: '6rem', paddingBottom: '6rem' }}>
+        <div className="container" style={{ maxWidth: '800px' }}>
+          <div className="section-header" style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <span className="cinematic-title" style={{ color: 'var(--color-gold)' }}>Claim Your Offer</span>
+            <h2 className="section-title">Initiate Your Booking</h2>
+            <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginTop: '0.75rem' }}>
+              Complete the details below to lock in your special offer pricing.
+            </p>
+          </div>
+          <div className="form-card" style={{ maxWidth: '650px', margin: '0 auto' }}>
+            <ContactForm
+              theme="landing"
+              initialService={formData.service}
+              initialPackage={formData.package}
+              initialMessage={formData.message}
+              buttonText="Submit Offer Inquiry"
+              showPackageField={false}
+            />
+          </div>
         </div>
       </section>
     </>
