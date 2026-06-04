@@ -130,7 +130,7 @@ export default function ServicesPage() {
         </div>
       </header>
 
-      <section className="section" style={{ paddingTop: 0, paddingBottom: '2rem' }}>
+      <section className="section" style={{ paddingTop: 0, paddingBottom: '0.5rem' }}>
         <div className="container">
           <div className="services-grid-redesign">
             {services.map((service, idx) => (
@@ -141,13 +141,13 @@ export default function ServicesPage() {
       </section>
 
       {/* Connect With Us Section */}
-      <section className="section" style={{ padding: '4rem 0 8rem 0' }}>
+      <section className="section" style={{ padding: '1.5rem 0 6rem 0' }}>
         <div className="container">
           <div style={{
             maxWidth: '1000px',
             margin: '0 auto',
             borderTop: '1px solid rgba(158, 112, 96, 0.2)',
-            paddingTop: '4rem'
+            paddingTop: '2rem'
           }}>
             <div style={{
               display: 'grid',
