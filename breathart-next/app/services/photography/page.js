@@ -186,7 +186,7 @@ export default function PhotographyPage() {
       </div>
 
       {/* Services Showcase */}
-      <section className="section" style={{ paddingTop: '4rem', paddingBottom: '12rem' }}>
+      <section className="section" style={{ paddingTop: '4rem', paddingBottom: '4rem' }}>
         <div className="container">
           {categories.map((cat, catIdx) => {
             const isEven = catIdx % 2 === 0;
@@ -336,13 +336,13 @@ export default function PhotographyPage() {
       </section>
 
       {/* Connect With Us Section */}
-      <section className="section" style={{ padding: '4rem 0 8rem 0' }}>
+      <section className="section" style={{ padding: '3rem 0 8rem 0' }}>
         <div className="container">
           <div style={{
             maxWidth: '1000px',
             margin: '0 auto',
             borderTop: '1px solid rgba(158, 112, 96, 0.2)',
-            paddingTop: '4rem'
+            paddingTop: '3rem'
           }}>
             <div style={{
               display: 'grid',
