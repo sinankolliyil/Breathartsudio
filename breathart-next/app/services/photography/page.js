@@ -95,9 +95,9 @@ export default function PhotographyPage() {
   return (
     <>
       {/* Page Title & Intro Section (No Hero Banner) */}
-      <section className="section" style={{ paddingTop: '180px', paddingBottom: '4rem' }}>
+      <section className="section" style={{ paddingTop: '220px', paddingBottom: '6rem' }}>
         <div className="container">
-          <div className="project-header" style={{ width: '100%', marginBottom: '3rem' }}>
+          <div className="project-header" style={{ width: '100%', marginBottom: '4rem' }}>
             <span className="cinematic-title" style={{ color: 'var(--color-gold)', letterSpacing: '4px', fontSize: '0.75rem', display: 'block', marginBottom: '1rem' }}>
               Fine-Art Studio
             </span>
@@ -155,7 +155,7 @@ export default function PhotographyPage() {
         padding: '1.5rem 0',
         borderTop: '1px solid rgba(158, 112, 96, 0.15)',
         borderBottom: '1px solid rgba(158, 112, 96, 0.15)',
-        margin: '2rem 0 4rem 0',
+        margin: '4rem 0 6rem 0',
         display: 'flex'
       }}>
         <div style={{
@@ -168,7 +168,12 @@ export default function PhotographyPage() {
           color: 'var(--color-gold)',
           fontWeight: '600'
         }}>
-          Newborn Fine-Art &bull; Maternity Portraits &bull; Wedding Devotion &bull; Couple Romance &bull; Corporate Branding &bull; Spatial &bull; Real Estate &bull; Concept Gowns &bull; Flying Dress &bull;&nbsp;
+          {["Newborn Fine-Art", "Maternity Portraits", "Wedding Devotion", "Couple Romance", "Corporate Branding", "Spatial", "Real Estate", "Concept Gowns", "Flying Dress"].map((item, idx) => (
+            <span key={idx}>
+              {item}
+              <span style={{ margin: '0 3rem', fontSize: '0.35rem', verticalAlign: 'middle', display: 'inline-block', transform: 'translateY(-1px)', opacity: 0.8 }}>•</span>
+            </span>
+          ))}
         </div>
         <div style={{
           display: 'inline-block',
@@ -180,12 +185,17 @@ export default function PhotographyPage() {
           color: 'var(--color-gold)',
           fontWeight: '600'
         }}>
-          Newborn Fine-Art &bull; Maternity Portraits &bull; Wedding Devotion &bull; Couple Romance &bull; Corporate Branding &bull; Spatial &bull; Real Estate &bull; Concept Gowns &bull; Flying Dress &bull;&nbsp;
+          {["Newborn Fine-Art", "Maternity Portraits", "Wedding Devotion", "Couple Romance", "Corporate Branding", "Spatial", "Real Estate", "Concept Gowns", "Flying Dress"].map((item, idx) => (
+            <span key={idx}>
+              {item}
+              <span style={{ margin: '0 3rem', fontSize: '0.35rem', verticalAlign: 'middle', display: 'inline-block', transform: 'translateY(-1px)', opacity: 0.8 }}>•</span>
+            </span>
+          ))}
         </div>
       </div>
 
       {/* Services Showcase */}
-      <section className="section" style={{ paddingTop: 0, paddingBottom: '8rem' }}>
+      <section className="section" style={{ paddingTop: '4rem', paddingBottom: '12rem' }}>
         <div className="container">
           {categories.map((cat, catIdx) => {
             const isEven = catIdx % 2 === 0;

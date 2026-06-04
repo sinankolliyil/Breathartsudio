@@ -73,10 +73,10 @@ export default function VideographyPage() {
   return (
     <>
       {/* Page Title & Intro Section (No Hero Banner) */}
-      <section className="section" style={{ paddingTop: '180px', paddingBottom: '4rem' }}>
+      <section className="section" style={{ paddingTop: '220px', paddingBottom: '6rem' }}>
         <div className="container">
-          <div className="project-header" style={{ width: '100%', marginBottom: '3rem' }}>
-            <span className="cinematic-title" style={{ color: 'var(--color-gold)', letterSpacing: '4px', fontSize: '0.75rem', display: 'block', marginBottom: '1rem' }}>
+          <div className="project-header" style={{ width: '100%', marginBottom: '4rem' }}>
+            <span className="cinematic-title" style={{ color: 'var(--color-gold)', letterSpacing: '4px', fontSize: '0.75rem', display: 'block', marginBottom: '1.5rem' }}>
               Moving Image
             </span>
             <h1 style={{
@@ -133,7 +133,7 @@ export default function VideographyPage() {
         padding: '1.5rem 0',
         borderTop: '1px solid rgba(158, 112, 96, 0.15)',
         borderBottom: '1px solid rgba(158, 112, 96, 0.15)',
-        margin: '2rem 0 4rem 0',
+        margin: '4rem 0 6rem 0',
         display: 'flex'
       }}>
         <div style={{
@@ -146,7 +146,12 @@ export default function VideographyPage() {
           color: 'var(--color-gold)',
           fontWeight: '600'
         }}>
-          Cinematic Wedding Films &bull; Pre-Wedding Trailers &bull; Corporate Promos &bull; Brand Advertisements &bull; Event Highlights &bull; Social Media Reels &bull; Visual Storytelling &bull;&nbsp;
+          {["Cinematic Wedding Films", "Pre-Wedding Trailers", "Corporate Promos", "Brand Advertisements", "Event Highlights", "Social Media Reels", "Visual Storytelling"].map((item, idx) => (
+            <span key={idx}>
+              {item}
+              <span style={{ margin: '0 3rem', fontSize: '0.35rem', verticalAlign: 'middle', display: 'inline-block', transform: 'translateY(-1px)', opacity: 0.8 }}>•</span>
+            </span>
+          ))}
         </div>
         <div style={{
           display: 'inline-block',
@@ -158,12 +163,17 @@ export default function VideographyPage() {
           color: 'var(--color-gold)',
           fontWeight: '600'
         }}>
-          Cinematic Wedding Films &bull; Pre-Wedding Trailers &bull; Corporate Promos &bull; Brand Advertisements &bull; Event Highlights &bull; Social Media Reels &bull; Visual Storytelling &bull;&nbsp;
+          {["Cinematic Wedding Films", "Pre-Wedding Trailers", "Corporate Promos", "Brand Advertisements", "Event Highlights", "Social Media Reels", "Visual Storytelling"].map((item, idx) => (
+            <span key={idx}>
+              {item}
+              <span style={{ margin: '0 3rem', fontSize: '0.35rem', verticalAlign: 'middle', display: 'inline-block', transform: 'translateY(-1px)', opacity: 0.8 }}>•</span>
+            </span>
+          ))}
         </div>
       </div>
 
       {/* Services Showcase */}
-      <section className="section" style={{ paddingTop: 0, paddingBottom: '8rem' }}>
+      <section className="section" style={{ paddingTop: '4rem', paddingBottom: '12rem' }}>
         <div className="container">
           {categories.map((cat, catIdx) => {
             const isEven = catIdx % 2 === 0;
