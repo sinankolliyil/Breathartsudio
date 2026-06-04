@@ -63,29 +63,42 @@ export default function HomePage() {
 
         <div className="container hero-split">
           {/* Left Side: Cinematic Copy (Redesigned like NOHA reference) */}
-          <div className="hero-left">
-            <div className="hero-pre-title">
+          <div className="hero-left" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <div className="hero-pre-title" style={{ marginBottom: '1.5rem' }}>
               <span className="hero-pre-line"></span>
-              <span className="hero-pre-text">Creative Photography Studio</span>
+              <span className="hero-pre-text" style={{ letterSpacing: '4px', textTransform: 'uppercase', fontSize: '0.75rem', color: 'var(--color-gold)' }}>Fine-Art Studio</span>
             </div>
-            <h1 className="hero-main-title">
+            <h1 className="hero-main-title" style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: 'clamp(3.5rem, 8vw, 6.5rem)',
+              lineHeight: '1.0',
+              fontWeight: 'normal',
+              textTransform: 'uppercase',
+              letterSpacing: '6px',
+              color: 'var(--color-white)',
+              margin: '0 0 2rem 0'
+            }}>
               BreathArt
             </h1>
-            <h2 className="hero-subtitle">
-              Photography That Touches Your Heart
-            </h2>
             <div className="mobile-only-hero-book">
               <PageFlipDemo />
             </div>
-            <p className="hero-description">
-              We capture exceptional moments that reflect your raw emotions — creating visual legacies that fuse timeless elegance with artistic precision.
+            <p className="hero-description" style={{
+              fontSize: '1.15rem',
+              lineHeight: '1.8',
+              color: 'var(--color-text-muted)',
+              maxWidth: '460px',
+              margin: '0 0 3rem 0',
+              fontWeight: '400'
+            }}>
+              Curating visual legacies with timeless elegance and artistic precision.
             </p>
             <div className="hero-buttons-new">
-              <Link href="/services" className="btn-hero-primary">
+              <Link href="/services" className="btn-hero-primary" style={{ letterSpacing: '3px', textTransform: 'uppercase', fontSize: '0.75rem' }}>
                 Explore Services
               </Link>
-              <Link href="/landing" className="btn-hero-secondary">
-                Exclusive Offers <span className="arrow">→</span>
+              <Link href="/landing" className="btn-hero-secondary" style={{ letterSpacing: '3px', textTransform: 'uppercase', fontSize: '0.75rem' }}>
+                Offers <span className="arrow">→</span>
               </Link>
             </div>
           </div>
