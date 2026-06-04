@@ -4797,14 +4797,48 @@ h1, h2, h3, h4, h5, h6,
     .noha-nav .nav-links {
         display: none; /* simple mobile nav override */
     }
+    .noha-hero {
+        height: auto;
+        aspect-ratio: 16 / 9;
+        min-height: unset;
+    }
+    
+    .hero-content {
+        padding-top: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .hero-kicker {
+        font-size: 0.5rem;
+        margin-bottom: 0.5rem;
+        letter-spacing: 1px;
+    }
     
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 1.6rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.65rem;
+        margin-bottom: 1rem;
+        line-height: 1.4;
     }
     
     .hero-actions {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .noha-btn-primary {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.6rem;
+    }
+
+    .noha-btn-text {
+        font-size: 0.6rem;
     }
     
     .about-stats {

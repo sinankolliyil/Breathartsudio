@@ -45,7 +45,7 @@ const services = [
   {
     id: 'service-event',
     number: '03 / Connection',
-    title: 'Event Management',
+    title: 'Event Photography',
     image: '/assets/service_event.png',
     alt: 'Event Photography',
     backTitle: 'Vivid Celebrations',

@@ -7,28 +7,28 @@ const categories = [
   {
     id: 'social-private',
     title: 'social & private events',
-    description: 'Expert planning, curation, and execution for your most cherished life celebrations. We manage the details from decor styling to culinary coordination so you can focus on hosting.',
+    description: 'Expert photography and cinematic documentation for your most cherished life celebrations. We capture every smile and detail so you can focus on enjoying the moment.',
     image: '/assets/service_event_social.png',
     services: [
-      { name: 'Luxury Birthdays & Galas', icon: 'fas fa-birthday-cake', desc: 'Bespoke designs, themed setups, and coordinate-perfect birthday parties and anniversaries.' },
-      { name: 'Bridal & Baby Showers', icon: 'fas fa-baby-carriage', desc: 'Elegant showers styled to perfection, leaving you and your guests to enjoy every moment.' },
-      { name: 'Private Dinner Coordination', icon: 'fas fa-utensils', desc: 'Intimate dinner party curation, custom styling, layout organization, and premium setups.' }
+      { name: 'Luxury Birthdays & Galas', icon: 'fas fa-birthday-cake', desc: 'Candid and posed photography capturing the energy and elegance of your celebrations.' },
+      { name: 'Bridal & Baby Showers', icon: 'fas fa-baby-carriage', desc: 'Beautifully documented showers, preserving the joy and emotions of you and your guests.' },
+      { name: 'Private Dinner Photography', icon: 'fas fa-utensils', desc: 'Intimate dinner party coverage focusing on ambiance, candid moments, and premium culinary shots.' }
     ]
   },
   {
-    id: 'corporate-planning',
-    title: 'corporate event curation',
-    description: 'Flawless execution of professional conferences, seminars, products launch campaigns, and brand activation environments designed to make a memorable impact.',
+    id: 'corporate-photography',
+    title: 'corporate event photography',
+    description: 'Flawless visual coverage of professional conferences, seminars, product launch campaigns, and brand activations designed to highlight your brand impact.',
     image: '/assets/service_event_corporate.png',
     services: [
-      { name: 'Conferences & Seminars', icon: 'fas fa-briefcase', desc: 'Comprehensive event logistics, registration setups, audio-visual handling, and venue coordination.' },
-      { name: 'Product Launches & Brand Activations', icon: 'fas fa-bullhorn', desc: 'High-concept creative environments designed to make a memorable impact for your product.' },
-      { name: 'Corporate Gala Dinners', icon: 'fas fa-award', desc: 'Grand dinner setups, entertainment curation, award ceremonies planning, and theme execution.' }
+      { name: 'Conferences & Seminars', icon: 'fas fa-briefcase', desc: 'Comprehensive event photography covering speakers, networking, and key moments.' },
+      { name: 'Product Launches & Brand Activations', icon: 'fas fa-bullhorn', desc: 'High-quality visual documentation designed to amplify the reach and impact of your new products.' },
+      { name: 'Corporate Gala Dinners', icon: 'fas fa-award', desc: 'Elegant event coverage capturing awards, speeches, and the grand atmosphere of the evening.' }
     ]
   }
 ];
 
-export default function EventManagementPage() {
+export default function EventPhotographyPage() {
   const [activeAccordion, setActiveAccordion] = useState({});
 
   const toggleAccordion = (catId, index) => {
@@ -44,9 +44,9 @@ export default function EventManagementPage() {
       <header className="page-header" style={{ paddingBottom: '3rem' }}>
         <div className="container animate-reveal active text-center">
           <span className="cinematic-title" style={{ color: 'var(--color-gold)' }}>Grand Occasions</span>
-          <h1 className="section-title" style={{ color: 'var(--color-white)', fontSize: '3.5rem', marginBottom: '1.5rem', textTransform: 'none' }}>Event Management</h1>
+          <h1 className="section-title" style={{ color: 'var(--color-white)', fontSize: '3.5rem', marginBottom: '1.5rem', textTransform: 'none' }}>Event Photography</h1>
           <p style={{ color: 'var(--color-text-muted)', maxWidth: '600px', margin: '0 auto', fontSize: '0.85rem' }}>
-            We bring your vision to life through immaculate planning, luxury design, and seamless execution.
+            We capture your most cherished moments through cinematic photography, creative direction, and seamless visual storytelling.
           </p>
         </div>
       </header>

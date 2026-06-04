@@ -33,7 +33,7 @@ export default function Footer() {
                 <Link href="/services#service-corporate">Corporate Branding</Link>
               </li>
               <li>
-                <Link href="/services#service-event">Event Management</Link>
+                <Link href="/services#service-event">Event Photography</Link>
               </li>
             </ul>
           </div>

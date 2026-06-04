@@ -258,7 +258,7 @@ function ContactFormInner({
         </div>
         <div className="form-group">
           <label className="cinematic-title" style={labelStyle}>
-            Select Collection
+            Select 
           </label>
           <select
             name="service"
@@ -276,7 +276,7 @@ function ContactFormInner({
             <option value="pre-wedding" style={{ background: 'var(--color-shade-2)', color: 'var(--color-white)' }}>Pre-Wedding</option>
             <option value="couple" style={{ background: 'var(--color-shade-2)', color: 'var(--color-white)' }}>Couple Session</option>
             <option value="corporate" style={{ background: 'var(--color-shade-2)', color: 'var(--color-white)' }}>Corporate Branding</option>
-            <option value="event" style={{ background: 'var(--color-shade-2)', color: 'var(--color-white)' }}>Event Management</option>
+            <option value="event" style={{ background: 'var(--color-shade-2)', color: 'var(--color-white)' }}>Event Photography</option>
             <option value="cakesmash" style={{ background: 'var(--color-shade-2)', color: 'var(--color-white)' }}>Cake Smash</option>
             <option value="family" style={{ background: 'var(--color-shade-2)', color: 'var(--color-white)' }}>Family Session</option>
             <option value="realestate" style={{ background: 'var(--color-shade-2)', color: 'var(--color-white)' }}>Real Estate Showcase</option>

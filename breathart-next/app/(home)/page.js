@@ -397,12 +397,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. Event Management Collection */}
+      {/* 4. Event Photography Collection */}
       <section id="event-management" className="section">
         <div className="container animate-reveal active">
           <div className="section-header">
             <span className="cinematic-title">03 / Connection</span>
-            <h2 className="section-title">Event Management</h2>
+            <h2 className="section-title">Event Photography</h2>
             <div className="accent-divider"></div>
           </div>
           <HomeLightbox

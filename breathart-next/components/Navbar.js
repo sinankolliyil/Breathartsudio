@@ -159,7 +159,7 @@ export default function Navbar() {
       subItems: [
         { heading: 'Photography', href: '/services/photography' },
         { heading: 'Videography', href: '/services/videography' },
-        { heading: 'Event Management', href: '/services/event-management' }
+        { heading: 'Event Photography', href: '/services/event-photography' }
       ]
     },
     { heading: 'Offers', href: '/offers' },
@@ -197,8 +197,8 @@ export default function Navbar() {
                     </Link>
                   </div>
                   <div className="mega-menu-column">
-                    <Link href="/services/event-management">
-                      <span className="mega-title">Event Management</span>
+                    <Link href="/services/event-photography">
+                      <span className="mega-title">Event Photography</span>
                       <span className="mega-desc">Vibrant high-end celebration planning and design</span>
                     </Link>
                   </div>
