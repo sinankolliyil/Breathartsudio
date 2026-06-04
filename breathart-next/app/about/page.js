@@ -119,7 +119,7 @@ export default function AboutPage() {
         </div>
       </section>
       {/* Quote Section */}
-      <section className="section text-center" style={{ padding: '3rem 0 8rem 0', textAlign: 'center' }}>
+      <section className="section text-center" style={{ padding: '3rem 0 4rem 0', textAlign: 'center' }}>
         <div className="container">
           <p style={{
             fontFamily: "'Playfair Display', serif",
@@ -133,6 +133,79 @@ export default function AboutPage() {
           }}>
             "Every picture tells a story of love"
           </p>
+        </div>
+      </section>
+
+      {/* Connect With Us Section */}
+      <section className="section" style={{ padding: '4rem 0 8rem 0' }}>
+        <div className="container">
+          <div style={{
+            maxWidth: '1000px',
+            margin: '0 auto',
+            borderTop: '1px solid rgba(158, 112, 96, 0.2)',
+            paddingTop: '4rem'
+          }}>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '3rem',
+              alignItems: 'start'
+            }}>
+              <div>
+                <span className="cinematic-title" style={{ color: 'var(--color-gold)', display: 'block', marginBottom: '0.5rem' }}>
+                  Reserve Your Session
+                </span>
+                <h2 style={{
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: '2.5rem',
+                  color: 'var(--color-white)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '1px',
+                  lineHeight: '1.2'
+                }}>
+                  Connect With Us
+                </h2>
+              </div>
+
+              <div>
+                <p style={{
+                  color: 'var(--color-text-muted)',
+                  fontSize: '1rem',
+                  lineHeight: '1.8',
+                  marginBottom: '2rem'
+                }}>
+                  Have a vision you want to bring to life? Contact our team today to discuss package options, custom concepts, and calendar availability.
+                </p>
+                <span style={{
+                  display: 'block',
+                  fontSize: '1.2rem',
+                  fontStyle: 'italic',
+                  fontFamily: "'Playfair Display', serif",
+                  color: 'var(--color-gold)',
+                  marginBottom: '2.5rem'
+                }}>
+                  Ready to capture your milestones?
+                </span>
+                <Link 
+                  href="/contact"
+                  className="btn btn-gold"
+                  style={{
+                    padding: '1.2rem 3rem',
+                    letterSpacing: '3px',
+                    fontSize: '0.75rem',
+                    textTransform: 'uppercase',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.8rem',
+                    border: 'none',
+                    cursor: 'pointer'
+                  }}
+                >
+                  Get In Touch &rarr;
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </>
