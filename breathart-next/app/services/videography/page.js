@@ -39,16 +39,95 @@ export default function VideographyPage() {
 
   return (
     <>
-      {/* Page Header */}
-      <header className="page-header" style={{ paddingBottom: '3rem' }}>
-        <div className="container animate-reveal active text-center">
-          <span className="cinematic-title" style={{ color: 'var(--color-gold)' }}>Moving Image</span>
-          <h1 className="section-title" style={{ color: 'var(--color-white)', fontSize: '3.5rem', marginBottom: '1.5rem', textTransform: 'none' }}>Videography</h1>
-          <p style={{ color: 'var(--color-text-muted)', maxWidth: '600px', margin: '0 auto', fontSize: '0.85rem' }}>
-            Transforming moments into moving pieces of art with state-of-the-art cinematic vision and visual storytelling.
-          </p>
+      {/* Page Title & Intro Section (No Hero Banner) */}
+      <section className="section" style={{ paddingTop: '180px', paddingBottom: '4rem' }}>
+        <div className="container">
+          <div className="project-header" style={{ width: '100%', marginBottom: '3rem' }}>
+            <span className="cinematic-title" style={{ color: 'var(--color-gold)', letterSpacing: '4px', fontSize: '0.75rem', display: 'block', marginBottom: '1rem' }}>
+              Moving Image
+            </span>
+            <h1 style={{
+              fontFamily: 'var(--font-heading)',
+              fontWeight: 'normal',
+              fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
+              lineHeight: '1.1',
+              letterSpacing: '4px',
+              textTransform: 'uppercase',
+              color: 'var(--color-white)',
+              margin: '0 0 2rem 0'
+            }}>
+              Videography
+            </h1>
+          </div>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '3rem',
+            alignItems: 'start'
+          }}>
+            <div style={{ maxWidth: '512px' }}>
+              <p style={{
+                fontSize: '1.1rem',
+                lineHeight: '1.8',
+                color: 'var(--color-white)',
+                fontWeight: '600',
+                marginBottom: '2rem'
+              }}>
+                Transforming moments into moving pieces of art with state-of-the-art cinematic vision and visual storytelling.
+              </p>
+            </div>
+            
+            <div style={{ maxWidth: '512px' }}>
+              <p style={{
+                fontSize: '0.95rem',
+                lineHeight: '1.8',
+                color: 'var(--color-text-muted)',
+                marginBottom: '2rem'
+              }}>
+                Our videography captures motion, sound, and atmosphere, transforming special events and commercial stories into highly cinematic, emotionally resonant films that preserve the exact feeling of your most meaningful moments.
+              </p>
+            </div>
+          </div>
         </div>
-      </header>
+      </section>
+
+      {/* Marquee Text Scroller */}
+      <div style={{
+        overflow: 'hidden',
+        whiteSpace: 'nowrap',
+        background: 'var(--color-shade-2)',
+        padding: '1.5rem 0',
+        borderTop: '1px solid rgba(158, 112, 96, 0.15)',
+        borderBottom: '1px solid rgba(158, 112, 96, 0.15)',
+        margin: '2rem 0 4rem 0',
+        display: 'flex'
+      }}>
+        <div style={{
+          display: 'inline-block',
+          animation: 'marquee 25s linear infinite',
+          fontSize: '1rem',
+          fontFamily: 'var(--font-heading)',
+          textTransform: 'uppercase',
+          letterSpacing: '3px',
+          color: 'var(--color-gold)',
+          fontWeight: '600'
+        }}>
+          Cinematic Wedding Films &bull; Pre-Wedding Trailers &bull; Corporate Promos &bull; Brand Advertisements &bull; Event Highlights &bull; Social Media Reels &bull; Visual Storytelling &bull;&nbsp;
+        </div>
+        <div style={{
+          display: 'inline-block',
+          animation: 'marquee 25s linear infinite',
+          fontSize: '1rem',
+          fontFamily: 'var(--font-heading)',
+          textTransform: 'uppercase',
+          letterSpacing: '3px',
+          color: 'var(--color-gold)',
+          fontWeight: '600'
+        }}>
+          Cinematic Wedding Films &bull; Pre-Wedding Trailers &bull; Corporate Promos &bull; Brand Advertisements &bull; Event Highlights &bull; Social Media Reels &bull; Visual Storytelling &bull;&nbsp;
+        </div>
+      </div>
 
       {/* Services Showcase */}
       <section className="section" style={{ paddingTop: 0, paddingBottom: '8rem' }}>
