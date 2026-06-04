@@ -162,11 +162,11 @@ h1, h2, h3, h4, h5, h6,
 .hero-main-title {
     font-family: 'Playfair Display', serif;
     font-size: clamp(3rem, 7vw, 5.5rem); /* Extremely bold, huge display typography */
-    font-weight: 800;
+    font-weight: 500; /* elegant medium weight matching the logo */
     color: var(--color-white); /* Deep espresso */
     line-height: 0.95;
-    letter-spacing: -2px;
-    text-transform: uppercase;
+    letter-spacing: 0.03em; /* Elegant spaced typography like the logo */
+    text-transform: none; /* Only B and A capital: BreathArt */
     margin: 0 0 0.8rem 0;
 }
 
