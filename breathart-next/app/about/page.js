@@ -7,43 +7,37 @@ export const metadata = {
 
 const features = [
   {
-    title: 'E X P E R I E N C E D',
-    subtitle: 'Experienced Professional Photographers',
+    title: 'E X P E R I E N C E D   P H O T O G R A P H E R S',
     desc: 'Master artists with decades of collective experience in fine art photography.',
     image: '/assets/feature_photographers.png',
     link: '/services',
   },
   {
-    title: 'D E D I C A T E D',
-    subtitle: 'Dedicated Lady Staff for Maternity',
+    title: 'D E D I C A T E D   L A D Y   S T A F F',
     desc: 'Ensuring absolute comfort, privacy, and ease for maternity & newborn sessions.',
     image: '/assets/feature_maternity.png',
     link: '/services',
   },
   {
-    title: 'P R E M I U M',
-    subtitle: 'Premium Studio Environment',
+    title: 'P R E M I U M   S T U D I O',
     desc: 'A state-of-the-art space designed for creative excellence and high-fashion aesthetics.',
     image: '/assets/feature_studio.png',
     link: '/services',
   },
   {
-    title: 'H I G H - E N D',
-    subtitle: 'High-End Equipment & Lighting',
+    title: 'H I G H - E N D   E Q U I P M E N T',
     desc: 'Utilizing the latest mirrorless technology and professional studio lighting.',
     image: '/assets/feature_equipment.png',
     link: '/services',
   },
   {
-    title: 'F A S T',
-    subtitle: 'Fast 24-Hour Photo Delivery',
+    title: 'F A S T   D E L I V E R Y',
     desc: 'Rapid turn-around without compromising the artistry of post-production.',
     image: '/assets/feature_delivery.png',
     link: '/services',
   },
   {
-    title: 'T R U S T E D',
-    subtitle: 'Trusted by 1000+ Happy Clients',
+    title: 'T R U S T E D   B Y   1 0 0 0 +',
     desc: 'Building lasting relationships through exceptional art and trusted services.',
     image: '/assets/service_wedding.png',
     link: '/services',
@@ -67,8 +61,13 @@ export default function AboutPage() {
         </div>
       </header>
 
-      <section className="section" style={{ padding: '4rem 0 2rem 0' }}>
-        <div className="story-custom-grid">
+      <section className="section" style={{ padding: '6rem 0 2rem 0' }}>
+        <div className="container text-center" style={{ textAlign: 'center', marginBottom: '4rem' }}>
+          <span className="cinematic-title" style={{ color: 'var(--color-gold)' }}>Our Story</span>
+          <h2 className="section-title" style={{ fontSize: '2.5rem' }}>Professional &amp; Premium Experience</h2>
+        </div>
+
+        <div className="story-custom-grid" style={{ marginTop: '2rem' }}>
           {/* Left Column */}
           <div className="story-left-col">
             <p className="story-text-emphasis">
@@ -105,21 +104,18 @@ export default function AboutPage() {
 
       {/* Why Choose Us Features list */}
       <section className="section" style={{ padding: '0 0 8rem 0' }}>
-        <div className="pillar-section-container" style={{ marginTop: '2rem' }}>
+        <div className="pillar-section-container" style={{ marginTop: '4.5rem' }}>
           {features.map((feature, index) => (
-            <div key={index} className="pillar-row">
+            <div key={index} className={`pillar-row ${index % 2 !== 0 ? 'alt-layout' : ''}`}>
               <div className="pillar-left">
                 <div className="pillar-header">
                   <span className="pillar-plus">+</span>
                   <h2 className="pillar-title">{feature.title}</h2>
                 </div>
-                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', color: 'var(--color-gold)', margin: '-0.5rem 0 0.5rem 0' }}>
-                  {feature.subtitle}
-                </h3>
                 <p className="pillar-desc">{feature.desc}</p>
               </div>
               <div className="pillar-right">
-                <img src={feature.image} alt={feature.subtitle} className="pillar-img" />
+                <img src={feature.image} alt={feature.title} className="pillar-img" />
               </div>
             </div>
           ))}

@@ -5141,7 +5141,7 @@ h1, h2, h3, h4, h5, h6,
 
 .story-portrait-img {
     width: 100%;
-    aspect-ratio: 4/3;
+    aspect-ratio: 16/9;
     object-fit: cover;
     border-radius: 2px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
@@ -5177,4 +5177,23 @@ h1, h2, h3, h4, h5, h6,
         gap: 3rem;
     }
 }
+
+/* --- ALTERNATING GRID LAYOUT FOR PILLARS --- */
+.pillar-row.alt-layout .pillar-left {
+    order: 2;
+}
+
+.pillar-row.alt-layout .pillar-right {
+    order: 1;
+}
+
+@media (max-width: 991px) {
+    .pillar-row.alt-layout .pillar-left {
+        order: 1;
+    }
+    .pillar-row.alt-layout .pillar-right {
+        order: 2;
+    }
+}
+
 
