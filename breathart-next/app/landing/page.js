@@ -230,7 +230,14 @@ export default function LandingPage() {
               We specialize in luxury photography and videography, capturing the essence of your most profound moments with an editorial eye.
             </p>
             <div className="hero-actions">
-              <a href="#contact" className="noha-btn-primary">
+              <a
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToContact('Photography', '');
+                }}
+                className="noha-btn-primary"
+              >
                 Inquire Now <ArrowRight size={16} />
               </a>
               <a href="#portfolio" className="noha-btn-text">

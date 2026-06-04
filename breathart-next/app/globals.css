@@ -5767,3 +5767,59 @@ h1, h2, h3, h4, h5, h6,
   100% { opacity: 0; }
 }
 
+/* Mobile 2x3 Premium Features Grid Overrides */
+@media (max-width: 768px) {
+  #premium-features {
+    padding-top: 1rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+
+  #premium-features .services-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.8rem !important;
+  }
+
+  #premium-features .premium-feature-card {
+    aspect-ratio: 1 / 1;
+    padding: 1.2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    text-align: left;
+    gap: 0.5rem;
+  }
+
+  #premium-features .premium-feature-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  #premium-features .premium-feature-num {
+    font-size: 1.2rem;
+    opacity: 0.6;
+  }
+
+  #premium-features .premium-feature-icon-box svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  #premium-features .premium-feature-desc,
+  #premium-features .premium-feature-hover-line {
+    display: none !important;
+  }
+
+  #premium-features .premium-feature-title {
+    font-size: 0.72rem;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    line-height: 1.35;
+    margin: 0;
+  }
+}
+
+
