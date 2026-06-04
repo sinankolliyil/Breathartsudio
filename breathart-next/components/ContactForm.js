@@ -21,6 +21,7 @@ function ContactFormInner({
     package: '',
     message: ''
   });
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
     // Read from search params if present (for contact page)
@@ -100,7 +101,48 @@ ${showPackageField && formData.package ? `*Package:* ${formData.package}\n` : ''
 
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/971526400679?text=${encodedText}`, '_blank');
+    setIsSubmitted(true);
   };
+
+  const handleReset = () => {
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      service: theme === 'landing' ? 'Photography' : 'newborn',
+      package: '',
+      message: ''
+    });
+    setIsSubmitted(false);
+  };
+
+  if (isSubmitted) {
+    if (theme === 'landing') {
+      return (
+        <div className="noha-form text-center" style={{ textAlign: 'center', padding: '3rem 1.5rem', background: 'var(--color-shade-2)', borderRadius: '8px', border: '1px solid rgba(158, 112, 96, 0.15)' }}>
+          <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-white)', fontSize: '1.8rem', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '1px' }}>Submitted</h3>
+          <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', marginBottom: '2rem', lineHeight: '1.6' }}>
+            Thank you! Your inquiry details have been opened in WhatsApp.
+          </p>
+          <button onClick={handleReset} className="noha-btn-primary" style={{ cursor: 'pointer', padding: '1rem 3rem', border: 'none' }}>
+            Submit Again
+          </button>
+        </div>
+      );
+    }
+
+    return (
+      <div style={{ textAlign: 'center', padding: '4rem 2rem', border: '1px solid rgba(158, 112, 96, 0.2)', borderRadius: '0px', background: 'transparent' }}>
+        <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-white)', fontSize: '2rem', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '2px' }}>Submitted</h3>
+        <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', marginBottom: '2.5rem', lineHeight: '1.6' }}>
+          Your details have been prepared. Click below if you need to submit another request.
+        </p>
+        <button onClick={handleReset} className="btn btn-gold" style={{ cursor: 'pointer', padding: '1rem 3rem', border: 'none', textTransform: 'uppercase', letterSpacing: '2px' }}>
+          Submit Again
+        </button>
+      </div>
+    );
+  }
 
   // ── Theme A: Landing & Offers Form (Boxed fields, no card bg modifications) ──
   if (theme === 'landing') {
