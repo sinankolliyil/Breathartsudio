@@ -883,7 +883,7 @@ h1, h2, h3, h4, h5, h6,
 .whatsapp-float {
     position: fixed;
     bottom: 2rem;
-    right: calc(2rem + 1px); /* offset 1px left to align perfectly */
+    right: calc(2rem + 10px); /* offset 1px left to align perfectly */
     width: 60px;
     height: 60px;
     background-color: #25d366;
