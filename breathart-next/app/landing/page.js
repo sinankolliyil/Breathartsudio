@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, Phone, Mail, MapPin, Send, ArrowRight, Play, Camera, Film, Palette, BarChart3 } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const SERVICES = [
   {
@@ -12,7 +13,7 @@ const SERVICES = [
     icon: <Camera size={24} />,
     desc: 'Capture life\'s fleeting moments with our premium maternity and newborn fine-art photography services.',
     image: '/assets/service_newborn.png',
-    packages: ['Basic Bundle (DHS 499)', 'Advanced Bundle (DHS 599)', 'High-End Bundle (DHS 799)']
+    packages: ['Basic Bundle', 'Advanced Bundle', 'High-End Bundle']
   },
   {
     id: '02',
@@ -20,7 +21,7 @@ const SERVICES = [
     icon: <Film size={24} />,
     desc: 'Cinematic storytelling that brings your romance to life. We specialize in high-end couple and engagement sessions.',
     image: '/assets/service_couple.png',
-    packages: ['Package 01 (AED 499)', 'Package 02 (AED 799)', 'Package 03 (AED 999)']
+    packages: ['Package 01', 'Package 02', 'Package 03']
   },
   {
     id: '03',
@@ -28,7 +29,7 @@ const SERVICES = [
     icon: <Camera size={24} />,
     desc: 'Meticulous coverage for your grand events. Our signature style ensures a cohesive, luxurious aesthetic for your special day.',
     image: '/assets/service_event.png',
-    packages: ['Package 01 (AED 1299)', 'Package 02 (AED 1599)', 'Package 03 (AED 1999)']
+    packages: ['Package 01', 'Package 02', 'Package 03']
   },
   {
     id: '04',
@@ -36,7 +37,7 @@ const SERVICES = [
     icon: <Palette size={24} />,
     desc: 'Joyful, messy, and absolutely adorable. Celebrate your little one\'s first milestones with our premium cake smash sessions.',
     image: '/assets/bento_1.jpg',
-    packages: ['Package 1 (DHS 499)', 'Package 2 (DHS 599)', 'Package 3 (DHS 999)']
+    packages: ['Package 1', 'Package 2', 'Package 3']
   }
 ];
 
@@ -178,11 +179,28 @@ export default function LandingPage() {
                     <p>{activeService.desc}</p>
                     <ul className="package-list">
                       {activeService.packages.map((pkg, idx) => (
-                        <li key={idx}><Check size={14} className="icon-gold" /> {pkg}</li>
+                        <li key={idx} className="interactive-package-item" style={{ transition: 'all 0.2s ease', cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
+                          <Link 
+                            href={`/contact?interest=${activeService.title.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}&package=${pkg.toLowerCase().replace(/ /g, '-')}`}
+                            style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'inherit', width: '100%' }}
+                          >
+                            <Check size={14} className="icon-gold" /> 
+                            <span>{pkg}</span>
+                            <span style={{ fontSize: '0.65rem', color: 'var(--color-gold)', marginLeft: 'auto', border: '1px solid rgba(158, 112, 96, 0.3)', padding: '0.15rem 0.5rem', borderRadius: '50px', transition: 'all 0.2s ease' }} className="package-get-pricing">
+                              Get Pricing
+                            </span>
+                          </Link>
+                        </li>
                       ))}
                     </ul>
-                    <a href="#contact" className="noha-btn-outline">Request Pricing</a>
+                    <Link 
+                      href={`/contact?interest=${activeService.title.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`} 
+                      className="noha-btn-outline"
+                    >
+                      Request Pricing
+                    </Link>
                   </div>
+
                 </motion.div>
               </AnimatePresence>
             </div>

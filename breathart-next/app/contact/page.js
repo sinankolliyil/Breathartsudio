@@ -1,7 +1,144 @@
-export const metadata = {
-  title: 'Contact Us | BreathArt Photography Studio',
-  description: 'Connect with BreathArt Studio for premium photography sessions in Dubai.',
-};
+'use client';
+
+import { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
+
+function ContactFormContent() {
+  const searchParams = useSearchParams();
+  const [service, setService] = useState('');
+  const [selectedPackage, setSelectedPackage] = useState('');
+
+  useEffect(() => {
+    const interestParam = searchParams.get('interest');
+    const packageParam = searchParams.get('package');
+
+    if (interestParam) {
+      const lower = interestParam.toLowerCase();
+      if (lower.includes('maternity') || lower.includes('newborn')) {
+        setService('maternity');
+      } else if (lower.includes('couple')) {
+        setService('couple');
+      } else if (lower.includes('event')) {
+        setService('event');
+      } else if (lower.includes('cake')) {
+        setService('cakesmash');
+      } else if (lower.includes('wedding')) {
+        setService('wedding');
+      } else if (lower.includes('corporate')) {
+        setService('corporate');
+      }
+    }
+
+    if (packageParam) {
+      const cleanPkg = packageParam
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+      setSelectedPackage(cleanPkg);
+    }
+  }, [searchParams]);
+
+  return (
+    <form action="https://formspree.io/f/xvovlbkw" method="POST">
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2rem' }}>
+        <div className="form-group">
+          <label className="contact-page-label">
+            Full Name
+          </label>
+          <input
+            type="text"
+            name="name"
+            className="contact-page-input"
+            placeholder="E.g., Alexander Wright"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label className="contact-page-label">
+            Email Address
+          </label>
+          <input
+            type="email"
+            name="email"
+            className="contact-page-input"
+            placeholder="alexander@domain.com"
+            required
+          />
+        </div>
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2rem' }}>
+        <div className="form-group">
+          <label className="contact-page-label">
+            Contact Number
+          </label>
+          <input
+            type="tel"
+            name="phone"
+            className="contact-page-input"
+            placeholder="+971 -- --- ----"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label className="contact-page-label">
+            Collection
+          </label>
+          <select
+            name="service"
+            className="contact-page-select"
+            value={service}
+            onChange={(e) => setService(e.target.value)}
+            required
+          >
+            <option value="" disabled style={{ background: '#2B1B14', color: '#8A766F' }}>Choose a session...</option>
+            <option value="maternity" style={{ background: '#2B1B14', color: '#FAF5F0' }}>Maternity &amp; Newborn</option>
+            <option value="wedding" style={{ background: '#2B1B14', color: '#FAF5F0' }}>Wedding Story</option>
+            <option value="pre-wedding" style={{ background: '#2B1B14', color: '#FAF5F0' }}>Pre-Wedding</option>
+            <option value="couple" style={{ background: '#2B1B14', color: '#FAF5F0' }}>Couple Session</option>
+            <option value="corporate" style={{ background: '#2B1B14', color: '#FAF5F0' }}>Corporate Branding</option>
+            <option value="event" style={{ background: '#2B1B14', color: '#FAF5F0' }}>Grand Events</option>
+            <option value="cakesmash" style={{ background: '#2B1B14', color: '#FAF5F0' }}>Cake Smash</option>
+          </select>
+        </div>
+      </div>
+
+      <div className="form-group" style={{ marginBottom: '2rem' }}>
+        <label className="contact-page-label">
+          Selected Package
+        </label>
+        <input
+          type="text"
+          name="package"
+          className="contact-page-input"
+          placeholder="E.g., Basic Bundle / Package 01"
+          value={selectedPackage}
+          onChange={(e) => setSelectedPackage(e.target.value)}
+        />
+      </div>
+
+      <div className="form-group" style={{ marginBottom: '3rem' }}>
+        <label className="contact-page-label">
+          Vision Details
+        </label>
+        <textarea
+          name="message"
+          className="contact-page-input"
+          placeholder="Share details about your dream photoshoot, dates, or concepts..."
+          required
+          style={{
+            minHeight: '120px',
+            resize: 'none',
+          }}
+        ></textarea>
+      </div>
+
+      <button type="submit" className="btn btn-gold" style={{ width: '100%', padding: '1rem 0', letterSpacing: '4px', textTransform: 'uppercase', fontSize: '0.75rem' }}>
+        Reserve Your Date
+      </button>
+    </form>
+  );
+}
 
 export default function ContactPage() {
   return (
@@ -41,15 +178,21 @@ export default function ContactPage() {
                     <i className="fas fa-envelope" style={{ color: 'var(--color-gold)', fontSize: '1.5rem', marginTop: '0.3rem' }}></i>
                     <div>
                       <h4 className="cinematic-title" style={{ fontSize: '0.7rem', marginBottom: '0.5rem' }}>Electronic Mail</h4>
-                      <p style={{ opacity: 0.8 }}><a href="mailto:hello@breathart.studio" style={{ color: 'inherit' }}>hello@breathart.studio</a></p>
+                      <p style={{ opacity: 0.8, display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                        <a href="mailto:Info@breathart.ae" style={{ color: 'inherit' }}>Info@breathart.ae</a>
+                        <a href="mailto:breathartindia@gmail.com" style={{ color: 'inherit' }}>breathartindia@gmail.com</a>
+                      </p>
                     </div>
                   </div>
 
                   <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
                     <i className="fab fa-whatsapp" style={{ color: 'var(--color-gold)', fontSize: '1.5rem', marginTop: '0.3rem' }}></i>
                     <div>
-                      <h4 className="cinematic-title" style={{ fontSize: '0.7rem', marginBottom: '0.5rem' }}>WhatsApp Express</h4>
-                      <p style={{ opacity: 0.8 }}><a href="https://wa.me/971000000000" style={{ color: 'inherit' }}>+971 00 000 0000</a></p>
+                      <h4 className="cinematic-title" style={{ fontSize: '0.7rem', marginBottom: '0.5rem' }}>WhatsApp & Call</h4>
+                      <p style={{ opacity: 0.8, display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                        <a href="https://wa.me/971526400679" style={{ color: 'inherit' }}>+971 52 640 0679</a>
+                        <a href="https://wa.me/971522150837" style={{ color: 'inherit' }}>+971 52 215 0837</a>
+                      </p>
                     </div>
                   </div>
 
@@ -87,87 +230,9 @@ export default function ContactPage() {
                 Initiate Your <span className="text-gold">Story</span>
               </h2>
 
-              <form action="https://formspree.io/f/xvovlbkw" method="POST">
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2rem' }}>
-                  <div className="form-group">
-                    <label className="contact-page-label">
-                      Full Name
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      className="contact-page-input"
-                      placeholder="E.g., Alexander Wright"
-                      required
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label className="contact-page-label">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      className="contact-page-input"
-                      placeholder="alexander@domain.com"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2rem' }}>
-                  <div className="form-group">
-                    <label className="contact-page-label">
-                      Contact Number
-                    </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      className="contact-page-input"
-                      placeholder="+971 -- --- ----"
-                      required
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label className="contact-page-label">
-                      Collection
-                    </label>
-                    <select
-                      name="service"
-                      className="contact-page-select"
-                      required
-                    >
-                      <option value="" disabled selected style={{ background: '#2B1B14', color: '#8A766F' }}>Choose a session...</option>
-                      <option value="newborn" style={{ background: '#2B1B14', color: '#FAF5F0' }}>Newborn Photography</option>
-                      <option value="wedding" style={{ background: '#2B1B14', color: '#FAF5F0' }}>Wedding Story</option>
-                      <option value="pre-wedding" style={{ background: '#2B1B14', color: '#FAF5F0' }}>Pre-Wedding</option>
-                      <option value="couple" style={{ background: '#2B1B14', color: '#FAF5F0' }}>Couple Session</option>
-                      <option value="corporate" style={{ background: '#2B1B14', color: '#FAF5F0' }}>Corporate Branding</option>
-                      <option value="event" style={{ background: '#2B1B14', color: '#FAF5F0' }}>Grand Events</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="form-group" style={{ marginBottom: '3rem' }}>
-                  <label className="contact-page-label">
-                    Vision Details
-                  </label>
-                  <textarea
-                    name="message"
-                    className="contact-page-input"
-                    placeholder="Share details about your dream photoshoot, dates, or concepts..."
-                    required
-                    style={{
-                      minHeight: '120px',
-                      resize: 'none',
-                    }}
-                  ></textarea>
-                </div>
-
-                <button type="submit" className="btn btn-gold" style={{ width: '100%', padding: '1rem 0', letterSpacing: '4px', textTransform: 'uppercase', fontSize: '0.75rem' }}>
-                  Reserve Your Date
-                </button>
-              </form>
+              <Suspense fallback={<div style={{ color: 'var(--color-text-muted)' }}>Loading inquiry form...</div>}>
+                <ContactFormContent />
+              </Suspense>
             </div>
 
           </div>

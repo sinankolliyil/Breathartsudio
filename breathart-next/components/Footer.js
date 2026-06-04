@@ -60,16 +60,16 @@ export default function Footer() {
           {/* Col 4: Contact & Socials */}
           <div className="footer-col contact-col">
             <h4>Initiate Story</h4>
-            <p className="footer-contact-item">
-              <i className="fas fa-envelope"></i>
-              <a href="mailto:hello@breathart.com">hello@breathart.com</a>
+            <p className="footer-contact-item" style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+              <span><i className="fas fa-envelope"></i> <a href="mailto:Info@breathart.ae">Info@breathart.ae</a></span>
+              <span style={{ paddingLeft: '1.5rem' }}><a href="mailto:breathartindia@gmail.com">breathartindia@gmail.com</a></span>
             </p>
-            <p className="footer-contact-item">
-              <i className="fas fa-phone"></i>
-              <a href="tel:+971000000000">+971 00 000 0000</a>
+            <p className="footer-contact-item" style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', marginTop: '1rem' }}>
+              <span><i className="fas fa-phone"></i> <a href="tel:+971526400679">+971 52 640 0679</a></span>
+              <span style={{ paddingLeft: '1.5rem' }}><a href="tel:+971522150837">+971 52 215 0837</a></span>
             </p>
             <div className="footer-social-links">
-              <a href="https://wa.me/971000000000" target="_blank" rel="noopener noreferrer" className="whatsapp">
+              <a href="https://wa.me/971526400679" target="_blank" rel="noopener noreferrer" className="whatsapp">
                 <i className="fab fa-whatsapp"></i>
               </a>
               <a href="#" className="instagram">

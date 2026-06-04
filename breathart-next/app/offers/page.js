@@ -350,8 +350,8 @@ export default function OffersPage() {
                         {pkg.name}
                       </h3>
                       <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem', marginBottom: '2.5rem' }}>
-                        <span style={{ fontSize: '2.2rem', fontWeight: '800', color: 'var(--color-white)' }}>
-                          {pkg.price}
+                        <span style={{ fontSize: '1.4rem', fontWeight: '700', color: 'var(--color-gold)', letterSpacing: '0.5px' }}>
+                          Get Pricing
                         </span>
                       </div>
                       
@@ -372,7 +372,7 @@ export default function OffersPage() {
                       className="btn btn-outline"
                       style={{ width: '100%', textAlign: 'center', padding: '0.9rem 0', fontSize: '0.7rem', letterSpacing: '2px', border: '1px solid var(--color-gold)' }}
                     >
-                      Choose {pkg.name}
+                      Request Pricing &amp; Details
                     </Link>
                   </div>
                 ))}
