@@ -2619,6 +2619,20 @@ h1, h2, h3, h4, h5, h6,
     grid-column: span 2;
 }
 
+.span-2-desktop .gallery-frame {
+    aspect-ratio: 2.5/1 !important;
+}
+
+.span-2-desktop:hover .gallery-frame img {
+    transform: scale(1.03) !important;
+    filter: saturate(1.05) !important;
+}
+
+.span-2-desktop:hover .gallery-overlay {
+    background: rgba(250, 245, 240, 0.3) !important;
+    backdrop-filter: blur(2px) !important;
+}
+
 @media (max-width: 768px) {
     .remaining-services-grid {
         grid-template-columns: 1fr;
