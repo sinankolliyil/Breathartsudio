@@ -39,12 +39,25 @@ const categories = [
     ]
   },
   {
-    id: 'events',
-    title: 'event photography',
-    description: 'Dynamic, elegant, and high-end visual records of your private celebrations, luxury galas, and social anniversaries.',
-    image: '/assets/service_event_main.png',
+    id: 'social-private',
+    title: 'social & private events',
+    description: 'Expert photography and cinematic documentation for your most cherished life celebrations. We capture every smile and detail so you can focus on enjoying the moment.',
+    image: '/assets/service_event_social.png',
     services: [
-      { name: 'Event Photography', icon: 'fas fa-camera', desc: 'Vivid and spontaneous documentation of social events, anniversaries, and private parties.' }
+      { name: 'Luxury Birthdays & Galas', icon: 'fas fa-birthday-cake', desc: 'Candid and posed photography capturing the energy and elegance of your celebrations.' },
+      { name: 'Bridal & Baby Showers', icon: 'fas fa-baby-carriage', desc: 'Beautifully documented showers, preserving the joy and emotions of you and your guests.' },
+      { name: 'Private Dinner Photography', icon: 'fas fa-utensils', desc: 'Intimate dinner party coverage focusing on ambiance, candid moments, and premium culinary shots.' }
+    ]
+  },
+  {
+    id: 'corporate-photography',
+    title: 'corporate event photography',
+    description: 'Flawless visual coverage of professional conferences, seminars, product launch campaigns, and brand activations designed to highlight your brand impact.',
+    image: '/assets/service_event_corporate.png',
+    services: [
+      { name: 'Conferences & Seminars', icon: 'fas fa-briefcase', desc: 'Comprehensive event photography covering speakers, networking, and key moments.' },
+      { name: 'Product Launches & Brand Activations', icon: 'fas fa-bullhorn', desc: 'High-quality visual documentation designed to amplify the reach and impact of your new products.' },
+      { name: 'Corporate Gala Dinners', icon: 'fas fa-award', desc: 'Elegant event coverage capturing awards, speeches, and the grand atmosphere of the evening.' }
     ]
   },
   {

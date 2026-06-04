@@ -169,7 +169,7 @@ export default function Navbar() {
       subItems: [
         { heading: 'Photography', href: '/services/photography' },
         { heading: 'Videography', href: '/services/videography' },
-        { heading: 'Event Photography', href: '/services/event-photography' }
+        { heading: 'Events By BreathArt', href: '/services/events-by-breathart' }
       ]
     },
     { heading: 'Offers', href: '/offers' },
@@ -207,9 +207,9 @@ export default function Navbar() {
                     </Link>
                   </div>
                   <div className="mega-menu-column">
-                    <Link href="/services/event-photography">
-                      <span className="mega-title">Event Photography</span>
-                      <span className="mega-desc">Vibrant high-end celebration planning and design</span>
+                    <Link href="/services/events-by-breathart">
+                      <span className="mega-title">Events By BreathArt</span>
+                      <span className="mega-desc">Professional planning and production for UAE events</span>
                     </Link>
                   </div>
                 </div>
