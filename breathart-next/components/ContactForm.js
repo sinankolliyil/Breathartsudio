@@ -89,10 +89,23 @@ function ContactFormInner({
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const text = `*New Inquiry from BreathArt Studio*
+*Name:* ${formData.name}
+*Email:* ${formData.email}
+*Phone:* ${formData.phone}
+*Service:* ${formData.service}
+${showPackageField && formData.package ? `*Package:* ${formData.package}\n` : ''}*Message:* ${formData.message}`;
+
+    const encodedText = encodeURIComponent(text);
+    window.open(`https://wa.me/971526400679?text=${encodedText}`, '_blank');
+  };
+
   // ── Theme A: Landing & Offers Form (Boxed fields, no card bg modifications) ──
   if (theme === 'landing') {
     return (
-      <form action="https://formspree.io/f/xvovlbkw" method="POST" className="noha-form">
+      <form onSubmit={handleSubmit} className="noha-form">
         <div className="input-group">
           <label style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--color-white)', fontWeight: '600' }}>
             Full Name
@@ -209,7 +222,7 @@ function ContactFormInner({
   };
 
   return (
-    <form action="https://formspree.io/f/xvovlbkw" method="POST">
+    <form onSubmit={handleSubmit}>
       <div className="input-row">
         <div className="form-group">
           <label className="cinematic-title" style={labelStyle}>

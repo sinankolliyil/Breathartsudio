@@ -80,7 +80,7 @@ const SECONDARY_OFFERS = [
     desc: 'Cinematic couple sessions at premium locations. Indoor & outdoor settings, creative direction, full editing included.',
     promo: '30% OFF',
     interest: 'Videography',
-    ctaText: 'Book Now',
+    ctaText: 'Claim Your Offer Now',
   },
   {
     badgeIcon: <Star size={11} />,
@@ -89,7 +89,7 @@ const SECONDARY_OFFERS = [
     desc: 'Dual-camera full-day coverage. 100+ edited photos + cinematic highlight video — all at a special bundled price.',
     promo: '25% OFF',
     interest: 'Event',
-    ctaText: 'Get Bundle',
+    ctaText: 'Claim Your Offer Now',
   },
   {
     badgeIcon: <Gift size={11} />,
@@ -98,7 +98,25 @@ const SECONDARY_OFFERS = [
     desc: "Fun styled themes, professionally lit setups, unlimited raw shots and a fully-edited gallery delivered within 5 days.",
     promo: '20% OFF',
     interest: 'Photography',
-    ctaText: 'Reserve Session',
+    ctaText: 'Claim Your Offer Now',
+  },
+  {
+    badgeIcon: <Star size={11} />,
+    badge: 'Premium Package',
+    title: 'Luxury Wedding Photography',
+    desc: 'Capture your special day with our elite wedding photography package. Includes two photographers, full-day coverage, and a luxury printed album.',
+    promo: '15% OFF',
+    interest: 'Wedding',
+    ctaText: 'Claim Your Offer Now',
+  },
+  {
+    badgeIcon: <Zap size={11} />,
+    badge: 'Business Special',
+    title: 'Corporate Branding Session',
+    desc: 'Elevate your brand with professional corporate headshots and workspace photography. Perfect for websites and marketing materials.',
+    promo: '20% OFF',
+    interest: 'Corporate',
+    ctaText: 'Claim Your Offer Now',
   },
 ];
 
@@ -121,6 +139,65 @@ export default function LandingPage() {
   const filteredImages = filter === 'All' 
     ? allShowcaseImages 
     : allShowcaseImages.filter(img => img.category === filter);
+
+  const renderOfferCard = (offer, i) => (
+    <div
+      key={i}
+      className="landing-offer-card"
+      style={{
+        background: 'var(--color-shade-2)',
+        border: '1px solid rgba(158, 112, 96, 0.18)',
+        borderRadius: '10px',
+        padding: '2rem',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '1rem',
+        transition: 'transform 0.25s ease, box-shadow 0.25s ease'
+      }}
+    >
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.4rem',
+            background: 'rgba(158,112,96,0.15)',
+            color: 'var(--color-gold)',
+            padding: '0.3rem 0.8rem',
+            fontSize: '0.58rem',
+            fontWeight: '700',
+            letterSpacing: '1px',
+            borderRadius: '50px',
+            textTransform: 'uppercase',
+            border: '1px solid rgba(158,112,96,0.25)'
+          }}
+        >
+          {offer.badgeIcon}
+          {offer.badge}
+        </div>
+        <span style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--color-gold)', lineHeight: 1 }}>
+          {offer.promo}
+        </span>
+      </div>
+
+      <div>
+        <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', color: 'var(--color-white)', marginBottom: '0.5rem' }}>
+          {offer.title}
+        </h3>
+        <p style={{ color: 'var(--color-text-muted)', fontSize: '0.8rem', lineHeight: '1.65', margin: 0 }}>
+          {offer.desc}
+        </p>
+      </div>
+
+      <button
+        onClick={() => scrollToContact(offer.interest, `I'd like to claim the offer: "${offer.title}" (${offer.promo}).`)}
+        className="noha-btn-outline"
+        style={{ marginTop: 'auto', textAlign: 'center', border: '1px solid rgba(158,112,96,0.4)', cursor: 'pointer', fontSize: '0.7rem', letterSpacing: '1px' }}
+      >
+        {offer.ctaText} <ArrowRight size={13} />
+      </button>
+    </div>
+  );
 
   const scrollToContact = (service, msg) => {
     setInitialService(service);
@@ -353,71 +430,18 @@ export default function LandingPage() {
                 onClick={() => scrollToContact('Photography', "I'd like to claim the 50% Off Newborn Photography Promo.")}
                 className="noha-btn-primary full-width"
               >
-                Claim Offer Now
+                Claim Your Offer Now
               </button>
             </div>
           </div>
 
           {/* ── 3 SECONDARY OFFER CARDS ── */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '1.5rem' }}>
+            {SECONDARY_OFFERS.slice(0, 3).map((offer, i) => renderOfferCard(offer, i))}
+          </div>
+          
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
-            {SECONDARY_OFFERS.map((offer, i) => (
-              <div
-                key={i}
-                className="landing-offer-card"
-                style={{
-                  background: 'var(--color-shade-2)',
-                  border: '1px solid rgba(158, 112, 96, 0.18)',
-                  borderRadius: '10px',
-                  padding: '2rem',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '1rem',
-                  transition: 'transform 0.25s ease, box-shadow 0.25s ease'
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <div
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '0.4rem',
-                      background: 'rgba(158,112,96,0.15)',
-                      color: 'var(--color-gold)',
-                      padding: '0.3rem 0.8rem',
-                      fontSize: '0.58rem',
-                      fontWeight: '700',
-                      letterSpacing: '1px',
-                      borderRadius: '50px',
-                      textTransform: 'uppercase',
-                      border: '1px solid rgba(158,112,96,0.25)'
-                    }}
-                  >
-                    {offer.badgeIcon}
-                    {offer.badge}
-                  </div>
-                  <span style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--color-gold)', lineHeight: 1 }}>
-                    {offer.promo}
-                  </span>
-                </div>
-
-                <div>
-                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', color: 'var(--color-white)', marginBottom: '0.5rem' }}>
-                    {offer.title}
-                  </h3>
-                  <p style={{ color: 'var(--color-text-muted)', fontSize: '0.8rem', lineHeight: '1.65', margin: 0 }}>
-                    {offer.desc}
-                  </p>
-                </div>
-
-                <button
-                  onClick={() => scrollToContact(offer.interest, `I'd like to claim the offer: "${offer.title}" (${offer.promo}).`)}
-                  className="noha-btn-outline"
-                  style={{ marginTop: 'auto', textAlign: 'center', border: '1px solid rgba(158,112,96,0.4)', cursor: 'pointer', fontSize: '0.7rem', letterSpacing: '1px' }}
-                >
-                  {offer.ctaText} <ArrowRight size={13} />
-                </button>
-              </div>
-            ))}
+            {SECONDARY_OFFERS.slice(3, 5).map((offer, i) => renderOfferCard(offer, i + 3))}
           </div>
         </div>
       </section>
