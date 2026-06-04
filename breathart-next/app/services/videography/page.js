@@ -173,7 +173,7 @@ export default function VideographyPage() {
       </div>
 
       {/* Services Showcase */}
-      <section className="section" style={{ paddingTop: '4rem', paddingBottom: '0.5rem' }}>
+      <section className="section" style={{ paddingTop: '4rem', paddingBottom: '2.5rem' }}>
         <div className="container">
           {categories.map((cat, catIdx) => {
             const isEven = catIdx % 2 === 0;
@@ -323,7 +323,7 @@ export default function VideographyPage() {
       </section>
 
       {/* Connect With Us Section */}
-      <section className="section" style={{ padding: '1.5rem 0 6rem 0' }}>
+      <section className="section" style={{ padding: '2.5rem 0 6rem 0' }}>
         <div className="container">
           <div style={{
             maxWidth: '1000px',
