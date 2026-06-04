@@ -19,6 +19,9 @@ export const metadata = {
     description: 'Premium photography studio for professional weddings, portraits, and creative visuals.',
     type: 'website',
   },
+  icons: {
+    icon: '/assets/logo/photography-logo.webp',
+  },
 };
 
 export default function RootLayout({ children }) {
