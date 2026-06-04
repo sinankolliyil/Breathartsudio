@@ -21,8 +21,41 @@ const categories = [
     image: '/assets/service_video_commercial.png',
     services: [
       { name: 'Corporate Promos & Ads', icon: 'fas fa-ad', desc: 'High-impact promotional and advertisement video content for branding and digital channels.' },
-      { name: 'Event Coverage & Highlights', icon: 'fas fa-video', desc: 'Energetic corporate conference, summit, or private gala highlight reels.' },
+      { name: 'Product Video Production', icon: 'fas fa-box-open', desc: 'Detailed, highly cinematic showcases highlighting textures, mechanics, and design of your premium products.' },
       { name: 'Social Media Reels', icon: 'fas fa-mobile-alt', desc: 'Engaging, premium mobile-optimized videos and reels for maximum reach.' }
+    ]
+  },
+  {
+    id: 'social-private-video',
+    title: 'social & private event videography',
+    description: 'Cinematic, spontaneous, and high-fidelity video documentation for luxury private events, dinners, and family milestones.',
+    image: '/assets/service_event_social.png',
+    services: [
+      { name: 'Luxury Birthdays & Galas Video', icon: 'fas fa-birthday-cake', desc: 'Capturing the dynamic energy, entertainment programs, and elegant guests of your private parties.' },
+      { name: 'Bridal & Baby Shower Reels', icon: 'fas fa-baby-carriage', desc: 'Beautifully capturing the emotional highlights, laughter, and speeches of your shower gatherings.' },
+      { name: 'Private Dinner & Anniversary Videos', icon: 'fas fa-utensils', desc: 'Intimate dinner party highlight videos focusing on culinary layouts, ambient design, and guest interaction.' }
+    ]
+  },
+  {
+    id: 'corporate-events-video',
+    title: 'corporate event videography',
+    description: 'Comprehensive and premium corporate event coverage, capturing panels, keynotes, team networking, and keynote highlights.',
+    image: '/assets/service_event_corporate.png',
+    services: [
+      { name: 'Conferences & Seminars Video', icon: 'fas fa-briefcase', desc: 'Full-session multi-camera documentation, speeches, panel discussions, and highlight reels.' },
+      { name: 'Product Launches & Activation Films', icon: 'fas fa-bullhorn', desc: 'High-energy video coverage of brand launch campaigns, activations, and interactive setups.' },
+      { name: 'Corporate Gala Dinner Reels', icon: 'fas fa-award', desc: 'Cinematic documentation of award presentations, VIP speeches, and social segments.' }
+    ]
+  },
+  {
+    id: 'aerial-video',
+    title: 'aerial & drone cinematography',
+    description: 'Ultra-high definition drone and aerial cinematography capturing grand landscapes, event venues, and architectural scale.',
+    image: '/assets/hero_event.png',
+    services: [
+      { name: 'FPV Drone Cinematography', icon: 'fas fa-wind', desc: 'Immersive, dynamic, and high-speed fly-throughs for events, spaces, and active landscapes.' },
+      { name: 'Event Aerial Highlights', icon: 'fas fa-plane', desc: 'Stunning bird\'s-eye view highlights of large outdoor festivals, concert stages, and corporate venues.' },
+      { name: 'Real Estate & Architectural Video', icon: 'fas fa-home', desc: 'High-altitude cinematic framing designed to highlight property layouts and spatial scale.' }
     ]
   }
 ];
