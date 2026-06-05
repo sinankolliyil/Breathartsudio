@@ -108,10 +108,7 @@ h1, h2, h3, h4, h5, h6,
     align-items: center;
     position: relative;
     overflow: hidden;
-    background: 
-        linear-gradient(to right, var(--color-black) 35%, rgba(250, 245, 240, 0.85) 60%, transparent 100%),
-        linear-gradient(rgba(250, 245, 240, 0.82), rgba(250, 245, 240, 0.82)),
-        url('/assets/hero_nature.png') no-repeat center center;
+    background: url('/assets/hero_leaf_shadow.png') no-repeat center center;
     background-size: cover;
     padding: 160px 0 4rem;
 }
@@ -126,7 +123,7 @@ h1, h2, h3, h4, h5, h6,
 .hero-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(135deg, var(--color-black) 0%, transparent 40%, transparent 60%, var(--color-black) 100%);
+    background: transparent;
     z-index: 2;
     pointer-events: none;
 }
@@ -137,109 +134,134 @@ h1, h2, h3, h4, h5, h6,
     justify-content: space-between;
     width: 100%;
     z-index: 10;
-    gap: 5rem;
-    transform: translateY(-45px);
+    gap: 3rem;
+    transform: translateY(-20px);
 }
 
 .hero-left {
-    flex: 1.2; 
-    max-width: 750px; /* Thinner to avoid album collision */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     text-align: left;
+    justify-content: center;
+    max-width: 650px;
+    width: 100%;
     z-index: 10;
+    margin: 0;
 }
 
 .hero-pre-title {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1.25rem;
+    justify-content: flex-start;
+    gap: 0;
+    margin-bottom: 1.5rem;
 }
 
 .hero-pre-line {
-    width: 30px;
-    height: 1px;
-    background-color: var(--color-gold);
-    display: inline-block;
+    display: none;
 }
 
 .hero-pre-text {
     font-family: var(--font-heading);
     font-size: 0.75rem;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     text-transform: uppercase;
     color: var(--color-gold);
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .hero-main-title {
-    font-family: var(--font-heading); /* Bold sans-serif from outfit */
-    font-size: clamp(3rem, 7vw, 5.5rem); /* Extremely bold, huge display typography */
-    font-weight: 800; /* Extra bold matching the screenshot */
-    color: var(--color-white); /* Deep espresso */
-    line-height: 0.95;
-    letter-spacing: -0.02em; /* Slightly tighter letter-spacing */
-    text-transform: none; /* Only B and A capital: BreathArt */
-    margin: 0 0 0.8rem 0;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.2rem, 7.5vw, 6.2rem);
+    font-weight: 400;
+    color: var(--color-white);
+    line-height: 1.1;
+    letter-spacing: 2px;
+    text-transform: none;
+    margin: 0 0 1.5rem 0;
+}
+
+.hero-title-italic-gold {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--color-gold);
+    font-weight: 400;
+}
+
+.hero-divider {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 480px;
+    margin: 0.5rem 0 2.5rem 0;
+    gap: 1.5rem;
+}
+
+.hero-divider .divider-line {
+    flex: 1;
+    height: 1px;
+    background: rgba(158, 112, 96, 0.25);
+}
+
+.hero-divider .divider-diamond {
+    width: 8px;
+    height: 8px;
+    background: var(--color-gold);
+    transform: rotate(45deg);
+    display: inline-block;
+    flex-shrink: 0;
 }
 
 .hero-subtitle {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: clamp(1.2rem, 2.2vw, 1.8rem);
-    font-weight: 400;
-    color: var(--color-gold);
-    margin: 0 0 2rem 0;
-    text-transform: none;
-    letter-spacing: normal;
+    display: none;
 }
 
 .hero-description {
-    font-family: var(--font-body);
-    font-size: clamp(0.9rem, 1.2vw, 1rem);
-    color: var(--color-text-muted);
-    line-height: 1.8;
-    max-width: 520px;
-    margin: 0 0 2.5rem 0;
-    font-weight: 300;
+    display: none;
 }
 
 .hero-buttons-new {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    justify-content: flex-start;
+    gap: 2.5rem;
 }
 
 .btn-hero-primary {
-    background: var(--color-white); /* Deep cocoa/espresso button */
-    color: var(--color-black) !important; /* Light cream text */
-    padding: 1.1rem 2.2rem;
+    background: var(--color-white);
+    color: var(--color-black) !important;
+    padding: 1rem 2.2rem;
     font-family: var(--font-heading);
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     border: none;
-    border-radius: 0; /* Sharp edges, no curves */
+    border-radius: 50px;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
     box-shadow: 0 10px 20px rgba(59, 35, 26, 0.08);
 }
 
 .btn-hero-primary:hover {
     background: var(--color-gold);
-    color: #FAF5F0 !important;
-    transform: translateY(-3px);
+    color: var(--color-black) !important;
+    transform: translateY(-2px);
     box-shadow: 0 15px 25px rgba(158, 112, 96, 0.15);
 }
 
 .btn-hero-secondary {
     background: transparent;
-    color: var(--color-text-muted) !important;
+    color: var(--color-white) !important;
     font-family: var(--font-heading);
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -247,16 +269,26 @@ h1, h2, h3, h4, h5, h6,
     text-decoration: none;
 }
 
+.btn-hero-secondary .text-underline {
+    border-bottom: 1px solid var(--color-white);
+    padding-bottom: 2px;
+    transition: border-color 0.3s ease;
+}
+
 .btn-hero-secondary .arrow {
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.3s ease;
 }
 
 .btn-hero-secondary:hover {
     color: var(--color-gold) !important;
 }
 
+.btn-hero-secondary:hover .text-underline {
+    border-color: var(--color-gold);
+}
+
 .btn-hero-secondary:hover .arrow {
-    transform: translateX(5px);
+    transform: translateX(4px);
 }
 
 
