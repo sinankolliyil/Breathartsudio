@@ -443,6 +443,30 @@ h1, h2, h3, h4, h5, h6,
     color: var(--color-gold);
 }
 
+/* --- Home Page Transparent Navbar (Unscrolled State) --- */
+#navbar:not(.scrolled):not(.nav-menu-open) .nav-container {
+    background: transparent !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+}
+
+#navbar:not(.scrolled):not(.nav-menu-open) .nav-links a {
+    color: var(--color-white) !important; /* Deep espresso brown */
+}
+
+#navbar:not(.scrolled):not(.nav-menu-open) .nav-links a:hover,
+#navbar:not(.scrolled):not(.nav-menu-open) .nav-links a.active {
+    color: var(--color-gold) !important;
+}
+
+/* Mobile hamburger button color when navbar is transparent */
+#navbar:not(.scrolled):not(.nav-menu-open) .mobile-hamburger-line-span {
+    background: var(--color-white) !important; /* Deep espresso brown */
+}
+
+
+
 .nav-container { 
     width: 100%;
     max-width: 100%; /* Spans 100% full-width at rest */
@@ -2257,7 +2281,7 @@ h1, h2, h3, h4, h5, h6,
 .featured-slanted-container {
     width: 100%;
     position: relative;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
 }
 
 .featured-panel-desktop {
