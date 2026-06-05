@@ -68,7 +68,6 @@ export default function HomePage() {
           left: '60px',
           right: '60px',
           bottom: '60px',
-          border: '1px solid rgba(158, 112, 96, 0.04)',
           pointerEvents: 'none',
           zIndex: 3
         }}>
