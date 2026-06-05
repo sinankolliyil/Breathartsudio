@@ -39,11 +39,22 @@ const FigmaIcon = ({ size = 24 }) => (
 );
 
 const MENU_SLIDE_ANIMATION = {
-  initial: { opacity: 0 },
-  enter: { opacity: 1, transition: { duration: 0.3, ease: 'easeInOut' } },
+  initial: { x: '100%', opacity: 0.9 },
+  enter: { 
+    x: 0, 
+    opacity: 1, 
+    transition: { 
+      duration: 0.5, 
+      ease: [0.16, 1, 0.3, 1] /* Premium buttery smooth cubic-bezier */
+    } 
+  },
   exit: {
-    opacity: 0,
-    transition: { duration: 0.3, ease: 'easeInOut' },
+    x: '100%',
+    opacity: 0.9,
+    transition: { 
+      duration: 0.4, 
+      ease: [0.16, 1, 0.3, 1] 
+    },
   },
 };
 

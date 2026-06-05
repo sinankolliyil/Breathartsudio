@@ -443,39 +443,36 @@ h1, h2, h3, h4, h5, h6,
     color: var(--color-gold);
 }
 
-/* --- Home Page Transparent Navbar (Unscrolled State) --- */
-#navbar:not(.scrolled):not(.nav-menu-open) .nav-container {
-    background: transparent !important;
-    border-bottom: none !important;
-    box-shadow: none !important;
-    backdrop-filter: none !important;
-}
+/* --- Home Page Transparent Navbar (Unscrolled State) - Desktop Only --- */
+@media (min-width: 769px) {
+    #navbar:not(.scrolled):not(.nav-menu-open) .nav-container {
+        background: transparent !important;
+        border-bottom: none !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+    }
 
-#navbar:not(.scrolled):not(.nav-menu-open) .nav-links a {
-    color: var(--color-white) !important; /* Deep espresso brown */
-}
+    #navbar:not(.scrolled):not(.nav-menu-open) .nav-links a {
+        color: var(--color-white) !important; /* Deep espresso brown */
+    }
 
-#navbar:not(.scrolled):not(.nav-menu-open) .nav-links a:hover,
-#navbar:not(.scrolled):not(.nav-menu-open) .nav-links a.active {
-    color: var(--color-gold) !important;
-}
+    #navbar:not(.scrolled):not(.nav-menu-open) .nav-links a:hover,
+    #navbar:not(.scrolled):not(.nav-menu-open) .nav-links a.active {
+        color: var(--color-gold) !important;
+    }
 
-/* Mobile hamburger button color when navbar is transparent */
-#navbar:not(.scrolled):not(.nav-menu-open) .mobile-hamburger-line-span {
-    background: var(--color-white) !important; /* Deep espresso brown */
-}
+    /* Fill the Contact Us button only in the initial transparent header */
+    #navbar:not(.scrolled):not(.nav-menu-open) .btn-nav {
+        background-color: var(--color-gold) !important;
+        color: var(--color-black) !important; /* Warm cream text */
+        border-color: var(--color-gold) !important;
+    }
 
-/* Fill the Contact Us button only in the initial transparent header */
-#navbar:not(.scrolled):not(.nav-menu-open) .btn-nav {
-    background-color: var(--color-gold) !important;
-    color: var(--color-black) !important; /* Warm cream text */
-    border-color: var(--color-gold) !important;
-}
-
-#navbar:not(.scrolled):not(.nav-menu-open) .btn-nav:hover {
-    background-color: var(--color-white) !important; /* Deep espresso on hover */
-    color: var(--color-black) !important;
-    border-color: var(--color-white) !important;
+    #navbar:not(.scrolled):not(.nav-menu-open) .btn-nav:hover {
+        background-color: var(--color-white) !important; /* Deep espresso on hover */
+        color: var(--color-black) !important;
+        border-color: var(--color-white) !important;
+    }
 }
 
 
@@ -3425,7 +3422,7 @@ h1, h2, h3, h4, h5, h6,
 /* Premium Curved Menu */
 #navbar.nav-menu-open {
     transform: none !important;
-    z-index: 9999 !important;
+    z-index: 10010 !important; /* Higher than drawer panel (9999) to keep X close button visible */
 }
 
 #navbar.nav-menu-open .nav-container {
@@ -3444,17 +3441,17 @@ h1, h2, h3, h4, h5, h6,
 
 .curved-menu-panel {
     position: fixed;
-    top: 77px; /* Position panel exactly below the mobile header */
+    top: 0; /* Extend to top behind header container to eliminate any gap */
     right: 0;
     bottom: 0;
     z-index: 9999;
     width: 100vw;
-    max-width: 480px; /* reduced from 640px to make it smaller */
+    max-width: 320px; /* reduced from 480px to make it smaller */
     background: #2B1B14; /* Deep espresso matching header */
     display: flex;
     flex-direction: column;
     box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.5);
-    padding: 0;
+    padding: 70px 0 0 0; /* Push down menu content below header */
     overflow: visible;
 }
 
@@ -3482,10 +3479,10 @@ h1, h2, h3, h4, h5, h6,
 
 .curved-menu-body {
     flex: 1;
-    padding: 0 2rem 1rem 2rem;
+    padding: 0 1.5rem 0.5rem 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.25rem;
     overflow-y: auto;
 }
 
@@ -3514,7 +3511,7 @@ h1, h2, h3, h4, h5, h6,
 
 .curved-menu-link-wrapper a {
     display: block;
-    padding: 1.25rem 0;
+    padding: 0.85rem 0;
     color: rgba(250, 245, 240, 0.9);
     text-decoration: none;
     transition: color 0.3s ease, padding-left 0.3s ease;
@@ -3535,7 +3532,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .curved-menu-index {
-    font-size: clamp(1.4rem, 3.5vw, 2.0rem);
+    font-size: clamp(1.1rem, 2.8vw, 1.4rem);
     font-weight: 100;
     color: var(--color-gold);
     margin-right: 0.75rem;
@@ -3550,7 +3547,7 @@ h1, h2, h3, h4, h5, h6,
 
 .curved-menu-label {
     display: inline-block;
-    font-size: clamp(1.4rem, 3.5vw, 2.0rem);
+    font-size: clamp(1.1rem, 2.8vw, 1.4rem);
     font-weight: 200;
     color: rgba(250, 245, 240, 0.9);
     text-transform: uppercase;
@@ -3558,11 +3555,11 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .curved-menu-footer {
-    padding: 1.5rem 2rem;
+    padding: 1rem 1.5rem;
     border-top: 1px solid rgba(250, 245, 240, 0.15);
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 1rem;
     background: #2B1B14;
 }
 
@@ -3570,8 +3567,8 @@ h1, h2, h3, h4, h5, h6,
     display: block;
     width: 100%;
     text-align: center;
-    padding: 0.85rem 1.6rem;
-    font-size: 0.7rem;
+    padding: 0.7rem 1.2rem;
+    font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -3660,6 +3657,10 @@ h1, h2, h3, h4, h5, h6,
     .nav-links      { display: none !important; } /* hide desktop links */
     .btn-nav        { display: none !important; } /* hide desktop CTA */
 
+    #navbar.nav-hidden {
+        transform: translateY(0) !important; /* Keep mobile header visible on scroll down */
+    }
+
     /* Fix nav-container for mobile: logo + hamburger only */
     .nav-container {
         flex-direction: row !important;
@@ -3687,14 +3688,14 @@ h1, h2, h3, h4, h5, h6,
     /* --- HERO --- */
     .hero { padding: 6.5rem 0 4rem 0; }
     .hero-main-title { 
-        font-size: clamp(3rem, 8vw, 3.8rem) !important;
-        letter-spacing: -1.5px !important;
+        font-size: clamp(4.8rem, 14vw, 5.8rem) !important;
+        letter-spacing: 1px !important;
         line-height: 1.05 !important;
         margin-bottom: 0.5rem !important;
     }
     .hero-pre-text {
-        font-size: 0.55rem !important;
-        letter-spacing: 2px !important;
+        font-size: 0.75rem !important;
+        letter-spacing: 3px !important;
     }
     .hero-subtitle {
         font-size: 1.2rem !important;
@@ -3840,12 +3841,12 @@ h1, h2, h3, h4, h5, h6,
 /* ── @480px — Small phones ── */
 @media (max-width: 480px) {
     .hero-main-title { 
-        font-size: 2.8rem !important;
-        letter-spacing: -1px !important;
+        font-size: 4.5rem !important;
+        letter-spacing: 1px !important;
     }
     .hero-pre-text {
-        font-size: 0.5rem !important;
-        letter-spacing: 1.5px !important;
+        font-size: 0.7rem !important;
+        letter-spacing: 2.5px !important;
     }
     .hero-subtitle {
         font-size: 1rem !important;
@@ -3896,7 +3897,7 @@ h1, h2, h3, h4, h5, h6,
 /* ── @375px — iPhone SE / small phones ── */
 @media (max-width: 375px) {
     .hero-main-title { 
-        font-size: 1.6rem !important;
+        font-size: 3.8rem !important;
     }
     .section-title { font-size: 1.3rem !important; }
     .cinematic-title { font-size: 0.6rem !important; letter-spacing: 2px !important; }
