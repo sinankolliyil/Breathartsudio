@@ -336,14 +336,14 @@ export default function PhotographyPage() {
       </section>
 
       {/* Connect With Us Section */}
-      <section className="section" style={{ padding: '1.5rem 0 6rem 0' }}>
+      <section className="section connect-section-mobile" style={{ padding: '1.5rem 0 6rem 0' }}>
         <div className="container">
           <div style={{
             maxWidth: '1000px',
             margin: '0 auto',
             borderTop: '1px solid rgba(158, 112, 96, 0.2)',
             paddingTop: '2rem'
-          }}>
+          }} className="connect-inner-mobile">
             <div style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
@@ -354,7 +354,7 @@ export default function PhotographyPage() {
                 <span className="cinematic-title" style={{ color: 'var(--color-gold)', display: 'block', marginBottom: '0.5rem' }}>
                   Reserve Your Session
                 </span>
-                <h2 style={{
+                <h2 className="connect-heading" style={{
                   fontFamily: 'var(--font-heading)',
                   fontSize: '2.5rem',
                   color: 'var(--color-white)',

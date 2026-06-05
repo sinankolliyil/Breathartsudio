@@ -5957,3 +5957,16 @@ body.has-custom-cursor .cursor-pointer {
     order: 3;
   }
 }
+
+@media (max-width: 768px) {
+  .connect-heading {
+    font-size: clamp(1.2rem, 7vw, 2.2rem) !important;
+    white-space: nowrap !important;
+  }
+  .connect-section-mobile {
+    padding-top: 0 !important;
+  }
+  .connect-inner-mobile {
+    padding-top: 0 !important;
+  }
+}
