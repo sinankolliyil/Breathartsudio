@@ -87,11 +87,18 @@ export default function HomePage() {
             <div className="hero-pre-title">
               <span className="hero-pre-text">Creative Photography Studio</span>
             </div>
-            <h1 className="hero-main-title">
-              Breath<span className="hero-title-italic-gold">Art</span>
-            </h1>
-            
-            <div className="hero-divider">
+            <div className="hero-title-wrapper">
+              <h1 className="hero-main-title">
+                Breath<span className="hero-title-italic-gold">Art</span>
+              </h1>
+              
+              <h2 className="hero-sub-title">
+                {"PHOTOGRAPHY".split('').map((char, index) => (
+                  <span key={index}>{char}</span>
+                ))}
+              </h2>
+            </div>
+          <div className="hero-divider">
               <span className="divider-line"></span>
               <span className="divider-diamond"></span>
               <span className="divider-line"></span>

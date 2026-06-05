@@ -10,16 +10,20 @@ export default function CustomCursor() {
   const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
-    // Check if device supports hover (not touch-only)
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    if (isTouchDevice) {
-      return;
+    // Activate custom cursor only on devices with fine pointer
+    if (typeof window !== 'undefined' && window.matchMedia) {
+      if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        return;
+      }
     }
 
     const mousePos = { x: -100, y: -100 };
     const ringPos = { x: -100, y: -100 };
 
     const onMouseMove = (e) => {
+      if (!document.body.classList.contains('has-custom-cursor')) {
+        document.body.classList.add('has-custom-cursor');
+      }
       mousePos.x = e.clientX;
       mousePos.y = e.clientY;
       setHidden(false);
@@ -101,6 +105,7 @@ export default function CustomCursor() {
       document.body.removeEventListener('mouseleave', onMouseLeave);
       document.body.removeEventListener('mouseenter', onMouseEnter);
       window.removeEventListener('mouseover', handleMouseOver);
+      document.body.classList.remove('has-custom-cursor');
       cancelAnimationFrame(animationFrameId);
     };
   }, []);

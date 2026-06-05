@@ -173,22 +173,40 @@ h1, h2, h3, h4, h5, h6,
     font-weight: 600;
 }
 
+.hero-title-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    margin: 0 0 1.5rem 0;
+}
+
 .hero-main-title {
     font-family: 'Playfair Display', serif;
     font-size: clamp(3.2rem, 7.5vw, 6.2rem);
     font-weight: 400;
     color: var(--color-white);
-    line-height: 1.1;
+    line-height: 1;
     letter-spacing: 2px;
     text-transform: none;
-    margin: 0 0 1.5rem 0;
+    margin: 0;
 }
 
 .hero-title-italic-gold {
     font-family: 'Playfair Display', serif;
     font-style: italic;
     color: var(--color-gold);
-    font-weight: 400;
+}
+
+/* Subtitle under main title */
+.hero-sub-title {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-family: var(--font-heading);
+    font-size: clamp(0.6rem, 1.2vw, 0.95rem);
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin: -0.2rem 0 0 0;
+    font-weight: 500;
 }
 
 .hero-divider {
@@ -4025,16 +4043,19 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* Hide native cursor on ALL desktop elements to allow custom cursor */
-@media (min-width: 992px) {
-    * {
-        cursor: none !important;
-    }
-    input, textarea {
-        cursor: text !important;
-    }
-    select {
-        cursor: pointer !important;
-    }
+/* Hide native cursor only when custom cursor is active (JS adds this class) */
+body.has-custom-cursor * {
+    cursor: none !important;
+}
+body.has-custom-cursor input, 
+body.has-custom-cursor textarea {
+    cursor: text !important;
+}
+body.has-custom-cursor select,
+body.has-custom-cursor button,
+body.has-custom-cursor a,
+body.has-custom-cursor .cursor-pointer {
+    cursor: none !important; /* The custom cursor dot/ring shows pointer state */
 }
 
 .custom-cursor-dot {
