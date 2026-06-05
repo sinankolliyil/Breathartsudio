@@ -465,6 +465,19 @@ h1, h2, h3, h4, h5, h6,
     background: var(--color-white) !important; /* Deep espresso brown */
 }
 
+/* Fill the Contact Us button only in the initial transparent header */
+#navbar:not(.scrolled):not(.nav-menu-open) .btn-nav {
+    background-color: var(--color-gold) !important;
+    color: var(--color-black) !important; /* Warm cream text */
+    border-color: var(--color-gold) !important;
+}
+
+#navbar:not(.scrolled):not(.nav-menu-open) .btn-nav:hover {
+    background-color: var(--color-white) !important; /* Deep espresso on hover */
+    color: var(--color-black) !important;
+    border-color: var(--color-white) !important;
+}
+
 
 
 .nav-container { 
