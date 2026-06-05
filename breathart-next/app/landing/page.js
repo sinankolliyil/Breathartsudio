@@ -613,7 +613,7 @@ export default function LandingPage() {
                   <div>
                     <h5>Email Desk</h5>
                     <p style={{ margin: 0 }}>Info@breathart.ae</p>
-                    <p style={{ margin: 0 }}>breathartindia@gmail.com</p>
+                    <p style={{ margin: 0 }}>Breathartdxb@gmail.com</p>
                   </div>
                 </div>
                 <div className="contact-detail">

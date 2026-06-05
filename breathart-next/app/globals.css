@@ -5945,5 +5945,15 @@ body.has-custom-cursor .cursor-pointer {
   100% { transform: translateX(-100%); }
 }
 
-
-
+@media (max-width: 991px) {
+  .services-grid-redesign {
+    display: flex;
+    flex-direction: column;
+  }
+  .services-grid-redesign > :nth-child(3) {
+    order: 4;
+  }
+  .services-grid-redesign > :nth-child(4) {
+    order: 3;
+  }
+}

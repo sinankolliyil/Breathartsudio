@@ -43,7 +43,7 @@ export default function ContactPage() {
                       <h4 className="cinematic-title" style={{ fontSize: '0.7rem', marginBottom: '0.5rem' }}>Electronic Mail</h4>
                       <p style={{ opacity: 0.8, display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
                         <a href="mailto:Info@breathart.ae" style={{ color: 'inherit' }}>Info@breathart.ae</a>
-                        <a href="mailto:breathartindia@gmail.com" style={{ color: 'inherit' }}>breathartindia@gmail.com</a>
+                        <a href="mailto:Breathartdxb@gmail.com" style={{ color: 'inherit' }}>Breathartdxb@gmail.com</a>
                       </p>
                     </div>
                   </div>

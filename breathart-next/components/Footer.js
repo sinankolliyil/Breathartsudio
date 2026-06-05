@@ -65,7 +65,7 @@ export default function Footer() {
               <i className="fas fa-envelope" style={{ marginTop: '0.2rem', flexShrink: 0 }}></i>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
                 <a href="mailto:Info@breathart.ae">Info@breathart.ae</a>
-                <a href="mailto:breathartindia@gmail.com">breathartindia@gmail.com</a>
+                <a href="mailto:Breathartdxb@gmail.com">Breathartdxb@gmail.com</a>
               </div>
             </div>
 
