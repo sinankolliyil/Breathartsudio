@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import ContactForm from './ContactForm';
 
-export default function PopupForm() {
+export default function PopupForm({ repeatDelay = 60000 }) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -20,10 +20,10 @@ export default function PopupForm() {
   const handleClose = () => {
     setIsVisible(false);
     
-    // Repeat after 1 minute (60000 ms)
+    // Repeat after specified repeatDelay
     setTimeout(() => {
       setIsVisible(true);
-    }, 60000);
+    }, repeatDelay);
   };
 
   return (

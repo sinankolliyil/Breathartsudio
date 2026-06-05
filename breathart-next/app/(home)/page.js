@@ -55,7 +55,7 @@ export default function HomePage() {
 
   return (
     <>
-      <PopupForm />
+      <PopupForm repeatDelay={90000} />
       {/* Ultra-Premium Hero Section */}
       <header className="hero">
         <div className="hero-canvas"></div>
