@@ -3759,9 +3759,10 @@ h1, h2, h3, h4, h5, h6,
     .gallery-grid { grid-template-columns: 1fr !important; gap: 1rem; }
 
     /* --- WHY CHOOSE US --- */
-    .why-choose-us-section { padding: 5rem 0; }
-    .why-image-box { height: 320px; }
-    .why-text-card { padding: 2rem 1.5rem !important; }
+    .why-choose-us-section { padding: 3rem 0; }
+    .why-image-box { height: 220px; }
+    .why-text-card { padding: 2rem 1.5rem !important; margin-bottom: 1.5rem !important; }
+    .why-text-card .why-paragraph:nth-of-type(n+2) { display: none; }
 
     /* --- HOME CONTACT FORM --- */
     .home-contact-form-grid {
