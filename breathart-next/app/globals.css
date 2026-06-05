@@ -160,6 +160,14 @@ h1, h2, h3, h4, h5, h6,
     margin-bottom: 1.5rem;
 }
 
+@media (max-width: 768px) {
+    .hero-pre-title {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
 .hero-pre-line {
     display: none;
 }
