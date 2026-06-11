@@ -52,35 +52,27 @@ export default function Lightbox() {
     <div
       className={`lightbox ${active ? 'active' : ''}`}
       id="lightbox"
-      onClick={(e) => { if (e.target === e.currentTarget) close(); }}
+      onClick={(e) => {
+        if (e.target === e.currentTarget || e.target.classList.contains('lightbox-content')) {
+          close();
+        }
+      }}
     >
       <span className="close-lightbox" onClick={close}>&times;</span>
-      <button className="lb-prev" onClick={prev}>
+      <button className="lb-prev" onClick={prev} aria-label="Previous image">
         <i className="fas fa-chevron-left"></i>
       </button>
       <div className="lightbox-content">
         {currentItem && (
           <>
             <img src={currentItem.src} alt={currentItem.title || 'Enlarged view'} id="lightbox-img" />
-            <p
-              id="lightbox-caption"
-              style={{
-                position: 'absolute',
-                bottom: '-40px',
-                left: 0,
-                width: '100%',
-                textAlign: 'center',
-                color: 'white',
-                fontFamily: 'var(--font-heading)',
-                fontSize: '1.2rem',
-              }}
-            >
+            <p id="lightbox-caption">
               {currentItem.title}
             </p>
           </>
         )}
       </div>
-      <button className="lb-next" onClick={next}>
+      <button className="lb-next" onClick={next} aria-label="Next image">
         <i className="fas fa-chevron-right"></i>
       </button>
     </div>
