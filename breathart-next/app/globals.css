@@ -108,7 +108,7 @@ h1, h2, h3, h4, h5, h6,
     align-items: center;
     position: relative;
     overflow: hidden;
-    background: url('/assets/hero_leaf_shadow.png') no-repeat center center;
+    background: url('/assets/hero/hero_leaf_shadow.png') no-repeat center center;
     background-size: cover;
     padding: 160px 0 4rem;
     -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
@@ -5970,3 +5970,18 @@ body.has-custom-cursor .cursor-pointer {
     padding-top: 0 !important;
   }
 }
+
+/* Hide View Full button on mobile for all sections except the main showcase gallery */
+@media (max-width: 768px) {
+  .view-btn {
+    display: none !important;
+  }
+  
+  .bento-gallery-wrapper .view-btn {
+    display: inline-block !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+  }
+}
+

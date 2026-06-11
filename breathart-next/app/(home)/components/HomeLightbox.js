@@ -1,7 +1,6 @@
 'use client';
 
 import { useCallback, useRef, useState } from 'react';
-import Lightbox from './Lightbox';
 
 export default function HomeLightbox({ sectionId, items, gridCols, layout }) {
   const openLightbox = useCallback((index) => {
@@ -26,6 +25,7 @@ export default function HomeLightbox({ sectionId, items, gridCols, layout }) {
 
   const handleMouseDown = (e) => {
     if (layout !== 'bento') return;
+    if (typeof window !== 'undefined' && window.innerWidth <= 768) return;
     setIsDragging(true);
     dragMoved.current = false;
     startX.current = e.pageX - scrollContainerRef.current.offsetLeft;
@@ -52,11 +52,19 @@ export default function HomeLightbox({ sectionId, items, gridCols, layout }) {
   };
 
   const handleItemClick = (e, index) => {
+    e.stopPropagation();
+    if (typeof window !== 'undefined' && window.innerWidth <= 768) {
+      openLightbox(index);
+      return;
+    }
     if (dragMoved.current) {
       e.preventDefault();
       return;
     }
-    openLightbox(index);
+    // On desktop, only clicking the button opens it.
+    if (typeof window !== 'undefined' && e.target.closest('.view-btn')) {
+      openLightbox(index);
+    }
   };
 
   const scroll = (direction) => {
@@ -96,12 +104,19 @@ export default function HomeLightbox({ sectionId, items, gridCols, layout }) {
                 const spanClass = `bento-span-${(index % 6) + 1}`;
                 return (
                   <div key={`${sectionId}-${index}`} className={`gallery-item show ${spanClass}`} style={{ display: 'block' }}>
-                    <div className="gallery-frame" style={{ height: '100%', aspectRatio: 'auto' }}>
+                    <div 
+                      className="gallery-frame" 
+                      style={{ height: '100%', aspectRatio: 'auto', cursor: 'pointer' }}
+                      onClick={(e) => handleItemClick(e, index)}
+                    >
                       <img src={item.src} alt={item.alt} draggable="false" style={{ userDrag: 'none', WebkitUserDrag: 'none' }} />
                       <div className="gallery-overlay">
                         <div className="overlay-content">
                           <h3>{item.title}</h3>
-                          <button className="view-btn" onClick={(e) => handleItemClick(e, index)}>
+                          <button 
+                            className="view-btn" 
+                            onMouseDown={(e) => e.stopPropagation()}
+                          >
                             View Full
                           </button>
                         </div>
@@ -113,8 +128,6 @@ export default function HomeLightbox({ sectionId, items, gridCols, layout }) {
             </div>
           </div>
         </div>
-        {/* Only render lightbox once for the page */}
-        {sectionId === 'newborn' && <Lightbox />}
       </>
     );
   }
@@ -129,7 +142,11 @@ export default function HomeLightbox({ sectionId, items, gridCols, layout }) {
               <div className="gallery-overlay">
                 <div className="overlay-content">
                   <h3>{item.title}</h3>
-                  <button className="view-btn" onClick={() => openLightbox(index)}>
+                  <button 
+                    className="view-btn" 
+                    onClick={() => openLightbox(index)}
+                    onMouseDown={(e) => e.stopPropagation()}
+                  >
                     View Full
                   </button>
                 </div>
@@ -138,8 +155,6 @@ export default function HomeLightbox({ sectionId, items, gridCols, layout }) {
           </div>
         ))}
       </div>
-      {/* Only render lightbox once for the page - handled in layout or first section */}
-      {sectionId === 'newborn' && <Lightbox />}
     </>
   );
 }

@@ -5,43 +5,44 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Check, Phone, Mail, MapPin, Send, ArrowRight, Play, Camera, Film, Gift, Star, Zap, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import HomeLightbox from '../(home)/components/HomeLightbox';
+import Lightbox from '../(home)/components/Lightbox';
 import ContactForm from '../../components/ContactForm';
 import PopupForm from '../../components/PopupForm';
 
 const allShowcaseImages = [
   // Newborn
-  { src: '/assets/newborn_color.png', alt: 'Newborn 1', title: 'Pure Love', category: 'Newborn' },
-  { src: '/assets/newborn.png', alt: 'Newborn 2', title: 'Soft Dreams', category: 'Newborn' },
-  { src: '/assets/newborn_color.png', alt: 'Newborn 3', title: 'First Light', category: 'Newborn' },
-  { src: '/assets/pastel.png', alt: 'Newborn 4', title: 'Tender Grip', category: 'Newborn' },
-  { src: '/assets/newborn_color.png', alt: 'Newborn 5', title: 'Peaceful Sleep', category: 'Newborn' },
-  { src: '/assets/minimal.png', alt: 'Newborn 6', title: 'Eternal Beginning', category: 'Newborn' },
+  { src: '/assets/gallery/newborn_color.png', alt: 'Newborn 1', title: 'Pure Love', category: 'Newborn' },
+  { src: '/assets/gallery/newborn.png', alt: 'Newborn 2', title: 'Soft Dreams', category: 'Newborn' },
+  { src: '/assets/gallery/newborn_color.png', alt: 'Newborn 3', title: 'First Light', category: 'Newborn' },
+  { src: '/assets/gallery/pastel.png', alt: 'Newborn 4', title: 'Tender Grip', category: 'Newborn' },
+  { src: '/assets/gallery/newborn_color.png', alt: 'Newborn 5', title: 'Peaceful Sleep', category: 'Newborn' },
+  { src: '/assets/gallery/minimal.png', alt: 'Newborn 6', title: 'Eternal Beginning', category: 'Newborn' },
   // Wedding
-  { src: '/assets/wedding_color.png', alt: 'Wedding 1', title: 'The Vow', category: 'Wedding' },
-  { src: '/assets/wedding_color.png', alt: 'Wedding 2', title: 'Sacred Bond', category: 'Wedding' },
-  { src: '/assets/wedding_color.png', alt: 'Wedding 3', title: 'Golden Hour', category: 'Wedding' },
-  { src: '/assets/luxury.png', alt: 'Wedding 4', title: 'Elegant Union', category: 'Wedding' },
-  { src: '/assets/wedding_color.png', alt: 'Wedding 5', title: 'Eternal Flame', category: 'Wedding' },
-  { src: '/assets/event.png', alt: 'Wedding 6', title: 'Together Forever', category: 'Wedding' },
+  { src: '/assets/gallery/wedding_color.png', alt: 'Wedding 1', title: 'The Vow', category: 'Wedding' },
+  { src: '/assets/gallery/wedding_color.png', alt: 'Wedding 2', title: 'Sacred Bond', category: 'Wedding' },
+  { src: '/assets/gallery/wedding_color.png', alt: 'Wedding 3', title: 'Golden Hour', category: 'Wedding' },
+  { src: '/assets/gallery/luxury.png', alt: 'Wedding 4', title: 'Elegant Union', category: 'Wedding' },
+  { src: '/assets/gallery/wedding_color.png', alt: 'Wedding 5', title: 'Eternal Flame', category: 'Wedding' },
+  { src: '/assets/gallery/event.png', alt: 'Wedding 6', title: 'Together Forever', category: 'Wedding' },
   // Event
-  { src: '/assets/event.png', alt: 'Event 1', title: 'Celebration', category: 'Event' },
-  { src: '/assets/service_event.png', alt: 'Event 2', title: 'Gala Night', category: 'Event' },
-  { src: '/assets/event.png', alt: 'Event 3', title: 'Moment of Joy', category: 'Event' },
-  { src: '/assets/service_event.png', alt: 'Event 4', title: 'Corporate Gathering', category: 'Event' },
-  { src: '/assets/event.png', alt: 'Event 5', title: 'Grand Celebration', category: 'Event' },
-  { src: '/assets/service_event.png', alt: 'Event 6', title: 'Festive Evening', category: 'Event' },
+  { src: '/assets/gallery/event.png', alt: 'Event 1', title: 'Celebration', category: 'Event' },
+  { src: '/assets/services/service_event.png', alt: 'Event 2', title: 'Gala Night', category: 'Event' },
+  { src: '/assets/gallery/event.png', alt: 'Event 3', title: 'Moment of Joy', category: 'Event' },
+  { src: '/assets/services/service_event.png', alt: 'Event 4', title: 'Corporate Gathering', category: 'Event' },
+  { src: '/assets/gallery/event.png', alt: 'Event 5', title: 'Grand Celebration', category: 'Event' },
+  { src: '/assets/services/service_event.png', alt: 'Event 6', title: 'Festive Evening', category: 'Event' },
   // Family
-  { src: '/assets/service_prewedding.png', alt: 'Family 1', title: 'Generations', category: 'Family' },
-  { src: '/assets/feature_maternity.png', alt: 'Family 2', title: 'Warm Embrace', category: 'Family' },
-  { src: '/assets/service_prewedding.png', alt: 'Family 3', title: 'Joyful Days', category: 'Family' },
+  { src: '/assets/services/service_prewedding.png', alt: 'Family 1', title: 'Generations', category: 'Family' },
+  { src: '/assets/features/feature_maternity.png', alt: 'Family 2', title: 'Warm Embrace', category: 'Family' },
+  { src: '/assets/services/service_prewedding.png', alt: 'Family 3', title: 'Joyful Days', category: 'Family' },
   // Corporate
-  { src: '/assets/service_corporate.png', alt: 'Corporate 1', title: 'Executive Vision', category: 'Corporate' },
-  { src: '/assets/service_corporate.png', alt: 'Corporate 2', title: 'Team Synergy', category: 'Corporate' },
-  { src: '/assets/service_corporate.png', alt: 'Corporate 3', title: 'Workspace Design', category: 'Corporate' },
+  { src: '/assets/services/service_corporate.png', alt: 'Corporate 1', title: 'Executive Vision', category: 'Corporate' },
+  { src: '/assets/services/service_corporate.png', alt: 'Corporate 2', title: 'Team Synergy', category: 'Corporate' },
+  { src: '/assets/services/service_corporate.png', alt: 'Corporate 3', title: 'Workspace Design', category: 'Corporate' },
   // Real Estate
-  { src: '/assets/service_couple.png', alt: 'Real Estate 1', title: 'Architectural Line', category: 'Real Estate' },
-  { src: '/assets/service_couple.png', alt: 'Real Estate 2', title: 'Twilight Design', category: 'Real Estate' },
-  { src: '/assets/service_couple.png', alt: 'Real Estate 3', title: 'Modern Living', category: 'Real Estate' },
+  { src: '/assets/services/service_couple.png', alt: 'Real Estate 1', title: 'Architectural Line', category: 'Real Estate' },
+  { src: '/assets/services/service_couple.png', alt: 'Real Estate 2', title: 'Twilight Design', category: 'Real Estate' },
+  { src: '/assets/services/service_couple.png', alt: 'Real Estate 3', title: 'Modern Living', category: 'Real Estate' },
 ];
 
 const SERVICES = [
@@ -50,7 +51,7 @@ const SERVICES = [
     title: 'Photography',
     icon: <Camera size={24} />,
     desc: 'Curating exceptional stills that tell stories, capture emotions, and establish visual legacies. From premium family portraiture to luxury weddings.',
-    image: '/assets/service_family_lifestyle.png',
+    image: '/assets/services/service_family_lifestyle.png',
     packages: ['Newborn', 'Family & Lifestyle', 'Wedding & Romance', 'Corporate Branding', 'Creative & Concept']
   },
   {
@@ -58,7 +59,7 @@ const SERVICES = [
     title: 'Videography',
     icon: <Film size={24} />,
     desc: 'Transforming moments into moving pieces of art with state-of-the-art cinematic vision, high-definition storytelling, and premium editing.',
-    image: '/assets/service_video_wedding.png',
+    image: '/assets/services/service_video_wedding.png',
     packages: ['Wedding Films', 'Romance Trailers', 'Corporate Promos', 'Social Reels']
   },
   {
@@ -66,7 +67,7 @@ const SERVICES = [
     title: 'Event',
     icon: <Camera size={24} />,
     desc: 'Comprehensive visual records for grand events, private celebrations, luxury galas, and social anniversaries with cohesive, luxurious aesthetics.',
-    image: '/assets/service_event.png',
+    image: '/assets/services/service_event.png',
     packages: ['Private Celebrations', 'Luxury Galas', 'Social Anniversaries', 'Corporate Meetings']
   }
 ];
@@ -121,11 +122,11 @@ const SECONDARY_OFFERS = [
 ];
 
 const PORTFOLIO = [
-  { img: '/assets/hero_portrait.png', title: 'Luxury Portraits', span: 'col-span-1 row-span-1' },
-  { img: '/assets/hero_event.png', title: 'Grand Events', span: 'col-span-2 row-span-1' },
-  { img: '/assets/bento_1.jpg', title: 'Fine Art Newborn', span: 'col-span-1 row-span-2' },
-  { img: '/assets/bento_3.jpg', title: 'Cinematic Weddings', span: 'col-span-1 row-span-1' },
-  { img: '/assets/bento_4.jpg', title: 'Commercial Editorials', span: 'col-span-1 row-span-1' },
+  { img: '/assets/hero/hero_portrait.png', title: 'Luxury Portraits', span: 'col-span-1 row-span-1' },
+  { img: '/assets/hero/hero_event.png', title: 'Grand Events', span: 'col-span-2 row-span-1' },
+  { img: '/assets/gallery/bento_1.jpg', title: 'Fine Art Newborn', span: 'col-span-1 row-span-2' },
+  { img: '/assets/gallery/bento_3.jpg', title: 'Cinematic Weddings', span: 'col-span-1 row-span-1' },
+  { img: '/assets/gallery/bento_4.jpg', title: 'Commercial Editorials', span: 'col-span-1 row-span-1' },
 ];
 
 export default function LandingPage() {
@@ -215,11 +216,11 @@ export default function LandingPage() {
       <section className="noha-hero">
         <div className="hero-bg-wrapper">
           <div className="hero-overlay"></div>
-          <div className="hero-bg-img" style={{ backgroundImage: 'url(/assets/hero_nature.png)' }}></div>
+          <div className="hero-bg-img" style={{ backgroundImage: 'url(/assets/hero/hero_nature.png)' }}></div>
           <div className="mobile-hero-slider">
-            <div className="mobile-hero-slide" style={{ backgroundImage: 'url(/assets/service_newborn.png)' }}></div>
-            <div className="mobile-hero-slide" style={{ backgroundImage: 'url(/assets/service_wedding.png)', animationDelay: '4s' }}></div>
-            <div className="mobile-hero-slide" style={{ backgroundImage: 'url(/assets/service_corporate.png)', animationDelay: '8s' }}></div>
+            <div className="mobile-hero-slide" style={{ backgroundImage: 'url(/assets/services/service_newborn.png)' }}></div>
+            <div className="mobile-hero-slide" style={{ backgroundImage: 'url(/assets/services/service_wedding.png)', animationDelay: '4s' }}></div>
+            <div className="mobile-hero-slide" style={{ backgroundImage: 'url(/assets/services/service_corporate.png)', animationDelay: '8s' }}></div>
           </div>
         </div>
         <div className="noha-container hero-content">
@@ -642,7 +643,7 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
+      <Lightbox />
     </div>
   );
 }

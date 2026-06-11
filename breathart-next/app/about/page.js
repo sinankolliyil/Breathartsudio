@@ -9,37 +9,37 @@ const features = [
   {
     title: 'Experienced Photographers',
     desc: 'Master artists with decades of collective experience in fine art photography.',
-    image: '/assets/feature_photographers.png',
+    image: '/assets/features/feature_photographers.png',
     link: '/services',
   },
   {
     title: 'Dedicated Lady Staff',
     desc: 'Ensuring absolute comfort, privacy, and ease for maternity & newborn sessions.',
-    image: '/assets/feature_maternity.png',
+    image: '/assets/features/feature_maternity.png',
     link: '/services',
   },
   {
     title: 'Premium Studio',
     desc: 'A state-of-the-art space designed for creative excellence and high-fashion aesthetics.',
-    image: '/assets/feature_studio.png',
+    image: '/assets/features/feature_studio.png',
     link: '/services',
   },
   {
     title: 'High-End Equipment',
     desc: 'Utilizing the latest mirrorless technology and professional studio lighting.',
-    image: '/assets/feature_equipment.png',
+    image: '/assets/features/feature_equipment.png',
     link: '/services',
   },
   {
     title: 'Fast Delivery',
     desc: 'Rapid turn-around without compromising the artistry of post-production.',
-    image: '/assets/feature_delivery.png',
+    image: '/assets/features/feature_delivery.png',
     link: '/services',
   },
   {
     title: 'Trusted By 1000+',
     desc: 'Building lasting relationships through exceptional art and trusted services.',
-    image: '/assets/service_wedding.png',
+    image: '/assets/services/service_wedding.png',
     link: '/services',
   },
 ];
@@ -50,7 +50,7 @@ export default function AboutPage() {
       <header
         className="page-header"
         style={{
-          background: "linear-gradient(rgba(252,252,252,0.4), rgba(252,252,252,0.4)), url('/assets/hero_nature.png')",
+          background: "linear-gradient(rgba(252,252,252,0.4), rgba(252,252,252,0.4)), url('/assets/hero/hero_nature.png')",
           backgroundSize: 'cover',
           backgroundPosition: 'center 53%',
         }}
@@ -73,7 +73,7 @@ export default function AboutPage() {
             <p className="story-text-emphasis">
               At <strong>BreathArt</strong>, we see photography and visual storytelling as more than just captures. To us, it's about creating memorable, personal experiences that elevate your everyday life. It's about understanding the unique nuances of the creative market in our region and the behaviors and desires of its audience.
             </p>
-            <img src="/assets/album_intro.png" alt="Our Story Showcase" className="story-portrait-img" />
+            <img src="/assets/about/album_intro.png" alt="Our Story Showcase" className="story-portrait-img" />
           </div>
 
           {/* Right Column */}

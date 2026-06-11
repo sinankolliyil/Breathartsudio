@@ -6,44 +6,45 @@ import PageFlipDemo from './components/PageFlipDemo';
 import GalleryItem from './components/GalleryItem';
 import FeatureCard from './components/FeatureCard';
 import HomeLightbox from './components/HomeLightbox';
+import Lightbox from './components/Lightbox';
 import ContactForm from '../../components/ContactForm';
 import PopupForm from '../../components/PopupForm';
 import { Shield, Sparkles, Sun, Camera, Sliders, Users, BookOpen, Heart, ArrowUpRight, Zap } from 'lucide-react';
 
 const allShowcaseImages = [
   // Newborn
-  { src: '/assets/newborn_color.png', alt: 'Newborn 1', title: 'Pure Love', category: 'Newborn' },
-  { src: '/assets/newborn.png', alt: 'Newborn 2', title: 'Soft Dreams', category: 'Newborn' },
-  { src: '/assets/newborn_color.png', alt: 'Newborn 3', title: 'First Light', category: 'Newborn' },
-  { src: '/assets/pastel.png', alt: 'Newborn 4', title: 'Tender Grip', category: 'Newborn' },
-  { src: '/assets/newborn_color.png', alt: 'Newborn 5', title: 'Peaceful Sleep', category: 'Newborn' },
-  { src: '/assets/minimal.png', alt: 'Newborn 6', title: 'Eternal Beginning', category: 'Newborn' },
+  { src: '/assets/gallery/newborn_color.png', alt: 'Newborn 1', title: 'Pure Love', category: 'Newborn' },
+  { src: '/assets/gallery/newborn.png', alt: 'Newborn 2', title: 'Soft Dreams', category: 'Newborn' },
+  { src: '/assets/gallery/newborn_color.png', alt: 'Newborn 3', title: 'First Light', category: 'Newborn' },
+  { src: '/assets/gallery/pastel.png', alt: 'Newborn 4', title: 'Tender Grip', category: 'Newborn' },
+  { src: '/assets/gallery/newborn_color.png', alt: 'Newborn 5', title: 'Peaceful Sleep', category: 'Newborn' },
+  { src: '/assets/gallery/minimal.png', alt: 'Newborn 6', title: 'Eternal Beginning', category: 'Newborn' },
   // Wedding
-  { src: '/assets/wedding_color.png', alt: 'Wedding 1', title: 'The Vow', category: 'Wedding' },
-  { src: '/assets/wedding_color.png', alt: 'Wedding 2', title: 'Sacred Bond', category: 'Wedding' },
-  { src: '/assets/wedding_color.png', alt: 'Wedding 3', title: 'Golden Hour', category: 'Wedding' },
-  { src: '/assets/luxury.png', alt: 'Wedding 4', title: 'Elegant Union', category: 'Wedding' },
-  { src: '/assets/wedding_color.png', alt: 'Wedding 5', title: 'Eternal Flame', category: 'Wedding' },
-  { src: '/assets/event.png', alt: 'Wedding 6', title: 'Together Forever', category: 'Wedding' },
+  { src: '/assets/gallery/wedding_color.png', alt: 'Wedding 1', title: 'The Vow', category: 'Wedding' },
+  { src: '/assets/gallery/wedding_color.png', alt: 'Wedding 2', title: 'Sacred Bond', category: 'Wedding' },
+  { src: '/assets/gallery/wedding_color.png', alt: 'Wedding 3', title: 'Golden Hour', category: 'Wedding' },
+  { src: '/assets/gallery/luxury.png', alt: 'Wedding 4', title: 'Elegant Union', category: 'Wedding' },
+  { src: '/assets/gallery/wedding_color.png', alt: 'Wedding 5', title: 'Eternal Flame', category: 'Wedding' },
+  { src: '/assets/gallery/event.png', alt: 'Wedding 6', title: 'Together Forever', category: 'Wedding' },
   // Event
-  { src: '/assets/event.png', alt: 'Event 1', title: 'Celebration', category: 'Event' },
-  { src: '/assets/service_event.png', alt: 'Event 2', title: 'Gala Night', category: 'Event' },
-  { src: '/assets/event.png', alt: 'Event 3', title: 'Moment of Joy', category: 'Event' },
-  { src: '/assets/service_event.png', alt: 'Event 4', title: 'Corporate Gathering', category: 'Event' },
-  { src: '/assets/event.png', alt: 'Event 5', title: 'Grand Celebration', category: 'Event' },
-  { src: '/assets/service_event.png', alt: 'Event 6', title: 'Festive Evening', category: 'Event' },
+  { src: '/assets/gallery/event.png', alt: 'Event 1', title: 'Celebration', category: 'Event' },
+  { src: '/assets/services/service_event.png', alt: 'Event 2', title: 'Gala Night', category: 'Event' },
+  { src: '/assets/gallery/event.png', alt: 'Event 3', title: 'Moment of Joy', category: 'Event' },
+  { src: '/assets/services/service_event.png', alt: 'Event 4', title: 'Corporate Gathering', category: 'Event' },
+  { src: '/assets/gallery/event.png', alt: 'Event 5', title: 'Grand Celebration', category: 'Event' },
+  { src: '/assets/services/service_event.png', alt: 'Event 6', title: 'Festive Evening', category: 'Event' },
   // Family
-  { src: '/assets/service_prewedding.png', alt: 'Family 1', title: 'Generations', category: 'Family' },
-  { src: '/assets/feature_maternity.png', alt: 'Family 2', title: 'Warm Embrace', category: 'Family' },
-  { src: '/assets/service_prewedding.png', alt: 'Family 3', title: 'Joyful Days', category: 'Family' },
+  { src: '/assets/services/service_prewedding.png', alt: 'Family 1', title: 'Generations', category: 'Family' },
+  { src: '/assets/features/feature_maternity.png', alt: 'Family 2', title: 'Warm Embrace', category: 'Family' },
+  { src: '/assets/services/service_prewedding.png', alt: 'Family 3', title: 'Joyful Days', category: 'Family' },
   // Corporate
-  { src: '/assets/service_corporate.png', alt: 'Corporate 1', title: 'Executive Vision', category: 'Corporate' },
-  { src: '/assets/service_corporate.png', alt: 'Corporate 2', title: 'Team Synergy', category: 'Corporate' },
-  { src: '/assets/service_corporate.png', alt: 'Corporate 3', title: 'Workspace Design', category: 'Corporate' },
+  { src: '/assets/services/service_corporate.png', alt: 'Corporate 1', title: 'Executive Vision', category: 'Corporate' },
+  { src: '/assets/services/service_corporate.png', alt: 'Corporate 2', title: 'Team Synergy', category: 'Corporate' },
+  { src: '/assets/services/service_corporate.png', alt: 'Corporate 3', title: 'Workspace Design', category: 'Corporate' },
   // Real Estate
-  { src: '/assets/service_couple.png', alt: 'Real Estate 1', title: 'Architectural Line', category: 'Real Estate' },
-  { src: '/assets/service_couple.png', alt: 'Real Estate 2', title: 'Twilight Design', category: 'Real Estate' },
-  { src: '/assets/service_couple.png', alt: 'Real Estate 3', title: 'Modern Living', category: 'Real Estate' },
+  { src: '/assets/services/service_couple.png', alt: 'Real Estate 1', title: 'Architectural Line', category: 'Real Estate' },
+  { src: '/assets/services/service_couple.png', alt: 'Real Estate 2', title: 'Twilight Design', category: 'Real Estate' },
+  { src: '/assets/services/service_couple.png', alt: 'Real Estate 3', title: 'Modern Living', category: 'Real Estate' },
 ];
 
 export default function HomePage() {
@@ -188,7 +189,7 @@ export default function HomePage() {
             </div>
 
             <div className="featured-normal-image">
-              <img src="/assets/service_newborn.png" alt="Newborn Photography" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/assets/services/service_newborn.png" alt="Newborn Photography" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
 
             <div className="featured-cta-container featured-normal-cta">
@@ -240,7 +241,7 @@ export default function HomePage() {
             </div>
 
             <div className="featured-mobile-image-box">
-              <img src="/assets/service_newborn.png" alt="Newborn Photography" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/assets/services/service_newborn.png" alt="Newborn Photography" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div className="featured-mobile-cta">
                 <Link href="/services#service-newborn" className="btn-premium btn-premium-outline" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
                   Explore <ArrowUpRight size={12} />
@@ -258,7 +259,7 @@ export default function HomePage() {
           {/* Desktop Version */}
           <div className="featured-panel-desktop">
             <div className="featured-mirrored-image">
-              <img src="/assets/service_wedding.png" alt="Wedding Photography" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/assets/services/service_wedding.png" alt="Wedding Photography" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
 
             <div className="featured-cta-container featured-mirrored-cta">
@@ -347,7 +348,7 @@ export default function HomePage() {
             </div>
 
             <div className="featured-mobile-image-box">
-              <img src="/assets/service_wedding.png" alt="Wedding Photography" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/assets/services/service_wedding.png" alt="Wedding Photography" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div className="featured-mobile-cta">
                 <Link href="/services#service-wedding" className="btn-premium btn-premium-outline" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
                   Explore <ArrowUpRight size={12} />
@@ -402,7 +403,7 @@ export default function HomePage() {
             </div>
 
             <div className="featured-normal-image">
-              <img src="/assets/service_corporate.png" alt="Corporate Photography" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/assets/services/service_corporate.png" alt="Corporate Photography" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
 
             <div className="featured-cta-container featured-normal-cta">
@@ -453,7 +454,7 @@ export default function HomePage() {
             </div>
 
             <div className="featured-mobile-image-box">
-              <img src="/assets/service_corporate.png" alt="Corporate Photography" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/assets/services/service_corporate.png" alt="Corporate Photography" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div className="featured-mobile-cta">
                 <Link href="/services#service-corporate" className="btn-premium btn-premium-outline" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
                   Explore <ArrowUpRight size={12} />
@@ -469,9 +470,9 @@ export default function HomePage() {
         {/* ─── REMAINING 3 SERVICES (Grid) ─── */}
         <div className="container" style={{ paddingLeft: '2rem', paddingRight: '2rem' }}>
           <div className="remaining-services-grid">
-            <GalleryItem image="/assets/service_event.png" alt="Event Photography" title="Event" number="04" href="/services#service-event" buttonText="Explore Session" />
-            <GalleryItem image="/assets/service_couple.png" alt="Real Estate Photography" title="Real Estate" number="05" href="/services#service-couple" buttonText="Explore Session" delay={0.1} />
-            <GalleryItem image="/assets/service_prewedding.png" alt="Family Photography" title="Family" number="06" href="/services#service-pre-wedding" buttonText="Explore Session" delay={0.2} wrapperClass="span-2-desktop" />
+            <GalleryItem image="/assets/services/service_event.png" alt="Event Photography" title="Event" number="04" href="/services#service-event" buttonText="Explore Session" />
+            <GalleryItem image="/assets/services/service_couple.png" alt="Real Estate Photography" title="Real Estate" number="05" href="/services#service-couple" buttonText="Explore Session" delay={0.1} />
+            <GalleryItem image="/assets/services/service_prewedding.png" alt="Family Photography" title="Family" number="06" href="/services#service-pre-wedding" buttonText="Explore Session" delay={0.2} wrapperClass="span-2-desktop" />
           </div>
         </div>
       </section>
@@ -516,12 +517,12 @@ export default function HomePage() {
             sectionId="wedding"
             gridCols="repeat(3, 1fr)"
             items={[
-              { src: '/assets/wedding_color.png', alt: 'Wedding 1', title: 'The Vow' },
-              { src: '/assets/wedding_color.png', alt: 'Wedding 2', title: 'Sacred Bond' },
-              { src: '/assets/wedding_color.png', alt: 'Wedding 3', title: 'Golden Hour' },
-              { src: '/assets/luxury.png', alt: 'Wedding 4', title: 'Elegant Union' },
-              { src: '/assets/wedding_color.png', alt: 'Wedding 5', title: 'Eternal Flame' },
-              { src: '/assets/event.png', alt: 'Wedding 6', title: 'Together Forever' },
+              { src: '/assets/gallery/wedding_color.png', alt: 'Wedding 1', title: 'The Vow' },
+              { src: '/assets/gallery/wedding_color.png', alt: 'Wedding 2', title: 'Sacred Bond' },
+              { src: '/assets/gallery/wedding_color.png', alt: 'Wedding 3', title: 'Golden Hour' },
+              { src: '/assets/gallery/luxury.png', alt: 'Wedding 4', title: 'Elegant Union' },
+              { src: '/assets/gallery/wedding_color.png', alt: 'Wedding 5', title: 'Eternal Flame' },
+              { src: '/assets/gallery/event.png', alt: 'Wedding 6', title: 'Together Forever' },
             ]}
           />
           <div className="explore-more-container animate-reveal active">
@@ -544,12 +545,12 @@ export default function HomePage() {
             sectionId="event-management"
             gridCols="repeat(3, 1fr)"
             items={[
-              { src: '/assets/event.png', alt: 'Event 1', title: 'Celebration' },
-              { src: '/assets/service_event.png', alt: 'Event 2', title: 'Gala Night' },
-              { src: '/assets/event.png', alt: 'Event 3', title: 'Moment of Joy' },
-              { src: '/assets/service_event.png', alt: 'Event 4', title: 'Corporate Gathering' },
-              { src: '/assets/event.png', alt: 'Event 5', title: 'Grand Celebration' },
-              { src: '/assets/service_event.png', alt: 'Event 6', title: 'Festive Evening' },
+              { src: '/assets/gallery/event.png', alt: 'Event 1', title: 'Celebration' },
+              { src: '/assets/services/service_event.png', alt: 'Event 2', title: 'Gala Night' },
+              { src: '/assets/gallery/event.png', alt: 'Event 3', title: 'Moment of Joy' },
+              { src: '/assets/services/service_event.png', alt: 'Event 4', title: 'Corporate Gathering' },
+              { src: '/assets/gallery/event.png', alt: 'Event 5', title: 'Grand Celebration' },
+              { src: '/assets/services/service_event.png', alt: 'Event 6', title: 'Festive Evening' },
             ]}
           />
           <div className="explore-more-container animate-reveal active">
@@ -680,7 +681,7 @@ export default function HomePage() {
         <div className="container why-choose-us-container">
           <div className="why-content-wrapper animate-reveal active">
             <div className="why-image-box">
-              <img src="/assets/why_choose_us_baby_shower.png" alt="BreathArt Philosophy" />
+              <img src="/assets/about/why_choose_us_baby_shower.png" alt="BreathArt Philosophy" />
             </div>
 
             <div className="why-text-area">
@@ -739,6 +740,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      <Lightbox />
     </>
   );
 }
