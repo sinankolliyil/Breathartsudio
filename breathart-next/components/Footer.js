@@ -110,7 +110,9 @@ export default function Footer() {
           <p style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)' }}>
             Developed by{' '}
             <a 
-              href="#" 
+              href="https://www.instagram.com/intellex.web" 
+              target="_blank"
+              rel="noopener noreferrer"
               style={{ color: 'var(--color-gold)', fontWeight: '600', transition: 'color 0.35s ease' }}
               className="developer-link"
             >
