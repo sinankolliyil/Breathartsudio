@@ -1234,6 +1234,13 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .footer-bottom p { font-size: 0.8rem; color: var(--color-text-muted); }
+.footer-bottom .developer-link {
+    color: var(--color-gold);
+    transition: color 0.35s ease;
+}
+.footer-bottom .developer-link:hover {
+    color: var(--color-white) !important;
+}
 
 .payment-acceptance {
     display: inline-flex;

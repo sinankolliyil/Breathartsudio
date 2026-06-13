@@ -105,8 +105,18 @@ export default function Footer() {
           <Link href="/landing" className="btn-group-landing">View Studio Landing Page</Link>
         </div>
 
-        <div className="footer-bottom">
+        <div className="footer-bottom" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
           <p>&copy; {new Date().getFullYear()} BreathArt Creative Studio. Crafted for Cinematic Elegance.</p>
+          <p style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)' }}>
+            Developed by{' '}
+            <a 
+              href="#" 
+              style={{ color: 'var(--color-gold)', fontWeight: '600', transition: 'color 0.35s ease' }}
+              className="developer-link"
+            >
+              Intellex
+            </a>
+          </p>
         </div>
       </div>
     </footer>
