@@ -1561,10 +1561,9 @@ h1, h2, h3, h4, h5, h6,
 }
 .view-btn:hover { background: var(--color-gold); color: var(--color-black) !important; }
 
-.gallery-item:hover .gallery-frame img { transform: scale(1.1); filter: saturate(1.2); }
+.gallery-item:hover .gallery-frame img { transform: scale(1.05); }
 .gallery-item:hover .gallery-overlay { 
-    background: rgba(250, 245, 240, 0.92); /* Light cream backdrop on hover */
-    backdrop-filter: blur(4px); 
+    background: rgba(250, 245, 240, 0.96); /* Light cream backdrop on hover (opaque enough to not need blur) */
 }
 .gallery-item:hover .overlay-content { 
     transform: scale(1); 

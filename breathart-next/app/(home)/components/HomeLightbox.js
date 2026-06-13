@@ -101,15 +101,29 @@ export default function HomeLightbox({ sectionId, items, gridCols, layout }) {
           >
             <div className="bento-grid-horizontal">
               {items.map((item, index) => {
-                const spanClass = `bento-span-${(index % 6) + 1}`;
+                const firstIdx = items.findIndex(img => img.category === item.category);
+                const relIndex = index - firstIdx;
+                const spanClass = relIndex === 0 ? 'bento-span-1' : `bento-span-${((relIndex - 1) % 5) + 2}`;
                 return (
                   <div key={`${sectionId}-${index}`} className={`gallery-item show ${spanClass}`} style={{ display: 'block' }}>
                     <div 
                       className="gallery-frame" 
-                      style={{ height: '100%', aspectRatio: 'auto', cursor: 'pointer' }}
+                      style={{ width: '100%', height: '100%', aspectRatio: 'auto', cursor: 'pointer' }}
                       onClick={(e) => handleItemClick(e, index)}
                     >
-                      <img src={item.src} alt={item.alt} draggable="false" style={{ userDrag: 'none', WebkitUserDrag: 'none' }} />
+                      <img 
+                        src={item.src} 
+                        alt={item.alt} 
+                        draggable="false" 
+                        style={{ 
+                          width: '100%', 
+                          height: '100%', 
+                          objectFit: 'cover', 
+                          objectPosition: 'center', 
+                          userDrag: 'none', 
+                          WebkitUserDrag: 'none' 
+                        }} 
+                      />
                       <div className="gallery-overlay">
                         <div className="overlay-content">
                           <h3>{item.title}</h3>
@@ -137,8 +151,17 @@ export default function HomeLightbox({ sectionId, items, gridCols, layout }) {
       <div className="gallery-grid" style={gridCols ? { gridTemplateColumns: gridCols } : undefined}>
         {items.map((item, index) => (
           <div key={`${sectionId}-${index}`} className="gallery-item show" style={{ display: 'block' }}>
-            <div className="gallery-frame">
-              <img src={item.src} alt={item.alt} />
+            <div className="gallery-frame" style={{ width: '100%', height: '100%' }}>
+              <img 
+                src={item.src} 
+                alt={item.alt} 
+                style={{ 
+                  width: '100%', 
+                  height: '100%', 
+                  objectFit: 'cover', 
+                  objectPosition: 'center' 
+                }} 
+              />
               <div className="gallery-overlay">
                 <div className="overlay-content">
                   <h3>{item.title}</h3>

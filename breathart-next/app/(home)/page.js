@@ -13,12 +13,15 @@ import { Shield, Sparkles, Sun, Camera, Sliders, Users, BookOpen, Heart, ArrowUp
 
 const allShowcaseImages = [
   // Newborn
-  { src: '/assets/gallery/newborn_color.png', alt: 'Newborn 1', title: 'Pure Love', category: 'Newborn' },
-  { src: '/assets/gallery/newborn.png', alt: 'Newborn 2', title: 'Soft Dreams', category: 'Newborn' },
-  { src: '/assets/gallery/newborn_color.png', alt: 'Newborn 3', title: 'First Light', category: 'Newborn' },
-  { src: '/assets/gallery/pastel.png', alt: 'Newborn 4', title: 'Tender Grip', category: 'Newborn' },
-  { src: '/assets/gallery/newborn_color.png', alt: 'Newborn 5', title: 'Peaceful Sleep', category: 'Newborn' },
-  { src: '/assets/gallery/minimal.png', alt: 'Newborn 6', title: 'Eternal Beginning', category: 'Newborn' },
+  { src: '/assets/gallery/newborn/newborn.jpeg', alt: 'Newborn 1', title: 'Pure Innocence', category: 'Newborn' },
+  { src: '/assets/gallery/newborn/00117.jpg', alt: 'Newborn 2', title: 'Soft Dreams', category: 'Newborn' },
+  { src: '/assets/gallery/newborn/00122.jpg', alt: 'Newborn 3', title: 'First Light', category: 'Newborn' },
+  { src: '/assets/gallery/newborn/0016.jpg', alt: 'Newborn 4', title: 'Tender Grip', category: 'Newborn' },
+  { src: '/assets/gallery/newborn/0018.jpg', alt: 'Newborn 5', title: 'Peaceful Sleep', category: 'Newborn' },
+  { src: '/assets/gallery/newborn/02.jpg', alt: 'Newborn 6', title: 'Sweet Angel', category: 'Newborn' },
+  { src: '/assets/gallery/newborn/03 2.jpg', alt: 'Newborn 7', title: 'Golden Slumber', category: 'Newborn' },
+  { src: '/assets/gallery/newborn/IMG_0506.jpg', alt: 'Newborn 8', title: 'Tiny Hands', category: 'Newborn' },
+  { src: '/assets/gallery/newborn/IMG_0510.JPG.jpeg', alt: 'Newborn 9', title: 'Cozy Beginning', category: 'Newborn' },
   // Wedding
   { src: '/assets/gallery/wedding_color.png', alt: 'Wedding 1', title: 'The Vow', category: 'Wedding' },
   { src: '/assets/gallery/wedding_color.png', alt: 'Wedding 2', title: 'Sacred Bond', category: 'Wedding' },
@@ -34,9 +37,9 @@ const allShowcaseImages = [
   { src: '/assets/gallery/event.png', alt: 'Event 5', title: 'Grand Celebration', category: 'Event' },
   { src: '/assets/services/service_event.png', alt: 'Event 6', title: 'Festive Evening', category: 'Event' },
   // Family
-  { src: '/assets/services/service_prewedding.png', alt: 'Family 1', title: 'Generations', category: 'Family' },
-  { src: '/assets/features/feature_maternity.png', alt: 'Family 2', title: 'Warm Embrace', category: 'Family' },
-  { src: '/assets/services/service_prewedding.png', alt: 'Family 3', title: 'Joyful Days', category: 'Family' },
+  { src: '/assets/gallery/family/IMG_9601.jpg', alt: 'Family 1', title: 'Generations', category: 'Family' },
+  { src: '/assets/gallery/family/IMG_9770.jpg', alt: 'Family 2', title: 'Warm Embrace', category: 'Family' },
+  { src: '/assets/gallery/family/IMG_9773.jpg', alt: 'Family 3', title: 'Joyful Days', category: 'Family' },
   // Corporate
   { src: '/assets/services/service_corporate.png', alt: 'Corporate 1', title: 'Executive Vision', category: 'Corporate' },
   { src: '/assets/services/service_corporate.png', alt: 'Corporate 2', title: 'Team Synergy', category: 'Corporate' },
@@ -189,7 +192,17 @@ export default function HomePage() {
             </div>
 
             <div className="featured-normal-image">
-              <img src="/assets/services/service_newborn.png" alt="Newborn Photography" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img 
+                src="/assets/gallery/newborn/newborn.jpeg" 
+                alt="Newborn Photography" 
+                style={{ 
+                  width: '100%', 
+                  height: '100%', 
+                  objectFit: 'cover',
+                  transform: 'scale(1.15) translateX(4%)',
+                  transformOrigin: 'center'
+                }} 
+              />
             </div>
 
             <div className="featured-cta-container featured-normal-cta">
@@ -241,7 +254,7 @@ export default function HomePage() {
             </div>
 
             <div className="featured-mobile-image-box">
-              <img src="/assets/services/service_newborn.png" alt="Newborn Photography" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/assets/gallery/newborn/newborn.jpeg" alt="Newborn Photography" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div className="featured-mobile-cta">
                 <Link href="/services#service-newborn" className="btn-premium btn-premium-outline" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
                   Explore <ArrowUpRight size={12} />

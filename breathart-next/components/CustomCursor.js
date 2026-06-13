@@ -27,10 +27,6 @@ export default function CustomCursor() {
       mousePos.x = e.clientX;
       mousePos.y = e.clientY;
       setHidden(false);
-
-      if (dotRef.current) {
-        dotRef.current.style.transform = `translate3d(${mousePos.x}px, ${mousePos.y}px, 0)`;
-      }
     };
 
     const onMouseDown = () => setClicked(true);
@@ -81,9 +77,13 @@ export default function CustomCursor() {
 
     window.addEventListener('mouseover', handleMouseOver);
 
-    // Smooth animation loop for the outer ring
+    // Smooth animation loop for the outer ring and dot
     let animationFrameId;
     const render = () => {
+      if (dotRef.current) {
+        dotRef.current.style.transform = `translate3d(${mousePos.x}px, ${mousePos.y}px, 0)`;
+      }
+
       // Lerp formula: current = current + (target - current) * ease
       const ease = 0.15; // smooth delay factor
       ringPos.x += (mousePos.x - ringPos.x) * ease;
