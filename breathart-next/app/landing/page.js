@@ -21,14 +21,14 @@ const allShowcaseImages = [
   { src: '/assets/gallery/newborn/IMG_0506.jpg', alt: 'Newborn 8', title: 'Tiny Hands', category: 'Newborn' },
   { src: '/assets/gallery/newborn/0013.jpg', alt: 'Newborn 9', title: 'Cozy Beginning', category: 'Newborn' },
   // Wedding
-  { src: '/assets/gallery/wedding_color.png', alt: 'Wedding 1', title: 'The Vow', category: 'Wedding' },
+  { src: '/assets/gallery/wedding/wedding_color.png', alt: 'Wedding 1', title: 'The Vow', category: 'Wedding' },
   { src: '/assets/services/service_wedding.png', alt: 'Wedding 2', title: 'Sacred Bond', category: 'Wedding' },
   { src: '/assets/services/service_wedding_main.png', alt: 'Wedding 3', title: 'Golden Hour', category: 'Wedding' },
-  { src: '/assets/gallery/luxury.png', alt: 'Wedding 4', title: 'Elegant Union', category: 'Wedding' },
+  { src: '/assets/gallery/wedding/luxury.png', alt: 'Wedding 4', title: 'Elegant Union', category: 'Wedding' },
   { src: '/assets/services/service_prewedding.png', alt: 'Wedding 5', title: 'Eternal Flame', category: 'Wedding' },
   { src: '/assets/services/service_video_wedding.png', alt: 'Wedding 6', title: 'Together Forever', category: 'Wedding' },
   // Event
-  { src: '/assets/gallery/event.png', alt: 'Event 1', title: 'Celebration', category: 'Event' },
+  { src: '/assets/gallery/event/event.png', alt: 'Event 1', title: 'Celebration', category: 'Event' },
   { src: '/assets/services/service_event.png', alt: 'Event 2', title: 'Gala Night', category: 'Event' },
   { src: '/assets/services/service_event_main.png', alt: 'Event 3', title: 'Moment of Joy', category: 'Event' },
   { src: '/assets/services/service_event_corporate.png', alt: 'Event 4', title: 'Corporate Gathering', category: 'Event' },
@@ -43,9 +43,16 @@ const allShowcaseImages = [
   { src: '/assets/services/service_corporate_main.png', alt: 'Corporate 2', title: 'Team Synergy', category: 'Corporate' },
   { src: '/assets/services/service_commercial_main.png', alt: 'Corporate 3', title: 'Workspace Design', category: 'Corporate' },
   // Real Estate
-  { src: '/assets/gallery/minimal.png', alt: 'Real Estate 1', title: 'Architectural Line', category: 'Real Estate' },
-  { src: '/assets/gallery/pastel.png', alt: 'Real Estate 2', title: 'Twilight Design', category: 'Real Estate' },
-  { src: '/assets/gallery/bento_1.jpg', alt: 'Real Estate 3', title: 'Modern Living', category: 'Real Estate' },
+  { src: '/assets/gallery/real-estate/minimal.png', alt: 'Real Estate 1', title: 'Architectural Line', category: 'Real Estate' },
+  { src: '/assets/gallery/real-estate/0014.jpg', alt: 'Real Estate 2', title: 'Interior Design', category: 'Real Estate' },
+  { src: '/assets/gallery/real-estate/0012.jpg', alt: 'Real Estate 3', title: 'Luxury Space', category: 'Real Estate' },
+  { src: '/assets/gallery/real-estate/0011.jpg', alt: 'Real Estate 4', title: 'Modern Living', category: 'Real Estate' },
+  { src: '/assets/gallery/real-estate/0015.jpg', alt: 'Real Estate 5', title: 'Premium Estate', category: 'Real Estate' },
+  // Commercial
+  { src: '/assets/gallery/commercial/001.png', alt: 'Commercial 1', title: 'Commercial Editorial', category: 'Commercial' },
+  { src: '/assets/gallery/commercial/002.png', alt: 'Commercial 2', title: 'Workspace Scene', category: 'Commercial' },
+  { src: '/assets/gallery/commercial/0004.png', alt: 'Commercial 3', title: 'Studio Details', category: 'Commercial' },
+  { src: '/assets/gallery/commercial/0006.png', alt: 'Commercial 4', title: 'Premium Branding', category: 'Commercial' },
 ];
 
 const SERVICES = [
@@ -494,7 +501,7 @@ export default function LandingPage() {
           <div className="showcase-filter-wrapper" style={{ marginBottom: '3rem', display: 'flex', justifyContent: 'center' }}>
             {/* Desktop Filters */}
             <div className="desktop-filters" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-              {['All', 'Newborn', 'Wedding', 'Event', 'Family', 'Corporate', 'Real Estate'].map((cat) => (
+              {['All', 'Newborn', 'Wedding', 'Event', 'Family', 'Corporate', 'Real Estate', 'Commercial'].map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setFilter(cat)}
@@ -575,6 +582,7 @@ export default function LandingPage() {
                   <option value="Family">Family</option>
                   <option value="Corporate">Corporate</option>
                   <option value="Real Estate">Real Estate</option>
+                  <option value="Commercial">Commercial</option>
                 </select>
               </div>
             </div>
