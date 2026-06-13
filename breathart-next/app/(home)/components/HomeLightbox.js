@@ -101,9 +101,22 @@ export default function HomeLightbox({ sectionId, items, gridCols, layout }) {
           >
             <div className="bento-grid-horizontal">
               {items.map((item, index) => {
+                const categoryItems = items.filter(img => img.category === item.category);
                 const firstIdx = items.findIndex(img => img.category === item.category);
                 const relIndex = index - firstIdx;
-                const spanClass = relIndex === 0 ? 'bento-span-1' : `bento-span-${((relIndex - 1) % 5) + 2}`;
+                
+                let spanNum = relIndex === 0 ? 1 : ((relIndex - 1) % 5) + 2;
+                
+                // Adjust the last item of the category to prevent empty slots in the grid columns
+                if (relIndex === categoryItems.length - 1) {
+                  if (categoryItems.length === 6) {
+                    spanNum = 5; // Change from bento-span-6 to 1x1
+                  } else if (categoryItems.length === 9) {
+                    spanNum = 3; // Change from bento-span-4 to 1x1
+                  }
+                }
+                
+                const spanClass = `bento-span-${spanNum}`;
                 return (
                   <div key={`${sectionId}-${index}`} className={`gallery-item show ${spanClass}`} style={{ display: 'block' }}>
                     <div 

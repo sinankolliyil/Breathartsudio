@@ -19,33 +19,33 @@ const allShowcaseImages = [
   { src: '/assets/gallery/newborn/02.jpg', alt: 'Newborn 6', title: 'Sweet Angel', category: 'Newborn' },
   { src: '/assets/gallery/newborn/03 2.jpg', alt: 'Newborn 7', title: 'Golden Slumber', category: 'Newborn' },
   { src: '/assets/gallery/newborn/IMG_0506.jpg', alt: 'Newborn 8', title: 'Tiny Hands', category: 'Newborn' },
-  { src: '/assets/gallery/newborn/IMG_0510.JPG.jpeg', alt: 'Newborn 9', title: 'Cozy Beginning', category: 'Newborn' },
+  { src: '/assets/gallery/newborn/0013.jpg', alt: 'Newborn 9', title: 'Cozy Beginning', category: 'Newborn' },
   // Wedding
   { src: '/assets/gallery/wedding_color.png', alt: 'Wedding 1', title: 'The Vow', category: 'Wedding' },
-  { src: '/assets/gallery/wedding_color.png', alt: 'Wedding 2', title: 'Sacred Bond', category: 'Wedding' },
-  { src: '/assets/gallery/wedding_color.png', alt: 'Wedding 3', title: 'Golden Hour', category: 'Wedding' },
+  { src: '/assets/services/service_wedding.png', alt: 'Wedding 2', title: 'Sacred Bond', category: 'Wedding' },
+  { src: '/assets/services/service_wedding_main.png', alt: 'Wedding 3', title: 'Golden Hour', category: 'Wedding' },
   { src: '/assets/gallery/luxury.png', alt: 'Wedding 4', title: 'Elegant Union', category: 'Wedding' },
-  { src: '/assets/gallery/wedding_color.png', alt: 'Wedding 5', title: 'Eternal Flame', category: 'Wedding' },
-  { src: '/assets/gallery/event.png', alt: 'Wedding 6', title: 'Together Forever', category: 'Wedding' },
+  { src: '/assets/services/service_prewedding.png', alt: 'Wedding 5', title: 'Eternal Flame', category: 'Wedding' },
+  { src: '/assets/services/service_video_wedding.png', alt: 'Wedding 6', title: 'Together Forever', category: 'Wedding' },
   // Event
   { src: '/assets/gallery/event.png', alt: 'Event 1', title: 'Celebration', category: 'Event' },
   { src: '/assets/services/service_event.png', alt: 'Event 2', title: 'Gala Night', category: 'Event' },
-  { src: '/assets/gallery/event.png', alt: 'Event 3', title: 'Moment of Joy', category: 'Event' },
-  { src: '/assets/services/service_event.png', alt: 'Event 4', title: 'Corporate Gathering', category: 'Event' },
-  { src: '/assets/gallery/event.png', alt: 'Event 5', title: 'Grand Celebration', category: 'Event' },
-  { src: '/assets/services/service_event.png', alt: 'Event 6', title: 'Festive Evening', category: 'Event' },
+  { src: '/assets/services/service_event_main.png', alt: 'Event 3', title: 'Moment of Joy', category: 'Event' },
+  { src: '/assets/services/service_event_corporate.png', alt: 'Event 4', title: 'Corporate Gathering', category: 'Event' },
+  { src: '/assets/services/service_event_social.png', alt: 'Event 5', title: 'Grand Celebration', category: 'Event' },
+  { src: '/assets/services/service_video_commercial.png', alt: 'Event 6', title: 'Festive Evening', category: 'Event' },
   // Family
   { src: '/assets/gallery/family/IMG_9601.jpg', alt: 'Family 1', title: 'Generations', category: 'Family' },
   { src: '/assets/gallery/family/IMG_9770.jpg', alt: 'Family 2', title: 'Warm Embrace', category: 'Family' },
   { src: '/assets/gallery/family/IMG_9773.jpg', alt: 'Family 3', title: 'Joyful Days', category: 'Family' },
   // Corporate
   { src: '/assets/services/service_corporate.png', alt: 'Corporate 1', title: 'Executive Vision', category: 'Corporate' },
-  { src: '/assets/services/service_corporate.png', alt: 'Corporate 2', title: 'Team Synergy', category: 'Corporate' },
-  { src: '/assets/services/service_corporate.png', alt: 'Corporate 3', title: 'Workspace Design', category: 'Corporate' },
+  { src: '/assets/services/service_corporate_main.png', alt: 'Corporate 2', title: 'Team Synergy', category: 'Corporate' },
+  { src: '/assets/services/service_commercial_main.png', alt: 'Corporate 3', title: 'Workspace Design', category: 'Corporate' },
   // Real Estate
-  { src: '/assets/services/service_couple.png', alt: 'Real Estate 1', title: 'Architectural Line', category: 'Real Estate' },
-  { src: '/assets/services/service_couple.png', alt: 'Real Estate 2', title: 'Twilight Design', category: 'Real Estate' },
-  { src: '/assets/services/service_couple.png', alt: 'Real Estate 3', title: 'Modern Living', category: 'Real Estate' },
+  { src: '/assets/gallery/minimal.png', alt: 'Real Estate 1', title: 'Architectural Line', category: 'Real Estate' },
+  { src: '/assets/gallery/pastel.png', alt: 'Real Estate 2', title: 'Twilight Design', category: 'Real Estate' },
+  { src: '/assets/gallery/bento_1.jpg', alt: 'Real Estate 3', title: 'Modern Living', category: 'Real Estate' },
 ];
 
 const SERVICES = [
