@@ -1,8 +1,30 @@
 import Link from 'next/link';
+import { BreadcrumbSchema, WebPageSchema } from '../schema';
 
 export const metadata = {
-  title: 'About Us | BreathArt',
-  description: 'Learn about BreathArt Photography Studio — our philosophy, our story, and why clients trust us.',
+  title: 'About BreathArt Photography Studio Dubai — Our Story & Philosophy',
+  description: 'Discover the story behind BreathArt Photography Studio Dubai. 12+ years of premium photography expertise, experienced photographers, dedicated lady staff, and a state-of-the-art studio environment.',
+  alternates: {
+    canonical: '/about',
+  },
+  openGraph: {
+    title: 'About BreathArt Photography Studio Dubai — Our Story & Philosophy',
+    description: 'Discover the story behind Dubai\'s premier photography studio. 12+ years of expertise, experienced photographers, and a premium studio environment.',
+    url: 'https://breathart.ae/about',
+    images: [
+      {
+        url: '/assets/hero/hero_nature.png',
+        width: 1200,
+        height: 630,
+        alt: 'About BreathArt Photography Studio Dubai',
+      },
+    ],
+  },
+  twitter: {
+    title: 'About BreathArt Photography Studio Dubai — Our Story & Philosophy',
+    description: 'Discover the story behind Dubai\'s premier photography studio. 12+ years of expertise and a premium studio environment.',
+    images: ['/assets/hero/hero_nature.png'],
+  },
 };
 
 const features = [
@@ -47,6 +69,17 @@ const features = [
 export default function AboutPage() {
   return (
     <>
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: '/' },
+          { name: 'About', url: '/about' },
+        ]}
+      />
+      <WebPageSchema
+        name="About BreathArt Photography Studio Dubai"
+        description="Discover the story behind Dubai's premier photography studio. 12+ years of expertise, experienced photographers, and a premium studio environment."
+        url="/about"
+      />
       <header
         className="page-header"
         style={{
@@ -73,7 +106,7 @@ export default function AboutPage() {
             <p className="story-text-emphasis">
               At <strong>BreathArt</strong>, we see photography and visual storytelling as more than just captures. To us, it's about creating memorable, personal experiences that elevate your everyday life. It's about understanding the unique nuances of the creative market in our region and the behaviors and desires of its audience.
             </p>
-            <img src="/assets/about/album_intro.png" alt="Our Story Showcase" className="story-portrait-img" />
+            <img src="/assets/about/album_intro.png" alt="Our Story Showcase" className="story-portrait-img" loading="lazy" decoding="async" />
           </div>
 
           {/* Right Column */}
@@ -112,7 +145,7 @@ export default function AboutPage() {
                 <p className="pillar-desc">{feature.desc}</p>
               </div>
               <div className="pillar-right">
-                <img src={feature.image} alt={feature.title} className="pillar-img" />
+                <img src={feature.image} alt={feature.title} className="pillar-img" loading="lazy" decoding="async" />
               </div>
             </div>
           ))}

@@ -12,7 +12,7 @@ export default function GalleryItem({ image, alt, title, href, number, delay = 0
 
   const frameContent = (
     <div className="gallery-frame">
-      <img src={image} alt={alt} />
+      <img src={image} alt={alt} loading="lazy" decoding="async" />
       <div className="gallery-overlay">
         <div className="overlay-content">
           <span className="view-btn">{buttonText}</span>

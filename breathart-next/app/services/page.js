@@ -1,9 +1,31 @@
 import Link from 'next/link';
 import ServiceCard from './components/ServiceCard';
+import { BreadcrumbSchema, WebPageSchema, ServiceSchema } from '../schema';
 
 export const metadata = {
-  title: 'Expertise | BreathArt Fine Art Studio',
-  description: 'Explore our premium photography collections from Maternity and Newborn to Wedding and Grand Events.',
+  title: 'Photography & Videography Services Dubai — Newborn, Wedding, Corporate, Events',
+  description: 'Explore BreathArt\'s premium photography and videography services in Dubai. Newborn fine-art, wedding, family, corporate, real estate photography, and full event management.',
+  alternates: {
+    canonical: '/services',
+  },
+  openGraph: {
+    title: 'Photography & Videography Services — BreathArt Studio Dubai',
+    description: 'Premium photography services in Dubai: newborn, wedding, family, corporate, real estate, and event management.',
+    url: 'https://breathart.ae/services',
+    images: [
+      {
+        url: '/assets/services/service_newborn.png',
+        width: 1200,
+        height: 630,
+        alt: 'BreathArt Photography Services Dubai',
+      },
+    ],
+  },
+  twitter: {
+    title: 'Photography & Videography Services — BreathArt Studio Dubai',
+    description: 'Premium photography services in Dubai: newborn, wedding, family, corporate, and event photography.',
+    images: ['/assets/services/service_newborn.png'],
+  },
 };
 
 const services = [
@@ -120,6 +142,25 @@ const services = [
 export default function ServicesPage() {
   return (
     <>
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: '/' },
+          { name: 'Services', url: '/services' },
+        ]}
+      />
+      <ServiceSchema
+        services={[
+          { name: 'Maternity & Newborn Fine-Art Photography', description: 'Award-winning maternity portraits and luxury newborn photography in Dubai.', url: '/services/photography' },
+          { name: 'Wedding & Romance Films', description: 'Cinematic visual storytelling and comprehensive photography for luxury weddings.', url: '/services/videography' },
+          { name: 'Corporate Branding & Headshots', description: 'Premium corporate photography and professional headshots for businesses.', url: '/services/photography' },
+          { name: 'Event Management By BreathArt', description: 'End-to-end event planning, stage production, and brand activations.', url: '/services/events-by-breathart' },
+        ]}
+      />
+      <WebPageSchema
+        name="Photography & Videography Services Dubai"
+        description="Premium photography and videography services. Maternity, newborn, wedding, corporate, and grand events."
+        url="/services"
+      />
       <header className="page-header">
         <div className="container container-narrow animate-reveal">
           <span className="cinematic-title" style={{ color: 'var(--color-gold)' }}>The Artistry</span>

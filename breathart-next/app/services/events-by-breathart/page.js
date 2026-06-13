@@ -255,6 +255,8 @@ export default function EventsByBreathArtPage() {
                       <img 
                         src={sect.image} 
                         alt={sect.title} 
+                        loading="lazy"
+                        decoding="async"
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
                       />
                       
@@ -355,6 +357,8 @@ export default function EventsByBreathArtPage() {
                       <img 
                         src={sect.image} 
                         alt={sect.title} 
+                        loading="lazy"
+                        decoding="async"
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
                       />
                       
@@ -488,6 +492,7 @@ export default function EventsByBreathArtPage() {
           .custom-masonry-grid-layout {
             grid-template-columns: 1fr !important;
             gap: 0 !important;
+            overflow: hidden !important;
           }
           .right-masonry-col {
             margin-top: 0 !important;

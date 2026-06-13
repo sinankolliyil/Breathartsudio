@@ -192,7 +192,7 @@ export default function HomePage() {
             </div>
 
             <div className="featured-normal-image">
-              <img 
+              <img loading="lazy" decoding="async" 
                 src="/assets/gallery/newborn/newborn.jpeg" 
                 alt="Newborn Photography" 
                 style={{ 
@@ -254,7 +254,7 @@ export default function HomePage() {
             </div>
 
             <div className="featured-mobile-image-box">
-              <img src="/assets/gallery/newborn/newborn.jpeg" alt="Newborn Photography" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/assets/gallery/newborn/newborn.jpeg" alt="Newborn Photography" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div className="featured-mobile-cta">
                 <Link href="/services#service-newborn" className="btn-premium btn-premium-outline" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
                   Explore <ArrowUpRight size={12} />
@@ -272,7 +272,7 @@ export default function HomePage() {
           {/* Desktop Version */}
           <div className="featured-panel-desktop">
             <div className="featured-mirrored-image">
-              <img src="/assets/services/service_wedding.png" alt="Wedding Photography" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/assets/services/service_wedding.png" alt="Wedding Photography" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
 
             <div className="featured-cta-container featured-mirrored-cta">
@@ -361,7 +361,7 @@ export default function HomePage() {
             </div>
 
             <div className="featured-mobile-image-box">
-              <img src="/assets/services/service_wedding.png" alt="Wedding Photography" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/assets/services/service_wedding.png" alt="Wedding Photography" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div className="featured-mobile-cta">
                 <Link href="/services#service-wedding" className="btn-premium btn-premium-outline" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
                   Explore <ArrowUpRight size={12} />
@@ -416,7 +416,7 @@ export default function HomePage() {
             </div>
 
             <div className="featured-normal-image">
-              <img src="/assets/services/service_corporate.png" alt="Corporate Photography" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/assets/services/service_corporate.png" alt="Corporate Photography" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
 
             <div className="featured-cta-container featured-normal-cta">
@@ -467,7 +467,7 @@ export default function HomePage() {
             </div>
 
             <div className="featured-mobile-image-box">
-              <img src="/assets/services/service_corporate.png" alt="Corporate Photography" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/assets/services/service_corporate.png" alt="Corporate Photography" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div className="featured-mobile-cta">
                 <Link href="/services#service-corporate" className="btn-premium btn-premium-outline" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
                   Explore <ArrowUpRight size={12} />
@@ -694,7 +694,7 @@ export default function HomePage() {
         <div className="container why-choose-us-container">
           <div className="why-content-wrapper animate-reveal active">
             <div className="why-image-box">
-              <img src="/assets/about/why_choose_us_baby_shower.png" alt="BreathArt Philosophy" />
+              <img src="/assets/about/why_choose_us_baby_shower.png" alt="BreathArt Philosophy" loading="lazy" decoding="async" />
             </div>
 
             <div className="why-text-area">
