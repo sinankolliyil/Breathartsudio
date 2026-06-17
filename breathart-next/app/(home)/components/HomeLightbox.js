@@ -69,7 +69,8 @@ export default function HomeLightbox({ sectionId, items, gridCols, layout }) {
 
   const scroll = (direction) => {
     if (scrollContainerRef.current) {
-      const scrollAmount = 400;
+      const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+      const scrollAmount = isMobile ? 260 : 400;
       scrollContainerRef.current.scrollBy({
         left: direction === 'left' ? -scrollAmount : scrollAmount,
         behavior: 'smooth'
@@ -81,10 +82,10 @@ export default function HomeLightbox({ sectionId, items, gridCols, layout }) {
     return (
       <>
         <div className="bento-gallery-wrapper">
-          <button className="swipe-btn left" onClick={() => scroll('left')} aria-label="Swipe Left">
+          <button className="swipe-btn left" onClick={() => scroll('left')} onTouchStart={(e) => { e.preventDefault(); scroll('left'); }} aria-label="Swipe Left">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
           </button>
-          <button className="swipe-btn right" onClick={() => scroll('right')} aria-label="Swipe Right">
+          <button className="swipe-btn right" onClick={() => scroll('right')} onTouchStart={(e) => { e.preventDefault(); scroll('right'); }} aria-label="Swipe Right">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
           </button>
 

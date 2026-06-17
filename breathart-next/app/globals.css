@@ -3280,36 +3280,42 @@ h1, h2, h3, h4, h5, h6,
     width: max-content;
 }
 
-@media (min-width: 768px) {
-    .bento-span-1 {
-        grid-row: span 2;
-        grid-column: span 2;
-    }
-    .bento-span-2 {
-        grid-row: span 1;
-        grid-column: span 1;
-    }
-    .bento-span-3 {
-        grid-row: span 1;
-        grid-column: span 1;
-    }
-    .bento-span-4 {
-        grid-row: span 2;
-        grid-column: span 1;
-    }
-    .bento-span-5 {
-        grid-row: span 1;
-        grid-column: span 1;
-    }
-    .bento-span-6 {
-        grid-row: span 1;
-        grid-column: span 2;
-    }
+.bento-span-1 {
+    grid-row: span 2;
+    grid-column: span 2;
+}
+.bento-span-2 {
+    grid-row: span 1;
+    grid-column: span 1;
+}
+.bento-span-3 {
+    grid-row: span 1;
+    grid-column: span 1;
+}
+.bento-span-4 {
+    grid-row: span 2;
+    grid-column: span 1;
+}
+.bento-span-5 {
+    grid-row: span 1;
+    grid-column: span 1;
+}
+.bento-span-6 {
+    grid-row: span 1;
+    grid-column: span 2;
 }
 
 @media (max-width: 768px) {
     .swipe-btn {
-        display: none;
+        width: 40px;
+        height: 40px;
+        z-index: 100 !important;
+    }
+    .swipe-btn.left {
+        left: 0.5rem;
+    }
+    .swipe-btn.right {
+        right: 0.5rem;
     }
     .bento-scroll-container {
         padding: 0 1.5rem;
