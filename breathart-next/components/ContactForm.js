@@ -92,12 +92,14 @@ function ContactFormInner({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const text = `*New Inquiry from BreathArt Studio*
+    const text = `Hello BreathArt Studio! I would like to inquire about your services.
+
+*My Details:*
 *Name:* ${formData.name}
 *Email:* ${formData.email}
 *Phone:* ${formData.phone}
-*Service:* ${formData.service}
-${showPackageField && formData.package ? `*Package:* ${formData.package}\n` : ''}*Message:* ${formData.message}`;
+*Interested Service:* ${formData.service}
+${showPackageField && formData.package ? `*Selected Package:* ${formData.package}\n` : ''}*Message/Details:* ${formData.message}`;
 
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/971526400679?text=${encodedText}`, '_blank');
