@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useRef, useState } from 'react';
+import Image from 'next/image';
 
 export default function HomeLightbox({ sectionId, items, gridCols, layout }) {
   const openLightbox = useCallback((index) => {
@@ -122,16 +123,16 @@ export default function HomeLightbox({ sectionId, items, gridCols, layout }) {
                   <div key={`${sectionId}-${index}`} className={`gallery-item show ${spanClass}`} style={{ display: 'block' }}>
                     <div 
                       className="gallery-frame" 
-                      style={{ width: '100%', height: '100%', aspectRatio: 'auto', cursor: 'pointer' }}
+                      style={{ position: 'relative', width: '100%', height: '100%', aspectRatio: 'auto', cursor: 'pointer' }}
                       onClick={(e) => handleItemClick(e, index)}
                     >
-                      <img 
+                      <Image 
                         src={item.src} 
                         alt={item.alt} 
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         draggable="false" 
                         style={{ 
-                          width: '100%', 
-                          height: '100%', 
                           objectFit: 'cover', 
                           objectPosition: 'center', 
                           userDrag: 'none', 
@@ -165,13 +166,13 @@ export default function HomeLightbox({ sectionId, items, gridCols, layout }) {
       <div className="gallery-grid" style={gridCols ? { gridTemplateColumns: gridCols } : undefined}>
         {items.map((item, index) => (
           <div key={`${sectionId}-${index}`} className="gallery-item show" style={{ display: 'block' }}>
-            <div className="gallery-frame" style={{ width: '100%', height: '100%' }}>
-              <img 
+            <div className="gallery-frame" style={{ position: 'relative', width: '100%', height: '100%' }}>
+              <Image 
                 src={item.src} 
                 alt={item.alt} 
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 style={{ 
-                  width: '100%', 
-                  height: '100%', 
                   objectFit: 'cover', 
                   objectPosition: 'center' 
                 }} 

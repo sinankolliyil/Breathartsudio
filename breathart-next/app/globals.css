@@ -3072,7 +3072,7 @@ h1, h2, h3, h4, h5, h6,
 .bento-grid-horizontal {
     display: grid;
     grid-template-rows: repeat(2, 240px);
-    grid-auto-flow: column;
+    grid-auto-flow: column dense;
     grid-auto-columns: 280px;
     gap: 1.5rem;
     width: max-content;
@@ -6270,4 +6270,9 @@ body.has-custom-cursor .cursor-pointer {
 
 .hero-contact-desc {
     color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* --- BENTO GRID DENSE PACKING FIX --- */
+.bento-grid-horizontal {
+    grid-auto-flow: column dense !important;
 }
