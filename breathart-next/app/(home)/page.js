@@ -123,7 +123,7 @@ export default function HomePage() {
               <Link href="/services" className="btn-hero-primary">
                 Explore Services <span className="arrow">→</span>
               </Link>
-              <Link href="/landing" className="btn-hero-secondary">
+              <Link href="/offers" className="btn-hero-secondary">
                 <span className="text-underline">Exclusive Offers</span> <span className="arrow">→</span>
               </Link>
             </div>

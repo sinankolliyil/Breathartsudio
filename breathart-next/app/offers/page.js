@@ -13,7 +13,7 @@ const categories = {
     icon: "fas fa-female",
     packages: [
       {
-        name: "Basic Bundle",
+        name: "Package 1",
         price: "DHS 499",
         inclusions: [
           "10-15 Fully Edited Pictures",
@@ -23,7 +23,7 @@ const categories = {
         ]
       },
       {
-        name: "Advanced Bundle",
+        name: "Package 2",
         price: "DHS 599",
         inclusions: [
           "20-25 Fully Edited Pictures",
@@ -34,7 +34,7 @@ const categories = {
         ]
       },
       {
-        name: "High-End Bundle",
+        name: "Package 3",
         price: "DHS 799",
         inclusions: [
           "30-35 Fully Edited Pictures",
