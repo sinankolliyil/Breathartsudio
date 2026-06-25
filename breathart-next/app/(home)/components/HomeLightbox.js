@@ -3,7 +3,7 @@
 import { useCallback, useRef, useState } from 'react';
 import Image from 'next/image';
 
-export default function HomeLightbox({ sectionId, items, gridCols, layout }) {
+export default function HomeLightbox({ sectionId, items, gridCols, layout, activeFilter }) {
   const openLightbox = useCallback((index) => {
     const event = new CustomEvent('lightbox-open', {
       detail: {
@@ -105,15 +105,19 @@ export default function HomeLightbox({ sectionId, items, gridCols, layout }) {
               {items.map((item, index) => {
                 const categoryItems = items.filter(img => img.category === item.category);
                 const firstIdx = items.findIndex(img => img.category === item.category);
-                const relIndex = index - firstIdx;
+                
+                // If we are showing 'All' mixed images, treat the whole array as a single sequence
+                const isMixed = activeFilter === 'All';
+                const relIndex = isMixed ? index : index - firstIdx;
+                const relevantCount = isMixed ? items.length : categoryItems.length;
                 
                 let spanNum = relIndex === 0 ? 1 : ((relIndex - 1) % 5) + 2;
                 
                 // Adjust the last item of the category to prevent empty slots in the grid columns
-                if (relIndex === categoryItems.length - 1) {
-                  if (categoryItems.length === 6) {
+                if (relIndex === relevantCount - 1 && !isMixed) {
+                  if (relevantCount === 6) {
                     spanNum = 5; // Change from bento-span-6 to 1x1
-                  } else if (categoryItems.length === 9) {
+                  } else if (relevantCount === 9) {
                     spanNum = 3; // Change from bento-span-4 to 1x1
                   }
                 }

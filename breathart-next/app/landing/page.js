@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, Phone, Mail, MapPin, Send, ArrowRight, Play, Camera, Film, Gift, Star, Zap, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
@@ -50,10 +50,14 @@ const allShowcaseImages = [
   { src: '/assets/gallery/family/IMG_9601.webp', alt: 'Family 1', title: 'Generations', category: 'Family' },
   { src: '/assets/gallery/family/IMG_9770.webp', alt: 'Family 2', title: 'Warm Embrace', category: 'Family' },
   { src: '/assets/gallery/family/IMG_9773.webp', alt: 'Family 3', title: 'Joyful Days', category: 'Family' },
+  { src: '/assets/gallery/family/bk-102-taise.webp', alt: 'Family 4', title: 'Heartwarming', category: 'Family' },
+  { src: '/assets/gallery/family/bk-279-suhad.webp', alt: 'Family 5', title: 'Cherished Memories', category: 'Family' },
+  { src: '/assets/gallery/family/nb-360-kat.webp', alt: 'Family 6', title: 'Precious Start', category: 'Family' },
+  { src: '/assets/gallery/family/photo-32.webp', alt: 'Family 7', title: 'Loving Bonds', category: 'Family' },
   // Corporate
-  { src: '/assets/services/service_corporate.png', alt: 'Corporate 1', title: 'Executive Vision', category: 'Corporate' },
-  { src: '/assets/services/service_corporate_main.png', alt: 'Corporate 2', title: 'Team Synergy', category: 'Corporate' },
-  { src: '/assets/services/service_commercial_main.png', alt: 'Corporate 3', title: 'Workspace Design', category: 'Corporate' },
+  { src: '/assets/services/service_corporate.png', alt: 'Corporate 1', title: 'Corporate Photography', category: 'Corporate' },
+  { src: '/assets/services/service_corporate_main.png', alt: 'Corporate 2', title: 'Corporate Photography', category: 'Corporate' },
+  { src: '/assets/services/service_commercial_main.png', alt: 'Corporate 3', title: 'Corporate Photography', category: 'Corporate' },
   // Real Estate
   { src: '/assets/gallery/real-estate/minimal.webp', alt: 'Real Estate 1', title: 'Architectural Line', category: 'Real Estate' },
   { src: '/assets/gallery/real-estate/0014.webp', alt: 'Real Estate 2', title: 'Interior Design', category: 'Real Estate' },
@@ -159,8 +163,16 @@ export default function LandingPage() {
   const [initialService, setInitialService] = useState('Photography');
   const [initialMessage, setInitialMessage] = useState('');
 
+  const [mixedImages, setMixedImages] = useState(allShowcaseImages);
+
+  useEffect(() => {
+    // Randomly shuffle images on client side after hydration to avoid SSR mismatches
+    const shuffled = [...allShowcaseImages].sort(() => Math.random() - 0.5);
+    setMixedImages(shuffled);
+  }, []);
+
   const filteredImages = filter === 'All' 
-    ? allShowcaseImages 
+    ? mixedImages 
     : allShowcaseImages.filter(img => img.category === filter);
 
   const renderOfferCard = (offer, i) => (
@@ -570,6 +582,7 @@ export default function LandingPage() {
             sectionId="newborn"
             items={filteredImages}
             layout="bento"
+            activeFilter={filter}
           />
         </div>
       </section>

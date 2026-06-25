@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import HeroSlider from './components/HeroSlider';
 import GalleryItem from './components/GalleryItem';
 import FeatureCard from './components/FeatureCard';
@@ -51,21 +51,25 @@ const allShowcaseImages = [
   { src: '/assets/gallery/family/IMG_9601.webp', alt: 'Family 1', title: 'Generations', category: 'Family' },
   { src: '/assets/gallery/family/IMG_9770.webp', alt: 'Family 2', title: 'Warm Embrace', category: 'Family' },
   { src: '/assets/gallery/family/IMG_9773.webp', alt: 'Family 3', title: 'Joyful Days', category: 'Family' },
+  { src: '/assets/gallery/family/bk-102-taise.webp', alt: 'Family 4', title: 'Heartwarming', category: 'Family' },
+  { src: '/assets/gallery/family/bk-279-suhad.webp', alt: 'Family 5', title: 'Cherished Memories', category: 'Family' },
+  { src: '/assets/gallery/family/nb-360-kat.webp', alt: 'Family 6', title: 'Precious Start', category: 'Family' },
+  { src: '/assets/gallery/family/photo-32.webp', alt: 'Family 7', title: 'Loving Bonds', category: 'Family' },
   // Corporate
-  { src: '/assets/gallery/corporate/pexels-ai25studioai-5583966.webp', alt: 'Corporate 1', title: 'Corporate Imagery 1', category: 'Corporate' },
-  { src: '/assets/gallery/corporate/pexels-cottonbro-6567863.webp', alt: 'Corporate 2', title: 'Corporate Imagery 2', category: 'Corporate' },
-  { src: '/assets/gallery/corporate/pexels-itay-verchik-1150587-16970452.webp', alt: 'Corporate 3', title: 'Corporate Imagery 3', category: 'Corporate' },
-  { src: '/assets/gallery/corporate/pexels-kooldark-15640950.webp', alt: 'Corporate 4', title: 'Corporate Imagery 4', category: 'Corporate' },
-  { src: '/assets/gallery/corporate/pexels-ono-kosuki-5648103_1.webp', alt: 'Corporate 5', title: 'Corporate Imagery 5', category: 'Corporate' },
-  { src: '/assets/gallery/corporate/pexels-ono-kosuki-5648103.webp', alt: 'Corporate 6', title: 'Corporate Imagery 6', category: 'Corporate' },
-  { src: '/assets/gallery/corporate/pexels-pavel-danilyuk-7654168.webp', alt: 'Corporate 7', title: 'Corporate Imagery 7', category: 'Corporate' },
-  { src: '/assets/gallery/corporate/pexels-pavel-danilyuk-8761513.webp', alt: 'Corporate 8', title: 'Corporate Imagery 8', category: 'Corporate' },
-  { src: '/assets/gallery/corporate/pexels-pexels-user-766999688-18794228.webp', alt: 'Corporate 9', title: 'Corporate Imagery 9', category: 'Corporate' },
-  { src: '/assets/gallery/corporate/pexels-pro5-vn-1368185933-25950425.webp', alt: 'Corporate 10', title: 'Corporate Imagery 10', category: 'Corporate' },
-  { src: '/assets/gallery/corporate/pexels-pro5-vn-1368185933-26336884.webp', alt: 'Corporate 11', title: 'Corporate Imagery 11', category: 'Corporate' },
-  { src: '/assets/gallery/corporate/pexels-silverkblack-36733407.webp', alt: 'Corporate 12', title: 'Corporate Imagery 12', category: 'Corporate' },
-  { src: '/assets/gallery/corporate/pexels-silverkblack-36733421.webp', alt: 'Corporate 13', title: 'Corporate Imagery 13', category: 'Corporate' },
-  { src: '/assets/gallery/corporate/pexels-wesley-novais-2150620479-31631644.webp', alt: 'Corporate 14', title: 'Corporate Imagery 14', category: 'Corporate' },
+  { src: '/assets/gallery/corporate/pexels-ai25studioai-5583966.webp', alt: 'Corporate 1', title: 'Corporate Photography', category: 'Corporate' },
+  { src: '/assets/gallery/corporate/pexels-cottonbro-6567863.webp', alt: 'Corporate 2', title: 'Corporate Photography', category: 'Corporate' },
+  { src: '/assets/gallery/corporate/pexels-itay-verchik-1150587-16970452.webp', alt: 'Corporate 3', title: 'Corporate Photography', category: 'Corporate' },
+  { src: '/assets/gallery/corporate/pexels-kooldark-15640950.webp', alt: 'Corporate 4', title: 'Corporate Photography', category: 'Corporate' },
+  { src: '/assets/gallery/corporate/pexels-ono-kosuki-5648103_1.webp', alt: 'Corporate 5', title: 'Corporate Photography', category: 'Corporate' },
+  { src: '/assets/gallery/corporate/pexels-ono-kosuki-5648103.webp', alt: 'Corporate 6', title: 'Corporate Photography', category: 'Corporate' },
+  { src: '/assets/gallery/corporate/pexels-pavel-danilyuk-7654168.webp', alt: 'Corporate 7', title: 'Corporate Photography', category: 'Corporate' },
+  { src: '/assets/gallery/corporate/pexels-pavel-danilyuk-8761513.webp', alt: 'Corporate 8', title: 'Corporate Photography', category: 'Corporate' },
+  { src: '/assets/gallery/corporate/pexels-pexels-user-766999688-18794228.webp', alt: 'Corporate 9', title: 'Corporate Photography', category: 'Corporate' },
+  { src: '/assets/gallery/corporate/pexels-pro5-vn-1368185933-25950425.webp', alt: 'Corporate 10', title: 'Corporate Photography', category: 'Corporate' },
+  { src: '/assets/gallery/corporate/pexels-pro5-vn-1368185933-26336884.webp', alt: 'Corporate 11', title: 'Corporate Photography', category: 'Corporate' },
+  { src: '/assets/gallery/corporate/pexels-silverkblack-36733407.webp', alt: 'Corporate 12', title: 'Corporate Photography', category: 'Corporate' },
+  { src: '/assets/gallery/corporate/pexels-silverkblack-36733421.webp', alt: 'Corporate 13', title: 'Corporate Photography', category: 'Corporate' },
+  { src: '/assets/gallery/corporate/pexels-wesley-novais-2150620479-31631644.webp', alt: 'Corporate 14', title: 'Corporate Photography', category: 'Corporate' },
   // Real Estate
   { src: '/assets/gallery/real-estate/minimal.webp', alt: 'Real Estate 1', title: 'Architectural Line', category: 'Real Estate' },
   { src: '/assets/gallery/real-estate/0014.webp', alt: 'Real Estate 2', title: 'Interior Design', category: 'Real Estate' },
@@ -92,8 +96,16 @@ export default function HomePage() {
   };
 
 
+  const [mixedImages, setMixedImages] = useState(allShowcaseImages);
+
+  useEffect(() => {
+    // Randomly shuffle images on client side after hydration to avoid SSR mismatches
+    const shuffled = [...allShowcaseImages].sort(() => Math.random() - 0.5);
+    setMixedImages(shuffled);
+  }, []);
+
   const filteredImages = filter === 'All' 
-    ? allShowcaseImages 
+    ? mixedImages 
     : allShowcaseImages.filter(img => img.category === filter);
 
   return (
@@ -381,7 +393,7 @@ export default function HomePage() {
             </div>
 
             <div className="featured-normal-image">
-              <img src="/assets/gallery/corporate/pexels-ai25studioai-5583966.webp" alt="Corporate Photography" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/assets/gallery/corporate/pexels-cottonbro-6567863.webp" alt="Corporate Photography" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
 
             <div className="featured-cta-container featured-normal-cta">
@@ -432,7 +444,7 @@ export default function HomePage() {
             </div>
 
             <div className="featured-mobile-image-box">
-              <img src="/assets/gallery/corporate/pexels-ai25studioai-5583966.webp" alt="Corporate Photography" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/assets/gallery/corporate/pexels-cottonbro-6567863.webp" alt="Corporate Photography" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div className="featured-mobile-cta">
                 <a href="#gallery" onClick={(e) => handleExploreClick(e, 'All')} className="btn-premium btn-premium-outline" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
                   Explore <ArrowUpRight size={12} />
@@ -648,6 +660,7 @@ export default function HomePage() {
             sectionId="showcase-gallery"
             items={filteredImages}
             layout="bento"
+            activeFilter={filter}
           />
         </div>
       </section>
