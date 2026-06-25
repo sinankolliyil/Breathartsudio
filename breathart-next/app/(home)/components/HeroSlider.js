@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import ContactForm from '../../../components/ContactForm';
 
 const slides = [
   {
@@ -38,7 +39,7 @@ const slides = [
   }
 ];
 
-export default function HeroSlider() {
+export default function HeroSlider({ showContactForm = false }) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -86,6 +87,17 @@ export default function HeroSlider() {
           </div>
         </div>
       ))}
+      
+      {showContactForm && (
+        <div className="static-hero-contact">
+          <div className="hero-contact-inner">
+            <h3 className="hero-contact-title">Book Your Session</h3>
+            <p className="hero-contact-desc">Fill in your details below and we will get back to you shortly.</p>
+            <ContactForm theme="cinematic" buttonText="Inquire Now" showPackageField={false} />
+          </div>
+        </div>
+      )}
+      
       <div className="scroll-indicator-wrapper">
         <div className="scroll-indicator-mouse">
           <div className="scroll-indicator-wheel"></div>

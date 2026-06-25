@@ -6081,3 +6081,193 @@ body.has-custom-cursor .cursor-pointer {
   font-weight: 300;
   text-transform: lowercase;
 }
+
+
+.hero-floating-form {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 450px;
+  max-width: 90%;
+}
+
+.hero-form-inner {
+  background: var(--color-shade-2);
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(158, 112, 96, 0.15);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px);
+}
+
+@media (max-width: 1024px) {
+  .hero-floating-form {
+    position: relative;
+    top: auto;
+    right: auto;
+    transform: none;
+    margin: 2rem auto;
+    width: 100%;
+    max-width: 500px;
+    padding: 0 1rem;
+  }
+}
+
+/* --- HERO SLIDER CONTACT FORM --- */
+.hero-contact-wrapper {
+    margin-left: auto;
+    padding-right: 10%;
+    width: 100%;
+    max-width: 500px;
+    z-index: 5;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+    transition-delay: 1.5s;
+}
+
+.hero-slide.active .hero-contact-wrapper {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-contact-inner {
+    background: rgba(22, 14, 11, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(158, 112, 96, 0.3);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+.hero-contact-title {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--color-white);
+    margin-bottom: 0.5rem;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.hero-contact-desc {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+    .hero-slide-content {
+        flex-direction: column;
+        justify-content: center;
+        padding: 5% !important;
+    }
+    .hero-contact-wrapper {
+        margin-left: 0;
+        padding-right: 0;
+        margin-top: 2rem;
+    }
+    .hero-contact-inner {
+        padding: 1.5rem;
+    }
+}
+
+/* --- STATIC HERO CONTACT FORM --- */
+.static-hero-contact {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    width: 100%;
+    max-width: 420px;
+    z-index: 10;
+    animation: fadeInForm 1.5s ease forwards;
+    animation-delay: 1.2s;
+    opacity: 0;
+}
+
+@keyframes fadeInForm {
+    from {
+        opacity: 0;
+        transform: translateY(-45%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-50%);
+    }
+}
+
+.hero-contact-inner {
+    background: rgba(22, 14, 11, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(158, 112, 96, 0.35);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.hero-contact-title {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--color-white);
+    margin-bottom: 0.5rem;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.hero-contact-desc {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* Adjust contact form spacing for this specific container */
+.static-hero-contact .form-group {
+    margin-bottom: 1rem;
+}
+.static-hero-contact .cinematic-title {
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+    .static-hero-contact {
+        display: none; /* Hide on mobile/tablet to preserve the fullscreen image/text experience */
+    }
+}
+
+/* --- CONTACT FORM HERO OVERRIDES (WHITE TEXT) --- */
+.hero-contact-inner input,
+.hero-contact-inner select,
+.hero-contact-inner textarea {
+    color: #ffffff !important;
+}
+
+.hero-contact-inner input::placeholder,
+.hero-contact-inner textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.hero-contact-inner select option {
+    background-color: rgba(22, 14, 11, 0.95) !important;
+    color: #ffffff !important;
+}
+
+.hero-contact-inner .cinematic-title {
+    color: #e5d3c8 !important; /* A light gold/beige to stay visible on dark */
+}
+
+/* --- CONTACT FORM HERO OVERRIDES (WHITE TITLES) --- */
+.hero-contact-title {
+    color: #ffffff !important;
+}
+
+.hero-contact-desc {
+    color: rgba(255, 255, 255, 0.8) !important;
+}

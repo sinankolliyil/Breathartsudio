@@ -8,51 +8,56 @@ import HomeLightbox from '../(home)/components/HomeLightbox';
 import Lightbox from '../(home)/components/Lightbox';
 import ContactForm from '../../components/ContactForm';
 import PopupForm from '../../components/PopupForm';
+import HeroSlider from '../(home)/components/HeroSlider';
 
 const allShowcaseImages = [
   // Newborn
-  { src: '/assets/gallery/newborn/newborn.jpeg', alt: 'Newborn 1', title: 'Pure Innocence', category: 'Newborn' },
-  { src: '/assets/gallery/newborn/00117.jpg', alt: 'Newborn 2', title: 'Soft Dreams', category: 'Newborn' },
-  { src: '/assets/gallery/newborn/00122.jpg', alt: 'Newborn 3', title: 'First Light', category: 'Newborn' },
-  { src: '/assets/gallery/newborn/0016.jpg', alt: 'Newborn 4', title: 'Tender Grip', category: 'Newborn' },
-  { src: '/assets/gallery/newborn/0018.jpg', alt: 'Newborn 5', title: 'Peaceful Sleep', category: 'Newborn' },
-  { src: '/assets/gallery/newborn/02.jpg', alt: 'Newborn 6', title: 'Sweet Angel', category: 'Newborn' },
-  { src: '/assets/gallery/newborn/03 2.jpg', alt: 'Newborn 7', title: 'Golden Slumber', category: 'Newborn' },
-  { src: '/assets/gallery/newborn/IMG_0506.jpg', alt: 'Newborn 8', title: 'Tiny Hands', category: 'Newborn' },
-  { src: '/assets/gallery/newborn/0013.jpg', alt: 'Newborn 9', title: 'Cozy Beginning', category: 'Newborn' },
+  { src: '/assets/gallery/newborn/A98C22F0-2F0E-4A32-B285-1E23FB0AD1E3.webp', alt: 'Newborn 1', title: 'Pure Innocence', category: 'Newborn' },
+  { src: '/assets/gallery/newborn/BK-108_LORRIE_890_.jpg.webp', alt: 'Newborn 2', title: 'Soft Dreams', category: 'Newborn' },
+  { src: '/assets/gallery/newborn/BK-205_WILMA_443_.jpg.webp', alt: 'Newborn 3', title: 'First Light', category: 'Newborn' },
+  { src: '/assets/gallery/newborn/BK-62_LORI_244_-_Copy.jpg.webp', alt: 'Newborn 4', title: 'Tender Grip', category: 'Newborn' },
+  { src: '/assets/gallery/newborn/BK_264_SABRINA_338_.jpg_filename_UTF_8_BK_264_SABRINA_338_.jpg.webp', alt: 'Newborn 5', title: 'Peaceful Sleep', category: 'Newborn' },
+  { src: '/assets/gallery/newborn/BK_264_SABRINA_446_.jpg_filename_UTF_8_BK_264_SABRINA_446_.jpg.webp', alt: 'Newborn 6', title: 'Sweet Angel', category: 'Newborn' },
+  { src: '/assets/gallery/newborn/ChatGPT_Image_Apr_18_2026_05_19_31_PM_1_.webp', alt: 'Newborn 7', title: 'Golden Slumber', category: 'Newborn' },
+  { src: '/assets/gallery/newborn/ChatGPT_Image_Apr_22_2026_04_09_10_PM.webp', alt: 'Newborn 8', title: 'Tiny Hands', category: 'Newborn' },
+  { src: '/assets/gallery/newborn/ChatGPT_Image_Apr_22_2026_09_37_14_PM_1_.webp', alt: 'Newborn 9', title: 'Cozy Beginning', category: 'Newborn' },
+  { src: '/assets/gallery/newborn/ChatGPT_Image_Apr_22_2026_09_37_14_PM.webp', alt: 'Newborn 10', title: 'Little Star', category: 'Newborn' },
+  { src: '/assets/gallery/newborn/ChatGPT_Image_Apr_24_2026_12_56_55_PM.webp', alt: 'Newborn 11', title: 'Precious Moments', category: 'Newborn' },
+  { src: '/assets/gallery/newborn/photo.webp', alt: 'Newborn 12', title: 'Dreaming', category: 'Newborn' },
+  { src: '/assets/gallery/newborn/WhatsApp_Image_2026-04-18_at_16.45.18_2_.webp', alt: 'Newborn 13', title: 'New Life', category: 'Newborn' },
   // Wedding
-  { src: '/assets/gallery/wedding/wedding_color.png', alt: 'Wedding 1', title: 'The Vow', category: 'Wedding' },
+  { src: '/assets/gallery/wedding/wedding_color.webp', alt: 'Wedding 1', title: 'The Vow', category: 'Wedding' },
   { src: '/assets/services/service_wedding.png', alt: 'Wedding 2', title: 'Sacred Bond', category: 'Wedding' },
   { src: '/assets/services/service_wedding_main.png', alt: 'Wedding 3', title: 'Golden Hour', category: 'Wedding' },
-  { src: '/assets/gallery/wedding/luxury.png', alt: 'Wedding 4', title: 'Elegant Union', category: 'Wedding' },
+  { src: '/assets/gallery/wedding/luxury.webp', alt: 'Wedding 4', title: 'Elegant Union', category: 'Wedding' },
   { src: '/assets/services/service_prewedding.png', alt: 'Wedding 5', title: 'Eternal Flame', category: 'Wedding' },
   { src: '/assets/services/service_video_wedding.png', alt: 'Wedding 6', title: 'Together Forever', category: 'Wedding' },
   // Event
-  { src: '/assets/gallery/event/event.png', alt: 'Event 1', title: 'Celebration', category: 'Event' },
+  { src: '/assets/gallery/event/event.webp', alt: 'Event 1', title: 'Celebration', category: 'Event' },
   { src: '/assets/services/service_event.png', alt: 'Event 2', title: 'Gala Night', category: 'Event' },
   { src: '/assets/services/service_event_main.png', alt: 'Event 3', title: 'Moment of Joy', category: 'Event' },
   { src: '/assets/services/service_event_corporate.png', alt: 'Event 4', title: 'Corporate Gathering', category: 'Event' },
   { src: '/assets/services/service_event_social.png', alt: 'Event 5', title: 'Grand Celebration', category: 'Event' },
   { src: '/assets/services/service_video_commercial.png', alt: 'Event 6', title: 'Festive Evening', category: 'Event' },
   // Family
-  { src: '/assets/gallery/family/IMG_9601.jpg', alt: 'Family 1', title: 'Generations', category: 'Family' },
-  { src: '/assets/gallery/family/IMG_9770.jpg', alt: 'Family 2', title: 'Warm Embrace', category: 'Family' },
-  { src: '/assets/gallery/family/IMG_9773.jpg', alt: 'Family 3', title: 'Joyful Days', category: 'Family' },
+  { src: '/assets/gallery/family/IMG_9601.webp', alt: 'Family 1', title: 'Generations', category: 'Family' },
+  { src: '/assets/gallery/family/IMG_9770.webp', alt: 'Family 2', title: 'Warm Embrace', category: 'Family' },
+  { src: '/assets/gallery/family/IMG_9773.webp', alt: 'Family 3', title: 'Joyful Days', category: 'Family' },
   // Corporate
   { src: '/assets/services/service_corporate.png', alt: 'Corporate 1', title: 'Executive Vision', category: 'Corporate' },
   { src: '/assets/services/service_corporate_main.png', alt: 'Corporate 2', title: 'Team Synergy', category: 'Corporate' },
   { src: '/assets/services/service_commercial_main.png', alt: 'Corporate 3', title: 'Workspace Design', category: 'Corporate' },
   // Real Estate
-  { src: '/assets/gallery/real-estate/minimal.png', alt: 'Real Estate 1', title: 'Architectural Line', category: 'Real Estate' },
-  { src: '/assets/gallery/real-estate/0014.jpg', alt: 'Real Estate 2', title: 'Interior Design', category: 'Real Estate' },
-  { src: '/assets/gallery/real-estate/0012.jpg', alt: 'Real Estate 3', title: 'Luxury Space', category: 'Real Estate' },
-  { src: '/assets/gallery/real-estate/0011.jpg', alt: 'Real Estate 4', title: 'Modern Living', category: 'Real Estate' },
-  { src: '/assets/gallery/real-estate/0015.jpg', alt: 'Real Estate 5', title: 'Premium Estate', category: 'Real Estate' },
+  { src: '/assets/gallery/real-estate/minimal.webp', alt: 'Real Estate 1', title: 'Architectural Line', category: 'Real Estate' },
+  { src: '/assets/gallery/real-estate/0014.webp', alt: 'Real Estate 2', title: 'Interior Design', category: 'Real Estate' },
+  { src: '/assets/gallery/real-estate/0012.webp', alt: 'Real Estate 3', title: 'Luxury Space', category: 'Real Estate' },
+  { src: '/assets/gallery/real-estate/0011.webp', alt: 'Real Estate 4', title: 'Modern Living', category: 'Real Estate' },
+  { src: '/assets/gallery/real-estate/0015.webp', alt: 'Real Estate 5', title: 'Premium Estate', category: 'Real Estate' },
   // Commercial
-  { src: '/assets/gallery/commercial/001.png', alt: 'Commercial 1', title: 'Commercial Editorial', category: 'Commercial' },
-  { src: '/assets/gallery/commercial/002.png', alt: 'Commercial 2', title: 'Workspace Scene', category: 'Commercial' },
-  { src: '/assets/gallery/commercial/0004.png', alt: 'Commercial 3', title: 'Studio Details', category: 'Commercial' },
-  { src: '/assets/gallery/commercial/0006.png', alt: 'Commercial 4', title: 'Premium Branding', category: 'Commercial' },
+  { src: '/assets/gallery/commercial/001.webp', alt: 'Commercial 1', title: 'Commercial Editorial', category: 'Commercial' },
+  { src: '/assets/gallery/commercial/002.webp', alt: 'Commercial 2', title: 'Workspace Scene', category: 'Commercial' },
+  { src: '/assets/gallery/commercial/0004.webp', alt: 'Commercial 3', title: 'Studio Details', category: 'Commercial' },
+  { src: '/assets/gallery/commercial/0006.webp', alt: 'Commercial 4', title: 'Premium Branding', category: 'Commercial' },
 ];
 
 const SERVICES = [
@@ -223,41 +228,7 @@ export default function LandingPage() {
       <PopupForm />
 
       {/* ── HERO ── */}
-      <section className="noha-hero">
-        <div className="hero-bg-wrapper">
-          <div className="hero-overlay"></div>
-          <div className="hero-bg-img" style={{ backgroundImage: 'url(/assets/hero/hero_nature.png)' }}></div>
-          <div className="mobile-hero-slider">
-            <div className="mobile-hero-slide" style={{ backgroundImage: 'url(/assets/services/service_newborn.png)' }}></div>
-            <div className="mobile-hero-slide" style={{ backgroundImage: 'url(/assets/services/service_wedding.png)', animationDelay: '4s' }}></div>
-            <div className="mobile-hero-slide" style={{ backgroundImage: 'url(/assets/services/service_corporate.png)', animationDelay: '8s' }}></div>
-          </div>
-        </div>
-        <div className="noha-container hero-content">
-          <div className="landing-hero-reveal">
-            <span className="hero-kicker">Est. 2012 — Dubai</span>
-            <h1 className="hero-title">Crafted for<br/>Cinematic Elegance</h1>
-            <p className="hero-subtitle">
-              We specialize in luxury photography and videography, capturing the essence of your most profound moments with an editorial eye.
-            </p>
-            <div className="hero-actions">
-              <a
-                href="#contact"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToContact('Photography', '');
-                }}
-                className="noha-btn-primary"
-              >
-                Inquire Now <ArrowRight size={16} />
-              </a>
-              <a href="#portfolio" className="noha-btn-text">
-                <Play size={16} /> View Showreel
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSlider showContactForm={true} />
 
       {/* ── PHILOSOPHY ── */}
       <section id="about" className="noha-section noha-about">
