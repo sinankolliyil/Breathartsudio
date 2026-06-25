@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 import { useState } from 'react';
@@ -64,16 +64,6 @@ const allShowcaseImages = [
 export default function HomePage() {
   const [filter, setFilter] = useState('All');
 
-  const handleExploreClick = (e, category) => {
-    e.preventDefault();
-    setFilter(category);
-    const element = document.getElementById('gallery');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-
   const filteredImages = filter === 'All' 
     ? allShowcaseImages 
     : allShowcaseImages.filter(img => img.category === filter);
@@ -97,7 +87,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* ─── FEATURED SERVICE 1: NEWBORN (G1/Normal Style: Content Left, Image Right) ─── */}
+        {/* ΓöÇΓöÇΓöÇ FEATURED SERVICE 1: NEWBORN (G1/Normal Style: Content Left, Image Right) ΓöÇΓöÇΓöÇ */}
         <div className="featured-slanted-container theme-dark">
           {/* Desktop Version */}
           <div className="featured-panel-desktop">
@@ -153,9 +143,9 @@ export default function HomePage() {
             </div>
 
             <div className="featured-cta-container featured-normal-cta">
-              <a href="#gallery" onClick={(e) => handleExploreClick(e, 'Newborn')} className="btn-premium btn-premium-outline">
+              <Link href="/services#service-newborn" className="btn-premium btn-premium-outline">
                 Explore Session <ArrowUpRight size={14} />
-              </a>
+              </Link>
               <Link href="/contact?interest=newborn" className="btn-premium btn-premium-filled">
                 Book Now <ArrowUpRight size={14} />
               </Link>
@@ -203,9 +193,9 @@ export default function HomePage() {
             <div className="featured-mobile-image-box">
               <img src="/assets/gallery/newborn/newborn.webp" alt="Newborn Photography" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div className="featured-mobile-cta">
-                <a href="#gallery" onClick={(e) => handleExploreClick(e, 'Newborn')} className="btn-premium btn-premium-outline" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
+                <Link href="/services#service-newborn" className="btn-premium btn-premium-outline" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
                   Explore <ArrowUpRight size={12} />
-                </a>
+                </Link>
                 <Link href="/contact?interest=newborn" className="btn-premium btn-premium-filled" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
                   Book <ArrowUpRight size={12} />
                 </Link>
@@ -214,7 +204,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* ─── FEATURED SERVICE 2: WEDDING (NEO/Mirrored Style: Image Left, Content Right) ─── */}
+        {/* ΓöÇΓöÇΓöÇ FEATURED SERVICE 2: WEDDING (NEO/Mirrored Style: Image Left, Content Right) ΓöÇΓöÇΓöÇ */}
         <div className="featured-slanted-container theme-light">
           {/* Desktop Version */}
           <div className="featured-panel-desktop">
@@ -223,9 +213,9 @@ export default function HomePage() {
             </div>
 
             <div className="featured-cta-container featured-mirrored-cta">
-              <a href="#gallery" onClick={(e) => handleExploreClick(e, 'Wedding')} className="btn-premium btn-premium-outline">
+              <Link href="/services#service-wedding" className="btn-premium btn-premium-outline">
                 Explore Session <ArrowUpRight size={14} />
-              </a>
+              </Link>
               <Link href="/contact?interest=wedding" className="btn-premium btn-premium-filled">
                 Book Now <ArrowUpRight size={14} />
               </Link>
@@ -310,9 +300,9 @@ export default function HomePage() {
             <div className="featured-mobile-image-box">
               <img src="/assets/services/service_wedding.png" alt="Wedding Photography" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div className="featured-mobile-cta">
-                <a href="#gallery" onClick={(e) => handleExploreClick(e, 'Wedding')} className="btn-premium btn-premium-outline" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
+                <Link href="/services#service-wedding" className="btn-premium btn-premium-outline" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
                   Explore <ArrowUpRight size={12} />
-                </a>
+                </Link>
                 <Link href="/contact?interest=wedding" className="btn-premium btn-premium-filled" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
                   Book <ArrowUpRight size={12} />
                 </Link>
@@ -321,7 +311,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* ─── FEATURED SERVICE 3: CORPORATE (Normal Style: Content Left, Image Right) ─── */}
+        {/* ΓöÇΓöÇΓöÇ FEATURED SERVICE 3: CORPORATE (Normal Style: Content Left, Image Right) ΓöÇΓöÇΓöÇ */}
         <div className="featured-slanted-container theme-dark">
           {/* Desktop Version */}
           <div className="featured-panel-desktop">
@@ -367,9 +357,9 @@ export default function HomePage() {
             </div>
 
             <div className="featured-cta-container featured-normal-cta">
-              <a href="#gallery" onClick={(e) => handleExploreClick(e, 'All')} className="btn-premium btn-premium-outline">
+              <Link href="/services#service-corporate" className="btn-premium btn-premium-outline">
                 Explore Session <ArrowUpRight size={14} />
-              </a>
+              </Link>
               <Link href="/contact?interest=corporate" className="btn-premium btn-premium-filled">
                 Book Now <ArrowUpRight size={14} />
               </Link>
@@ -416,9 +406,9 @@ export default function HomePage() {
             <div className="featured-mobile-image-box">
               <img src="/assets/services/service_corporate.png" alt="Corporate Photography" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div className="featured-mobile-cta">
-                <a href="#gallery" onClick={(e) => handleExploreClick(e, 'All')} className="btn-premium btn-premium-outline" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
+                <Link href="/services#service-corporate" className="btn-premium btn-premium-outline" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
                   Explore <ArrowUpRight size={12} />
-                </a>
+                </Link>
                 <Link href="/contact?interest=corporate" className="btn-premium btn-premium-filled" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
                   Book <ArrowUpRight size={12} />
                 </Link>
@@ -427,12 +417,12 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* ─── REMAINING 3 SERVICES (Grid) ─── */}
+        {/* ΓöÇΓöÇΓöÇ REMAINING 3 SERVICES (Grid) ΓöÇΓöÇΓöÇ */}
         <div className="container" style={{ paddingLeft: '2rem', paddingRight: '2rem' }}>
           <div className="remaining-services-grid">
-            <GalleryItem image="/assets/services/service_event.png" alt="Event Photography" title="Event" number="04" onClick={(e) => handleExploreClick(e, 'Event')} buttonText="Explore Session" />
-            <GalleryItem image="/assets/services/service_couple.png" alt="Real Estate Photography" title="Real Estate" number="05" onClick={(e) => handleExploreClick(e, 'Real Estate')} buttonText="Explore Session" delay={0.1} />
-            <GalleryItem image="/assets/services/service_prewedding.png" alt="Family Photography" title="Family" number="06" onClick={(e) => handleExploreClick(e, 'Family')} buttonText="Explore Session" delay={0.2} wrapperClass="span-2-desktop" />
+            <GalleryItem image="/assets/services/service_event.png" alt="Event Photography" title="Event" number="04" href="/services#service-event" buttonText="Explore Session" />
+            <GalleryItem image="/assets/services/service_couple.png" alt="Real Estate Photography" title="Real Estate" number="05" href="/services#service-couple" buttonText="Explore Session" delay={0.1} />
+            <GalleryItem image="/assets/services/service_prewedding.png" alt="Family Photography" title="Family" number="06" href="/services#service-pre-wedding" buttonText="Explore Session" delay={0.2} wrapperClass="span-2-desktop" />
           </div>
         </div>
       </section>
@@ -458,9 +448,9 @@ export default function HomePage() {
             ]}
           />
           <div className="explore-more-container animate-reveal active">
-            <a href="#gallery" onClick={(e) => handleExploreClick(e, 'Newborn')} className="btn btn-outline explore-btn">
+            <Link href="/services#service-newborn" className="btn btn-outline explore-btn">
               Explore Newborn Sessions <i className="fas fa-arrow-right"></i>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -486,9 +476,9 @@ export default function HomePage() {
             ]}
           />
           <div className="explore-more-container animate-reveal active">
-            <a href="#gallery" onClick={(e) => handleExploreClick(e, 'Wedding')} className="btn btn-outline explore-btn">
+            <Link href="/services#service-couple" className="btn btn-outline explore-btn">
               Explore Wedding Stories <i className="fas fa-arrow-right"></i>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -514,9 +504,9 @@ export default function HomePage() {
             ]}
           />
           <div className="explore-more-container animate-reveal active">
-            <a href="#gallery" onClick={(e) => handleExploreClick(e, 'Event')} className="btn btn-outline explore-btn">
+            <Link href="/services#service-event" className="btn btn-outline explore-btn">
               Explore Event Stories <i className="fas fa-arrow-right"></i>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -651,7 +641,7 @@ export default function HomePage() {
                 <h2 className="section-title" style={{ fontSize: '2rem', marginBottom: '1.5rem', textAlign: 'left', textTransform: 'uppercase', color: '#2B1B14' }}>Professional &amp; Premium Experience</h2>
 
                 <p className="why-paragraph">
-                  At BreathArt, we deliver more than just photographs—we create timeless visual experiences. We combine artistic vision with advanced techniques to capture your moments with cinematic elegance and precision.
+                  At BreathArt, we deliver more than just photographsΓÇöwe create timeless visual experiences. We combine artistic vision with advanced techniques to capture your moments with cinematic elegance and precision.
                 </p>
                 <p className="why-paragraph">
                   Every photoshoot is carefully planned to provide a seamless, comfortable experience. From composition and lighting to styling and storytelling, we focus on every detail to ensure exceptional results.

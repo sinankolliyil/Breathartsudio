@@ -1956,6 +1956,16 @@ h1, h2, h3, h4, h5, h6,
     padding-left: 10%;
 }
 
+.hero-slide-bg.align-right .hero-slide-overlay {
+    background: linear-gradient(to left, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%);
+}
+
+.hero-slide-content.align-right {
+    justify-content: flex-end;
+    padding-left: 0;
+    padding-right: 10%;
+}
+
 .content-inner {
     max-width: 800px;
     display: flex;

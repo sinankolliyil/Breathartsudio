@@ -8,7 +8,7 @@ import ContactForm from '../../../components/ContactForm';
 const slides = [
   {
     id: 1,
-    image: '/assets/gallery/family/IMG_9601.webp',
+    image: '/assets/gallery/family/003.jpg.webp',
     tag: 'love',
     title1: 'BONDING',
     title2: 'TOGETHER',
@@ -18,13 +18,14 @@ const slides = [
   },
   {
     id: 2,
-    image: '/assets/gallery/newborn/photo.webp',
+    image: '/assets/gallery/newborn/ChatGPT_Image_Apr_18_2026_05_19_31_PM_1_.webp',
     tag: '',
     title1: 'MADE TO',
     title2: 'GROW',
     desc1: 'Feel the moment.',
     desc2: 'Let the images do the talking.',
-    link: '/contact'
+    link: '/contact',
+    align: 'right'
   },
   {
     id: 3,
@@ -56,7 +57,7 @@ export default function HeroSlider({ showContactForm = false }) {
           key={slide.id} 
           className={`hero-slide ${index === currentSlide ? 'active' : ''}`}
         >
-          <div className="hero-slide-bg">
+          <div className={`hero-slide-bg ${slide.align === 'right' ? 'align-right' : ''}`}>
             <Image 
               src={slide.image} 
               alt={slide.title1} 
@@ -66,7 +67,7 @@ export default function HeroSlider({ showContactForm = false }) {
             />
             <div className="hero-slide-overlay"></div>
           </div>
-          <div className="hero-slide-content">
+          <div className={`hero-slide-content ${slide.align === 'right' ? 'align-right' : ''}`}>
             <div className="content-inner">
               {slide.tag && <div className="slide-tag">{slide.tag}</div>}
               <h1 className="slide-title">
