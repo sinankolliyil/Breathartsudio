@@ -45,9 +45,20 @@ const allShowcaseImages = [
   { src: '/assets/gallery/family/IMG_9770.webp', alt: 'Family 2', title: 'Warm Embrace', category: 'Family' },
   { src: '/assets/gallery/family/IMG_9773.webp', alt: 'Family 3', title: 'Joyful Days', category: 'Family' },
   // Corporate
-  { src: '/assets/services/service_corporate.png', alt: 'Corporate 1', title: 'Executive Vision', category: 'Corporate' },
-  { src: '/assets/services/service_corporate_main.png', alt: 'Corporate 2', title: 'Team Synergy', category: 'Corporate' },
-  { src: '/assets/services/service_commercial_main.png', alt: 'Corporate 3', title: 'Workspace Design', category: 'Corporate' },
+  { src: '/assets/gallery/corporate/pexels-ai25studioai-5583966.webp', alt: 'Corporate 1', title: 'Corporate Imagery 1', category: 'Corporate' },
+  { src: '/assets/gallery/corporate/pexels-cottonbro-6567863.webp', alt: 'Corporate 2', title: 'Corporate Imagery 2', category: 'Corporate' },
+  { src: '/assets/gallery/corporate/pexels-itay-verchik-1150587-16970452.webp', alt: 'Corporate 3', title: 'Corporate Imagery 3', category: 'Corporate' },
+  { src: '/assets/gallery/corporate/pexels-kooldark-15640950.webp', alt: 'Corporate 4', title: 'Corporate Imagery 4', category: 'Corporate' },
+  { src: '/assets/gallery/corporate/pexels-ono-kosuki-5648103_1.webp', alt: 'Corporate 5', title: 'Corporate Imagery 5', category: 'Corporate' },
+  { src: '/assets/gallery/corporate/pexels-ono-kosuki-5648103.webp', alt: 'Corporate 6', title: 'Corporate Imagery 6', category: 'Corporate' },
+  { src: '/assets/gallery/corporate/pexels-pavel-danilyuk-7654168.webp', alt: 'Corporate 7', title: 'Corporate Imagery 7', category: 'Corporate' },
+  { src: '/assets/gallery/corporate/pexels-pavel-danilyuk-8761513.webp', alt: 'Corporate 8', title: 'Corporate Imagery 8', category: 'Corporate' },
+  { src: '/assets/gallery/corporate/pexels-pexels-user-766999688-18794228.webp', alt: 'Corporate 9', title: 'Corporate Imagery 9', category: 'Corporate' },
+  { src: '/assets/gallery/corporate/pexels-pro5-vn-1368185933-25950425.webp', alt: 'Corporate 10', title: 'Corporate Imagery 10', category: 'Corporate' },
+  { src: '/assets/gallery/corporate/pexels-pro5-vn-1368185933-26336884.webp', alt: 'Corporate 11', title: 'Corporate Imagery 11', category: 'Corporate' },
+  { src: '/assets/gallery/corporate/pexels-silverkblack-36733407.webp', alt: 'Corporate 12', title: 'Corporate Imagery 12', category: 'Corporate' },
+  { src: '/assets/gallery/corporate/pexels-silverkblack-36733421.webp', alt: 'Corporate 13', title: 'Corporate Imagery 13', category: 'Corporate' },
+  { src: '/assets/gallery/corporate/pexels-wesley-novais-2150620479-31631644.webp', alt: 'Corporate 14', title: 'Corporate Imagery 14', category: 'Corporate' },
   // Real Estate
   { src: '/assets/gallery/real-estate/minimal.webp', alt: 'Real Estate 1', title: 'Architectural Line', category: 'Real Estate' },
   { src: '/assets/gallery/real-estate/0014.webp', alt: 'Real Estate 2', title: 'Interior Design', category: 'Real Estate' },
@@ -67,7 +78,7 @@ export default function HomePage() {
   const handleExploreClick = (e, category) => {
     e.preventDefault();
     setFilter(category);
-    const element = document.getElementById('gallery');
+    const element = document.getElementById('showcase-gallery-section');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -85,7 +96,7 @@ export default function HomePage() {
       <HeroSlider />
 
       {/* 1. Our Premium Services Section (With new requested order and labels) */}
-      <section id="our-services" className="section" style={{ paddingLeft: 0, paddingRight: 0 }}>
+      <section id="our-services" className="section" style={{ paddingLeft: 0, paddingRight: 0, paddingBottom: 0 }}>
         <div className="container" style={{ paddingLeft: '2rem', paddingRight: '2rem' }}>
           <div className="section-header animate-reveal active">
             <span className="cinematic-title">Excellence in Every Frame</span>
@@ -140,7 +151,7 @@ export default function HomePage() {
 
             <div className="featured-normal-image">
               <img loading="lazy" decoding="async" 
-                src="/assets/gallery/newborn/newborn.webp" 
+                src="/assets/gallery/newborn/photo.webp" 
                 alt="Newborn Photography" 
                 style={{ 
                   width: '100%', 
@@ -201,7 +212,7 @@ export default function HomePage() {
             </div>
 
             <div className="featured-mobile-image-box">
-              <img src="/assets/gallery/newborn/newborn.webp" alt="Newborn Photography" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/assets/gallery/newborn/photo.webp" alt="Newborn Photography" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div className="featured-mobile-cta">
                 <a href="#gallery" onClick={(e) => handleExploreClick(e, 'Newborn')} className="btn-premium btn-premium-outline" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
                   Explore <ArrowUpRight size={12} />
@@ -438,7 +449,7 @@ export default function HomePage() {
       </section>
 
       {/* 2. Newborn Photography Collection */}
-      <section id="newborn" className="section">
+      <section id="newborn" className="section" style={{ paddingTop: '3.5rem', paddingBottom: 0 }}>
         <div className="container animate-reveal active">
           <div className="section-header">
             <span className="cinematic-title">01 / Innocence</span>
@@ -466,7 +477,7 @@ export default function HomePage() {
       </section>
 
       {/* 3. Wedding Photography Collection */}
-      <section id="wedding" className="section">
+      <section id="wedding" className="section" style={{ paddingTop: '3.5rem', paddingBottom: 0 }}>
         <div className="container animate-reveal active">
           <div className="section-header">
             <span className="cinematic-title">02 / Devotion</span>
@@ -494,7 +505,7 @@ export default function HomePage() {
       </section>
 
       {/* 4. Event Photography Collection */}
-      <section id="event-management" className="section">
+      <section id="event-management" className="section" style={{ paddingTop: '3.5rem', paddingBottom: 0 }}>
         <div className="container animate-reveal active">
           <div className="section-header">
             <span className="cinematic-title">03 / Connection</span>
@@ -522,7 +533,7 @@ export default function HomePage() {
       </section>
 
       {/* 5. Filterable Showcase Gallery Section */}
-      <section id="showcase-gallery-section" className="section">
+      <section id="showcase-gallery-section" className="section" style={{ paddingTop: '3.5rem' }}>
         <div className="container">
           <div className="section-header animate-reveal">
             <span className="cinematic-title">Curated Masterpieces</span>
@@ -671,7 +682,7 @@ export default function HomePage() {
       </section>
 
       {/* Redesigned Premium Features Section (Warm Cream Background) */}
-      <section id="premium-features" className="section" style={{ background: 'var(--color-black)', paddingTop: '2rem', paddingBottom: '6rem' }}>
+      <section id="premium-features" className="section" style={{ background: 'var(--color-black)', paddingTop: '3.5rem', paddingBottom: '6rem' }}>
         <div className="container">
           <div className="services-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem' }}>
             <FeatureCard index={1} icon="fas fa-user-tie" title="Experienced Professional Photographers" description="Master artists with decades of collective experience." />

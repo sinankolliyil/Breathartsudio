@@ -228,7 +228,7 @@ export default function LandingPage() {
       <PopupForm />
 
       {/* ── HERO ── */}
-      <HeroSlider showContactForm={true} />
+      <HeroSlider showContactForm={true} leftAlignOnly={true} />
 
       {/* ── PHILOSOPHY ── */}
       <section id="about" className="noha-section noha-about">

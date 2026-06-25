@@ -8,39 +8,50 @@ import ContactForm from '../../../components/ContactForm';
 const slides = [
   {
     id: 1,
-    image: '/assets/gallery/family/003.jpg.webp',
+    image: '/assets/hero/1_optimized.webp',
     tag: 'love',
     title1: 'BONDING',
     title2: 'TOGETHER',
     desc1: 'Memories that are forever',
     desc2: 'Smile for miles',
-    link: '/contact'
+    link: '/contact',
+    align: 'right'
   },
   {
     id: 2,
-    image: '/assets/gallery/newborn/ChatGPT_Image_Apr_18_2026_05_19_31_PM_1_.webp',
+    image: '/assets/hero/2_optimized.webp',
     tag: '',
     title1: 'MADE TO',
     title2: 'GROW',
     desc1: 'Feel the moment.',
     desc2: 'Let the images do the talking.',
-    link: '/contact',
-    align: 'right'
+    link: '/contact'
   },
   {
     id: 3,
-    image: '/assets/gallery/newborn/A98C22F0-2F0E-4A32-B285-1E23FB0AD1E3.webp',
+    image: '/assets/hero/3_optimized.webp',
     tag: 'love',
     title1: 'MADE WITH',
     title2: 'LOVE',
     desc1: 'Live inside your best moments',
     desc2: 'Because we want you to',
     desc3: 'remember them forever',
+    link: '/contact',
+    align: 'right'
+  },
+  {
+    id: 4,
+    image: '/assets/hero/4_optimized.webp',
+    tag: 'art',
+    title1: 'CAPTURING',
+    title2: 'LIFE',
+    desc1: 'Timeless imagery',
+    desc2: 'For your legacy',
     link: '/contact'
   }
 ];
 
-export default function HeroSlider({ showContactForm = false }) {
+export default function HeroSlider({ showContactForm = false, leftAlignOnly = false }) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -57,7 +68,7 @@ export default function HeroSlider({ showContactForm = false }) {
           key={slide.id} 
           className={`hero-slide ${index === currentSlide ? 'active' : ''}`}
         >
-          <div className={`hero-slide-bg ${slide.align === 'right' ? 'align-right' : ''}`}>
+          <div className={`hero-slide-bg ${slide.align === 'right' && !leftAlignOnly ? 'align-right' : ''}`}>
             <Image 
               src={slide.image} 
               alt={slide.title1} 
@@ -67,7 +78,7 @@ export default function HeroSlider({ showContactForm = false }) {
             />
             <div className="hero-slide-overlay"></div>
           </div>
-          <div className={`hero-slide-content ${slide.align === 'right' ? 'align-right' : ''}`}>
+          <div className={`hero-slide-content ${slide.align === 'right' && !leftAlignOnly ? 'align-right' : ''}`}>
             <div className="content-inner">
               {slide.tag && <div className="slide-tag">{slide.tag}</div>}
               <h1 className="slide-title">
