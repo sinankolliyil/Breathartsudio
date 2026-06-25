@@ -27,26 +27,26 @@ const allShowcaseImages = [
   { src: '/assets/hero/photo.png', alt: 'Newborn 12', title: 'Dreaming', category: 'Newborn' },
   { src: '/assets/gallery/newborn/WhatsApp_Image_2026-04-18_at_16.45.18_2_.webp', alt: 'Newborn 13', title: 'New Life', category: 'Newborn' },
   // Wedding
-  { src: '/assets/gallery/wedding/pexels-abdallah-mahmoud-2153337567-32671354.webp', alt: 'Wedding 1', title: 'Wedding Imagery 1', category: 'Wedding' },
-  { src: '/assets/gallery/wedding/pexels-abdallah-naser-2156661580-34317944.webp', alt: 'Wedding 2', title: 'Wedding Imagery 2', category: 'Wedding' },
-  { src: '/assets/gallery/wedding/pexels-ahmetcotur-29560843.webp', alt: 'Wedding 3', title: 'Wedding Imagery 3', category: 'Wedding' },
-  { src: '/assets/gallery/wedding/pexels-braiki-dhia-eddine-2159140624-35819262.webp', alt: 'Wedding 4', title: 'Wedding Imagery 4', category: 'Wedding' },
-  { src: '/assets/gallery/wedding/pexels-dilara-dogar-713705919-30439697.webp', alt: 'Wedding 5', title: 'Wedding Imagery 5', category: 'Wedding' },
-  { src: '/assets/gallery/wedding/pexels-habib-hosseini-3673463.webp', alt: 'Wedding 6', title: 'Wedding Imagery 6', category: 'Wedding' },
-  { src: '/assets/gallery/wedding/pexels-instasky-9787656.webp', alt: 'Wedding 7', title: 'Wedding Imagery 7', category: 'Wedding' },
-  { src: '/assets/gallery/wedding/pexels-mlkbnl-11379041.webp', alt: 'Wedding 8', title: 'Wedding Imagery 8', category: 'Wedding' },
-  { src: '/assets/gallery/wedding/pexels-photography-maghradze-ph-1659410-31953101.webp', alt: 'Wedding 9', title: 'Wedding Imagery 9', category: 'Wedding' },
-  { src: '/assets/gallery/wedding/pexels-sumeyye-acar-1402897839-32954759.webp', alt: 'Wedding 10', title: 'Wedding Imagery 10', category: 'Wedding' },
-  { src: '/assets/gallery/wedding/quan-nguyen-yDSe7sggb9Q-unsplash.webp', alt: 'Wedding 11', title: 'Wedding Imagery 11', category: 'Wedding' },
+  { src: '/assets/gallery/wedding/pexels-abdallah-mahmoud-2153337567-32671354.webp', alt: 'The Vow', title: 'The Vow', category: 'Wedding' },
+  { src: '/assets/gallery/wedding/pexels-abdallah-naser-2156661580-34317944.webp', alt: 'Sacred Bond', title: 'Sacred Bond', category: 'Wedding' },
+  { src: '/assets/gallery/wedding/pexels-ahmetcotur-29560843.webp', alt: 'Golden Hour', title: 'Golden Hour', category: 'Wedding' },
+  { src: '/assets/gallery/wedding/pexels-braiki-dhia-eddine-2159140624-35819262.webp', alt: 'Elegant Union', title: 'Elegant Union', category: 'Wedding' },
+  { src: '/assets/gallery/wedding/pexels-dilara-dogar-713705919-30439697.webp', alt: 'Eternal Flame', title: 'Eternal Flame', category: 'Wedding' },
+  { src: '/assets/gallery/wedding/pexels-habib-hosseini-3673463.webp', alt: 'Together Forever', title: 'Together Forever', category: 'Wedding' },
+  { src: '/assets/gallery/wedding/pexels-instasky-9787656.webp', alt: 'Joyous Celebration', title: 'Joyous Celebration', category: 'Wedding' },
+  { src: '/assets/gallery/wedding/pexels-mlkbnl-11379041.webp', alt: 'Bridal Glow', title: 'Bridal Glow', category: 'Wedding' },
+  { src: '/assets/gallery/wedding/pexels-photography-maghradze-ph-1659410-31953101.webp', alt: 'Candid Smiles', title: 'Candid Smiles', category: 'Wedding' },
+  { src: '/assets/gallery/wedding/pexels-sumeyye-acar-1402897839-32954759.webp', alt: 'Love Story', title: 'Love Story', category: 'Wedding' },
+  { src: '/assets/gallery/wedding/quan-nguyen-yDSe7sggb9Q-unsplash.webp', alt: 'Grand Entrance', title: 'Grand Entrance', category: 'Wedding' },
   // Event
-  { src: '/assets/gallery/event/pexels-b_s-media-production-568838161-34171711.webp', alt: 'Event 1', title: 'Event Imagery 1', category: 'Event' },
-  { src: '/assets/gallery/event/pexels-caleboquendo-11329860.webp', alt: 'Event 2', title: 'Event Imagery 2', category: 'Event' },
-  { src: '/assets/gallery/event/pexels-cherubs-22669860.webp', alt: 'Event 3', title: 'Event Imagery 3', category: 'Event' },
-  { src: '/assets/gallery/event/pexels-miriam-salgado-157461221-10733219_1.webp', alt: 'Event 4', title: 'Event Imagery 4', category: 'Event' },
-  { src: '/assets/gallery/event/pexels-miriam-salgado-157461221-10733602_1.webp', alt: 'Event 5', title: 'Event Imagery 5', category: 'Event' },
-  { src: '/assets/gallery/event/pexels-panditwiguna-2788487.webp', alt: 'Event 6', title: 'Event Imagery 6', category: 'Event' },
-  { src: '/assets/gallery/event/WhatsApp_Image_2026-06-25_at_17.28.30.webp', alt: 'Event 7', title: 'Event Imagery 7', category: 'Event' },
-  { src: '/assets/gallery/event/chuttersnap-aEnH4hJ_Mrs-unsplash.webp', alt: 'Event 8', title: 'Event Imagery 8', category: 'Event' },
+  { src: '/assets/gallery/event/pexels-b_s-media-production-568838161-34171711.webp', alt: 'Celebration', title: 'Celebration', category: 'Event' },
+  { src: '/assets/gallery/event/pexels-caleboquendo-11329860.webp', alt: 'Gala Night', title: 'Gala Night', category: 'Event' },
+  { src: '/assets/gallery/event/pexels-cherubs-22669860.webp', alt: 'Moment of Joy', title: 'Moment of Joy', category: 'Event' },
+  { src: '/assets/gallery/event/pexels-miriam-salgado-157461221-10733219_1.webp', alt: 'Corporate Gathering', title: 'Corporate Gathering', category: 'Event' },
+  { src: '/assets/gallery/event/pexels-miriam-salgado-157461221-10733602_1.webp', alt: 'Grand Celebration', title: 'Grand Celebration', category: 'Event' },
+  { src: '/assets/gallery/event/pexels-panditwiguna-2788487.webp', alt: 'Festive Evening', title: 'Festive Evening', category: 'Event' },
+  { src: '/assets/gallery/event/WhatsApp_Image_2026-06-25_at_17.28.30.webp', alt: 'Vibrant Atmosphere', title: 'Vibrant Atmosphere', category: 'Event' },
+  { src: '/assets/gallery/event/chuttersnap-aEnH4hJ_Mrs-unsplash.webp', alt: 'Keynote Speech', title: 'Keynote Speech', category: 'Event' },
   // Family
   { src: '/assets/gallery/family/IMG_9601.webp', alt: 'Family 1', title: 'Generations', category: 'Family' },
   { src: '/assets/gallery/family/IMG_9770.webp', alt: 'Family 2', title: 'Warm Embrace', category: 'Family' },
@@ -237,7 +237,7 @@ export default function HomePage() {
           {/* Desktop Version */}
           <div className="featured-panel-desktop">
             <div className="featured-mirrored-image">
-              <img src="/assets/services/service_wedding.png" alt="Wedding Photography" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/assets/gallery/wedding/pexels-photography-maghradze-ph-1659410-31953101.webp" alt="Wedding Photography" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
 
             <div className="featured-cta-container featured-mirrored-cta">
@@ -326,7 +326,7 @@ export default function HomePage() {
             </div>
 
             <div className="featured-mobile-image-box">
-              <img src="/assets/services/service_wedding.png" alt="Wedding Photography" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/assets/gallery/wedding/pexels-photography-maghradze-ph-1659410-31953101.webp" alt="Wedding Photography" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div className="featured-mobile-cta">
                 <a href="#gallery" onClick={(e) => handleExploreClick(e, 'Wedding')} className="btn-premium btn-premium-outline" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
                   Explore <ArrowUpRight size={12} />
@@ -381,7 +381,7 @@ export default function HomePage() {
             </div>
 
             <div className="featured-normal-image">
-              <img src="/assets/services/service_corporate.png" alt="Corporate Photography" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/assets/gallery/corporate/pexels-ai25studioai-5583966.webp" alt="Corporate Photography" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
 
             <div className="featured-cta-container featured-normal-cta">
@@ -432,7 +432,7 @@ export default function HomePage() {
             </div>
 
             <div className="featured-mobile-image-box">
-              <img src="/assets/services/service_corporate.png" alt="Corporate Photography" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/assets/gallery/corporate/pexels-ai25studioai-5583966.webp" alt="Corporate Photography" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div className="featured-mobile-cta">
                 <a href="#gallery" onClick={(e) => handleExploreClick(e, 'All')} className="btn-premium btn-premium-outline" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
                   Explore <ArrowUpRight size={12} />
@@ -448,9 +448,9 @@ export default function HomePage() {
         {/* ─── REMAINING 3 SERVICES (Grid) ─── */}
         <div className="container" style={{ paddingLeft: '2rem', paddingRight: '2rem' }}>
           <div className="remaining-services-grid">
-            <GalleryItem image="/assets/services/service_event.png" alt="Event Photography" title="Event" number="04" onClick={(e) => handleExploreClick(e, 'Event')} buttonText="Explore Session" />
-            <GalleryItem image="/assets/services/service_couple.png" alt="Real Estate Photography" title="Real Estate" number="05" onClick={(e) => handleExploreClick(e, 'Real Estate')} buttonText="Explore Session" delay={0.1} />
-            <GalleryItem image="/assets/services/service_prewedding.png" alt="Family Photography" title="Family" number="06" onClick={(e) => handleExploreClick(e, 'Family')} buttonText="Explore Session" delay={0.2} wrapperClass="span-2-desktop" />
+            <GalleryItem image="/assets/gallery/event/pexels-miriam-salgado-157461221-10733602_1.webp" alt="Event Photography" title="Event" number="04" onClick={(e) => handleExploreClick(e, 'Event')} buttonText="Explore Session" />
+            <GalleryItem image="/assets/gallery/real-estate/0012.webp" alt="Real Estate Photography" title="Real Estate" number="05" onClick={(e) => handleExploreClick(e, 'Real Estate')} buttonText="Explore Session" delay={0.1} />
+            <GalleryItem image="/assets/gallery/family/IMG_9773.webp" alt="Family Photography" title="Family" number="06" onClick={(e) => handleExploreClick(e, 'Family')} buttonText="Explore Session" delay={0.2} wrapperClass="span-2-desktop" />
           </div>
         </div>
       </section>
@@ -467,12 +467,12 @@ export default function HomePage() {
             sectionId="newborn"
             gridCols="repeat(3, 1fr)"
             items={[
-              { src: '/assets/themes/theme_aviator.png', alt: 'Theme 1', title: 'Little Aviator' },
-              { src: '/assets/themes/theme_wizard.png', alt: 'Theme 2', title: 'Magical Wizard' },
-              { src: '/assets/themes/theme_beach.png', alt: 'Theme 3', title: 'Beach Boss' },
-              { src: '/assets/themes/theme_moon.png', alt: 'Theme 4', title: 'Sweet Dreams Moon' },
-              { src: '/assets/themes/theme_rose_heart.png', alt: 'Theme 5', title: 'Rose Heart' },
-              { src: '/assets/themes/theme_pampas.png', alt: 'Theme 6', title: 'Rustic Pampas' },
+              { src: '/assets/gallery/newborn/A98C22F0-2F0E-4A32-B285-1E23FB0AD1E3.webp', alt: 'Newborn 1', title: 'Pure Innocence' },
+              { src: '/assets/gallery/newborn/BK-108_LORRIE_890_.jpg.webp', alt: 'Newborn 2', title: 'Soft Dreams' },
+              { src: '/assets/gallery/newborn/BK-205_WILMA_443_.jpg.webp', alt: 'Newborn 3', title: 'First Light' },
+              { src: '/assets/gallery/newborn/BK-62_LORI_244_-_Copy.jpg.webp', alt: 'Newborn 4', title: 'Tender Grip' },
+              { src: '/assets/gallery/newborn/BK_264_SABRINA_338_.jpg_filename_UTF_8_BK_264_SABRINA_338_.jpg.webp', alt: 'Newborn 5', title: 'Peaceful Sleep' },
+              { src: '/assets/gallery/newborn/BK_264_SABRINA_446_.jpg_filename_UTF_8_BK_264_SABRINA_446_.jpg.webp', alt: 'Newborn 6', title: 'Sweet Angel' },
             ]}
           />
           <div className="explore-more-container animate-reveal active">
@@ -495,12 +495,12 @@ export default function HomePage() {
             sectionId="wedding"
             gridCols="repeat(3, 1fr)"
             items={[
-              { src: '/assets/gallery/wedding/wedding_color.webp', alt: 'Wedding 1', title: 'The Vow' },
-              { src: '/assets/services/service_wedding.png', alt: 'Wedding 2', title: 'Sacred Bond' },
-              { src: '/assets/services/service_wedding_main.png', alt: 'Wedding 3', title: 'Golden Hour' },
-              { src: '/assets/gallery/wedding/luxury.webp', alt: 'Wedding 4', title: 'Elegant Union' },
-              { src: '/assets/services/service_prewedding.png', alt: 'Wedding 5', title: 'Eternal Flame' },
-              { src: '/assets/services/service_video_wedding.png', alt: 'Wedding 6', title: 'Together Forever' },
+              { src: '/assets/gallery/wedding/pexels-abdallah-mahmoud-2153337567-32671354.webp', alt: 'Wedding 1', title: 'The Vow' },
+              { src: '/assets/gallery/wedding/pexels-abdallah-naser-2156661580-34317944.webp', alt: 'Wedding 2', title: 'Sacred Bond' },
+              { src: '/assets/gallery/wedding/pexels-ahmetcotur-29560843.webp', alt: 'Wedding 3', title: 'Golden Hour' },
+              { src: '/assets/gallery/wedding/pexels-braiki-dhia-eddine-2159140624-35819262.webp', alt: 'Wedding 4', title: 'Elegant Union' },
+              { src: '/assets/gallery/wedding/pexels-dilara-dogar-713705919-30439697.webp', alt: 'Wedding 5', title: 'Eternal Flame' },
+              { src: '/assets/gallery/wedding/pexels-habib-hosseini-3673463.webp', alt: 'Wedding 6', title: 'Together Forever' },
             ]}
           />
           <div className="explore-more-container animate-reveal active">
@@ -523,12 +523,12 @@ export default function HomePage() {
             sectionId="event-management"
             gridCols="repeat(3, 1fr)"
             items={[
-              { src: '/assets/gallery/event/event.webp', alt: 'Event 1', title: 'Celebration' },
-              { src: '/assets/services/service_event.png', alt: 'Event 2', title: 'Gala Night' },
-              { src: '/assets/services/service_event_main.png', alt: 'Event 3', title: 'Moment of Joy' },
-              { src: '/assets/services/service_event_corporate.png', alt: 'Event 4', title: 'Corporate Gathering' },
-              { src: '/assets/services/service_event_social.png', alt: 'Event 5', title: 'Grand Celebration' },
-              { src: '/assets/services/service_video_commercial.png', alt: 'Event 6', title: 'Festive Evening' },
+              { src: '/assets/gallery/event/pexels-b_s-media-production-568838161-34171711.webp', alt: 'Event 1', title: 'Celebration' },
+              { src: '/assets/gallery/event/pexels-caleboquendo-11329860.webp', alt: 'Event 2', title: 'Gala Night' },
+              { src: '/assets/gallery/event/pexels-cherubs-22669860.webp', alt: 'Event 3', title: 'Moment of Joy' },
+              { src: '/assets/gallery/event/pexels-miriam-salgado-157461221-10733219_1.webp', alt: 'Event 4', title: 'Corporate Gathering' },
+              { src: '/assets/gallery/event/pexels-miriam-salgado-157461221-10733602_1.webp', alt: 'Event 5', title: 'Grand Celebration' },
+              { src: '/assets/gallery/event/pexels-panditwiguna-2788487.webp', alt: 'Event 6', title: 'Festive Evening' },
             ]}
           />
           <div className="explore-more-container animate-reveal active">
