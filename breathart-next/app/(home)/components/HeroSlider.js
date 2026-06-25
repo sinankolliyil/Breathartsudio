@@ -1,0 +1,96 @@
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+
+const slides = [
+  {
+    id: 1,
+    image: '/assets/gallery/family/IMG_9601.webp',
+    tag: 'love',
+    title1: 'BONDING',
+    title2: 'TOGETHER',
+    desc1: 'Memories that are forever',
+    desc2: 'Smile for miles',
+    link: '/contact'
+  },
+  {
+    id: 2,
+    image: '/assets/gallery/newborn/photo.webp',
+    tag: '',
+    title1: 'MADE TO',
+    title2: 'GROW',
+    desc1: 'Feel the moment.',
+    desc2: 'Let the images do the talking.',
+    link: '/contact'
+  },
+  {
+    id: 3,
+    image: '/assets/gallery/newborn/A98C22F0-2F0E-4A32-B285-1E23FB0AD1E3.webp',
+    tag: 'love',
+    title1: 'MADE WITH',
+    title2: 'LOVE',
+    desc1: 'Live inside your best moments',
+    desc2: 'Because we want you to',
+    desc3: 'remember them forever',
+    link: '/contact'
+  }
+];
+
+export default function HeroSlider() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <section className="hero-slider">
+      {slides.map((slide, index) => (
+        <div 
+          key={slide.id} 
+          className={`hero-slide ${index === currentSlide ? 'active' : ''}`}
+        >
+          <div className="hero-slide-bg">
+            <Image 
+              src={slide.image} 
+              alt={slide.title1} 
+              fill 
+              priority={index === 0}
+              style={{ objectFit: 'cover', objectPosition: 'center' }} 
+            />
+            <div className="hero-slide-overlay"></div>
+          </div>
+          <div className="hero-slide-content">
+            <div className="content-inner">
+              {slide.tag && <div className="slide-tag">{slide.tag}</div>}
+              <h1 className="slide-title">
+                <span>{slide.title1}</span>
+                <span>{slide.title2}</span>
+              </h1>
+              <div className="slide-desc">
+                <p>{slide.desc1}</p>
+                <p>{slide.desc2}</p>
+                {slide.desc3 && <p>{slide.desc3}</p>}
+              </div>
+              <div className="slide-btn-wrapper">
+                <Link href={slide.link} className="slide-btn">
+                  CONTACT
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+      <div className="scroll-indicator-wrapper">
+        <div className="scroll-indicator-mouse">
+          <div className="scroll-indicator-wheel"></div>
+        </div>
+      </div>
+    </section>
+  );
+}

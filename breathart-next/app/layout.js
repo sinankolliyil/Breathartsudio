@@ -5,7 +5,6 @@ import BackgroundLayers from '@/components/BackgroundLayers';
 import WhatsAppFloat from '@/components/WhatsAppFloat';
 import PaymentFloat from '@/components/PaymentFloat';
 import ScrollTopButton from '@/components/ScrollTopButton';
-import CustomCursor from '@/components/CustomCursor';
 import { OrganizationSchema, WebSiteSchema, LocalBusinessSchema } from './schema';
 
 export const metadata = {
@@ -74,7 +73,7 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Indie+Flower&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Great+Vibes&family=Indie+Flower&display=swap"
           rel="stylesheet"
         />
         {/* Font Awesome */}
@@ -88,7 +87,6 @@ export default function RootLayout({ children }) {
         <LocalBusinessSchema />
       </head>
       <body className="fade-in active">
-        <CustomCursor />
         <BackgroundLayers />
         <Navbar />
         {children}
