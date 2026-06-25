@@ -23,7 +23,7 @@ const allShowcaseImages = [
   { src: '/assets/gallery/newborn/ChatGPT_Image_Apr_22_2026_09_37_14_PM_1_.webp', alt: 'Newborn 9', title: 'Cozy Beginning', category: 'Newborn' },
   { src: '/assets/gallery/newborn/ChatGPT_Image_Apr_22_2026_09_37_14_PM.webp', alt: 'Newborn 10', title: 'Little Star', category: 'Newborn' },
   { src: '/assets/gallery/newborn/ChatGPT_Image_Apr_24_2026_12_56_55_PM.webp', alt: 'Newborn 11', title: 'Precious Moments', category: 'Newborn' },
-  { src: '/assets/gallery/newborn/photo.webp', alt: 'Newborn 12', title: 'Dreaming', category: 'Newborn' },
+  { src: '/assets/hero/photo.png', alt: 'Newborn 12', title: 'Dreaming', category: 'Newborn' },
   { src: '/assets/gallery/newborn/WhatsApp_Image_2026-04-18_at_16.45.18_2_.webp', alt: 'Newborn 13', title: 'New Life', category: 'Newborn' },
   // Wedding
   { src: '/assets/gallery/wedding/wedding_color.webp', alt: 'Wedding 1', title: 'The Vow', category: 'Wedding' },

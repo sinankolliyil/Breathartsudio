@@ -8,7 +8,7 @@ import ContactForm from '../../../components/ContactForm';
 const slides = [
   {
     id: 1,
-    image: '/assets/hero/1_optimized.webp',
+    image: '/assets/hero/photo.png',
     tag: 'love',
     title1: 'BONDING',
     title2: 'TOGETHER',
