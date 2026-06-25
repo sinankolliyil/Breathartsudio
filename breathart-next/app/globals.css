@@ -6171,7 +6171,8 @@ body.has-custom-cursor .cursor-pointer {
 }
 
 @media (max-width: 1024px) {
-    .hero-slide-content {
+    .hero-slide-content,
+    .hero-slide-content.align-right {
         flex-direction: column;
         justify-content: center;
         padding: 5% !important;
