@@ -15,7 +15,8 @@ const slides = [
     desc1: 'Memories that are forever',
     desc2: 'Smile for miles',
     link: '/contact',
-    align: 'right'
+    align: 'right',
+    objectPosition: 'center 35%'
   },
   {
     id: 2,
@@ -74,7 +75,7 @@ export default function HeroSlider({ showContactForm = false, leftAlignOnly = fa
               alt={slide.title1} 
               fill 
               priority={index === 0}
-              style={{ objectFit: 'cover', objectPosition: 'center' }} 
+              style={{ objectFit: 'cover', objectPosition: slide.objectPosition || 'center' }} 
             />
             <div className="hero-slide-overlay"></div>
           </div>
