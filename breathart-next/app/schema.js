@@ -6,7 +6,7 @@
 
 const SITE_URL = 'https://breathart.ae';
 const SITE_NAME = 'BreathArt Photography Studio';
-const LOGO_URL = `${SITE_URL}/assets/logo/BreathArt Photography Logo.png`;
+const LOGO_URL = `${SITE_URL}/assets/logo/BreathArt Photography new Logo.png`;
 
 // ── Organization Schema ──
 export function OrganizationSchema() {

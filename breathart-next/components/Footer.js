@@ -8,7 +8,7 @@ export default function Footer() {
           {/* Col 1: Brand & Philosophy */}
           <div className="footer-col brand-col">
             <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', marginBottom: '1.5rem' }}>
-              <img src="/assets/logo/BreathArt Photography Logo.png" alt="BreathArt Photography Logo" style={{ height: '45px', width: 'auto', objectFit: 'contain' }} />
+              <img src="/assets/logo/BreathArt Photography new Logo.png" alt="BreathArt Photography Logo" style={{ height: '45px', width: 'auto', objectFit: 'contain' }} />
             </Link>
             <p className="footer-desc">
               Dubai&apos;s luxury photography studio specializing in cinematic visual legacies. We turn fleeting moments into timeless fine-art treasures.
@@ -110,9 +110,7 @@ export default function Footer() {
           <p style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)' }}>
             Developed by{' '}
             <a 
-              href="https://www.instagram.com/intellex.web" 
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#" 
               style={{ color: 'var(--color-gold)', fontWeight: '600', transition: 'color 0.35s ease' }}
               className="developer-link"
             >

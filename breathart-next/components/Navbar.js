@@ -205,7 +205,7 @@ export default function Navbar() {
       <nav id="navbar" className={navClasses}>
         <div className="nav-container">
           <Link href="/" className="logo" style={{ display: 'flex', alignItems: 'center' }}>
-            <img src="/assets/logo/BreathArt Photography Logo.png" alt="BreathArt Photography Logo" style={{ height: '30px', width: 'auto', objectFit: 'contain' }} />
+            <img src="/assets/logo/BreathArt Photography new Logo.png" alt="BreathArt Photography Logo" style={{ height: '30px', width: 'auto', objectFit: 'contain' }} />
           </Link>
 
           {/* Desktop nav links */}
