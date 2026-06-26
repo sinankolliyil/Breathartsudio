@@ -463,7 +463,7 @@ export default function HomePage() {
           <div className="remaining-services-grid">
             <GalleryItem image="/assets/gallery/event/pexels-miriam-salgado-157461221-10733602_1.webp" alt="Event Photography" title="Event" number="04" onClick={(e) => handleExploreClick(e, 'Event')} buttonText="Explore Session" />
             <GalleryItem image="/assets/gallery/real-estate/0012.webp" alt="Real Estate Photography" title="Real Estate" number="05" onClick={(e) => handleExploreClick(e, 'Real Estate')} buttonText="Explore Session" delay={0.1} />
-            <GalleryItem image="/assets/gallery/family/IMG_9773.webp" alt="Family Photography" title="Family" number="06" onClick={(e) => handleExploreClick(e, 'Family')} buttonText="Explore Session" delay={0.2} wrapperClass="span-2-desktop" />
+            <GalleryItem image="/assets/gallery/family/IMG_9773.webp" alt="Family Photography" title="Family" number="06" onClick={(e) => handleExploreClick(e, 'Family')} buttonText="Explore Session" delay={0.2} wrapperClass="span-2-desktop" objectPosition="center 30%" />
           </div>
         </div>
       </section>
