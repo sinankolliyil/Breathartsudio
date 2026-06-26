@@ -584,6 +584,7 @@ export default function LandingPage() {
             items={filteredImages}
             layout="bento"
             activeFilter={filter}
+            hideText={true}
           />
         </div>
       </section>

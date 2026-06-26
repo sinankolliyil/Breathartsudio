@@ -398,7 +398,7 @@ export default function HomePage() {
             </div>
 
             <div className="featured-cta-container featured-normal-cta">
-              <a href="#gallery" onClick={(e) => handleExploreClick(e, 'All')} className="btn-premium btn-premium-outline">
+              <a href="#showcase-gallery-section" onClick={(e) => handleExploreClick(e, 'Corporate')} className="btn-premium btn-premium-outline">
                 Explore Session <ArrowUpRight size={14} />
               </a>
               <Link href="/contact?interest=corporate" className="btn-premium btn-premium-filled">
@@ -447,7 +447,7 @@ export default function HomePage() {
             <div className="featured-mobile-image-box">
               <img src="/assets/gallery/corporate/pexels-itay-verchik-1150587-16970452.webp" alt="Corporate Photography" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 10%' }} />
               <div className="featured-mobile-cta">
-                <a href="#gallery" onClick={(e) => handleExploreClick(e, 'All')} className="btn-premium btn-premium-outline" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
+                <a href="#showcase-gallery-section" onClick={(e) => handleExploreClick(e, 'Corporate')} className="btn-premium btn-premium-outline" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
                   Explore <ArrowUpRight size={12} />
                 </a>
                 <Link href="/contact?interest=corporate" className="btn-premium btn-premium-filled" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
@@ -662,6 +662,7 @@ export default function HomePage() {
             items={filteredImages}
             layout="bento"
             activeFilter={filter}
+            hideText={true}
           />
         </div>
       </section>

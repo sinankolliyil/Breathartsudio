@@ -3,7 +3,7 @@
 import { useCallback, useRef, useState } from 'react';
 import Image from 'next/image';
 
-export default function HomeLightbox({ sectionId, items, gridCols, layout, activeFilter }) {
+export default function HomeLightbox({ sectionId, items, gridCols, layout, activeFilter, hideText }) {
   const openLightbox = useCallback((index) => {
     const event = new CustomEvent('lightbox-open', {
       detail: {
@@ -145,7 +145,7 @@ export default function HomeLightbox({ sectionId, items, gridCols, layout, activ
                       />
                       <div className="gallery-overlay">
                         <div className="overlay-content">
-                          <h3>{item.title}</h3>
+                          {!hideText && <h3>{item.title}</h3>}
                           <button 
                             className="view-btn" 
                             onMouseDown={(e) => e.stopPropagation()}
@@ -183,7 +183,7 @@ export default function HomeLightbox({ sectionId, items, gridCols, layout, activ
               />
               <div className="gallery-overlay">
                 <div className="overlay-content">
-                  <h3>{item.title}</h3>
+                  {!hideText && <h3>{item.title}</h3>}
                   <button 
                     className="view-btn" 
                     onClick={() => openLightbox(index)}
