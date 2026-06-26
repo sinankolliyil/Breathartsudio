@@ -7,12 +7,12 @@ const defaultSubtitles = {
   'Real Estate': 'CINEMATIC ARCHITECTURE | TWILIGHT DESIGN',
 };
 
-export default function GalleryItem({ image, alt, title, href, number, delay = 0, buttonText = 'View Full', onClick, subtitle, style, wrapperClass = '' }) {
+export default function GalleryItem({ image, alt, title, href, number, delay = 0, buttonText = 'View Full', onClick, subtitle, style, wrapperClass = '', objectPosition }) {
   const displaySubtitle = subtitle || defaultSubtitles[title] || 'PROFESSIONAL PHOTOGRAPHY & DESIGN';
 
   const frameContent = (
     <div className="gallery-frame">
-      <img src={image} alt={alt} loading="lazy" decoding="async" />
+      <img src={image} alt={alt} loading="lazy" decoding="async" style={objectPosition ? { objectPosition } : {}} />
       <div className="gallery-overlay">
         <div className="overlay-content">
           <span className="view-btn">{buttonText}</span>

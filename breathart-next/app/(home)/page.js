@@ -394,7 +394,7 @@ export default function HomePage() {
             </div>
 
             <div className="featured-normal-image">
-              <img src="/assets/gallery/corporate/pexels-cottonbro-6567863.webp" alt="Corporate Photography" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/assets/gallery/corporate/pexels-itay-verchik-1150587-16970452.webp" alt="Corporate Photography" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 10%' }} />
             </div>
 
             <div className="featured-cta-container featured-normal-cta">
@@ -445,7 +445,7 @@ export default function HomePage() {
             </div>
 
             <div className="featured-mobile-image-box">
-              <img src="/assets/gallery/corporate/pexels-cottonbro-6567863.webp" alt="Corporate Photography" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/assets/gallery/corporate/pexels-itay-verchik-1150587-16970452.webp" alt="Corporate Photography" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 10%' }} />
               <div className="featured-mobile-cta">
                 <a href="#gallery" onClick={(e) => handleExploreClick(e, 'All')} className="btn-premium btn-premium-outline" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
                   Explore <ArrowUpRight size={12} />
