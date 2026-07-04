@@ -11,6 +11,40 @@ import PopupForm from '../../components/PopupForm';
 import HeroSlider from '../(home)/components/HeroSlider';
 import ImgStack from '../../components/ImgStack';
 
+const ServiceAutoSlider = ({ images }) => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (!images || images.length <= 1) return;
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, [images]);
+
+  if (!images || images.length === 0) return null;
+
+  return (
+    <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', overflow: 'hidden' }}>
+      <AnimatePresence mode="popLayout">
+        <motion.img
+          key={index}
+          src={images[index]}
+          alt="Service preview"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+          className="detail-img"
+          loading="lazy"
+          decoding="async"
+          style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', top: 0, left: 0 }}
+        />
+      </AnimatePresence>
+    </div>
+  );
+};
+
 const allShowcaseImages = [
   // Newborn
   { src: '/assets/gallery/newborn/A98C22F0-2F0E-4A32-B285-1E23FB0AD1E3.webp', alt: 'Newborn 1', title: 'Pure Innocence', category: 'Newborn' },
@@ -82,7 +116,12 @@ const SERVICES = [
     title: 'Photography',
     icon: <Camera size={24} />,
     desc: 'Curating exceptional stills that tell stories, capture emotions, and establish visual legacies. From premium family portraiture to luxury weddings.',
-    image: '/assets/services/service_family_lifestyle.png',
+    image: '/assets/services/service_family_lifestyle_new.jpg',
+    images: [
+      '/assets/services/service_family_lifestyle_new.jpg',
+      '/assets/gallery/newborn/BK-108_LORRIE_890_.jpg.webp',
+      '/assets/gallery/wedding/pexels-ahmetcotur-29560843.webp'
+    ],
     packages: ['Newborn', 'Family & Lifestyle', 'Wedding & Romance', 'Corporate Branding', 'Creative & Concept']
   },
   {
@@ -90,7 +129,12 @@ const SERVICES = [
     title: 'Videography',
     icon: <Film size={24} />,
     desc: 'Transforming moments into moving pieces of art with state-of-the-art cinematic vision, high-definition storytelling, and premium editing.',
-    image: '/assets/services/service_video_wedding.png',
+    image: '/assets/gallery/wedding/pexels-abdallah-mahmoud-2153337567-32671354.webp',
+    images: [
+      '/assets/gallery/wedding/pexels-abdallah-mahmoud-2153337567-32671354.webp',
+      '/assets/gallery/wedding/pexels-habib-hosseini-3673463.webp',
+      '/assets/gallery/event/pexels-panditwiguna-2788487.webp'
+    ],
     packages: ['Wedding Films', 'Romance Trailers', 'Corporate Promos', 'Social Reels']
   },
   {
@@ -99,6 +143,11 @@ const SERVICES = [
     icon: <Camera size={24} />,
     desc: 'Comprehensive visual records for grand events, private celebrations, luxury galas, and social anniversaries with cohesive, luxurious aesthetics.',
     image: '/assets/services/service_event.png',
+    images: [
+      '/assets/gallery/event/pexels-b_s-media-production-568838161-34171711.webp',
+      '/assets/gallery/event/pexels-caleboquendo-11329860.webp',
+      '/assets/gallery/event/pexels-miriam-salgado-157461221-10733602_1.webp'
+    ],
     packages: ['Private Celebrations', 'Luxury Galas', 'Social Anniversaries', 'Corporate Meetings']
   }
 ];
@@ -313,8 +362,12 @@ export default function LandingPage() {
                           className="detail-card"
                           style={{ marginTop: '1rem', marginBottom: '1rem' }}
                         >
-                          <div className="detail-img-wrapper">
-                            <img src={srv.image} alt={srv.title} className="detail-img" loading="lazy" decoding="async" />
+                          <div className="detail-img-wrapper" style={{ position: 'relative' }}>
+                            {srv.images ? (
+                              <ServiceAutoSlider images={srv.images} />
+                            ) : (
+                              <img src={srv.image} alt={srv.title} className="detail-img" loading="lazy" decoding="async" />
+                            )}
                             <div className="detail-icon">{srv.icon}</div>
                           </div>
                           <div className="detail-content">
@@ -330,7 +383,7 @@ export default function LandingPage() {
                                 >
                                   <Check size={14} className="icon-gold" />
                                   <span style={{ marginLeft: '0.75rem' }}>{pkg}</span>
-                                  <span className="package-get-pricing" style={{ fontSize: '0.65rem', color: 'var(--color-gold)', marginLeft: 'auto', border: '1px solid rgba(158,112,96,0.3)', padding: '0.15rem 0.5rem', borderRadius: '50px' }}>
+                                  <span className="interactive-package-get-pricing">
                                     Get Pricing
                                   </span>
                                 </li>
@@ -361,8 +414,12 @@ export default function LandingPage() {
                   transition={{ duration: 0.3 }}
                   className="detail-card"
                 >
-                  <div className="detail-img-wrapper">
-                    <img src={activeService.image} alt={activeService.title} className="detail-img" loading="lazy" decoding="async" />
+                  <div className="detail-img-wrapper" style={{ position: 'relative' }}>
+                    {activeService.images ? (
+                      <ServiceAutoSlider images={activeService.images} />
+                    ) : (
+                      <img src={activeService.image} alt={activeService.title} className="detail-img" loading="lazy" decoding="async" />
+                    )}
                     <div className="detail-icon">{activeService.icon}</div>
                   </div>
                   <div className="detail-content">
@@ -378,7 +435,7 @@ export default function LandingPage() {
                         >
                           <Check size={14} className="icon-gold" />
                           <span style={{ marginLeft: '0.75rem' }}>{pkg}</span>
-                          <span className="package-get-pricing" style={{ fontSize: '0.65rem', color: 'var(--color-gold)', marginLeft: 'auto', border: '1px solid rgba(158,112,96,0.3)', padding: '0.15rem 0.5rem', borderRadius: '50px' }}>
+                          <span className="interactive-package-get-pricing">
                             Get Pricing
                           </span>
                         </li>
