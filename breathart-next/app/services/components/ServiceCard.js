@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function ServiceCard({ id, number, title, image, alt, description, ctaHref, delay = 0, index, objectPosition }) {
   // Extract tag from number and title
@@ -21,7 +22,7 @@ export default function ServiceCard({ id, number, title, image, alt, description
         <div className="card-image-wrapper">
           {showDecor && <div className="card-bg-decor"></div>}
           <div className="card-image-box">
-            <img src={image} alt={alt} loading="lazy" decoding="async" style={{ objectPosition: objectPosition || 'center' }} />
+            <Image src={image} alt={alt} fill sizes="(max-width: 768px) 100vw, 50vw" loading="lazy" style={{ objectFit: 'cover', objectPosition: objectPosition || 'center' }} />
             <div className="card-arrow-btn">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
             </div>

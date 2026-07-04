@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 
 const leftColumnSections = [
@@ -252,12 +253,13 @@ export default function EventsByBreathArtPage() {
                       border: '1px solid rgba(158, 112, 96, 0.15)',
                       overflow: 'hidden'
                     }}>
-                      <img 
+                      <Image 
                         src={sect.image} 
                         alt={sect.title} 
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
                         loading="lazy"
-                        decoding="async"
-                        style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                        style={{ objectFit: 'cover' }} 
                       />
                       
                       {/* Link/Arrow Icon box overlay in corner */}
@@ -354,12 +356,13 @@ export default function EventsByBreathArtPage() {
                       border: '1px solid rgba(158, 112, 96, 0.15)',
                       overflow: 'hidden'
                     }}>
-                      <img 
+                      <Image 
                         src={sect.image} 
                         alt={sect.title} 
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
                         loading="lazy"
-                        decoding="async"
-                        style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                        style={{ objectFit: 'cover' }} 
                       />
                       
                       {/* Link/Arrow Icon box overlay in corner */}

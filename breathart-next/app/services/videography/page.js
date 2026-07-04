@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const categories = [
   {
@@ -302,14 +303,13 @@ export default function VideographyPage() {
                     }}
                     className="service-image-box-astudio"
                   >
-                    <img 
+                    <Image 
                       src={cat.image} 
                       alt={cat.title} 
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
                       loading="lazy"
-                      decoding="async"
                       style={{
-                        width: '100%',
-                        height: '100%',
                         objectFit: 'cover',
                         transition: 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)'
                       }}
