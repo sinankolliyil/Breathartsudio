@@ -144,61 +144,34 @@ export default function LandingPage() {
     : allShowcaseImages.filter(img => img.category === filter);
 
   const renderOfferCard = (offer, i) => (
-    <div
-      key={i}
-      className="landing-offer-card"
-      style={{
-        background: 'var(--color-shade-2)',
-        border: '1px solid rgba(158, 112, 96, 0.18)',
-        borderRadius: '10px',
-        padding: '2rem',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '1rem',
-        transition: 'transform 0.25s ease, box-shadow 0.25s ease'
-      }}
-    >
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <div
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '0.4rem',
-            background: 'rgba(158,112,96,0.15)',
-            color: 'var(--color-gold)',
-            padding: '0.3rem 0.8rem',
-            fontSize: '0.58rem',
-            fontWeight: '700',
-            letterSpacing: '1px',
-            borderRadius: '50px',
-            textTransform: 'uppercase',
-            border: '1px solid rgba(158,112,96,0.25)'
-          }}
-        >
+    <div key={i} className="hero-offer-banner" style={{ marginTop: '2rem' }}>
+      <div className="hero-offer-content">
+        <div className="hero-offer-badge">
           {offer.badgeIcon}
           {offer.badge}
         </div>
-        <span style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--color-gold)', lineHeight: 1 }}>
-          {offer.promo}
-        </span>
-      </div>
-
-      <div>
-        <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', color: 'var(--color-white)', marginBottom: '0.5rem' }}>
+        <h2 className="section-title hero-offer-title">
           {offer.title}
-        </h3>
-        <p style={{ color: 'var(--color-text-muted)', fontSize: '0.8rem', lineHeight: '1.65', margin: 0 }}>
+        </h2>
+        <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', lineHeight: '1.7', margin: 0 }}>
           {offer.desc}
         </p>
       </div>
 
-      <button
-        onClick={() => openPopupContact(offer.interest, `I'd like to claim the offer: "${offer.title}" (${offer.promo}).`)}
-        className="noha-btn-outline"
-        style={{ marginTop: 'auto', textAlign: 'center', border: '1px solid rgba(158,112,96,0.4)', cursor: 'pointer', fontSize: '0.7rem', letterSpacing: '1px' }}
-      >
-        {offer.ctaText} <ArrowRight size={13} />
-      </button>
+      <div className="hero-offer-pricing">
+        <div style={{ fontSize: '0.75rem', letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--color-gold)', marginBottom: '0.5rem' }}>
+          Promo Investment
+        </div>
+        <div style={{ fontSize: '2.5rem', fontWeight: '800', color: 'var(--color-white)', marginBottom: '1.5rem' }}>
+          {offer.promo}
+        </div>
+        <button
+          onClick={() => openPopupContact(offer.interest, `I'd like to claim the offer: "${offer.title}" (${offer.promo}).`)}
+          className="noha-btn-primary full-width"
+        >
+          {offer.ctaText}
+        </button>
+      </div>
     </div>
   );
 
@@ -425,7 +398,7 @@ export default function LandingPage() {
           </div>
 
           {/* ── SECONDARY OFFER CARDS ── */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '1.5rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginBottom: '1.5rem' }}>
             {SECONDARY_OFFERS.map((offer, i) => renderOfferCard(offer, i))}
           </div>
         </div>
