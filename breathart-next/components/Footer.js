@@ -57,6 +57,9 @@ export default function Footer() {
               <li>
                 <Link href="/privacy-policy">Privacy Policy</Link>
               </li>
+              <li>
+                <Link href="/terms-and-conditions">Terms & Conditions</Link>
+              </li>
             </ul>
           </div>
 
@@ -83,10 +86,10 @@ export default function Footer() {
               <a href="https://wa.me/971526400679" target="_blank" rel="noopener noreferrer" className="whatsapp">
                 <i className="fab fa-whatsapp"></i>
               </a>
-              <a href="#" className="instagram">
+              <a href="https://www.instagram.com/breathart.photography" target="_blank" rel="noopener noreferrer" className="instagram">
                 <i className="fab fa-instagram"></i>
               </a>
-              <a href="#" className="facebook">
+              <a href="https://www.facebook.com/share/193V3fhepb/" target="_blank" rel="noopener noreferrer" className="facebook">
                 <i className="fab fa-facebook-f"></i>
               </a>
             </div>
@@ -110,7 +113,9 @@ export default function Footer() {
           <p style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)' }}>
             Developed by{' '}
             <a 
-              href="#" 
+              href="https://www.instagram.com/intellex.web" 
+              target="_blank" 
+              rel="noopener noreferrer"
               style={{ color: 'var(--color-gold)', fontWeight: '600', transition: 'color 0.35s ease' }}
               className="developer-link"
             >

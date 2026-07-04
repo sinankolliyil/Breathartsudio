@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useState, useEffect, Suspense, useId } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { Send } from 'lucide-react';
 
 function ContactFormInner({ 
@@ -13,6 +13,8 @@ function ContactFormInner({
   theme = "cinematic" // "cinematic" (home/contact form style) or "landing" (landing/offers form style)
 }) {
   const searchParams = useSearchParams();
+  const router = useRouter();
+  const formId = useId();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -104,6 +106,7 @@ ${showPackageField && formData.package ? `*Selected Package:* ${formData.package
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/971526400679?text=${encodedText}`, '_blank');
     setIsSubmitted(true);
+    router.push('/thank-you');
   };
 
   const handleReset = () => {
@@ -117,34 +120,6 @@ ${showPackageField && formData.package ? `*Selected Package:* ${formData.package
     });
     setIsSubmitted(false);
   };
-
-  if (isSubmitted) {
-    if (theme === 'landing') {
-      return (
-        <div className="noha-form text-center" style={{ textAlign: 'center', padding: '3rem 1.5rem', background: 'var(--color-shade-2)', borderRadius: '8px', border: '1px solid rgba(158, 112, 96, 0.15)' }}>
-          <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-white)', fontSize: '1.8rem', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '1px' }}>Submitted</h3>
-          <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', marginBottom: '2rem', lineHeight: '1.6' }}>
-            Thank you! Your inquiry details have been opened in WhatsApp.
-          </p>
-          <button onClick={handleReset} className="noha-btn-primary" style={{ cursor: 'pointer', padding: '1rem 3rem', border: 'none' }}>
-            Submit Again
-          </button>
-        </div>
-      );
-    }
-
-    return (
-      <div style={{ textAlign: 'center', padding: '4rem 2rem', border: '1px solid rgba(158, 112, 96, 0.2)', borderRadius: '0px', background: 'transparent' }}>
-        <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-white)', fontSize: '2rem', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '2px' }}>Submitted</h3>
-        <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', marginBottom: '2.5rem', lineHeight: '1.6' }}>
-          Your details have been prepared. Click below if you need to submit another request.
-        </p>
-        <button onClick={handleReset} className="btn btn-gold" style={{ cursor: 'pointer', padding: '1rem 3rem', border: 'none', textTransform: 'uppercase', letterSpacing: '2px' }}>
-          Submit Again
-        </button>
-      </div>
-    );
-  }
 
   // ── Theme A: Landing & Offers Form (Boxed fields, no card bg modifications) ──
   if (theme === 'landing') {
@@ -233,6 +208,13 @@ ${showPackageField && formData.package ? `*Selected Package:* ${formData.package
             placeholder="Tell us more about your vision..."
             required
           ></textarea>
+        </div>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.5rem' }}>
+          <input type="checkbox" id={`terms-${formId}`} required style={{ width: 'auto', cursor: 'pointer', margin: 0 }} />
+          <label htmlFor={`terms-${formId}`} style={{ fontSize: '0.7rem', color: 'var(--color-white)', cursor: 'pointer', margin: 0 }}>
+            I accept the <a href="/terms-and-conditions" target="_blank" style={{ color: 'var(--color-gold)', textDecoration: 'underline' }}>Terms and Conditions</a> and <a href="/privacy-policy" target="_blank" style={{ color: 'var(--color-gold)', textDecoration: 'underline' }}>Privacy Policy</a>
+          </label>
         </div>
 
         <button type="submit" className="noha-btn-primary full-width" style={{ cursor: 'pointer' }}>
@@ -358,7 +340,7 @@ ${showPackageField && formData.package ? `*Selected Package:* ${formData.package
         </div>
       )}
 
-      <div className="form-group" style={{ marginBottom: '3rem' }}>
+      <div className="form-group" style={{ marginBottom: '2rem' }}>
         <label className="cinematic-title" style={labelStyle}>
           Vision Details
         </label>
@@ -374,6 +356,13 @@ ${showPackageField && formData.package ? `*Selected Package:* ${formData.package
             resize: 'none',
           }}
         ></textarea>
+      </div>
+
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '2rem' }}>
+        <input type="checkbox" id={`terms-${formId}`} required style={{ width: 'auto', cursor: 'pointer', margin: 0 }} />
+        <label htmlFor={`terms-${formId}`} style={{ fontSize: '0.7rem', color: 'var(--color-white)', cursor: 'pointer', margin: 0, textAlign: 'left' }}>
+          I accept the <a href="/terms-and-conditions" target="_blank" style={{ color: 'var(--color-gold)', textDecoration: 'underline' }}>Terms and Conditions</a> and <a href="/privacy-policy" target="_blank" style={{ color: 'var(--color-gold)', textDecoration: 'underline' }}>Privacy Policy</a>
+        </label>
       </div>
 
       <div style={{ textAlign: 'center' }}>

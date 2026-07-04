@@ -325,10 +325,10 @@ export default function Navbar() {
                   <a href="https://wa.me/971526400679" target="_blank" rel="noopener noreferrer" className="curved-menu-social-icon">
                     <i className="fab fa-whatsapp" style={{ fontSize: '24px' }}></i>
                   </a>
-                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="curved-menu-social-icon">
+                  <a href="https://www.facebook.com/share/193V3fhepb/" target="_blank" rel="noopener noreferrer" className="curved-menu-social-icon">
                     <i className="fab fa-facebook-f" style={{ fontSize: '24px' }}></i>
                   </a>
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="curved-menu-social-icon">
+                  <a href="https://www.instagram.com/breathart.photography" target="_blank" rel="noopener noreferrer" className="curved-menu-social-icon">
                     <i className="fab fa-instagram" style={{ fontSize: '24px' }}></i>
                   </a>
                 </div>
