@@ -489,14 +489,14 @@ export default function OffersPage() {
               <div className="popup-content" style={{ marginTop: '1rem' }}>
                 <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
                   <span className="cinematic-title" style={{ color: 'var(--color-gold)', display: 'block', marginBottom: '0.5rem' }}>Claim Your Offer</span>
-                  <h2 className="section-title" style={{ fontSize: '1.8rem', marginBottom: '0.5rem' }}>Initiate Your Booking</h2>
-                  <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem' }}>
+                  <h2 className="section-title" style={{ fontSize: '1.8rem', marginBottom: '0.5rem', color: '#FFFFFF' }}>Initiate Your Booking</h2>
+                  <p style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.85rem' }}>
                     Complete the details below to lock in your special offer pricing.
                   </p>
                 </div>
                 <div className="form-card" style={{ padding: '0', background: 'transparent', border: 'none', boxShadow: 'none' }}>
                   <ContactForm
-                    theme="landing"
+                    theme="cinematic"
                     initialService={formData.service}
                     initialPackage={formData.package}
                     initialMessage={formData.message}

@@ -342,7 +342,7 @@ ${showPackageField && formData.package ? `*Selected Package:* ${formData.package
 
       <div className="form-group" style={{ marginBottom: '2rem' }}>
         <label className="cinematic-title" style={labelStyle}>
-          Vision Details
+          Additional Details
         </label>
         <textarea
           name="message"

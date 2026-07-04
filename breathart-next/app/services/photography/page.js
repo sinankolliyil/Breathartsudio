@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import ServiceHeroBackground from '../../../components/ServiceHeroBackground';
 
 const categories = [
   {
@@ -88,15 +89,13 @@ export default function PhotographyPage() {
     <>
       {/* Page Title & Intro Section */}
       <section className="section" style={{ 
+        position: 'relative',
         paddingTop: '280px', 
         paddingBottom: '6rem',
-        minHeight: '100vh',
-        backgroundImage: 'url("/assets/hero/2_optimized.webp")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+        minHeight: '100vh'
       }}>
-        <div className="container">
+        <ServiceHeroBackground />
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="project-header" style={{ width: '100%', marginBottom: '4rem' }}>
             <span className="cinematic-title" style={{ color: '#FFFFFF', letterSpacing: '4px', fontSize: '0.75rem', display: 'block', marginBottom: '1rem' }}>
               Fine-Art Studio

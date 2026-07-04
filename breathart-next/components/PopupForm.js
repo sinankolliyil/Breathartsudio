@@ -42,9 +42,9 @@ export default function PopupForm({ repeatDelay = 60000 }) {
             </button>
             
             <div className="popup-content">
-              <h3 className="popup-title">Let's craft your narrative.</h3>
-              <p className="popup-subtitle">Get in touch with us to secure your session.</p>
-              <ContactForm theme="landing" showPackageField={false} />
+              <h3 className="popup-title" style={{ color: '#FFFFFF' }}>Let's craft your narrative.</h3>
+              <p className="popup-subtitle" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Get in touch with us to secure your session.</p>
+              <ContactForm theme="cinematic" showPackageField={false} />
             </div>
           </motion.div>
         </div>
