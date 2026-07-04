@@ -9,6 +9,7 @@ import Lightbox from '../(home)/components/Lightbox';
 import ContactForm from '../../components/ContactForm';
 import PopupForm from '../../components/PopupForm';
 import HeroSlider from '../(home)/components/HeroSlider';
+import ImgStack from '../../components/ImgStack';
 
 const allShowcaseImages = [
   // Newborn
@@ -102,53 +103,16 @@ const SERVICES = [
   }
 ];
 
-// 3 smaller secondary offers shown below the hero offer
 const SECONDARY_OFFERS = [
   {
     badgeIcon: <Zap size={11} />,
-    badge: 'Limited Time',
-    title: 'Couple & Romance Sessions',
-    desc: 'Cinematic couple sessions at premium locations. Indoor & outdoor settings, creative direction, full editing included.',
-    promo: '30% OFF',
-    interest: 'Videography',
-    ctaText: 'Claim Your Offer Now',
-  },
-  {
-    badgeIcon: <Star size={11} />,
-    badge: 'Exclusive Deal',
-    title: 'Event Full-Day Coverage',
-    desc: 'Dual-camera full-day coverage. 100+ edited photos + cinematic highlight video — all at a special bundled price.',
-    promo: '25% OFF',
-    interest: 'Event',
-    ctaText: 'Claim Your Offer Now',
-  },
-  {
-    badgeIcon: <Gift size={11} />,
-    badge: 'Birthday Special',
-    title: 'Cake Smash Celebration',
-    desc: "Fun styled themes, professionally lit setups, unlimited raw shots and a fully-edited gallery delivered within 5 days.",
-    promo: '20% OFF',
+    badge: 'Exclusive Summer Deal',
+    title: 'The Great Summer Offer',
+    desc: "Don't miss out on our limited-time summer deal! Get 30% to 50% off on all our premium photography and videography sessions. Valid only on this page.",
+    promo: '30-50% OFF',
     interest: 'Photography',
     ctaText: 'Claim Your Offer Now',
-  },
-  {
-    badgeIcon: <Star size={11} />,
-    badge: 'Premium Package',
-    title: 'Luxury Wedding Photography',
-    desc: 'Capture your special day with our elite wedding photography package. Includes two photographers, full-day coverage, and a luxury printed album.',
-    promo: '15% OFF',
-    interest: 'Wedding',
-    ctaText: 'Claim Your Offer Now',
-  },
-  {
-    badgeIcon: <Zap size={11} />,
-    badge: 'Business Special',
-    title: 'Corporate Branding Session',
-    desc: 'Elevate your brand with professional corporate headshots and workspace photography. Perfect for websites and marketing materials.',
-    promo: '20% OFF',
-    interest: 'Corporate',
-    ctaText: 'Claim Your Offer Now',
-  },
+  }
 ];
 
 const PORTFOLIO = [
@@ -229,7 +193,7 @@ export default function LandingPage() {
       </div>
 
       <button
-        onClick={() => scrollToContact(offer.interest, `I'd like to claim the offer: "${offer.title}" (${offer.promo}).`)}
+        onClick={() => openPopupContact(offer.interest, `I'd like to claim the offer: "${offer.title}" (${offer.promo}).`)}
         className="noha-btn-outline"
         style={{ marginTop: 'auto', textAlign: 'center', border: '1px solid rgba(158,112,96,0.4)', cursor: 'pointer', fontSize: '0.7rem', letterSpacing: '1px' }}
       >
@@ -244,6 +208,14 @@ export default function LandingPage() {
     setTimeout(() => {
       contactRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 80);
+  };
+
+  const openPopupContact = (service, msg) => {
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('openPopupForm', {
+        detail: { service, message: msg }
+      }));
+    }
   };
 
   return (
@@ -444,7 +416,7 @@ export default function LandingPage() {
                 50% OFF
               </div>
               <button
-                onClick={() => scrollToContact('Photography', "I'd like to claim the 50% Off Newborn Photography Promo.")}
+                onClick={() => openPopupContact('Photography', "I'd like to claim the 50% Off Newborn Photography Promo.")}
                 className="noha-btn-primary full-width"
               >
                 Claim Your Offer Now
@@ -452,20 +424,19 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* ── 3 SECONDARY OFFER CARDS ── */}
+          {/* ── SECONDARY OFFER CARDS ── */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '1.5rem' }}>
-            {SECONDARY_OFFERS.slice(0, 3).map((offer, i) => renderOfferCard(offer, i))}
-          </div>
-          
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
-            {SECONDARY_OFFERS.slice(3, 5).map((offer, i) => renderOfferCard(offer, i + 3))}
+            {SECONDARY_OFFERS.map((offer, i) => renderOfferCard(offer, i))}
           </div>
         </div>
       </section>
 
       {/* ── INLINE CONTACT FORM (After Offers) ── */}
       <section className="noha-section" style={{ paddingTop: 0, paddingBottom: '5rem' }}>
-        <div className="noha-container" style={{ display: 'flex', justifyContent: 'center' }}>
+        <div className="noha-container grid-2" style={{ alignItems: 'center', gap: '4rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <ImgStack images={mixedImages.slice(0, 5).map(img => img.src)} />
+          </div>
           <div style={{ background: 'var(--color-shade-2)', padding: '3rem 2.5rem', borderRadius: '12px', border: '1px solid rgba(158, 112, 96, 0.15)', boxShadow: '0 20px 40px rgba(43, 27, 20, 0.05)', width: '100%' }}>
             <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.8rem', marginBottom: '0.5rem', color: 'var(--color-white)', textAlign: 'center' }}>Secure Your Session</h3>
             <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', marginBottom: '2rem', textAlign: 'center' }}>Fill in the details below to claim your offer.</p>

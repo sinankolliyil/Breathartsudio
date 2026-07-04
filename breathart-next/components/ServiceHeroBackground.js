@@ -11,25 +11,30 @@ const defaultImages = [
 export default function ServiceHeroBackground() {
   const [images, setImages] = useState(defaultImages);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isMounted, setIsMounted] = useState(false);
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
 
   useEffect(() => {
     // Shuffle images on client side after hydration
     const shuffled = [...defaultImages].sort(() => Math.random() - 0.5);
     setImages(shuffled);
-    setIsMounted(true);
+    
+    // allow a short time for the DOM to update with transition: none,
+    // then enable transitions for subsequent slider intervals
+    const initialTimer = setTimeout(() => {
+      setIsInitialLoad(false);
+    }, 100);
+    
+    return () => clearTimeout(initialTimer);
   }, []);
 
   useEffect(() => {
-    if (!isMounted) return;
-    
     // 6000ms to match the home page hero slider speed
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % images.length);
     }, 6000);
     
     return () => clearInterval(timer);
-  }, [isMounted, images.length]);
+  }, [images.length]);
 
   return (
     <div style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden' }}>
@@ -44,7 +49,7 @@ export default function ServiceHeroBackground() {
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
             opacity: index === currentSlide ? 1 : 0,
-            transition: 'opacity 1.5s ease-in-out'
+            transition: isInitialLoad ? 'none' : 'opacity 1.5s ease-in-out'
           }}
         />
       ))}

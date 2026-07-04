@@ -7,6 +7,8 @@ import ContactForm from './ContactForm';
 
 export default function PopupForm({ repeatDelay = 60000 }) {
   const [isVisible, setIsVisible] = useState(false);
+  const [prefilledService, setPrefilledService] = useState('');
+  const [prefilledMessage, setPrefilledMessage] = useState('');
 
   useEffect(() => {
     // Show initially after 4 seconds
@@ -14,7 +16,20 @@ export default function PopupForm({ repeatDelay = 60000 }) {
       setIsVisible(true);
     }, 4000);
 
-    return () => clearTimeout(initialTimer);
+    const handleOpenPopup = (e) => {
+      if (e && e.detail) {
+        setPrefilledService(e.detail.service || '');
+        setPrefilledMessage(e.detail.message || '');
+      }
+      setIsVisible(true);
+    };
+
+    window.addEventListener('openPopupForm', handleOpenPopup);
+
+    return () => {
+      clearTimeout(initialTimer);
+      window.removeEventListener('openPopupForm', handleOpenPopup);
+    };
   }, []);
 
   const handleClose = () => {
@@ -44,7 +59,12 @@ export default function PopupForm({ repeatDelay = 60000 }) {
             <div className="popup-content">
               <h3 className="popup-title" style={{ color: '#FFFFFF' }}>Let's craft your narrative.</h3>
               <p className="popup-subtitle" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Get in touch with us to secure your session.</p>
-              <ContactForm theme="cinematic" showPackageField={false} />
+              <ContactForm 
+                theme="cinematic" 
+                showPackageField={false} 
+                initialService={prefilledService} 
+                initialMessage={prefilledMessage} 
+              />
             </div>
           </motion.div>
         </div>
