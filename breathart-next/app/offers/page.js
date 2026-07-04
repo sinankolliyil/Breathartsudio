@@ -293,13 +293,15 @@ export default function OffersPage() {
               <div style={{ fontSize: '2.5rem', fontWeight: '800', color: 'var(--color-white)', marginBottom: '1.5rem' }}>
                 50% OFF
               </div>
-              <button 
+              <motion.button 
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 onClick={() => selectOffer('newborn', '50% Newborn Special Offer', "I'd like to claim the 50% Off Newborn Photography Promo.")}
                 className="btn btn-gold" 
-                style={{ width: '100%', textAlign: 'center', padding: '1rem', border: 'none', cursor: 'pointer' }}
+                style={{ width: '100%', textAlign: 'center', padding: '1rem', cursor: 'pointer' }}
               >
                 Claim Offer Now
-              </button>
+              </motion.button>
             </div>
           </div>
         </div>
@@ -322,8 +324,10 @@ export default function OffersPage() {
             {Object.keys(categories).map((tabName) => {
               const active = activeTab === tabName;
               return (
-                <button
+                <motion.button
                   key={tabName}
+                  whileHover={{ scale: 1.05, backgroundColor: active ? 'var(--color-gold)' : 'rgba(158, 112, 96, 0.1)' }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={() => setActiveTab(tabName)}
                   style={{
                     background: active ? 'var(--color-gold)' : 'transparent',
@@ -336,12 +340,12 @@ export default function OffersPage() {
                     letterSpacing: '1px',
                     textTransform: 'uppercase',
                     cursor: 'pointer',
-                    transition: 'all 0.3s ease'
+                    transition: 'color 0.3s ease, border 0.3s ease'
                   }}
                 >
                   <i className={`${categories[tabName].icon} mr-2`} style={{ marginRight: '8px' }}></i>
                   {tabName === 'CakeSmash' ? 'Cake Smash' : tabName}
-                </button>
+                </motion.button>
               );
             })}
           </div>
@@ -410,13 +414,15 @@ export default function OffersPage() {
                       </ul>
                     </div>
 
-                    <button 
+                    <motion.button 
+                      whileHover={{ scale: 1.03, backgroundColor: 'rgba(212, 175, 55, 0.1)' }}
+                      whileTap={{ scale: 0.97 }}
                       onClick={() => selectOffer(activeTab.toLowerCase(), pkg.name, `I'm interested in the "${pkg.name}" tier of the ${activeTab} series.`)}
                       className="btn btn-outline"
-                      style={{ width: '100%', textAlign: 'center', padding: '0.9rem 0', fontSize: '0.7rem', letterSpacing: '2px', border: '1px solid var(--color-gold)', background: 'transparent', cursor: 'pointer' }}
+                      style={{ width: '100%', textAlign: 'center', padding: '0.9rem 0', fontSize: '0.7rem', letterSpacing: '2px', cursor: 'pointer' }}
                     >
                       Request Pricing &amp; Details
-                    </button>
+                    </motion.button>
                   </div>
                 ))}
               </div>
@@ -436,21 +442,23 @@ export default function OffersPage() {
               Have specific ideas or need a custom package? Get in touch with our creative director directly.
             </p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
-              <a href="tel:+971526400679" className="btn btn-gold" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.75rem', padding: '1rem 3rem' }}>
+              <motion.a whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} href="tel:+971526400679" className="btn btn-gold" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.75rem', padding: '1rem 3rem' }}>
                 <Phone size={14} />
                 Call +971 52 640 0679
-              </a>
-              <a href="tel:+971522150837" className="btn btn-gold" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.75rem', padding: '1rem 3rem' }}>
+              </motion.a>
+              <motion.a whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} href="tel:+971522150837" className="btn btn-gold" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.75rem', padding: '1rem 3rem' }}>
                 <Phone size={14} />
                 Call +971 52 215 0837
-              </a>
-              <button 
+              </motion.a>
+              <motion.button 
+                whileHover={{ scale: 1.05, backgroundColor: 'rgba(212, 175, 55, 0.1)' }}
+                whileTap={{ scale: 0.95 }}
                 onClick={() => selectOffer('', '', "I'd like to get in touch for custom pricing or a tailored session.")}
                 className="btn btn-outline" 
-                style={{ padding: '1rem 3rem', background: 'transparent', cursor: 'pointer', border: '1px solid var(--color-white)' }}
+                style={{ padding: '1rem 3rem', cursor: 'pointer' }}
               >
                 Send Detailed Request
-              </button>
+              </motion.button>
             </div>
           </div>
 

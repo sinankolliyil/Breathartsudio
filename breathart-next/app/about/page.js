@@ -125,7 +125,7 @@ export default function AboutPage() {
       </section>
 
       {/* Why Choose Us Section Header */}
-      <section className="section" style={{ padding: '2rem 0 0 0' }}>
+      <section className="section" style={{ padding: '2rem 0 3rem 0' }}>
         <div className="container text-center" style={{ textAlign: 'center' }}>
           <span className="cinematic-title" style={{ color: 'var(--color-gold)' }}>The Standard</span>
           <h2 className="section-title" style={{ fontSize: '2.5rem', marginBottom: '0' }}>Why Choose BreathArt</h2>

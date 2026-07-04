@@ -68,6 +68,12 @@ h1, h2, h3, h4, h5, h6,
     line-height: 1.15;
 }
 
+/* --- GLOBAL CLICK EFFECT FOR ALL BUTTONS --- */
+.btn:active, button:active, .btn-gold:active, .btn-outline:active {
+    transform: scale(0.96) !important;
+    transition: transform 0.1s ease !important;
+}
+
 /* --- PREMIUM WHITE GEOMETRIC BACKGROUND WITH STANDARD SHADES --- */
 .global-bg {
     position: fixed;
