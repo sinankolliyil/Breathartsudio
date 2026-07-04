@@ -199,7 +199,7 @@ export default function LandingPage() {
       <HeroSlider showContactForm={true} leftAlignOnly={true} />
 
       {/* ── PHILOSOPHY ── */}
-      <section id="about" className="noha-section noha-about">
+      <section id="about" className="noha-section noha-about" style={{ paddingTop: '3rem', paddingBottom: '2rem' }}>
         <div className="noha-container about-grid">
           <div className="about-text landing-about-reveal">
             <span className="section-label">Our Philosophy</span>
@@ -230,7 +230,7 @@ export default function LandingPage() {
         <div className="noha-container">
           <div className="section-header-center">
             <span className="section-label">Our Expertise</span>
-            <h2 className="section-heading">Curated Services</h2>
+            <h2 className="section-heading">Best Photography Service in UAE</h2>
           </div>
 
           <div className="services-split">
@@ -279,7 +279,7 @@ export default function LandingPage() {
                                   key={idx}
                                   className="interactive-package-item"
                                   style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
-                                  onClick={() => scrollToContact(srv.title, `I'm interested in "${pkg}" — ${srv.title}.`)}
+                                  onClick={() => openPopupContact(srv.title, `I'm interested in "${pkg}" — ${srv.title}.`)}
                                 >
                                   <Check size={14} className="icon-gold" />
                                   <span style={{ marginLeft: '0.75rem' }}>{pkg}</span>
@@ -290,7 +290,7 @@ export default function LandingPage() {
                               ))}
                             </ul>
                             <button
-                              onClick={() => scrollToContact(srv.title, `I'd like to enquire about ${srv.title} services.`)}
+                              onClick={() => openPopupContact(srv.title, `I'd like to enquire about ${srv.title} services.`)}
                               className="noha-btn-outline"
                             >
                               Request Pricing
@@ -327,7 +327,7 @@ export default function LandingPage() {
                           key={idx}
                           className="interactive-package-item"
                           style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
-                          onClick={() => scrollToContact(activeService.title, `I'm interested in "${pkg}" — ${activeService.title}.`)}
+                          onClick={() => openPopupContact(activeService.title, `I'm interested in "${pkg}" — ${activeService.title}.`)}
                         >
                           <Check size={14} className="icon-gold" />
                           <span style={{ marginLeft: '0.75rem' }}>{pkg}</span>
@@ -338,7 +338,7 @@ export default function LandingPage() {
                       ))}
                     </ul>
                     <button
-                      onClick={() => scrollToContact(activeService.title, `I'd like to enquire about ${activeService.title} services.`)}
+                      onClick={() => openPopupContact(activeService.title, `I'd like to enquire about ${activeService.title} services.`)}
                       className="noha-btn-outline"
                     >
                       Request Pricing
