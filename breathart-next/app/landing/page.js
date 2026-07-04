@@ -198,8 +198,54 @@ export default function LandingPage() {
       {/* ── HERO ── */}
       <HeroSlider showContactForm={true} leftAlignOnly={true} />
 
+      {/* ── MARQUEE ── */}
+      <div style={{
+        overflow: 'hidden',
+        whiteSpace: 'nowrap',
+        background: 'var(--color-shade-2)',
+        padding: '1.5rem 0',
+        borderBottom: '1px solid rgba(158, 112, 96, 0.15)',
+        margin: '1.5rem 0 1rem 0',
+        display: 'flex'
+      }}>
+        <div style={{
+          display: 'inline-block',
+          animation: 'marquee 25s linear infinite',
+          fontSize: '1rem',
+          fontFamily: 'var(--font-heading)',
+          textTransform: 'uppercase',
+          letterSpacing: '3px',
+          color: 'var(--color-gold)',
+          fontWeight: '600'
+        }}>
+          {["Luxury Portraiture", "Cinematic Wedding Films", "Fine Art Newborn", "Grand Event Coverage", "Commercial Editorial", "Visual Storytelling", "Premium Branding"].map((item, idx) => (
+            <span key={idx}>
+              {item}
+              <span style={{ margin: '0 3rem', fontSize: '0.35rem', verticalAlign: 'middle', display: 'inline-block', transform: 'translateY(-1px)', opacity: 0.8 }}>•</span>
+            </span>
+          ))}
+        </div>
+        <div style={{
+          display: 'inline-block',
+          animation: 'marquee 25s linear infinite',
+          fontSize: '1rem',
+          fontFamily: 'var(--font-heading)',
+          textTransform: 'uppercase',
+          letterSpacing: '3px',
+          color: 'var(--color-gold)',
+          fontWeight: '600'
+        }}>
+          {["Luxury Portraiture", "Cinematic Wedding Films", "Fine Art Newborn", "Grand Event Coverage", "Commercial Editorial", "Visual Storytelling", "Premium Branding"].map((item, idx) => (
+            <span key={idx}>
+              {item}
+              <span style={{ margin: '0 3rem', fontSize: '0.35rem', verticalAlign: 'middle', display: 'inline-block', transform: 'translateY(-1px)', opacity: 0.8 }}>•</span>
+            </span>
+          ))}
+        </div>
+      </div>
+
       {/* ── PHILOSOPHY ── */}
-      <section id="about" className="noha-section noha-about" style={{ paddingTop: '3rem', paddingBottom: '2rem' }}>
+      <section id="about" className="noha-section noha-about" style={{ paddingTop: '1.5rem', paddingBottom: '3rem' }}>
         <div className="noha-container about-grid">
           <div className="about-text landing-about-reveal">
             <span className="section-label">Our Philosophy</span>
@@ -226,11 +272,12 @@ export default function LandingPage() {
       </section>
 
       {/* ── SERVICES ── */}
-      <section id="services" className="noha-section noha-services">
+      <section id="services" className="noha-section noha-services" style={{ paddingTop: '1.5rem', paddingBottom: '1rem' }}>
         <div className="noha-container">
           <div className="section-header-center">
             <span className="section-label">Our Expertise</span>
             <h2 className="section-heading">Best Photography Service in UAE</h2>
+            <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginTop: '0.75rem' }}>Completed over 10k shoots in UAE</p>
           </div>
 
           <div className="services-split">
@@ -348,11 +395,17 @@ export default function LandingPage() {
               </AnimatePresence>
             </div>
           </div>
+
+          <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+            <p style={{ fontStyle: 'italic', fontFamily: "'Playfair Display', serif", fontSize: '2.2rem', color: 'var(--color-gold)' }}>
+              Create your memories with us
+            </p>
+          </div>
         </div>
       </section>
 
       {/* ── EXCITING OFFERS ── */}
-      <section className="noha-section noha-offers" style={{ paddingTop: 0, paddingBottom: '5rem' }}>
+      <section className="noha-section noha-offers" style={{ paddingTop: '3rem', paddingBottom: '5rem' }}>
         <div className="noha-container">
 
           <div className="section-header-center" style={{ marginBottom: '3rem' }}>
