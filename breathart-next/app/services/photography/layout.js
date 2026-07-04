@@ -12,7 +12,7 @@ export const metadata = {
     url: 'https://breathart.ae/services/photography',
     images: [
       {
-        url: '/assets/services/service_family_lifestyle.png',
+        url: '/assets/gallery/family/bk-279-suhad.webp',
         width: 1200,
         height: 630,
         alt: 'BreathArt Professional Photography Services Dubai',
@@ -22,7 +22,7 @@ export const metadata = {
   twitter: {
     title: 'Professional Photography Services — BreathArt Studio Dubai',
     description: 'Fine-art photography services including newborn, maternity, wedding, corporate, and event photography in Dubai.',
-    images: ['/assets/services/service_family_lifestyle.png'],
+    images: ['/assets/gallery/family/bk-279-suhad.webp'],
   },
 };
 

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-export default function ServiceCard({ id, number, title, image, alt, description, ctaHref, delay = 0, index }) {
+export default function ServiceCard({ id, number, title, image, alt, description, ctaHref, delay = 0, index, objectPosition }) {
   // Extract tag from number and title
   const tagWord = number.split('/')[1]?.trim().toUpperCase() || 'SERVICE';
   const tagTitle = title.toUpperCase();
@@ -21,7 +21,7 @@ export default function ServiceCard({ id, number, title, image, alt, description
         <div className="card-image-wrapper">
           {showDecor && <div className="card-bg-decor"></div>}
           <div className="card-image-box">
-            <img src={image} alt={alt} loading="lazy" decoding="async" />
+            <img src={image} alt={alt} loading="lazy" decoding="async" style={{ objectPosition: objectPosition || 'center' }} />
             <div className="card-arrow-btn">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
             </div>

@@ -2667,14 +2667,14 @@ h1, h2, h3, h4, h5, h6,
     bottom: -15%;
     left: -50px;
     transform: rotate(20deg);
-    clip-path: polygon(0 0, 100% 0, 75% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 
 .right-decor {
     top: -15%;
-    right: 50px;
+    right: -50px;
     transform: rotate(20deg);
-    clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 
 .why-choose-us-container {
@@ -6286,4 +6286,21 @@ body.has-custom-cursor .cursor-pointer {
 /* --- BENTO GRID DENSE PACKING FIX --- */
 .bento-grid-horizontal {
     grid-auto-flow: column dense !important;
+}
+
+/* --- MOVE WHY CHOOSE HEADER DOWN IN MOBILE --- */
+@media (max-width: 768px) {
+    .why-choose-home-header {
+        margin-top: 1.5rem !important;
+    }
+}
+
+/* --- REMOVE SPACE BETWEEN PREMIUM FEATURES AND CONTACT ON DESKTOP --- */
+@media (min-width: 1024px) {
+    .no-bottom-padding-desktop {
+        padding-bottom: 0 !important;
+    }
+    .no-top-padding-desktop {
+        padding-top: 2.5rem !important;
+    }
 }

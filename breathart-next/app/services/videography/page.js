@@ -8,7 +8,7 @@ const categories = [
     id: 'cinematic-wedding',
     title: 'wedding & romance films',
     description: 'Beautiful, high-definition cinematic storytelling of your most romantic milestones. We craft visual poems that capture the glances, heartbeats, and grand settings.',
-    image: '/assets/services/service_video_wedding.png',
+    image: '/assets/gallery/wedding/pexels-habib-hosseini-3673463.webp',
     services: [
       { name: 'Cinematic Wedding Films', icon: 'fas fa-film', desc: 'Precious full-day wedding coverage edited into stunning high-definition visual narratives.' },
       { name: 'Pre-Wedding Romance Trailers', icon: 'fas fa-heart', desc: 'Short, cinematic engagement and romance trailers set in scenic destinations.' }
@@ -18,7 +18,7 @@ const categories = [
     id: 'commercial-corporate',
     title: 'corporate & commercial film',
     description: 'Dynamic and powerful visual content that enhances your brand authority, shares your mission, and details product design with precision.',
-    image: '/assets/services/service_video_commercial.png',
+    image: '/assets/gallery/commercial/curology-DGH1u80sZik-unsplash.jpg.jpeg',
     services: [
       { name: 'Corporate Promos & Ads', icon: 'fas fa-ad', desc: 'High-impact promotional and advertisement video content for branding and digital channels.' },
       { name: 'Product Video Production', icon: 'fas fa-box-open', desc: 'Detailed, highly cinematic showcases highlighting textures, mechanics, and design of your premium products.' },
@@ -29,7 +29,7 @@ const categories = [
     id: 'social-private-video',
     title: 'social & private event videography',
     description: 'Cinematic, spontaneous, and high-fidelity video documentation for luxury private events, dinners, and family milestones.',
-    image: '/assets/services/service_event_social.png',
+    image: '/assets/gallery/event/pexels-caleboquendo-11329860.webp',
     services: [
       { name: 'Luxury Birthdays & Galas Video', icon: 'fas fa-birthday-cake', desc: 'Capturing the dynamic energy, entertainment programs, and elegant guests of your private parties.' },
       { name: 'Bridal & Baby Shower Reels', icon: 'fas fa-baby-carriage', desc: 'Beautifully capturing the emotional highlights, laughter, and speeches of your shower gatherings.' },
@@ -40,7 +40,7 @@ const categories = [
     id: 'corporate-events-video',
     title: 'corporate event videography',
     description: 'Comprehensive and premium corporate event coverage, capturing panels, keynotes, team networking, and keynote highlights.',
-    image: '/assets/services/service_event_corporate.png',
+    image: '/assets/gallery/event/pexels-b_s-media-production-568838161-34171711.webp',
     services: [
       { name: 'Conferences & Seminars Video', icon: 'fas fa-briefcase', desc: 'Full-session multi-camera documentation, speeches, panel discussions, and highlight reels.' },
       { name: 'Product Launches & Activation Films', icon: 'fas fa-bullhorn', desc: 'High-energy video coverage of brand launch campaigns, activations, and interactive setups.' },

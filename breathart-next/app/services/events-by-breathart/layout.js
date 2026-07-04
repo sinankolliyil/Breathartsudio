@@ -12,7 +12,7 @@ export const metadata = {
     url: 'https://breathart.ae/services/events-by-breathart',
     images: [
       {
-        url: '/assets/services/service_event_main.png',
+        url: '/assets/gallery/event/pexels-panditwiguna-2788487.webp',
         width: 1200,
         height: 630,
         alt: 'Events By BreathArt — Event Management Dubai',
@@ -22,7 +22,7 @@ export const metadata = {
   twitter: {
     title: 'Event Management & Production — Events By BreathArt Dubai',
     description: 'Creating unforgettable UAE events. Stage shows, celebrity collaborations, corporate events, and brand activations.',
-    images: ['/assets/services/service_event_main.png'],
+    images: ['/assets/gallery/event/pexels-panditwiguna-2788487.webp'],
   },
 };
 

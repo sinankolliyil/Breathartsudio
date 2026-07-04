@@ -12,7 +12,7 @@ export const metadata = {
     url: 'https://breathart.ae/services/videography',
     images: [
       {
-        url: '/assets/services/service_video_wedding.png',
+        url: '/assets/gallery/wedding/pexels-habib-hosseini-3673463.webp',
         width: 1200,
         height: 630,
         alt: 'BreathArt Cinematic Videography Services Dubai',
@@ -22,7 +22,7 @@ export const metadata = {
   twitter: {
     title: 'Cinematic Videography Services — BreathArt Studio Dubai',
     description: 'Premium videography including cinematic wedding films, corporate promos, and aerial drone cinematography.',
-    images: ['/assets/services/service_video_wedding.png'],
+    images: ['/assets/gallery/wedding/pexels-habib-hosseini-3673463.webp'],
   },
 };
 

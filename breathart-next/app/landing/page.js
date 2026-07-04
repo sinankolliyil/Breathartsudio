@@ -66,10 +66,13 @@ const allShowcaseImages = [
   { src: '/assets/gallery/real-estate/0011.webp', alt: 'Real Estate 4', title: 'Modern Living', category: 'Real Estate' },
   { src: '/assets/gallery/real-estate/0015.webp', alt: 'Real Estate 5', title: 'Premium Estate', category: 'Real Estate' },
   // Commercial
-  { src: '/assets/gallery/commercial/001.webp', alt: 'Commercial 1', title: 'Commercial Editorial', category: 'Commercial' },
-  { src: '/assets/gallery/commercial/002.webp', alt: 'Commercial 2', title: 'Workspace Scene', category: 'Commercial' },
-  { src: '/assets/gallery/commercial/0004.webp', alt: 'Commercial 3', title: 'Studio Details', category: 'Commercial' },
-  { src: '/assets/gallery/commercial/0006.webp', alt: 'Commercial 4', title: 'Premium Branding', category: 'Commercial' },
+  { src: '/assets/gallery/commercial/ali-bakhtiari-7ic3yF64FS8-unsplash.jpg.jpeg', alt: 'Commercial 1', title: 'Commercial Editorial', category: 'Commercial' },
+  { src: '/assets/gallery/commercial/curology-DGH1u80sZik-unsplash.jpg.jpeg', alt: 'Commercial 2', title: 'Workspace Scene', category: 'Commercial' },
+  { src: '/assets/gallery/commercial/curology-wK0h-mlvfuc-unsplash (1).jpg.jpeg', alt: 'Commercial 3', title: 'Studio Details', category: 'Commercial' },
+  { src: '/assets/gallery/commercial/curology-wK0h-mlvfuc-unsplash.jpg.jpeg', alt: 'Commercial 4', title: 'Premium Branding', category: 'Commercial' },
+  { src: '/assets/gallery/commercial/irene-kredenets-KStSiM1UvPw-unsplash.jpg.jpeg', alt: 'Commercial 5', title: 'Product Display', category: 'Commercial' },
+  { src: '/assets/gallery/commercial/olena-bohovyk-GOVTETevRm8-unsplash.jpg.jpeg', alt: 'Commercial 6', title: 'Cosmetics Still Life', category: 'Commercial' },
+  { src: '/assets/gallery/commercial/pat-taylor-12V36G17IbQ-unsplash.jpg.jpeg', alt: 'Commercial 7', title: 'Lifestyle Setup', category: 'Commercial' },
 ];
 
 const SERVICES = [

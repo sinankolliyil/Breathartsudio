@@ -78,10 +78,13 @@ const allShowcaseImages = [
   { src: '/assets/gallery/real-estate/0011.webp', alt: 'Real Estate 4', title: 'Modern Living', category: 'Real Estate' },
   { src: '/assets/gallery/real-estate/0015.webp', alt: 'Real Estate 5', title: 'Premium Estate', category: 'Real Estate' },
   // Commercial
-  { src: '/assets/gallery/commercial/001.webp', alt: 'Commercial 1', title: 'Commercial Editorial', category: 'Commercial' },
-  { src: '/assets/gallery/commercial/002.webp', alt: 'Commercial 2', title: 'Workspace Scene', category: 'Commercial' },
-  { src: '/assets/gallery/commercial/0004.webp', alt: 'Commercial 3', title: 'Studio Details', category: 'Commercial' },
-  { src: '/assets/gallery/commercial/0006.webp', alt: 'Commercial 4', title: 'Premium Branding', category: 'Commercial' },
+  { src: '/assets/gallery/commercial/ali-bakhtiari-7ic3yF64FS8-unsplash.jpg.jpeg', alt: 'Commercial 1', title: 'Commercial Editorial', category: 'Commercial' },
+  { src: '/assets/gallery/commercial/curology-DGH1u80sZik-unsplash.jpg.jpeg', alt: 'Commercial 2', title: 'Workspace Scene', category: 'Commercial' },
+  { src: '/assets/gallery/commercial/curology-wK0h-mlvfuc-unsplash (1).jpg.jpeg', alt: 'Commercial 3', title: 'Studio Details', category: 'Commercial' },
+  { src: '/assets/gallery/commercial/curology-wK0h-mlvfuc-unsplash.jpg.jpeg', alt: 'Commercial 4', title: 'Premium Branding', category: 'Commercial' },
+  { src: '/assets/gallery/commercial/irene-kredenets-KStSiM1UvPw-unsplash.jpg.jpeg', alt: 'Commercial 5', title: 'Product Display', category: 'Commercial' },
+  { src: '/assets/gallery/commercial/olena-bohovyk-GOVTETevRm8-unsplash.jpg.jpeg', alt: 'Commercial 6', title: 'Cosmetics Still Life', category: 'Commercial' },
+  { src: '/assets/gallery/commercial/pat-taylor-12V36G17IbQ-unsplash.jpg.jpeg', alt: 'Commercial 7', title: 'Lifestyle Setup', category: 'Commercial' },
 ];
 
 export default function HomePage() {
@@ -479,6 +482,7 @@ export default function HomePage() {
           <HomeLightbox
             sectionId="newborn"
             gridCols="repeat(3, 1fr)"
+            hideText={true}
             items={[
               { src: '/assets/gallery/newborn/A98C22F0-2F0E-4A32-B285-1E23FB0AD1E3.webp', alt: 'Newborn 1', title: 'Pure Innocence' },
               { src: '/assets/gallery/newborn/BK-108_LORRIE_890_.jpg.webp', alt: 'Newborn 2', title: 'Soft Dreams' },
@@ -507,6 +511,7 @@ export default function HomePage() {
           <HomeLightbox
             sectionId="wedding"
             gridCols="repeat(3, 1fr)"
+            hideText={true}
             items={[
               { src: '/assets/gallery/wedding/pexels-abdallah-mahmoud-2153337567-32671354.webp', alt: 'Wedding 1', title: 'The Vow' },
               { src: '/assets/gallery/wedding/pexels-abdallah-naser-2156661580-34317944.webp', alt: 'Wedding 2', title: 'Sacred Bond' },
@@ -675,7 +680,7 @@ export default function HomePage() {
         <div className="container why-choose-us-container">
           <div className="why-content-wrapper animate-reveal active">
             <div className="why-image-box">
-              <img src="/assets/about/why_choose_us_baby_shower.png" alt="BreathArt Philosophy" loading="lazy" decoding="async" />
+              <video src="/assets/about/why_choose_us_video.mp4" autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
 
             <div className="why-text-area">
@@ -704,8 +709,13 @@ export default function HomePage() {
       </section>
 
       {/* Redesigned Premium Features Section (Warm Cream Background) */}
-      <section id="premium-features" className="section" style={{ background: 'var(--color-black)', paddingTop: '3.5rem', paddingBottom: '6rem' }}>
+      <section id="premium-features" className="section no-bottom-padding-desktop" style={{ background: 'var(--color-black)', paddingTop: '3.5rem', paddingBottom: '6rem' }}>
         <div className="container">
+          <div className="section-header animate-reveal active why-choose-home-header" style={{ marginBottom: '0' }}>
+            <span className="cinematic-title">The BreathArt Difference</span>
+            <h2 className="section-title" style={{ color: 'var(--color-white)' }}>Why Choose BreathArt</h2>
+            <div className="accent-divider"></div>
+          </div>
           <div className="services-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem' }}>
             <FeatureCard index={1} icon="fas fa-user-tie" title="Experienced Professional Photographers" description="Master artists with decades of collective experience." />
             <FeatureCard index={2} icon="fas fa-female" title="Dedicated Lady Staff for Maternity" description="Ensuring comfort and privacy for maternity & newborn sessions." />
@@ -718,8 +728,12 @@ export default function HomePage() {
       </section>
 
       {/* 6. Premium Contact Section */}
-      <section id="home-contact" className="section" style={{ borderTop: '1px solid rgba(158, 112, 96, 0.15)', paddingBottom: '8rem', paddingTop: '6rem' }}>
-        <div className="container animate-reveal active">
+      <section id="home-contact" className="section no-top-padding-desktop" style={{ borderTop: '1px solid rgba(158, 112, 96, 0.15)', paddingBottom: '8rem', paddingTop: '6rem', overflow: 'hidden', position: 'relative' }}>
+        {/* Background decors mirrored from Why Choose Us */}
+        <div className="why-bg-decor left-decor" style={{ transform: 'rotate(-20deg) scaleX(-1)' }}></div>
+        <div className="why-bg-decor right-decor" style={{ transform: 'rotate(-20deg) scaleX(-1)' }}></div>
+        
+        <div className="container animate-reveal active" style={{ position: 'relative', zIndex: 2 }}>
           <div className="section-header">
             <span className="cinematic-title">Secure Your Session</span>
             <h2 className="section-title">Initiate Your Story</h2>

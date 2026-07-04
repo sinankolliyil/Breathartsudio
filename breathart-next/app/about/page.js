@@ -128,13 +128,13 @@ export default function AboutPage() {
       <section className="section" style={{ padding: '2rem 0 0 0' }}>
         <div className="container text-center" style={{ textAlign: 'center' }}>
           <span className="cinematic-title" style={{ color: 'var(--color-gold)' }}>The Standard</span>
-          <h2 className="section-title" style={{ fontSize: '2.5rem', marginBottom: '2rem' }}>Why Choose BreathArt</h2>
+          <h2 className="section-title" style={{ fontSize: '2.5rem', marginBottom: '0' }}>Why Choose BreathArt</h2>
         </div>
       </section>
 
       {/* Why Choose Us Features list */}
       <section className="section" style={{ padding: '0 0 0 0' }}>
-        <div className="pillar-section-container" style={{ marginTop: '4.5rem', marginBottom: '2rem' }}>
+        <div className="pillar-section-container" style={{ marginTop: '0', marginBottom: '2rem' }}>
           {features.map((feature, index) => (
             <div key={index} className={`pillar-row ${index % 2 !== 0 ? 'alt-layout' : ''}`}>
               <div className="pillar-left">
