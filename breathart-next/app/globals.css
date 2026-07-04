@@ -473,13 +473,14 @@ h1, h2, h3, h4, h5, h6,
 @media (min-width: 769px) {
     #navbar:not(.scrolled):not(.nav-menu-open) .nav-container {
         background: transparent !important;
-        border-bottom: none !important;
+        border-bottom: 1px solid rgba(255,255,255,0.02) !important;
         box-shadow: none !important;
-        backdrop-filter: none !important;
+        backdrop-filter: blur(1px) !important;
+        -webkit-backdrop-filter: blur(1px) !important;
     }
 
     #navbar:not(.scrolled):not(.nav-menu-open) .nav-links a {
-        color: var(--color-white) !important; /* Deep espresso brown */
+        color: #FFFFFF !important; /* Pure white */
     }
 
     #navbar:not(.scrolled):not(.nav-menu-open) .nav-links a:hover,

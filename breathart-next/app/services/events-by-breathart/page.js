@@ -80,11 +80,19 @@ const rightColumnSections = [
 export default function EventsByBreathArtPage() {
   return (
     <>
-      {/* Page Title & Intro Section (No Hero Banner) */}
-      <section className="section" style={{ paddingTop: '220px', paddingBottom: '6rem' }}>
+      {/* Page Title & Intro Section */}
+      <section className="section" style={{ 
+        paddingTop: '280px', 
+        paddingBottom: '6rem',
+        minHeight: '100vh',
+        backgroundImage: 'url("/assets/hero/3_optimized.webp")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}>
         <div className="container">
           <div className="project-header" style={{ width: '100%', marginBottom: '4rem' }}>
-            <span className="cinematic-title" style={{ color: 'var(--color-gold)', letterSpacing: '4px', fontSize: '0.75rem', display: 'block', marginBottom: '1rem' }}>
+            <span className="cinematic-title" style={{ color: '#FFFFFF', letterSpacing: '4px', fontSize: '0.75rem', display: 'block', marginBottom: '1rem' }}>
               Corporate &amp; Public Experiences
             </span>
             <h1 style={{
@@ -94,7 +102,7 @@ export default function EventsByBreathArtPage() {
               lineHeight: '1.1',
               letterSpacing: '4px',
               textTransform: 'uppercase',
-              color: 'var(--color-white)',
+              color: '#FFFFFF',
               margin: '0 0 2rem 0'
             }}>
               Events By BreathArt
@@ -111,7 +119,7 @@ export default function EventsByBreathArtPage() {
               <p style={{
                 fontSize: '1.1rem',
                 lineHeight: '1.8',
-                color: 'var(--color-white)',
+                color: '#FFFFFF',
                 fontWeight: '600',
                 marginBottom: '2rem'
               }}>
@@ -123,7 +131,7 @@ export default function EventsByBreathArtPage() {
               <p style={{
                 fontSize: '0.95rem',
                 lineHeight: '1.8',
-                color: 'var(--color-text-muted)',
+                color: '#FFFFFF',
                 marginBottom: '2rem'
               }}>
                 We redefine events, transforming them from mere gatherings into extraordinary, immersive experiences. In collaboration with corporate partners, luxury brands, and government departments across the region, we plan and execute productions that captivate, elevate brand value, and leave a lasting impression.

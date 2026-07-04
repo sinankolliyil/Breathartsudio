@@ -176,10 +176,16 @@ export default function Navbar() {
   }, [menuOpen]);
 
   const isActive = (path) => pathname === path;
-  const isHome = pathname === '/';
+  const transparentPages = [
+    '/',
+    '/services/videography',
+    '/services/photography',
+    '/services/events-by-breathart'
+  ];
+  const hasTransparentHeader = transparentPages.includes(pathname) || pathname.startsWith('/landing');
 
   const navClasses = [
-    scrolled || !isHome ? 'scrolled' : '',
+    scrolled || !hasTransparentHeader ? 'scrolled' : '',
     !visible ? 'nav-hidden' : '',
     menuOpen ? 'nav-menu-open' : '',
   ].filter(Boolean).join(' ');

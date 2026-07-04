@@ -3,7 +3,7 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { Gift, Calendar, Check, Compass, Phone } from 'lucide-react';
+import { Gift, Calendar, Check, Compass, Phone, X } from 'lucide-react';
 import ContactForm from '../../components/ContactForm';
 
 const categories = {
@@ -171,6 +171,7 @@ const categories = {
 export default function OffersPage() {
   const [activeTab, setActiveTab] = useState('Maternity');
   const contactFormRef = useRef(null);
+  const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -209,9 +210,7 @@ export default function OffersPage() {
       package: pkgName,
       message: message
     }));
-    setTimeout(() => {
-      contactFormRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 100);
+    setShowModal(true);
   };
 
   return (
@@ -458,28 +457,50 @@ export default function OffersPage() {
         </div>
       </section>
 
-      {/* ── CLAIM OFFER CONTACT FORM ── */}
-      <section id="offers-contact" ref={contactFormRef} className="section" style={{ borderTop: '1px solid rgba(158, 112, 96, 0.15)', paddingTop: '6rem', paddingBottom: '6rem' }}>
-        <div className="container" style={{ maxWidth: '800px' }}>
-          <div className="section-header" style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <span className="cinematic-title" style={{ color: 'var(--color-gold)' }}>Claim Your Offer</span>
-            <h2 className="section-title">Initiate Your Booking</h2>
-            <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginTop: '0.75rem' }}>
-              Complete the details below to lock in your special offer pricing.
-            </p>
+      {/* ── CLAIM OFFER CONTACT MODAL ── */}
+      <AnimatePresence>
+        {showModal && (
+          <div className="popup-overlay" style={{ zIndex: 9999 }}>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              className="popup-container"
+              style={{ padding: '2.5rem', maxWidth: '650px', width: '90%', maxHeight: '90vh', overflowY: 'auto' }}
+            >
+              <button 
+                className="popup-close" 
+                onClick={() => setShowModal(false)} 
+                aria-label="Close Popup"
+                style={{ top: '15px', right: '15px' }}
+              >
+                <X size={20} />
+              </button>
+              
+              <div className="popup-content" style={{ marginTop: '1rem' }}>
+                <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+                  <span className="cinematic-title" style={{ color: 'var(--color-gold)', display: 'block', marginBottom: '0.5rem' }}>Claim Your Offer</span>
+                  <h2 className="section-title" style={{ fontSize: '1.8rem', marginBottom: '0.5rem' }}>Initiate Your Booking</h2>
+                  <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem' }}>
+                    Complete the details below to lock in your special offer pricing.
+                  </p>
+                </div>
+                <div className="form-card" style={{ padding: '0', background: 'transparent', border: 'none', boxShadow: 'none' }}>
+                  <ContactForm
+                    theme="landing"
+                    initialService={formData.service}
+                    initialPackage={formData.package}
+                    initialMessage={formData.message}
+                    buttonText="Submit Offer Inquiry"
+                    showPackageField={true}
+                  />
+                </div>
+              </div>
+            </motion.div>
           </div>
-          <div className="form-card" style={{ maxWidth: '650px', margin: '0 auto' }}>
-            <ContactForm
-              theme="landing"
-              initialService={formData.service}
-              initialPackage={formData.package}
-              initialMessage={formData.message}
-              buttonText="Submit Offer Inquiry"
-              showPackageField={false}
-            />
-          </div>
-        </div>
-      </section>
+        )}
+      </AnimatePresence>
     </>
   );
 }

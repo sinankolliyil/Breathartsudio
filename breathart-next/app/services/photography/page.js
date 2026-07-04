@@ -86,11 +86,19 @@ export default function PhotographyPage() {
 
   return (
     <>
-      {/* Page Title & Intro Section (No Hero Banner) */}
-      <section className="section" style={{ paddingTop: '220px', paddingBottom: '6rem' }}>
+      {/* Page Title & Intro Section */}
+      <section className="section" style={{ 
+        paddingTop: '280px', 
+        paddingBottom: '6rem',
+        minHeight: '100vh',
+        backgroundImage: 'url("/assets/hero/2_optimized.webp")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}>
         <div className="container">
           <div className="project-header" style={{ width: '100%', marginBottom: '4rem' }}>
-            <span className="cinematic-title" style={{ color: 'var(--color-gold)', letterSpacing: '4px', fontSize: '0.75rem', display: 'block', marginBottom: '1rem' }}>
+            <span className="cinematic-title" style={{ color: '#FFFFFF', letterSpacing: '4px', fontSize: '0.75rem', display: 'block', marginBottom: '1rem' }}>
               Fine-Art Studio
             </span>
             <h1 style={{
@@ -100,7 +108,7 @@ export default function PhotographyPage() {
               lineHeight: '1.1',
               letterSpacing: '4px',
               textTransform: 'uppercase',
-              color: 'var(--color-white)',
+              color: '#FFFFFF',
               margin: '0 0 2rem 0'
             }}>
               Photography
@@ -117,7 +125,7 @@ export default function PhotographyPage() {
               <p style={{
                 fontSize: '1.1rem',
                 lineHeight: '1.8',
-                color: 'var(--color-white)',
+                color: '#FFFFFF',
                 fontWeight: '600',
                 marginBottom: '2rem'
               }}>
@@ -129,7 +137,7 @@ export default function PhotographyPage() {
               <p style={{
                 fontSize: '0.95rem',
                 lineHeight: '1.8',
-                color: 'var(--color-text-muted)',
+                color: '#FFFFFF',
                 marginBottom: '2rem'
               }}>
                 Every photograph is crafted with absolute care. We specialize in capturing genuine connection, raw emotion, and high-fashion aesthetics that transcend temporary trends, ensuring your legacy is preserved beautifully.
