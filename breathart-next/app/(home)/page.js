@@ -8,7 +8,7 @@ import FeatureCard from './components/FeatureCard';
 import HomeLightbox from './components/HomeLightbox';
 import Lightbox from './components/Lightbox';
 import ContactForm from '../../components/ContactForm';
-import PopupForm from '../../components/PopupForm';
+
 import { Shield, Sparkles, Sun, Camera, Sliders, Users, BookOpen, Heart, ArrowUpRight, Zap } from 'lucide-react';
 
 const allShowcaseImages = [
@@ -114,7 +114,7 @@ export default function HomePage() {
 
   return (
     <>
-      <PopupForm repeatDelay={90000} />
+
       {/* Full Screen Image Slider Hero */}
       <HeroSlider />
 

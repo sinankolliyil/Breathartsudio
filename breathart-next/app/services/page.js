@@ -232,8 +232,15 @@ export default function ServicesPage() {
                 }}>
                   Ready to capture your milestones?
                 </span>
-                <Link 
-                  href="/contact"
+                <button 
+                  onClick={() => {
+                    window.dispatchEvent(new CustomEvent('openPopupForm', {
+                      detail: {
+                        service: 'Services',
+                        message: 'I am interested in your photography and videography services.'
+                      }
+                    }));
+                  }}
                   className="btn btn-gold"
                   style={{
                     padding: '1.2rem 3rem',
@@ -244,11 +251,13 @@ export default function ServicesPage() {
                     alignItems: 'center',
                     gap: '0.8rem',
                     border: 'none',
-                    cursor: 'pointer'
+                    cursor: 'pointer',
+                    background: 'var(--color-gold)',
+                    color: 'var(--color-black)'
                   }}
                 >
                   Get In Touch &rarr;
-                </Link>
+                </button>
               </div>
             </div>
           </div>

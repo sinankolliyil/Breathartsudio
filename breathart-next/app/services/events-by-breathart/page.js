@@ -269,22 +269,36 @@ export default function EventsByBreathArtPage() {
                         style={{ objectFit: 'cover' }} 
                       />
                       
-                      {/* Link/Arrow Icon box overlay in corner */}
-                      <div style={{
-                        position: 'absolute',
-                        bottom: '20px',
-                        left: '20px',
-                        width: '45px',
-                        height: '45px',
-                        background: 'transparent',
-                        border: '1px solid var(--color-white)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: 'var(--color-white)',
-                        zIndex: 3
-                      }}>
-                        <ArrowRight size={16} style={{ transform: 'rotate(-45deg)' }} />
+                      <div 
+                        style={{
+                          position: 'absolute',
+                          bottom: '20px',
+                          left: '20px',
+                          width: '45px',
+                          height: '45px',
+                          background: 'var(--color-gold)',
+                          border: 'none',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: 'var(--color-black)',
+                          zIndex: 3,
+                          cursor: 'pointer',
+                          borderRadius: '50%',
+                          transition: 'transform 0.3s ease'
+                        }}
+                        onClick={() => {
+                          window.dispatchEvent(new CustomEvent('openPopupForm', {
+                            detail: {
+                              service: 'Events By BreathArt',
+                              message: `I am inquiring about ${sect.title}.`
+                            }
+                          }));
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+                        onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                      >
+                        <ArrowRight size={20} style={{ transform: 'rotate(-45deg)' }} />
                       </div>
                     </div>
                   </div>
@@ -372,22 +386,36 @@ export default function EventsByBreathArtPage() {
                         style={{ objectFit: 'cover' }} 
                       />
                       
-                      {/* Link/Arrow Icon box overlay in corner */}
-                      <div style={{
-                        position: 'absolute',
-                        bottom: '20px',
-                        left: '20px',
-                        width: '45px',
-                        height: '45px',
-                        background: 'transparent',
-                        border: '1px solid var(--color-white)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: 'var(--color-white)',
-                        zIndex: 3
-                      }}>
-                        <ArrowRight size={16} style={{ transform: 'rotate(-45deg)' }} />
+                      <div 
+                        style={{
+                          position: 'absolute',
+                          bottom: '20px',
+                          left: '20px',
+                          width: '45px',
+                          height: '45px',
+                          background: 'var(--color-gold)',
+                          border: 'none',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: 'var(--color-black)',
+                          zIndex: 3,
+                          cursor: 'pointer',
+                          borderRadius: '50%',
+                          transition: 'transform 0.3s ease'
+                        }}
+                        onClick={() => {
+                          window.dispatchEvent(new CustomEvent('openPopupForm', {
+                            detail: {
+                              service: 'Events By BreathArt',
+                              message: `I am inquiring about ${sect.title}.`
+                            }
+                          }));
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+                        onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                      >
+                        <ArrowRight size={20} style={{ transform: 'rotate(-45deg)' }} />
                       </div>
                     </div>
                   </div>
@@ -469,8 +497,15 @@ export default function EventsByBreathArtPage() {
                 }}>
                   Ready to create something extraordinary?
                 </span>
-                <Link 
-                  href="/contact?service=event&message=I%20am%20interested%20in%20partnering%20with%20BreathArt%20for%20events."
+                <button 
+                  onClick={() => {
+                    window.dispatchEvent(new CustomEvent('openPopupForm', {
+                      detail: {
+                        service: 'Events By BreathArt',
+                        message: 'I am interested in partnering with BreathArt for events.'
+                      }
+                    }));
+                  }}
                   className="btn btn-gold"
                   style={{
                     padding: '1.2rem 3rem',
@@ -481,11 +516,13 @@ export default function EventsByBreathArtPage() {
                     alignItems: 'center',
                     gap: '0.8rem',
                     border: 'none',
-                    cursor: 'pointer'
+                    cursor: 'pointer',
+                    background: 'var(--color-gold)',
+                    color: 'var(--color-black)'
                   }}
                 >
                   Contact Us Today <ArrowRight size={14} />
-                </Link>
+                </button>
               </div>
             </div>
           </div>

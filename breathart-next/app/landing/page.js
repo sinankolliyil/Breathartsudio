@@ -7,7 +7,7 @@ import Link from 'next/link';
 import HomeLightbox from '../(home)/components/HomeLightbox';
 import Lightbox from '../(home)/components/Lightbox';
 import ContactForm from '../../components/ContactForm';
-import PopupForm from '../../components/PopupForm';
+
 import HeroSlider from '../(home)/components/HeroSlider';
 import ImgStack from '../../components/ImgStack';
 
@@ -26,15 +26,15 @@ const ServiceAutoSlider = ({ images }) => {
 
   return (
     <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', overflow: 'hidden' }}>
-      <AnimatePresence mode="popLayout">
+      <AnimatePresence>
         <motion.img
           key={index}
           src={images[index]}
           alt="Service preview"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1 }}
+          initial={{ x: '100%' }}
+          animate={{ x: 0 }}
+          exit={{ x: '-100%' }}
+          transition={{ duration: 0.8, ease: 'easeInOut' }}
           className="detail-img"
           loading="lazy"
           decoding="async"
@@ -172,6 +172,14 @@ const PORTFOLIO = [
   { img: '/assets/gallery/bento_4.jpg', title: 'Commercial Editorials', span: 'col-span-1 row-span-1' },
 ];
 
+const AbstractBackgroundLines = () => (
+  <div style={{ 
+    position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: -1, pointerEvents: 'none', overflow: 'hidden', 
+    background: 'linear-gradient(140deg, #FFFFFF 0%, var(--color-shade-1) 20%, var(--color-shade-3) 100%)' 
+  }} />
+);
+
+
 export default function LandingPage() {
   const [activeService, setActiveService] = useState(SERVICES[0]);
   const [activeAccordionId, setActiveAccordionId] = useState(null);
@@ -241,8 +249,15 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="noha-landing-wrapper">
-      <PopupForm />
+    <div 
+      className="noha-landing-wrapper" 
+      style={{ 
+        position: 'relative',
+        zIndex: 0
+      }}
+    >
+      <AbstractBackgroundLines />
+
 
       {/* ── HERO ── */}
       <HeroSlider showContactForm={true} leftAlignOnly={true} />

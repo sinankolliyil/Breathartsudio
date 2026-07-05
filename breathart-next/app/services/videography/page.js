@@ -272,8 +272,15 @@ export default function VideographyPage() {
                               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.8rem', lineHeight: '1.6', marginBottom: '1rem' }}>
                                 {service.desc}
                               </p>
-                              <Link 
-                                href={`/contact?service=${encodeURIComponent(service.name.toLowerCase())}`}
+                              <button 
+                                onClick={() => {
+                                  window.dispatchEvent(new CustomEvent('openPopupForm', {
+                                    detail: {
+                                      service: service.name,
+                                      message: `I am inquiring about ${service.name} (Videography).`
+                                    }
+                                  }));
+                                }}
                                 style={{
                                   display: 'inline-flex',
                                   alignItems: 'center',
@@ -282,11 +289,15 @@ export default function VideographyPage() {
                                   fontWeight: '700',
                                   color: 'var(--color-gold)',
                                   textTransform: 'uppercase',
-                                  letterSpacing: '1px'
+                                  letterSpacing: '1px',
+                                  background: 'none',
+                                  border: 'none',
+                                  cursor: 'pointer',
+                                  padding: 0
                                 }}
                               >
                                 Book Session <i className="fas fa-arrow-right" style={{ fontSize: '0.6rem' }}></i>
-                              </Link>
+                              </button>
                             </div>
                           )}
                         </div>
@@ -381,8 +392,15 @@ export default function VideographyPage() {
                 }}>
                   Ready to capture your milestones?
                 </span>
-                <Link 
-                  href="/contact"
+                <button 
+                  onClick={() => {
+                    window.dispatchEvent(new CustomEvent('openPopupForm', {
+                      detail: {
+                        service: 'Videography',
+                        message: 'I am interested in Videography services.'
+                      }
+                    }));
+                  }}
                   className="btn btn-gold"
                   style={{
                     padding: '1.2rem 3rem',
@@ -393,11 +411,13 @@ export default function VideographyPage() {
                     alignItems: 'center',
                     gap: '0.8rem',
                     border: 'none',
-                    cursor: 'pointer'
+                    cursor: 'pointer',
+                    background: 'var(--color-gold)',
+                    color: 'var(--color-black)'
                   }}
                 >
                   Get In Touch &rarr;
-                </Link>
+                </button>
               </div>
             </div>
           </div>

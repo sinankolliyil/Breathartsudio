@@ -12,8 +12,20 @@ export default function ServiceCard({ id, number, title, image, alt, description
   // Alternating background decor
   const showDecor = index === 0 || index === 3 || index === 4;
 
+  const handleCardClick = (e) => {
+    if (ctaHref && ctaHref.startsWith('/contact')) {
+      e.preventDefault();
+      window.dispatchEvent(new CustomEvent('openPopupForm', {
+        detail: {
+          service: title,
+          message: `I am interested in ${title}.`
+        }
+      }));
+    }
+  };
+
   return (
-    <Link href={ctaHref} className="premium-service-card-link">
+    <Link href={ctaHref} className="premium-service-card-link" onClick={handleCardClick}>
       <div
         id={id}
         className={`premium-service-card card-style-${index} animate-reveal`}
