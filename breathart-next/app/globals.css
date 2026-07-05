@@ -7032,3 +7032,11 @@ body.has-custom-cursor .cursor-pointer {
     color: var(--color-text-muted);
     margin-bottom: 2rem;
 }
+
+/* Mobile specific fixes */
+@media (max-width: 768px) {
+    .img-stack-mobile-offset {
+        transform: translateX(2.5rem);
+        margin-top: -2rem;
+    }
+}

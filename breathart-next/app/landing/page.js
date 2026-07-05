@@ -536,7 +536,7 @@ export default function LandingPage() {
       {/* ── INLINE CONTACT FORM (After Offers) ── */}
       <section className="noha-section" style={{ paddingTop: 0, paddingBottom: '5rem' }}>
         <div className="noha-container grid-2" style={{ alignItems: 'center', gap: '4rem' }}>
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <div className="img-stack-mobile-offset" style={{ display: 'flex', justifyContent: 'center' }}>
             <ImgStack images={mixedImages.slice(0, 5).map(img => img.src)} />
           </div>
           <div style={{ background: 'var(--color-shade-2)', padding: '3rem 2.5rem', borderRadius: '12px', border: '1px solid rgba(158, 112, 96, 0.15)', boxShadow: '0 20px 40px rgba(43, 27, 20, 0.05)', width: '100%' }}>
