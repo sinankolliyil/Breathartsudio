@@ -531,7 +531,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── BLOG SECTION ── */}
-      <BlogSection />
+      {/* <BlogSection /> */}
 
       {/* ── INLINE CONTACT FORM (After Offers) ── */}
       <section className="noha-section" style={{ paddingTop: 0, paddingBottom: '5rem' }}>
