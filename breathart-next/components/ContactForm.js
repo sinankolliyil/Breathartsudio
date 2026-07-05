@@ -103,8 +103,9 @@ function ContactFormInner({
 *Interested Service:* ${formData.service}
 ${showPackageField && formData.package ? `*Selected Package:* ${formData.package}\n` : ''}*Message/Details:* ${formData.message}`;
 
-    const encodedText = encodeURIComponent(text);
-    window.open(`https://wa.me/971526400679?text=${encodedText}`, '_blank');
+    const subject = encodeURIComponent('Service Inquiry from BreathArt Studio Website');
+    const body = encodeURIComponent(text);
+    window.location.href = `mailto:Info@breathartstudio.com?subject=${subject}&body=${body}`;
     setIsSubmitted(true);
     router.push('/thank-you');
   };

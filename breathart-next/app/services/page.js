@@ -232,15 +232,8 @@ export default function ServicesPage() {
                 }}>
                   Ready to capture your milestones?
                 </span>
-                <button 
-                  onClick={() => {
-                    window.dispatchEvent(new CustomEvent('openPopupForm', {
-                      detail: {
-                        service: 'Services',
-                        message: 'I am interested in your photography and videography services.'
-                      }
-                    }));
-                  }}
+                <Link 
+                  href="/contact?interest=Services&message=I%20am%20interested%20in%20your%20photography%20and%20videography%20services."
                   className="btn btn-gold"
                   style={{
                     padding: '1.2rem 3rem',
@@ -249,15 +242,14 @@ export default function ServicesPage() {
                     textTransform: 'uppercase',
                     display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '0.8rem',
+                    gap: '12px',
                     border: 'none',
-                    cursor: 'pointer',
-                    background: 'var(--color-gold)',
-                    color: 'var(--color-black)'
+                    cursor: 'pointer'
                   }}
                 >
-                  Get In Touch &rarr;
-                </button>
+                  Reserve Your Session
+                  <i className="fas fa-arrow-right" style={{ fontSize: '1rem' }}></i>
+                </Link>
               </div>
             </div>
           </div>
