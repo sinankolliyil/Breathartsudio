@@ -729,7 +729,7 @@ export default function HomePage() {
       </section>
 
       {/* Blog Section */}
-      <BlogSection />
+      {/* <BlogSection /> */}
 
       {/* 6. Premium Contact Section */}
       <section id="home-contact" className="section no-top-padding-desktop" style={{ borderTop: '1px solid rgba(158, 112, 96, 0.15)', paddingBottom: '8rem', paddingTop: '6rem', overflow: 'hidden', position: 'relative' }}>
