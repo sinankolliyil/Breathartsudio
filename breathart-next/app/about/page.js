@@ -69,6 +69,52 @@ const features = [
 export default function AboutPage() {
   return (
     <>
+      <style dangerouslySetInnerHTML={{__html: `
+        .about-story-section { padding: 6rem 0 1rem 0; }
+        .about-standard-header { border-top: 1px solid rgba(158, 112, 96, 0.2); padding-top: 2.5rem; }
+        
+        @media (max-width: 768px) {
+          .about-story-section { padding: 4rem 0 0 !important; }
+          .about-standard-header { margin-top: 1rem; padding-top: 4rem !important; }
+          .story-custom-grid { margin-bottom: 0 !important; }
+          .pillar-row {
+              margin: 0 !important;
+              width: 100% !important;
+              max-width: 100% !important;
+          }
+          .pillar-right {
+              margin: 0 !important;
+              padding: 0 !important;
+              width: 100% !important;
+          }
+          .pillar-img { 
+              width: 100% !important;
+              max-width: 100% !important;
+              height: auto !important; 
+              aspect-ratio: 16/9 !important; 
+              object-fit: cover !important; 
+              display: block !important;
+              margin: 0 !important;
+              padding: 0 !important;
+              border-radius: 4px !important;
+          }
+          
+          /* Specifically move the first image a little to the left and reduce its size */
+          .pillar-row:first-child .pillar-img {
+              transform: translateX(0.1rem);
+              width: 88% !important;
+              max-width: 88% !important;
+          }
+          
+          /* Center align the connect section on mobile */
+          .about-connect-col {
+              text-align: center !important;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+          }
+        }
+      `}} />
       <BreadcrumbSchema
         items={[
           { name: 'Home', url: '/' },
@@ -94,7 +140,7 @@ export default function AboutPage() {
         </div>
       </header>
 
-      <section className="section" style={{ padding: '6rem 0 2rem 0' }}>
+      <section className="section about-story-section">
         <div className="container text-center" style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <span className="cinematic-title" style={{ color: 'var(--color-gold)' }}>Our Story</span>
           <h2 className="section-title" style={{ fontSize: '2.5rem' }}>Professional &amp; Premium Experience</h2>
@@ -126,7 +172,7 @@ export default function AboutPage() {
 
       {/* Why Choose Us Section Header */}
       <section className="section" style={{ padding: '0 0 3rem 0' }}>
-        <div className="container text-center" style={{ textAlign: 'center' }}>
+        <div className="container text-center about-standard-header" style={{ textAlign: 'center' }}>
           <span className="cinematic-title" style={{ color: 'var(--color-gold)' }}>The Standard</span>
           <h2 className="section-title" style={{ fontSize: '2.5rem', marginBottom: '0' }}>Why Choose BreathArt</h2>
         </div>
@@ -184,7 +230,7 @@ export default function AboutPage() {
               gap: '3rem',
               alignItems: 'start'
             }}>
-              <div>
+              <div className="about-connect-col">
                 <span className="cinematic-title" style={{ color: 'var(--color-gold)', display: 'block', marginBottom: '0.5rem' }}>
                   Reserve Your Session
                 </span>
@@ -200,7 +246,7 @@ export default function AboutPage() {
                 </h2>
               </div>
 
-              <div>
+              <div className="about-connect-col">
                 <p style={{
                   color: 'var(--color-text-muted)',
                   fontSize: '1rem',

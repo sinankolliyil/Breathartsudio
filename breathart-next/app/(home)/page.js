@@ -8,6 +8,7 @@ import FeatureCard from './components/FeatureCard';
 import HomeLightbox from './components/HomeLightbox';
 import Lightbox from './components/Lightbox';
 import ContactForm from '../../components/ContactForm';
+import BlogSection from '../../components/BlogSection';
 
 import { Shield, Sparkles, Sun, Camera, Sliders, Users, BookOpen, Heart, ArrowUpRight, Zap } from 'lucide-react';
 
@@ -726,6 +727,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Blog Section */}
+      <BlogSection />
 
       {/* 6. Premium Contact Section */}
       <section id="home-contact" className="section no-top-padding-desktop" style={{ borderTop: '1px solid rgba(158, 112, 96, 0.15)', paddingBottom: '8rem', paddingTop: '6rem', overflow: 'hidden', position: 'relative' }}>

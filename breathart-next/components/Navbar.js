@@ -203,6 +203,7 @@ export default function Navbar() {
     },
     { heading: 'Offers', href: '/offers' },
     { heading: 'About Us', href: '/about' },
+    { heading: 'Blog', href: '/blog' },
     { heading: 'Contact', href: '/contact' },
   ];
 
@@ -246,6 +247,7 @@ export default function Navbar() {
             </li>
             <li><Link href="/offers" className={isActive('/offers') ? 'active' : ''}>Offers</Link></li>
             <li><Link href="/about" className={isActive('/about') ? 'active' : ''}>About Us</Link></li>
+            <li><Link href="/blog" className={isActive('/blog') ? 'active' : ''}>Blog</Link></li>
             <li><Link href="/contact" className={isActive('/contact') ? 'active' : ''}>Contact</Link></li>
           </ul>
 

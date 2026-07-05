@@ -7,6 +7,7 @@ import Link from 'next/link';
 import HomeLightbox from '../(home)/components/HomeLightbox';
 import Lightbox from '../(home)/components/Lightbox';
 import ContactForm from '../../components/ContactForm';
+import BlogSection from '../../components/BlogSection';
 
 import HeroSlider from '../(home)/components/HeroSlider';
 import ImgStack from '../../components/ImgStack';
@@ -528,6 +529,9 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+
+      {/* ── BLOG SECTION ── */}
+      <BlogSection />
 
       {/* ── INLINE CONTACT FORM (After Offers) ── */}
       <section className="noha-section" style={{ paddingTop: 0, paddingBottom: '5rem' }}>
