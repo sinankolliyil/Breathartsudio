@@ -4,7 +4,7 @@
  * No visual impact on the website.
  */
 
-const SITE_URL = 'https://breathart.ae';
+const SITE_URL = 'https://www.breathartstudio.com';
 const SITE_NAME = 'BreathArt Photography Studio';
 const LOGO_URL = `${SITE_URL}/assets/logo/BreathArt Photography new Logo.png`;
 

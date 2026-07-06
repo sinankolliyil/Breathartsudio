@@ -4,9 +4,9 @@ export default function robots() {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/_next/'],
+        disallow: ['/admin', '/admin/'],
       },
     ],
-    sitemap: 'https://breathart.ae/sitemap.xml',
+    sitemap: 'https://www.breathartstudio.com/sitemap.xml',
   };
 }

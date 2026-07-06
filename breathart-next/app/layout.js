@@ -8,8 +8,12 @@ import ScrollTopButton from '@/components/ScrollTopButton';
 import PopupForm from '@/components/PopupForm';
 import { OrganizationSchema, WebSiteSchema, LocalBusinessSchema } from './schema';
 
+export const viewport = {
+  themeColor: '#0d1b2e',
+};
+
 export const metadata = {
-  metadataBase: new URL('https://breathart.ae'),
+  metadataBase: new URL('https://www.breathartstudio.com'),
   title: {
     default: 'BreathArt Photography Studio Dubai | Premium Photography & Videography',
     template: '%s | BreathArt Photography Studio Dubai',
@@ -25,14 +29,26 @@ export const metadata = {
     telephone: false,
   },
   alternates: {
-    canonical: '/',
+    canonical: 'https://www.breathartstudio.com/',
+    languages: {
+      'en-IN': 'https://www.breathartstudio.com/',
+      'x-default': 'https://www.breathartstudio.com/',
+    },
+  },
+  verification: {
+    google: 'YOUR_GOOGLE_VERIFICATION_CODE',
+    yandex: 'YOUR_YANDEX_VERIFICATION_CODE',
+    yahoo: 'YOUR_YAHOO_VERIFICATION_CODE',
+    other: {
+      'msvalidate.01': ['YOUR_BING_VERIFICATION_CODE'],
+    },
   },
   openGraph: {
     title: 'BreathArt Photography Studio Dubai | Premium Photography & Videography',
     description: 'Dubai\'s premier luxury photography studio specializing in newborn, wedding, corporate, and event photography. Cinematic visual storytelling with 12+ years of expertise.',
-    url: 'https://breathart.ae',
+    url: 'https://www.breathartstudio.com/',
     siteName: 'BreathArt Photography Studio',
-    locale: 'en_AE',
+    locale: 'en_IN',
     type: 'website',
     images: [
       {
@@ -61,7 +77,18 @@ export const metadata = {
     },
   },
   icons: {
-    icon: '/assets/logo/photography-logo.webp',
+    icon: [
+      { url: '/assets/logo/photography-logo.webp' },
+      { url: '/app/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/app/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    shortcut: '/app/institute.png',
+    apple: '/app/apple-touch-icon.png',
+  },
+  manifest: '/app/site.webmanifest',
+  other: {
+    'msapplication-TileColor': '#0d1b2e',
+    'msapplication-TileImage': '/app/mstile-150x150.png',
   },
 };
 
