@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function PaymentFloat() {
   const [isVisible, setIsVisible] = useState(true);
@@ -11,9 +12,11 @@ export default function PaymentFloat() {
     <div className="payment-float-banner">
       <div className="payment-float-container">
         <span className="payment-float-text">We accept</span>
-        <img 
+        <Image 
           src="/assets/logo/tamara-logo.webp" 
           alt="Tamara Accepted" 
+          width={49}
+          height={28}
           className="payment-float-img" 
         />
       </div>

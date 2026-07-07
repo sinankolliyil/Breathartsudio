@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -8,14 +9,14 @@ export default function Footer() {
           {/* Col 1: Brand & Philosophy */}
           <div className="footer-col brand-col">
             <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', marginBottom: '1.5rem' }}>
-              <img src="/assets/logo/BreathArt Photography new Logo.png" alt="BreathArt Photography Logo" style={{ height: '45px', width: 'auto', objectFit: 'contain' }} />
+              <Image src="/assets/logo/BreathArt Photography new Logo.png" alt="BreathArt Photography Logo" width={182} height={45} style={{ height: '45px', width: 'auto', objectFit: 'contain' }} />
             </Link>
             <p className="footer-desc">
               Dubai&apos;s luxury photography studio specializing in cinematic visual legacies. We turn fleeting moments into timeless fine-art treasures.
             </p>
             <div className="payment-acceptance">
               <span>We accept</span>
-              <img src="/assets/logo/tamara-logo.webp" alt="Tamara Logo" className="payment-logo" />
+              <Image src="/assets/logo/tamara-logo.webp" alt="Tamara Logo" width={120} height={40} className="payment-logo" />
             </div>
           </div>
 
@@ -70,7 +71,7 @@ export default function Footer() {
             <div className="footer-contact-item" style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start', marginBottom: '1rem' }}>
               <i className="fas fa-envelope" style={{ marginTop: '0.2rem', flexShrink: 0 }}></i>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-                <a href="mailto:Info@breathart.ae">Info@breathart.ae</a>
+                <a href="mailto:info@breathartstudio.com">info@breathartstudio.com</a>
                 <a href="mailto:Breathartdxb@gmail.com">Breathartdxb@gmail.com</a>
               </div>
             </div>
@@ -100,9 +101,9 @@ export default function Footer() {
           <div className="group-company-wrapper">
             <span className="group-label">BreathArt Group:</span>
             <div className="group-logos">
-              <img src="/assets/logo/institute_logo.png" alt="BreathArt Academy Logo" className="group-logo institute-logo" />
-              <img src="/assets/logo/marketing_logo.webp" alt="BreathArt Marketing Logo" className="group-logo marketing-logo" />
-              <img src="/assets/logo/photography-logo.webp" alt="BreathArt Photography Logo" className="group-logo" />
+              <Image src="/assets/logo/institute_logo.png" alt="BreathArt Academy Logo" width={63} height={35} className="group-logo institute-logo" />
+              <Image src="/assets/logo/marketing_logo.webp" alt="BreathArt Marketing Logo" width={30} height={30} className="group-logo marketing-logo" />
+              <Image src="/assets/logo/photography-logo.webp" alt="BreathArt Photography Logo" width={30} height={30} className="group-logo" />
             </div>
           </div>
           <Link href="/landing" className="btn-group-landing">View Studio Landing Page</Link>

@@ -6,6 +6,7 @@ import { useEffect, useState, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion, useMotionValue } from 'framer-motion';
 import { X } from 'lucide-react';
+import Image from 'next/image';
 
 const LinkedinIcon = ({ size = 24 }) => (
   <svg viewBox="0 0 24 24" width={size} height={size} stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
@@ -212,7 +213,7 @@ export default function Navbar() {
       <nav id="navbar" className={navClasses}>
         <div className="nav-container">
           <Link href="/" className="logo" style={{ display: 'flex', alignItems: 'center' }}>
-            <img src="/assets/logo/BreathArt Photography new Logo.png" alt="BreathArt Photography Logo" style={{ height: '30px', width: 'auto', objectFit: 'contain' }} />
+            <Image src="/assets/logo/BreathArt Photography new Logo.png" alt="BreathArt Photography Logo" width={182} height={45} style={{ height: '30px', width: 'auto', objectFit: 'contain' }} />
           </Link>
 
           {/* Desktop nav links */}

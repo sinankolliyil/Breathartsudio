@@ -97,7 +97,7 @@ export default function PrivacyPolicyPage() {
               <strong>WhatsApp Business:</strong> Secure messaging redirection links used to initiate booking conversations directly with our coordinators.
             </li>
             <li style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: '1.75', marginBottom: '0.5rem', marginLeft: '1.5rem', listStyleType: 'disc' }}>
-              <strong>Email Communications:</strong> Inquiries sent to our official corporate emails (Info@breathart.ae / Breathartdxb@gmail.com).
+              <strong>Email Communications:</strong> Inquiries sent to our official corporate emails (info@breathartstudio.com / Breathartdxb@gmail.com).
             </li>
             <li style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: '1.75', marginBottom: '0.5rem', marginLeft: '1.5rem', listStyleType: 'disc' }}>
               <strong>Cookies &amp; Tracking:</strong> Dynamic scripts and cookie storage used to analyze visual interaction patterns and improve website navigation.
@@ -234,7 +234,7 @@ export default function PrivacyPolicyPage() {
               <strong>Address:</strong> Dubai, United Arab Emirates
             </p>
             <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', marginBottom: '0.25rem' }}>
-              <strong>Primary Email:</strong> <a href="mailto:Info@breathart.ae" style={{ color: 'var(--color-gold)' }}>Info@breathart.ae</a>
+              <strong>Primary Email:</strong> <a href="mailto:info@breathartstudio.com" style={{ color: 'var(--color-gold)' }}>info@breathartstudio.com</a>
             </p>
             <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', marginBottom: '0.25rem' }}>
               <strong>Secondary Email:</strong> <a href="mailto:Breathartdxb@gmail.com" style={{ color: 'var(--color-gold)' }}>Breathartdxb@gmail.com</a>

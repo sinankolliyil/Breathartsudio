@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import HeroSlider from './components/HeroSlider';
 import GalleryItem from './components/GalleryItem';
@@ -174,9 +175,11 @@ export default function HomePage() {
             </div>
 
             <div className="featured-normal-image">
-              <img loading="lazy" decoding="async" 
+              <Image priority loading="eager"
                 src="/assets/hero/photo.png" 
                 alt="Newborn Photography" 
+                width={500}
+                height={500}
                 style={{ 
                   width: '100%', 
                   height: '100%', 
@@ -236,7 +239,7 @@ export default function HomePage() {
             </div>
 
             <div className="featured-mobile-image-box">
-              <img src="/assets/hero/photo.png" alt="Newborn Photography" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <Image src="/assets/hero/photo.png" alt="Newborn Photography" priority width={400} height={400} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div className="featured-mobile-cta">
                 <a href="#gallery" onClick={(e) => handleExploreClick(e, 'Newborn')} className="btn-premium btn-premium-outline" style={{ fontSize: '0.7rem', padding: '0.6rem 1.2rem' }}>
                   Explore <ArrowUpRight size={12} />

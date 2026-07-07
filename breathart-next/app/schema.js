@@ -33,7 +33,7 @@ export function OrganizationSchema() {
         availableLanguage: ['English', 'Arabic'],
       },
     ],
-    email: 'Info@breathart.ae',
+    email: 'info@breathartstudio.com',
     sameAs: [
       'https://wa.me/971526400679',
     ],
@@ -90,7 +90,7 @@ export function LocalBusinessSchema() {
     image: `${SITE_URL}/assets/hero/hero_nature.png`,
     description: 'Dubai\'s luxury photography studio specializing in cinematic visual legacies — newborn, wedding, corporate, and event photography.',
     telephone: ['+971-52-640-0679', '+971-52-215-0837'],
-    email: 'Info@breathart.ae',
+    email: 'info@breathartstudio.com',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Dubai',
@@ -206,7 +206,7 @@ export function ContactPageSchema() {
       '@type': 'PhotographyBusiness',
       name: SITE_NAME,
       telephone: ['+971-52-640-0679', '+971-52-215-0837'],
-      email: 'Info@breathart.ae',
+      email: 'info@breathartstudio.com',
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Dubai',

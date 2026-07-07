@@ -4,13 +4,17 @@ import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, Phone, Mail, MapPin, Send, ArrowRight, Play, Camera, Film, Gift, Star, Zap, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
-import HomeLightbox from '../(home)/components/HomeLightbox';
-import Lightbox from '../(home)/components/Lightbox';
-import ContactForm from '../../components/ContactForm';
-import BlogSection from '../../components/BlogSection';
+import Image from 'next/image';
+import Script from 'next/script';
+import dynamic from 'next/dynamic';
+
+const HomeLightbox = dynamic(() => import('../(home)/components/HomeLightbox'));
+const Lightbox = dynamic(() => import('../(home)/components/Lightbox'));
+const ContactForm = dynamic(() => import('../../components/ContactForm'));
+const BlogSection = dynamic(() => import('../../components/BlogSection'));
+const ImgStack = dynamic(() => import('../../components/ImgStack'));
 
 import HeroSlider from '../(home)/components/HeroSlider';
-import ImgStack from '../../components/ImgStack';
 
 const ServiceAutoSlider = ({ images }) => {
   const [index, setIndex] = useState(0);
@@ -28,19 +32,23 @@ const ServiceAutoSlider = ({ images }) => {
   return (
     <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', overflow: 'hidden' }}>
       <AnimatePresence>
-        <motion.img
+        <motion.div
           key={index}
-          src={images[index]}
-          alt="Service preview"
           initial={{ x: '100%' }}
           animate={{ x: 0 }}
           exit={{ x: '-100%' }}
           transition={{ duration: 0.8, ease: 'easeInOut' }}
-          className="detail-img"
-          loading="lazy"
-          decoding="async"
-          style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', top: 0, left: 0 }}
-        />
+          style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}
+        >
+          <Image
+            src={images[index]}
+            alt="Service preview"
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="detail-img"
+            style={{ objectFit: 'cover' }}
+          />
+        </motion.div>
       </AnimatePresence>
     </div>
   );
@@ -257,6 +265,19 @@ export default function LandingPage() {
         zIndex: 0
       }}
     >
+      <Script id="google-tag-manager" strategy="afterInteractive">
+        {`
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-WRP9H2N5');
+        `}
+      </Script>
+      <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WRP9H2N5"
+        height="0" width="0" style={{display:'none',visibility:'hidden'}}></iframe>
+      </noscript>
       <AbstractBackgroundLines />
 
 
@@ -693,7 +714,7 @@ export default function LandingPage() {
                   <Mail size={20} className="icon-gold" />
                   <div>
                     <h5>Email Desk</h5>
-                    <p style={{ margin: 0 }}>Info@breathart.ae</p>
+                    <p style={{ margin: 0 }}>info@breathartstudio.com</p>
                     <p style={{ margin: 0 }}>Breathartdxb@gmail.com</p>
                   </div>
                 </div>

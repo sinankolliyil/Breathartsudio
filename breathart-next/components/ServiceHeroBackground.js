@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 const defaultImages = [
   '/assets/hero/photo.png',
@@ -44,14 +45,25 @@ export default function ServiceHeroBackground() {
           style={{
             position: 'absolute',
             inset: 0,
-            backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%), url("${img}")`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
             opacity: index === currentSlide ? 1 : 0,
             transition: isInitialLoad ? 'none' : 'opacity 1.5s ease-in-out'
           }}
-        />
+        >
+          <Image
+            src={img}
+            alt="Hero Background"
+            fill
+            sizes="100vw"
+            quality={60}
+            priority={index === 0}
+            style={{ objectFit: 'cover', objectPosition: 'center' }}
+          />
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%)'
+          }} />
+        </div>
       ))}
     </div>
   );

@@ -74,7 +74,10 @@ export default function HeroSlider({ showContactForm = false, leftAlignOnly = fa
               src={slide.image} 
               alt={slide.title1} 
               fill 
+              sizes="100vw"
+              quality={60}
               priority={index === 0}
+              fetchPriority={index === 0 ? "high" : "auto"}
               style={{ objectFit: 'cover', objectPosition: slide.objectPosition || 'center' }} 
             />
             <div className="hero-slide-overlay"></div>

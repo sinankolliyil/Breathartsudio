@@ -235,7 +235,7 @@ export default function TermsAndConditionsPage() {
               <strong>Address:</strong> Dubai, United Arab Emirates
             </p>
             <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', marginBottom: '0.25rem' }}>
-              <strong>Primary Email:</strong> <a href="mailto:Info@breathart.ae" style={{ color: 'var(--color-gold)' }}>Info@breathart.ae</a>
+              <strong>Primary Email:</strong> <a href="mailto:info@breathartstudio.com" style={{ color: 'var(--color-gold)' }}>info@breathartstudio.com</a>
             </p>
             <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', marginBottom: '0.25rem' }}>
               <strong>Secondary Email:</strong> <a href="mailto:Breathartdxb@gmail.com" style={{ color: 'var(--color-gold)' }}>Breathartdxb@gmail.com</a>
