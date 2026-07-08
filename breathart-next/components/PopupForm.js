@@ -64,6 +64,7 @@ export default function PopupForm({ repeatDelay = 60000 }) {
                 showPackageField={false} 
                 initialService={prefilledService} 
                 initialMessage={prefilledMessage} 
+                onSuccess={() => setIsVisible(false)}
               />
             </div>
           </motion.div>

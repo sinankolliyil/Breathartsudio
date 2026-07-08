@@ -3,13 +3,16 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import HeroSlider from './components/HeroSlider';
 import GalleryItem from './components/GalleryItem';
 import FeatureCard from './components/FeatureCard';
-import HomeLightbox from './components/HomeLightbox';
-import Lightbox from './components/Lightbox';
-import ContactForm from '../../components/ContactForm';
-import BlogSection from '../../components/BlogSection';
+
+const HomeLightbox = dynamic(() => import('./components/HomeLightbox'));
+const Lightbox = dynamic(() => import('./components/Lightbox'));
+const ContactForm = dynamic(() => import('../../components/ContactForm'));
+const BlogSection = dynamic(() => import('../../components/BlogSection'));
+const LazyVideo = dynamic(() => import('./components/LazyVideo'));
 
 import { Shield, Sparkles, Sun, Camera, Sliders, Users, BookOpen, Heart, ArrowUpRight, Zap } from 'lucide-react';
 
@@ -684,7 +687,7 @@ export default function HomePage() {
         <div className="container why-choose-us-container">
           <div className="why-content-wrapper animate-reveal active">
             <div className="why-image-box">
-              <video src="/assets/about/why_choose_us_video.mp4" autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <LazyVideo src="/assets/about/why_choose_us_video.mp4" />
             </div>
 
             <div className="why-text-area">

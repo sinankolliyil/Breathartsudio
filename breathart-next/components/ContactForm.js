@@ -3,6 +3,7 @@
 import { useState, useEffect, Suspense, useId } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { Send } from 'lucide-react';
+import { useForm, ValidationError } from '@formspree/react';
 
 function ContactFormInner({ 
   initialService, 
@@ -10,7 +11,8 @@ function ContactFormInner({
   initialMessage, 
   buttonText, 
   showPackageField = true,
-  theme = "cinematic" // "cinematic" (home/contact form style) or "landing" (landing/offers form style)
+  theme = "cinematic", // "cinematic" (home/contact form style) or "landing" (landing/offers form style)
+  onSuccess
 }) {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -24,6 +26,17 @@ function ContactFormInner({
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [state, handleSubmit] = useForm('mbdvewjj');
+
+  useEffect(() => {
+    if (state.succeeded) {
+      setIsSubmitted(true);
+      if (onSuccess) {
+        onSuccess();
+      }
+      router.push('/thank-you');
+    }
+  }, [state.succeeded, router, onSuccess]);
 
   useEffect(() => {
     // Read from search params if present (for contact page)
@@ -90,24 +103,6 @@ function ContactFormInner({
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const text = `Hello BreathArt Studio! I would like to inquire about your services.
-
-*My Details:*
-*Name:* ${formData.name}
-*Email:* ${formData.email}
-*Phone:* ${formData.phone}
-*Interested Service:* ${formData.service}
-${showPackageField && formData.package ? `*Selected Package:* ${formData.package}\n` : ''}*Message/Details:* ${formData.message}`;
-
-    const subject = encodeURIComponent('Service Inquiry from BreathArt Studio Website');
-    const body = encodeURIComponent(text);
-    window.location.href = `mailto:Info@breathartstudio.com?subject=${subject}&body=${body}`;
-    setIsSubmitted(true);
-    router.push('/thank-you');
   };
 
   const handleReset = () => {
@@ -218,8 +213,8 @@ ${showPackageField && formData.package ? `*Selected Package:* ${formData.package
           </label>
         </div>
 
-        <button type="submit" className="noha-btn-primary full-width" style={{ cursor: 'pointer' }}>
-          {buttonText || "Submit Inquiry"} <Send size={16} />
+        <button type="submit" disabled={state.submitting} className="noha-btn-primary full-width" style={{ cursor: state.submitting ? 'not-allowed' : 'pointer', opacity: state.submitting ? 0.7 : 1 }}>
+          {state.submitting ? "Submitting..." : (buttonText || "Submit Inquiry")} <Send size={16} />
         </button>
       </form>
     );
@@ -367,8 +362,8 @@ ${showPackageField && formData.package ? `*Selected Package:* ${formData.package
       </div>
 
       <div style={{ textAlign: 'center' }}>
-        <button type="submit" className="btn btn-gold" style={{ padding: '1rem 4rem', letterSpacing: '4px', fontSize: '0.75rem', textTransform: 'uppercase', width: '100%', cursor: 'pointer', border: 'none' }}>
-          {buttonText || "Reserve Your Date"}
+        <button type="submit" disabled={state.submitting} className="btn btn-gold" style={{ padding: '1rem 4rem', letterSpacing: '4px', fontSize: '0.75rem', textTransform: 'uppercase', width: '100%', cursor: state.submitting ? 'not-allowed' : 'pointer', border: 'none', opacity: state.submitting ? 0.7 : 1 }}>
+          {state.submitting ? "Submitting..." : (buttonText || "Reserve Your Date")}
         </button>
       </div>
     </form>
