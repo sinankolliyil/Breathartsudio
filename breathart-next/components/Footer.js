@@ -101,9 +101,13 @@ export default function Footer() {
           <div className="group-company-wrapper">
             <span className="group-label">BreathArt Group:</span>
             <div className="group-logos">
-              <Image src="/assets/logo/institute_logo.png" alt="BreathArt Academy Logo" width={63} height={35} className="group-logo institute-logo" />
+              <a href="https://www.breathartinstitute.in/" target="_blank" rel="noopener noreferrer">
+                <Image src="/assets/logo/institute_logo.png" alt="BreathArt Academy Logo" width={63} height={35} className="group-logo institute-logo" />
+              </a>
               <Image src="/assets/logo/marketing_logo.webp" alt="BreathArt Marketing Logo" width={30} height={30} className="group-logo marketing-logo" />
-              <Image src="/assets/logo/photography-logo.webp" alt="BreathArt Photography Logo" width={30} height={30} className="group-logo" />
+              <a href="https://breathartstudio.com" target="_blank" rel="noopener noreferrer">
+                <Image src="/assets/logo/photography-logo.webp" alt="BreathArt Photography Logo" width={30} height={30} className="group-logo" />
+              </a>
             </div>
           </div>
           <Link href="/landing" className="btn-group-landing">View Studio Landing Page</Link>
