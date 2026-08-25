@@ -246,30 +246,30 @@ export default function Navbar() {
                   <div className="mega-menu-column" style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                     <span className="mega-title" style={{ fontSize: '0.85rem', color: 'var(--color-gold)', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '0.5rem', display: 'block', fontWeight: 'bold' }}>Photography</span>
                     <Link href="/services/newborn-maternity" style={{ padding: '0.25rem 0', display: 'block' }}>
-                      <span className="mega-desc" style={{ color: '#fff', fontSize: '0.9rem', fontWeight: '600' }}>Newborn &amp; Maternity</span>
+                      <span className="mega-desc" style={{ color: '#000', fontSize: '0.9rem', fontWeight: '600' }}>Newborn &amp; Maternity</span>
                     </Link>
                     <Link href="/services/wedding" style={{ padding: '0.25rem 0', display: 'block' }}>
-                      <span className="mega-desc" style={{ color: '#fff', fontSize: '0.9rem', fontWeight: '600' }}>Wedding &amp; Romance</span>
+                      <span className="mega-desc" style={{ color: '#000', fontSize: '0.9rem', fontWeight: '600' }}>Wedding &amp; Romance</span>
                     </Link>
                     <Link href="/services/family-couple" style={{ padding: '0.25rem 0', display: 'block' }}>
-                      <span className="mega-desc" style={{ color: '#fff', fontSize: '0.9rem', fontWeight: '600' }}>Family &amp; Couple</span>
+                      <span className="mega-desc" style={{ color: '#000', fontSize: '0.9rem', fontWeight: '600' }}>Family &amp; Couple</span>
                     </Link>
                     <Link href="/services/corporate-realestate" style={{ padding: '0.25rem 0', display: 'block' }}>
-                      <span className="mega-desc" style={{ color: '#fff', fontSize: '0.9rem', fontWeight: '600' }}>Corporate &amp; Real Estate</span>
+                      <span className="mega-desc" style={{ color: '#000', fontSize: '0.9rem', fontWeight: '600' }}>Corporate &amp; Real Estate</span>
                     </Link>
                   </div>
                   <div className="mega-menu-column" style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                     <span className="mega-title" style={{ fontSize: '0.85rem', color: 'var(--color-gold)', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '0.5rem', display: 'block', fontWeight: 'bold' }}>Videography</span>
                     <Link href="/services/videography" style={{ padding: '0.25rem 0', display: 'block' }}>
-                      <span className="mega-desc" style={{ color: '#fff', fontSize: '0.9rem', fontWeight: '600' }}>Cinematic Videography</span>
-                      <span className="mega-desc" style={{ display: 'block', fontSize: '0.75rem', marginTop: '0.25rem' }}>Wedding films &amp; brand promos</span>
+                      <span className="mega-desc" style={{ color: '#000', fontSize: '0.9rem', fontWeight: '600' }}>Cinematic Videography</span>
+                      <span className="mega-desc" style={{ display: 'block', fontSize: '0.75rem', marginTop: '0.25rem', color: '#333' }}>Wedding films &amp; brand promos</span>
                     </Link>
                   </div>
                   <div className="mega-menu-column" style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                     <span className="mega-title" style={{ fontSize: '0.85rem', color: 'var(--color-gold)', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '0.5rem', display: 'block', fontWeight: 'bold' }}>Event Production</span>
                     <Link href="/services/events" style={{ padding: '0.25rem 0', display: 'block' }}>
-                      <span className="mega-desc" style={{ color: '#fff', fontSize: '0.9rem', fontWeight: '600' }}>Events By BreathArt</span>
-                      <span className="mega-desc" style={{ display: 'block', fontSize: '0.75rem', marginTop: '0.25rem' }}>Social celebrations &amp; planning</span>
+                      <span className="mega-desc" style={{ color: '#000', fontSize: '0.9rem', fontWeight: '600' }}>Events By BreathArt</span>
+                      <span className="mega-desc" style={{ display: 'block', fontSize: '0.75rem', marginTop: '0.25rem', color: '#333' }}>Social celebrations &amp; planning</span>
                     </Link>
                   </div>
                 </div>

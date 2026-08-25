@@ -682,7 +682,7 @@ export default function CorporateRealEstatePage() {
       </div>
 
       {/* 1b. WHY CHOOSE US */}
-      <section id="why-choose-us" className="section" style={{ background: 'var(--color-shade-1)', paddingTop: '6rem', paddingBottom: '6rem' }}>
+      <section id="why-choose-us" className="section" style={{ background: 'var(--color-shade-1)', padding: 'var(--section-padding) 0' }}>
         <div className="container">
           <div style={{
             display: 'flex',
@@ -709,7 +709,20 @@ export default function CorporateRealEstatePage() {
                 Whether you need corporate headshots or real estate photography, our experienced photographers deliver professional images that match your brand, style, and requirements.
               </p>
               
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '2.5rem' }}>
+              <style dangerouslySetInnerHTML={{__html: `
+                .why-choose-grid {
+                  display: grid;
+                  grid-template-columns: 1fr 1fr;
+                  gap: 1.5rem;
+                  margin-bottom: 2.5rem;
+                }
+                @media (max-width: 576px) {
+                  .why-choose-grid {
+                    grid-template-columns: 1fr;
+                  }
+                }
+              `}} />
+              <div className="why-choose-grid">
                 <div>
                   <h4 style={{ fontSize: '0.85rem', color: 'var(--color-white)', marginBottom: '0.25rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
                     <i className="fas fa-camera" style={{ color: 'var(--color-gold)', marginRight: '8px' }}></i>
