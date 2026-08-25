@@ -133,6 +133,7 @@ export default function Navbar() {
   const [windowHeight, setWindowHeight] = useState(0);
   const [mounted, setMounted] = useState(false);
 
+
   useEffect(() => {
     setMounted(true);
     setWindowHeight(window.innerHeight);
@@ -176,12 +177,22 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
 
+  // Hide the navbar entirely on specific pages (like the new cinematic designs)
+  if (pathname === '/services/newborn-maternity' || pathname === '/services/corporate-realestate') {
+    return null;
+  }
+
   const isActive = (path) => pathname === path;
   const transparentPages = [
     '/',
     '/services/videography',
     '/services/photography',
-    '/services/events-by-breathart'
+    '/services/events-by-breathart',
+    '/services/newborn-maternity',
+    '/services/wedding',
+    '/services/family-couple',
+    '/services/events',
+    '/services/corporate-realestate'
   ];
   const hasTransparentHeader = transparentPages.includes(pathname) || pathname.startsWith('/landing');
 
@@ -197,9 +208,12 @@ export default function Navbar() {
       heading: 'Services', 
       href: '/services',
       subItems: [
-        { heading: 'Photography', href: '/services/photography' },
-        { heading: 'Videography', href: '/services/videography' },
-        { heading: 'Events By BreathArt', href: '/services/events-by-breathart' }
+        { heading: 'Newborn & Maternity', href: '/services/newborn-maternity' },
+        { heading: 'Wedding & Romance', href: '/services/wedding' },
+        { heading: 'Family & Couple', href: '/services/family-couple' },
+        { heading: 'Events By BreathArt', href: '/services/events' },
+        { heading: 'Corporate & Real Estate', href: '/services/corporate-realestate' },
+        { heading: 'Videography Films', href: '/services/videography' }
       ]
     },
     { heading: 'Offers', href: '/offers' },
@@ -207,6 +221,10 @@ export default function Navbar() {
     { heading: 'Blog', href: '/blog' },
     { heading: 'Contact', href: '/contact' },
   ];
+
+  if (pathname === '/services/newborn-maternity') {
+    return null;
+  }
 
   return (
     <>
@@ -224,23 +242,34 @@ export default function Navbar() {
                 Services <i className="fas fa-chevron-down"></i>
               </Link>
               <div className="mega-menu">
-                <div className="mega-menu-container" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
-                  <div className="mega-menu-column">
-                    <Link href="/services/photography">
-                      <span className="mega-title">Photography</span>
-                      <span className="mega-desc">Elegant maternity, newborn, wedding, and lifestyle sessions</span>
+                <div className="mega-menu-container" style={{ gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+                  <div className="mega-menu-column" style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                    <span className="mega-title" style={{ fontSize: '0.85rem', color: 'var(--color-gold)', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '0.5rem', display: 'block', fontWeight: 'bold' }}>Photography</span>
+                    <Link href="/services/newborn-maternity" style={{ padding: '0.25rem 0', display: 'block' }}>
+                      <span className="mega-desc" style={{ color: '#fff', fontSize: '0.9rem', fontWeight: '600' }}>Newborn &amp; Maternity</span>
+                    </Link>
+                    <Link href="/services/wedding" style={{ padding: '0.25rem 0', display: 'block' }}>
+                      <span className="mega-desc" style={{ color: '#fff', fontSize: '0.9rem', fontWeight: '600' }}>Wedding &amp; Romance</span>
+                    </Link>
+                    <Link href="/services/family-couple" style={{ padding: '0.25rem 0', display: 'block' }}>
+                      <span className="mega-desc" style={{ color: '#fff', fontSize: '0.9rem', fontWeight: '600' }}>Family &amp; Couple</span>
+                    </Link>
+                    <Link href="/services/corporate-realestate" style={{ padding: '0.25rem 0', display: 'block' }}>
+                      <span className="mega-desc" style={{ color: '#fff', fontSize: '0.9rem', fontWeight: '600' }}>Corporate &amp; Real Estate</span>
                     </Link>
                   </div>
-                  <div className="mega-menu-column">
-                    <Link href="/services/videography">
-                      <span className="mega-title">Videography</span>
-                      <span className="mega-desc">Cinematic films and professional visual storytelling</span>
+                  <div className="mega-menu-column" style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                    <span className="mega-title" style={{ fontSize: '0.85rem', color: 'var(--color-gold)', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '0.5rem', display: 'block', fontWeight: 'bold' }}>Videography</span>
+                    <Link href="/services/videography" style={{ padding: '0.25rem 0', display: 'block' }}>
+                      <span className="mega-desc" style={{ color: '#fff', fontSize: '0.9rem', fontWeight: '600' }}>Cinematic Videography</span>
+                      <span className="mega-desc" style={{ display: 'block', fontSize: '0.75rem', marginTop: '0.25rem' }}>Wedding films &amp; brand promos</span>
                     </Link>
                   </div>
-                  <div className="mega-menu-column">
-                    <Link href="/services/events-by-breathart">
-                      <span className="mega-title">Events By BreathArt</span>
-                      <span className="mega-desc">Professional planning and production for UAE events</span>
+                  <div className="mega-menu-column" style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                    <span className="mega-title" style={{ fontSize: '0.85rem', color: 'var(--color-gold)', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '0.5rem', display: 'block', fontWeight: 'bold' }}>Event Production</span>
+                    <Link href="/services/events" style={{ padding: '0.25rem 0', display: 'block' }}>
+                      <span className="mega-desc" style={{ color: '#fff', fontSize: '0.9rem', fontWeight: '600' }}>Events By BreathArt</span>
+                      <span className="mega-desc" style={{ display: 'block', fontSize: '0.75rem', marginTop: '0.25rem' }}>Social celebrations &amp; planning</span>
                     </Link>
                   </div>
                 </div>

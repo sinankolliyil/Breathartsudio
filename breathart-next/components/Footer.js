@@ -20,53 +20,49 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Col 2: Services */}
+          {/* Col 2: Quick Links */}
           <div className="footer-col">
-            <h4>Services</h4>
+            <h4>Quick Links</h4>
             <ul>
               <li>
-                <Link href="/services#service-newborn">Newborn Portraiture</Link>
+                <Link href="/">Home</Link>
               </li>
               <li>
-                <Link href="/services#service-wedding">Wedding Stories</Link>
+                <Link href="/services/newborn-maternity#newborn">Newborn Photography</Link>
               </li>
               <li>
-                <Link href="/services#service-corporate">Corporate Branding</Link>
+                <Link href="/services/newborn-maternity#maternity">Maternity Photography</Link>
               </li>
               <li>
-                <Link href="/services#service-event">Event Photography</Link>
+                <Link href="/services/newborn-maternity#baby-casting">Baby Casting</Link>
+              </li>
+              <li>
+                <Link href="/services/newborn-maternity#gift-hampers">Gift Hampers</Link>
+              </li>
+              <li>
+                <Link href="/contact">Contact</Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: Studio */}
-          <div className="footer-col">
-            <h4>Studio</h4>
-            <ul>
-              <li>
-                <Link href="/about">Our Philosophy</Link>
-              </li>
-              <li>
-                <Link href="/offers">Special Catalogs</Link>
-              </li>
-              <li>
-                <Link href="/contact">Book Session</Link>
-              </li>
-              <li>
-                <Link href="/contact">Inquiries</Link>
-              </li>
-              <li>
-                <Link href="/privacy-policy">Privacy Policy</Link>
-              </li>
-              <li>
-                <Link href="/terms-and-conditions">Terms & Conditions</Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Col 4: Contact & Socials */}
+          {/* Col 3: Contact Information */}
           <div className="footer-col contact-col">
-            <h4>Initiate Story</h4>
+            <h4>Contact Information</h4>
+
+            <div className="footer-contact-item" style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start', marginBottom: '1rem' }}>
+              <i className="fas fa-phone" style={{ marginTop: '0.2rem', flexShrink: 0 }}></i>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                <a href="tel:+971526400679">+971 52 640 0679</a>
+                <a href="tel:+971522150837">+971 52 215 0837</a>
+              </div>
+            </div>
+
+            <div className="footer-contact-item" style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start', marginBottom: '1rem' }}>
+              <i className="fab fa-whatsapp" style={{ marginTop: '0.2rem', flexShrink: 0 }}></i>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                <a href="https://wa.me/971526400679" target="_blank" rel="noopener noreferrer">WhatsApp Support</a>
+              </div>
+            </div>
 
             <div className="footer-contact-item" style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start', marginBottom: '1rem' }}>
               <i className="fas fa-envelope" style={{ marginTop: '0.2rem', flexShrink: 0 }}></i>
@@ -77,21 +73,26 @@ export default function Footer() {
             </div>
 
             <div className="footer-contact-item" style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
-              <i className="fas fa-phone" style={{ marginTop: '0.2rem', flexShrink: 0 }}></i>
+              <i className="fas fa-map-marker-alt" style={{ marginTop: '0.2rem', flexShrink: 0 }}></i>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-                <a href="tel:+971526400679">+971 52 640 0679</a>
-                <a href="tel:+971522150837">+971 52 215 0837</a>
+                <span>BreathArt Studio, Dubai</span>
+                <a href="https://maps.google.com/maps?q=Pasons+Supermarket+-+Al+Qusais+(Noor+al+Qusais+)+-+18+%D8%B4%D8%A7%D8%B1%D8%B9+%D9%A7+-+Al+Qusais+-+Al+Qusais+1+-+Dubai" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>Google Maps</a>
               </div>
             </div>
-            <div className="footer-social-links">
-              <a href="https://wa.me/971526400679" target="_blank" rel="noopener noreferrer" className="whatsapp">
-                <i className="fab fa-whatsapp"></i>
-              </a>
+          </div>
+
+          {/* Col 4: Social Media */}
+          <div className="footer-col contact-col">
+            <h4>Social Media</h4>
+            <div className="footer-social-links" style={{ justifyContent: 'flex-start' }}>
               <a href="https://www.instagram.com/breathart.photography" target="_blank" rel="noopener noreferrer" className="instagram">
                 <i className="fab fa-instagram"></i>
               </a>
               <a href="https://www.facebook.com/share/193V3fhepb/" target="_blank" rel="noopener noreferrer" className="facebook">
                 <i className="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://www.tiktok.com/@breathart" target="_blank" rel="noopener noreferrer" className="tiktok">
+                <i className="fab fa-tiktok"></i>
               </a>
             </div>
           </div>

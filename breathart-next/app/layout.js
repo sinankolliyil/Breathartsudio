@@ -3,7 +3,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BackgroundLayers from '@/components/BackgroundLayers';
 import WhatsAppFloat from '@/components/WhatsAppFloat';
-import PaymentFloat from '@/components/PaymentFloat';
+
 import ScrollTopButton from '@/components/ScrollTopButton';
 import PopupForm from '@/components/PopupForm';
 import { OrganizationSchema, WebSiteSchema, LocalBusinessSchema } from './schema';
@@ -126,7 +126,7 @@ export default function RootLayout({ children }) {
         <Footer />
         <PopupForm repeatDelay={90000} />
         <WhatsAppFloat />
-        <PaymentFloat />
+
         <ScrollTopButton />
       </body>
     </html>
