@@ -681,6 +681,96 @@ export default function CorporateRealEstatePage() {
         ))}
       </div>
 
+      {/* 1b. WHY CHOOSE US */}
+      <section id="why-choose-us" className="section" style={{ background: 'var(--color-shade-1)', paddingTop: '6rem', paddingBottom: '6rem' }}>
+        <div className="container">
+          <div style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '4rem',
+            alignItems: 'center'
+          }} className="services-alternate-row">
+            {/* Left Content */}
+            <div style={{ flex: '1 1 450px' }}>
+              <span className="cinematic-title" style={{ color: 'var(--color-gold)', fontSize: '0.75rem', letterSpacing: '3px', textTransform: 'uppercase' }}>
+                Why Choose Us
+              </span>
+              <h2 style={{
+                fontFamily: 'var(--font-heading)',
+                fontSize: 'clamp(2.2rem, 4vw, 3.5rem)',
+                color: 'var(--color-white)',
+                marginTop: '0.5rem',
+                marginBottom: '1.5rem',
+                lineHeight: 1.1
+              }}>
+                Professional Photography, Tailored to Your Brand
+              </h2>
+              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: '1.8', marginBottom: '2rem' }}>
+                Whether you need corporate headshots or real estate photography, our experienced photographers deliver professional images that match your brand, style, and requirements.
+              </p>
+              
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '2.5rem' }}>
+                <div>
+                  <h4 style={{ fontSize: '0.85rem', color: 'var(--color-white)', marginBottom: '0.25rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                    <i className="fas fa-camera" style={{ color: 'var(--color-gold)', marginRight: '8px' }}></i>
+                    Experienced Photographers
+                  </h4>
+                </div>
+                <div>
+                  <h4 style={{ fontSize: '0.85rem', color: 'var(--color-white)', marginBottom: '0.25rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                    <i className="fas fa-video" style={{ color: 'var(--color-gold)', marginRight: '8px' }}></i>
+                    Professional Equipment
+                  </h4>
+                </div>
+                <div>
+                  <h4 style={{ fontSize: '0.85rem', color: 'var(--color-white)', marginBottom: '0.25rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                    <i className="fas fa-building" style={{ color: 'var(--color-gold)', marginRight: '8px' }}></i>
+                    Studio & On-Location
+                  </h4>
+                </div>
+                <div>
+                  <h4 style={{ fontSize: '0.85rem', color: 'var(--color-white)', marginBottom: '0.25rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                    <i className="fas fa-magic" style={{ color: 'var(--color-gold)', marginRight: '8px' }}></i>
+                    High-Quality Editing
+                  </h4>
+                </div>
+                <div>
+                  <h4 style={{ fontSize: '0.85rem', color: 'var(--color-white)', marginBottom: '0.25rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                    <i className="fas fa-calendar" style={{ color: 'var(--color-gold)', marginRight: '8px' }}></i>
+                    Flexible Scheduling
+                  </h4>
+                </div>
+                <div>
+                  <h4 style={{ fontSize: '0.85rem', color: 'var(--color-white)', marginBottom: '0.25rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                    <i className="fas fa-bolt" style={{ color: 'var(--color-gold)', marginRight: '8px' }}></i>
+                    Fast Turnaround
+                  </h4>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Right Product Image */}
+            <div style={{ flex: '1 1 450px', display: 'flex', justifyContent: 'center' }}>
+              <div style={{
+                width: '100%',
+                maxWidth: '550px',
+                height: '450px',
+                position: 'relative',
+                border: '1px solid rgba(158, 112, 96, 0.25)'
+              }}>
+                <Image
+                  src="/assets/gallery/corporate/pexels-silverkblack-36733407.webp"
+                  alt="Professional Corporate Photography Studio"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 2. CORPORATE PHOTOGRAPHY OVERVIEW */}
       <SharedServiceSection
         id="corporate-overview"
@@ -961,95 +1051,7 @@ export default function CorporateRealEstatePage() {
         subtitle="5-Star Google Rating" 
       />
 
-      {/* 7. WHY CHOOSE US */}
-      <section id="why-choose-us" className="section" style={{ background: 'var(--color-shade-1)', paddingTop: '6rem', paddingBottom: '6rem' }}>
-        <div className="container">
-          <div style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: '4rem',
-            alignItems: 'center'
-          }} className="services-alternate-row">
-            {/* Left Content */}
-            <div style={{ flex: '1 1 450px' }}>
-              <span className="cinematic-title" style={{ color: 'var(--color-gold)', fontSize: '0.75rem', letterSpacing: '3px', textTransform: 'uppercase' }}>
-                Why Choose Us
-              </span>
-              <h2 style={{
-                fontFamily: 'var(--font-heading)',
-                fontSize: 'clamp(2.2rem, 4vw, 3.5rem)',
-                color: 'var(--color-white)',
-                marginTop: '0.5rem',
-                marginBottom: '1.5rem',
-                lineHeight: 1.1
-              }}>
-                Professional Photography, Tailored to Your Brand
-              </h2>
-              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: '1.8', marginBottom: '2rem' }}>
-                Whether you need corporate headshots or real estate photography, our experienced photographers deliver professional images that match your brand, style, and requirements.
-              </p>
-              
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '2.5rem' }}>
-                <div>
-                  <h4 style={{ fontSize: '0.85rem', color: 'var(--color-white)', marginBottom: '0.25rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                    <i className="fas fa-camera" style={{ color: 'var(--color-gold)', marginRight: '8px' }}></i>
-                    Experienced Photographers
-                  </h4>
-                </div>
-                <div>
-                  <h4 style={{ fontSize: '0.85rem', color: 'var(--color-white)', marginBottom: '0.25rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                    <i className="fas fa-video" style={{ color: 'var(--color-gold)', marginRight: '8px' }}></i>
-                    Professional Equipment
-                  </h4>
-                </div>
-                <div>
-                  <h4 style={{ fontSize: '0.85rem', color: 'var(--color-white)', marginBottom: '0.25rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                    <i className="fas fa-building" style={{ color: 'var(--color-gold)', marginRight: '8px' }}></i>
-                    Studio & On-Location
-                  </h4>
-                </div>
-                <div>
-                  <h4 style={{ fontSize: '0.85rem', color: 'var(--color-white)', marginBottom: '0.25rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                    <i className="fas fa-magic" style={{ color: 'var(--color-gold)', marginRight: '8px' }}></i>
-                    High-Quality Editing
-                  </h4>
-                </div>
-                <div>
-                  <h4 style={{ fontSize: '0.85rem', color: 'var(--color-white)', marginBottom: '0.25rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                    <i className="fas fa-calendar" style={{ color: 'var(--color-gold)', marginRight: '8px' }}></i>
-                    Flexible Scheduling
-                  </h4>
-                </div>
-                <div>
-                  <h4 style={{ fontSize: '0.85rem', color: 'var(--color-white)', marginBottom: '0.25rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                    <i className="fas fa-bolt" style={{ color: 'var(--color-gold)', marginRight: '8px' }}></i>
-                    Fast Turnaround
-                  </h4>
-                </div>
-              </div>
 
-            </div>
-
-            {/* Right Product Image */}
-            <div style={{ flex: '1 1 450px', display: 'flex', justifyContent: 'center' }}>
-              <div style={{
-                width: '100%',
-                maxWidth: '550px',
-                height: '450px',
-                position: 'relative',
-                border: '1px solid rgba(158, 112, 96, 0.25)'
-              }}>
-                <Image
-                  src="/assets/gallery/corporate/pexels-silverkblack-36733407.webp"
-                  alt="Professional Corporate Photography Studio"
-                  fill
-                  style={{ objectFit: 'cover' }}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* 8. FOOTER ENQUIRY SECTION */}
       <section id="contact-section" className="section" style={{
