@@ -49,34 +49,36 @@ export default function Footer() {
           <div className="footer-col contact-col">
             <h4>Contact Information</h4>
 
-            <div className="footer-contact-item" style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start', marginBottom: '1rem' }}>
-              <i className="fas fa-phone" style={{ marginTop: '0.2rem', flexShrink: 0 }}></i>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-                <a href="tel:+971526400679">+971 52 640 0679</a>
-                <a href="tel:+971522150837">+971 52 215 0837</a>
+            <div className="footer-contact-wrapper" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <div className="footer-contact-item" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '1.5rem', textAlign: 'center' }}>
+                <i className="fas fa-phone" style={{ marginBottom: '0.5rem', color: 'var(--color-gold)', fontSize: '1.1rem' }}></i>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                  <a href="tel:+971526400679">+971 52 640 0679</a>
+                  <a href="tel:+971522150837">+971 52 215 0837</a>
+                </div>
               </div>
-            </div>
 
-            <div className="footer-contact-item" style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start', marginBottom: '1rem' }}>
-              <i className="fab fa-whatsapp" style={{ marginTop: '0.2rem', flexShrink: 0 }}></i>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-                <a href="https://wa.me/971526400679" target="_blank" rel="noopener noreferrer">WhatsApp Support</a>
+              <div className="footer-contact-item" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '1.5rem', textAlign: 'center' }}>
+                <i className="fab fa-whatsapp" style={{ marginBottom: '0.5rem', color: 'var(--color-gold)', fontSize: '1.1rem' }}></i>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                  <a href="https://wa.me/971526400679" target="_blank" rel="noopener noreferrer">WhatsApp Support</a>
+                </div>
               </div>
-            </div>
 
-            <div className="footer-contact-item" style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start', marginBottom: '1rem' }}>
-              <i className="fas fa-envelope" style={{ marginTop: '0.2rem', flexShrink: 0 }}></i>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-                <a href="mailto:info@breathartstudio.com">info@breathartstudio.com</a>
-                <a href="mailto:Breathartdxb@gmail.com">Breathartdxb@gmail.com</a>
+              <div className="footer-contact-item" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '1.5rem', textAlign: 'center' }}>
+                <i className="fas fa-envelope" style={{ marginBottom: '0.5rem', color: 'var(--color-gold)', fontSize: '1.1rem' }}></i>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                  <a href="mailto:info@breathartstudio.com">info@breathartstudio.com</a>
+                  <a href="mailto:Breathartdxb@gmail.com">Breathartdxb@gmail.com</a>
+                </div>
               </div>
-            </div>
 
-            <div className="footer-contact-item" style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
-              <i className="fas fa-map-marker-alt" style={{ marginTop: '0.2rem', flexShrink: 0 }}></i>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-                <span>BreathArt Studio, Dubai</span>
-                <a href="https://maps.google.com/maps?q=Pasons+Supermarket+-+Al+Qusais+(Noor+al+Qusais+)+-+18+%D8%B4%D8%A7%D8%B1%D8%B9+%D9%A7+-+Al+Qusais+-+Al+Qusais+1+-+Dubai" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>Google Maps</a>
+              <div className="footer-contact-item" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+                <i className="fas fa-map-marker-alt" style={{ marginBottom: '0.5rem', color: 'var(--color-gold)', fontSize: '1.1rem' }}></i>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                  <span>BreathArt Studio, Dubai</span>
+                  <a href="https://maps.google.com/maps?q=Pasons+Supermarket+-+Al+Qusais+(Noor+al+Qusais+)+-+18+%D8%B4%D8%A7%D8%B1%D8%B9+%D9%A7+-+Al+Qusais+-+Al+Qusais+1+-+Dubai" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>Google Maps</a>
+                </div>
               </div>
             </div>
           </div>
