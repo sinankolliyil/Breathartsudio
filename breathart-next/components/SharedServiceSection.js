@@ -73,8 +73,8 @@ export default function SharedServiceSection({
   
   // Define colors based on theme
   const bgColor = isDark ? 'var(--color-shade-2)' : 'var(--color-shade-1)';
-  const textColor = isDark ? 'var(--color-white)' : 'var(--color-black)';
-  const descColor = isDark ? 'var(--color-text-muted)' : 'var(--color-text-body)';
+  const textColor = 'var(--color-white)'; // Note: --color-white is dark brown in this theme
+  const descColor = 'var(--color-text-muted)';
   
   // Array wrapper if a single string is passed
   const imageArray = Array.isArray(images) ? images : [images];
@@ -178,7 +178,8 @@ export default function SharedServiceSection({
 
         @media (max-width: 576px) {
           .shared-features-grid {
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
           }
           .shared-grid-image-wrapper-${id} {
             min-height: 350px;
@@ -224,9 +225,11 @@ export default function SharedServiceSection({
                     <p style={{ fontSize: '0.8rem', fontWeight: '700', color: textColor, letterSpacing: '0.5px', textTransform: 'uppercase', margin: 0, marginTop: '0.5rem' }}>
                       {feature.title}
                     </p>
-                    <p style={{ fontSize: '0.75rem', color: descColor, margin: 0, lineHeight: '1.4' }}>
-                      {feature.sub}
-                    </p>
+                    {feature.sub && (
+                      <p style={{ fontSize: '0.75rem', color: descColor, margin: 0, lineHeight: '1.4' }}>
+                        {feature.sub}
+                      </p>
+                    )}
                   </div>
                 ))}
               </div>

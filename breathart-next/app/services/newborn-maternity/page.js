@@ -70,7 +70,7 @@ const ServiceAutoSlider = ({ images, objectPosition = "center" }) => {
 const newbornMaternitySlides = [
   {
     id: 1,
-    image: '/assets/hero/photo.png',
+    image: '/assets/services/newborn/NEW BORN AND METERNITY/IMG_0435.JPG.jpeg',
     tag: 'innocence & beauty',
     title1: 'NEWBORN &',
     title2: 'MATERNITY',
@@ -101,6 +101,36 @@ const testimonials = [
     author: "Jessica T.",
     location: "Jumeirah"
   }
+];
+
+const allGalleryImages = [
+  // 0-6 (currently in bento grid)
+  { src: '/assets/services/newborn/NEW BORN AND METERNITY/NB-413 ARIANA (177) copy.jpg', title: 'Pure Sleep' },
+  { src: '/assets/services/newborn/NEW BORN AND METERNITY/NB-376 JYOTHI (83) copy.jpg', title: 'Tender Grip' },
+  { src: '/assets/services/newborn/NEW BORN AND METERNITY/NB-421 ABHISHEK (175) copy.jpg', title: 'Little Wings' },
+  { src: '/assets/services/newborn/NEW BORN AND METERNITY/dreaming-pregnancy-woman-sea-port.jpg', title: 'Growing Love' },
+  { src: '/assets/services/newborn/NEW BORN AND METERNITY/NB-453 MUTYA (134).JPG', title: 'Tender Sleep' },
+  { src: '/assets/services/newborn/NEW BORN AND METERNITY/NB-342 SHAJIDHA (172) .jpg', title: 'First Bonds' },
+  { src: '/assets/services/newborn/NEW BORN AND METERNITY/pregnant-woman-with-protea-flowers-concept-style-pregnancy.jpg', title: 'Maternity Grace' },
+  // The rest
+  { src: '/assets/services/newborn/NEW BORN AND METERNITY/IMG_0435.JPG.jpeg', title: 'Gallery Image' },
+  { src: '/assets/services/newborn/NEW BORN AND METERNITY/IMG_0443.PNG', title: 'Gallery Image' },
+  { src: '/assets/services/newborn/NEW BORN AND METERNITY/NB-406 SOPHIE (72) copy.jpg', title: 'Gallery Image' },
+  { src: '/assets/services/newborn/NEW BORN AND METERNITY/NB-406 SOPHIE (92) copy.jpg', title: 'Gallery Image' },
+  { src: '/assets/services/newborn/NEW BORN AND METERNITY/NB-414 SHIKHA (201) copy.jpg', title: 'Gallery Image' },
+  { src: '/assets/services/newborn/NEW BORN AND METERNITY/NB-414 SHIKHA (432) copy.jpg', title: 'Gallery Image' },
+  { src: '/assets/services/newborn/NEW BORN AND METERNITY/NB-427 KAJAL (317) copy.jpg', title: 'Gallery Image' },
+  { src: '/assets/services/newborn/NEW BORN AND METERNITY/NB-432 SARAH (133) copy.jpg', title: 'Gallery Image' },
+  { src: '/assets/services/newborn/NEW BORN AND METERNITY/NB-433 AFIYA (193) copy.jpg', title: 'Gallery Image' },
+  { src: '/assets/services/newborn/NEW BORN AND METERNITY/NB-445 GLADYS (115) copy.jpg', title: 'Gallery Image' },
+  { src: '/assets/services/newborn/NEW BORN AND METERNITY/NB-445 GLADYS (201) copy.jpg', title: 'Gallery Image' },
+  { src: '/assets/services/newborn/NEW BORN AND METERNITY/NB-450 NAADIYA (44) copy.jpg', title: 'Gallery Image' },
+  { src: '/assets/services/newborn/NEW BORN AND METERNITY/NB-451 DURETI (101) copy.jpg', title: 'Gallery Image' },
+  { src: '/assets/services/newborn/NEW BORN AND METERNITY/NB-451 DURETI (94) copy.jpg', title: 'Gallery Image' },
+  { src: '/assets/services/newborn/NEW BORN AND METERNITY/NB-453 MUTYA (158).JPG', title: 'Gallery Image' },
+  { src: '/assets/services/newborn/NEW BORN AND METERNITY/NB-453 MUTYA (24) copy.jpg', title: 'Gallery Image' },
+  { src: '/assets/services/newborn/NEW BORN AND METERNITY/_BAT3540 copy.jpg', title: 'Gallery Image' },
+  { src: '/assets/services/newborn/NEW BORN AND METERNITY/pregnant-woman-portrait-outdoor.jpg', title: 'Gallery Image' }
 ];
 
 const NewbornMaternityHero = () => {
@@ -518,12 +548,9 @@ const NewbornMaternityHero = () => {
           <span className="diamond"></span>
           <span className="line"></span>
         </div>
-        <p className="newborn-hero-description">
-          Capture life's most precious moments with professional maternity and newborn photography in Dubai.
+        <p style={{ color: 'var(--color-white)', fontSize: '1.25rem', fontWeight: '500', marginTop: '0.5rem', fontFamily: 'var(--font-heading)' }}>
+          Starts from 555dhs
         </p>
-        <Link href="#newborn" className="newborn-hero-explore-btn">
-          Explore Our Work
-        </Link>
       </div>
       
       {/* Right form card block */}
@@ -606,6 +633,7 @@ const NewbornMaternityHero = () => {
 
 export default function NewbornMaternityPage() {
   const [activeReview, setActiveReview] = useState(0);
+  const [showAllGallery, setShowAllGallery] = useState(false);
   const footerFormRef = useRef(null);
 
   const scrollToForm = (e) => {
@@ -614,18 +642,9 @@ export default function NewbornMaternityPage() {
   };
 
   const openLightbox = (index) => {
-    const galleryItems = [
-      { src: '/assets/gallery/newborn/BK-108_LORRIE_890_.jpg.webp', title: 'Pure Sleep' },
-      { src: '/assets/gallery/newborn/BK-62_LORI_244_-_Copy.jpg.webp', title: 'Tender Grip' },
-      { src: '/assets/gallery/newborn/BK-205_WILMA_443_.jpg.webp', title: 'Little Wings' },
-      { src: '/assets/gallery/family/bk-279-suhad.webp', title: 'Growing Love' },
-      { src: '/assets/gallery/newborn/A98C22F0-2F0E-4A32-B285-1E23FB0AD1E3.webp', title: 'Tender Sleep' },
-      { src: '/assets/gallery/family/nb-360-kat.webp', title: 'First Bonds' },
-      { src: '/assets/gallery/family/bk-102-taise.webp', title: 'Maternity Grace' }
-    ];
     const event = new CustomEvent('lightbox-open', {
       detail: {
-        galleryItems,
+        galleryItems: allGalleryImages,
         startIndex: index,
       },
     });
@@ -707,20 +726,20 @@ export default function NewbornMaternityPage() {
         id="newborn"
         theme="dark"
         imageAlignment="right"
-        images="/assets/hero/photo.png"
+        images="/assets/services/newborn/NEW BORN AND METERNITY/NB-406 SOPHIE (72) copy.jpg"
         label="Cherish Your Baby's First Chapter with Our Newborn Photoshoot in Dubai"
         title="Newborn"
         description={
           <>
             There's nothing quite like the first few weeks of your baby's life—those tiny fingers, soft yawns, and peaceful sleepy smiles that seem to disappear almost as quickly as they appear.<br /><br />
-            Our newborn photography sessions are designed to capture your baby exactly as they are in these first days—calm, natural, and full of character. Our professional photographers work with patience and care inside a cozy, safe studio environment, ensuring your baby stays comfortable throughout the session while creating timeless portraits you'll cherish forever.
+            Our newborn photography sessions in Dubai are designed to capture your baby exactly as they are in these first days—calm, natural, and full of character. Our professional photographers work with patience and care inside a cozy, safe studio environment, ensuring your baby stays comfortable throughout the session while creating timeless portraits you'll cherish forever.
           </>
         }
         features={[
-          { icon: Shield, title: 'Safe Handling', sub: 'Certified safety' },
-          { icon: Sparkles, title: 'Elegant Props', sub: 'Luxury wraps' },
-          { icon: Sun, title: 'Gentle Light', sub: 'Soft glow' },
-          { icon: Heart, title: 'Pure Art', sub: 'Sweet memories' }
+          { icon: Shield, title: 'Safe Handling' },
+          { icon: Sparkles, title: 'Elegant Props' },
+          { icon: Sun, title: 'Gentle Light' },
+          { icon: Heart, title: 'Pure Art' }
         ]}
         customCta={
           <>
@@ -739,7 +758,7 @@ export default function NewbornMaternityPage() {
         id="maternity"
         theme="light"
         imageAlignment="left"
-        images="/assets/gallery/family/bk-102-taise.webp"
+        images="/assets/services/newborn/NEW BORN AND METERNITY/pregnant-woman-portrait-outdoor.jpg"
         imageObjectPosition="left center"
         label="Celebrate the Beauty of Motherhood"
         title="Maternity"
@@ -855,7 +874,7 @@ export default function NewbornMaternityPage() {
             <div className="portfolio-col portfolio-col-tall">
               <div className="portfolio-item" onClick={() => openLightbox(0)}>
                 <Image 
-                  src="/assets/gallery/newborn/BK-108_LORRIE_890_.jpg.webp" 
+                  src="/assets/services/newborn/NEW BORN AND METERNITY/NB-413 ARIANA (177) copy.jpg" 
                   alt="Newborn Portrait" 
                   fill 
                   sizes="(max-width: 768px) 100vw, 20vw"
@@ -868,7 +887,7 @@ export default function NewbornMaternityPage() {
             <div className="portfolio-col portfolio-col-tall">
               <div className="portfolio-item" onClick={() => openLightbox(1)}>
                 <Image 
-                  src="/assets/gallery/newborn/BK-62_LORI_244_-_Copy.jpg.webp" 
+                  src="/assets/services/newborn/NEW BORN AND METERNITY/NB-376 JYOTHI (83) copy.jpg" 
                   alt="Newborn Portrait" 
                   fill 
                   sizes="(max-width: 768px) 100vw, 20vw"
@@ -881,7 +900,7 @@ export default function NewbornMaternityPage() {
             <div className="portfolio-col portfolio-col-split">
               <div className="portfolio-item item-tall" onClick={() => openLightbox(2)}>
                 <Image 
-                  src="/assets/gallery/newborn/BK-205_WILMA_443_.jpg.webp" 
+                  src="/assets/services/newborn/NEW BORN AND METERNITY/NB-421 ABHISHEK (175) copy.jpg" 
                   alt="Newborn Portrait 2" 
                   fill 
                   sizes="(max-width: 768px) 100vw, 25vw"
@@ -890,7 +909,7 @@ export default function NewbornMaternityPage() {
               </div>
               <div className="portfolio-item item-short" onClick={() => openLightbox(3)}>
                 <Image 
-                  src="/assets/gallery/family/bk-279-suhad.webp" 
+                  src="/assets/services/newborn/NEW BORN AND METERNITY/dreaming-pregnancy-woman-sea-port.jpg" 
                   alt="Maternity Connection" 
                   fill 
                   sizes="(max-width: 768px) 100vw, 25vw"
@@ -903,7 +922,7 @@ export default function NewbornMaternityPage() {
             <div className="portfolio-col portfolio-col-tall">
               <div className="portfolio-item" onClick={() => openLightbox(4)}>
                 <Image 
-                  src="/assets/gallery/newborn/A98C22F0-2F0E-4A32-B285-1E23FB0AD1E3.webp" 
+                  src="/assets/services/newborn/NEW BORN AND METERNITY/NB-453 MUTYA (134).JPG" 
                   alt="Newborn Portrait 3" 
                   fill 
                   sizes="(max-width: 768px) 100vw, 20vw"
@@ -916,7 +935,7 @@ export default function NewbornMaternityPage() {
             <div className="portfolio-col portfolio-col-split">
               <div className="portfolio-item item-short" onClick={() => openLightbox(5)}>
                 <Image 
-                  src="/assets/gallery/family/nb-360-kat.webp" 
+                  src="/assets/services/newborn/NEW BORN AND METERNITY/NB-342 SHAJIDHA (172) .jpg" 
                   alt="Family Beginnings" 
                   fill 
                   sizes="(max-width: 768px) 100vw, 25vw"
@@ -925,14 +944,46 @@ export default function NewbornMaternityPage() {
               </div>
               <div className="portfolio-item item-tall" onClick={() => openLightbox(6)}>
                 <Image 
-                  src="/assets/gallery/family/bk-102-taise.webp" 
-                  alt="Maternity Grace" 
+                  src="/assets/services/newborn/NEW BORN AND METERNITY/pregnant-woman-with-protea-flowers-concept-style-pregnancy.jpg" 
+                  alt="Maternity Beauty" 
                   fill 
                   sizes="(max-width: 768px) 100vw, 25vw"
                   style={{ objectFit: 'cover' }}
                 />
               </div>
             </div>
+          </div>
+
+          {showAllGallery && (
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
+              gap: '16px',
+              marginTop: '16px',
+              width: '100%'
+            }}>
+              {allGalleryImages.slice(7).map((item, idx) => (
+                <div key={idx} className="portfolio-item" onClick={() => openLightbox(idx + 7)} style={{ height: '250px', position: 'relative', borderRadius: '16px', overflow: 'hidden', cursor: 'pointer' }}>
+                  <Image 
+                    src={item.src} 
+                    alt={item.title} 
+                    fill 
+                    sizes="(max-width: 768px) 100vw, 25vw"
+                    style={{ objectFit: 'cover' }}
+                  />
+                </div>
+              ))}
+            </div>
+          )}
+
+          <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+            <button 
+              onClick={() => setShowAllGallery(!showAllGallery)} 
+              className="btn-premium btn-premium-outline"
+              style={{ cursor: 'pointer' }}
+            >
+              {showAllGallery ? 'View Less' : 'View More'}
+            </button>
           </div>
         </div>
       </section>
@@ -942,7 +993,21 @@ export default function NewbornMaternityPage() {
         theme="dark" 
         reviews={testimonials.map(t => ({ ...t, rating: 5 }))} 
         title="Client Love" 
-        subtitle="5-Star Google Reviews" 
+        subtitle={
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.8rem', marginTop: '0.5rem' }}>
+            <div style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontSize: '3.8rem', fontWeight: 'bold', letterSpacing: '-2.5px', lineHeight: '1' }}>
+              <span style={{ color: '#4285F4' }}>G</span>
+              <span style={{ color: '#EA4335' }}>o</span>
+              <span style={{ color: '#FBBC05' }}>o</span>
+              <span style={{ color: '#4285F4' }}>g</span>
+              <span style={{ color: '#34A853' }}>l</span>
+              <span style={{ color: '#EA4335' }}>e</span>
+            </div>
+            <div style={{ display: 'flex', gap: '6px' }}>
+              {[1, 2, 3, 4, 5].map(i => <Star key={i} size={32} fill="#FBBC05" color="#FBBC05" />)}
+            </div>
+          </div>
+        }
       />
 
 
@@ -1201,7 +1266,7 @@ export default function NewbornMaternityPage() {
               </h3>
               <ContactForm
                 theme="cinematic"
-                buttonText="Reserve Your Date"
+                buttonText="Book Your Session"
                 showServiceField={true}
                 showPackageField={false}
                 showDetailsField={false}
