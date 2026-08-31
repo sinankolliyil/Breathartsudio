@@ -1582,7 +1582,7 @@ button:active,
   .footer-grid {
     grid-template-columns: 1fr 1fr;
     gap: 3rem 1rem;
-    text-align: center;
+    text-align: left;
   }
   .footer-col.brand-col {
     grid-column: span 2;
@@ -1591,18 +1591,18 @@ button:active,
     grid-column: span 2;
   }
   .social-links {
-    justify-content: center;
+    justify-content: flex-start;
   }
   .footer-social-links {
-    justify-content: center;
+    justify-content: flex-start;
   }
   .footer-col.brand-col a {
     display: inline-flex !important;
-    justify-content: center;
-    width: 100%;
+    justify-content: flex-start;
+    width: auto;
   }
   .footer-contact-item {
-    justify-content: center;
+    justify-content: flex-start;
   }
 }
 

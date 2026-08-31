@@ -155,15 +155,15 @@ const NewbornMaternityHero = () => {
   return (
     <>
       <Link href="/" style={{
-        position: 'fixed',
+        position: 'absolute',
         top: '20px',
         left: '20px',
         zIndex: 9999,
-        background: 'rgba(255,255,255,0.1)',
+        background: 'rgba(0,0,0,0.05)',
         backdropFilter: 'blur(10px)',
         padding: '10px 15px',
         borderRadius: '50px',
-        color: '#fff',
+        color: '#222',
         textDecoration: 'none',
         display: 'flex',
         alignItems: 'center',
@@ -171,11 +171,11 @@ const NewbornMaternityHero = () => {
         fontSize: '0.85rem',
         textTransform: 'uppercase',
         letterSpacing: '1px',
-        border: '1px solid rgba(255,255,255,0.2)',
+        border: '1px solid rgba(0,0,0,0.1)',
         transition: 'all 0.3s ease'
       }}
-      onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.2)'; e.currentTarget.style.color = 'var(--color-gold)'; }}
-      onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#fff'; }}
+      onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(0,0,0,0.1)'; e.currentTarget.style.color = 'var(--color-gold)'; }}
+      onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(0,0,0,0.05)'; e.currentTarget.style.color = '#222'; }}
       >
         <i className="fas fa-arrow-left"></i> Home
       </Link>
