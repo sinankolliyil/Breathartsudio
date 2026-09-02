@@ -743,7 +743,7 @@ export default function NewbornMaternityPage() {
         ]}
         customCta={
           <>
-            <a href="#newborn-maternity-gallery" className="btn-premium btn-premium-outline">
+            <a href="https://www.instagram.com/newborn_photography_breathart?igsi=eTFzOHFhaGF0ZWpr" target="_blank" rel="noopener noreferrer" className="btn-premium btn-premium-outline">
               Explore <ArrowUpRight size={14} />
             </a>
             <Link href="/contact?interest=newborn" className="btn-premium btn-premium-filled">
@@ -1196,7 +1196,7 @@ export default function NewbornMaternityPage() {
         </div>
       </section>
 
-      <section id="contact-section" className="section" style={{
+      <section id="contact-section" ref={footerFormRef} className="section" style={{
         borderTop: '1px solid rgba(158, 112, 96, 0.15)',
         paddingTop: '6rem',
         paddingBottom: '8rem',

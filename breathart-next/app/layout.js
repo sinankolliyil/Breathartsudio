@@ -126,7 +126,6 @@ export default function RootLayout({ children }) {
         <Footer />
         <PopupForm repeatDelay={90000} />
         <WhatsAppFloat />
-
         <ScrollTopButton />
       </body>
     </html>
