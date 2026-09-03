@@ -1,4 +1,5 @@
 import { BreadcrumbSchema, WebPageSchema, ServiceSchema } from '../../schema';
+import Script from 'next/script';
 
 export const metadata = {
   title: 'Newborn & Maternity Photography in Dubai — BreathArt',
@@ -29,6 +30,26 @@ export const metadata = {
 export default function NewbornMaternityLayout({ children }) {
   return (
     <>
+      {/* Google Tag Manager */}
+      <Script id="gtm-newborn" strategy="afterInteractive">
+        {`
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-PJ7Q6MX4');
+        `}
+      </Script>
+      {/* Google Tag Manager (noscript) */}
+      <noscript>
+        <iframe 
+          src="https://www.googletagmanager.com/ns.html?id=GTM-PJ7Q6MX4"
+          height="0" 
+          width="0" 
+          style={{ display: "none", visibility: "hidden" }}
+        />
+      </noscript>
+
       <BreadcrumbSchema
         items={[
           { name: 'Home', url: '/' },

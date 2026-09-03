@@ -743,7 +743,7 @@ export default function NewbornMaternityPage() {
         ]}
         customCta={
           <>
-            <a href="https://www.instagram.com/newborn_photography_breathart?igsi=eTFzOHFhaGF0ZWpr" target="_blank" rel="noopener noreferrer" className="btn-premium btn-premium-outline">
+            <a href="https://www.instagram.com/newborn_photography_breathart?" target="_blank" rel="noopener noreferrer" className="btn-premium btn-premium-outline">
               Explore <ArrowUpRight size={14} />
             </a>
             <Link href="/contact?interest=newborn" className="btn-premium btn-premium-filled">
